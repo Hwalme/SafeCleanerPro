@@ -3,6 +3,8 @@
 <div align="center">
   <img alt="SafeCleanerPro Header" src="https://img.shields.io/badge/SafeCleanerPro-Workstation%20Optimizer-0078D6?style=for-the-badge&logo=windows&logoColor=white" />
   <br/>
+  <a href="https://hwalme.github.io/SafeCleanerPro/"><strong>🌐 官方在线网站 (Live Official Website)</strong></a>
+  <br/><br/>
   <img alt="Platform" src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-blue?style=flat-square&logo=windows" />
   <img alt="Language" src="https://img.shields.io/badge/Language-Python%203.12%2B-blue?style=flat-square&logo=python" />
   <img alt="UI Framework" src="https://img.shields.io/badge/UI-CustomTkinter-brightgreen?style=flat-square" />
@@ -15,6 +17,8 @@
 **SafeCleanerPro** is an open-source, highly targeted system optimization and deep-cleaning utility specifically designed for **AI Developers, Software Engineers, and Digital Designers** on Windows. 
 
 Unlike generic cleaning software that wipes critical developer assets or breaks your local environment, SafeCleanerPro is context-aware. It features a unique **AI-Agent Memory Immunity Net** and specialized cleaning filters designed for heavy developer/designer workflows.
+
+*You can visit our official product showcase and check out the interactive 36-item Compatibility Matrix live at [https://hwalme.github.io/SafeCleanerPro/](https://hwalme.github.io/SafeCleanerPro/).*
 
 ---
 

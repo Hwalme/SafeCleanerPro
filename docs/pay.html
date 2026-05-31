@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCleaner Pro | 极速扫码激活中心</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@500;700;900&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-glow: rgba(0, 240, 255, 0.15);
+            --alipay-blue: linear-gradient(135deg, #0076FF, #00C6FF);
+            --wechat-green: linear-gradient(135deg, #09B972, #24D994);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Outfit', 'Noto Sans SC', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Ambient glowing circles */
+        .ambient-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .glow-1 { top: 20%; left: 10%; }
+        .glow-2 { bottom: 20%; right: 10%; }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            z-index: 2;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Glassmorphic main card */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px 25px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.03),
+                transparent
+            );
+            transform: rotate(30deg);
+            transition: 0.8s;
+            pointer-events: none;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 60%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span {
+            color: #00f0ff;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            -webkit-text-fill-color: initial;
+            background: none;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        /* Dynamic badge and price layout */
+        .price-badge {
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .badge-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #00f0ff;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 2px;
+        }
+
+        .currency {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .amount-big {
+            font-size: 2.8rem;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .amount-small {
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+            margin-right: 5px;
+        }
+
+        .term {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* HWID display container */
+        .hwid-container {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 12px 15px;
+            margin-bottom: 28px;
+            text-align: left;
+            position: relative;
+        }
+
+        .hwid-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .hwid-value-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hwid-value {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 1rem;
+            color: #00f0ff;
+            font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Payment Buttons Area */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .pay-btn {
+            border: none;
+            border-radius: 14px;
+            padding: 16px 20px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .pay-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.15), transparent);
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        .pay-btn:hover::before {
+            opacity: 1;
+        }
+
+        .pay-btn:active {
+            transform: scale(0.97);
+        }
+
+        .pay-btn.alipay {
+            background: var(--alipay-blue);
+            box-shadow: 0 4px 20px rgba(0, 118, 255, 0.35);
+        }
+
+        .pay-btn.wechat {
+            background: var(--wechat-green);
+            box-shadow: 0 4px 20px rgba(9, 185, 114, 0.35);
+        }
+
+        .pay-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
+        }
+
+        /* Fullscreen Glassmorphic Overlay for Loading */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Beautiful Circular Spinner */
+        .spinner-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 25px;
+        }
+
+        .spinner-ring {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.05);
+            border-top: 4px solid #00f0ff;
+            animation: spin 1s linear infinite;
+        }
+
+        .spinner-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .overlay-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 50%, #00f0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .overlay-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 320px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .overlay-subtext {
+            font-size: 0.8rem;
+            color: rgba(0, 240, 255, 0.7);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Success Overlay Screen */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0b0f19;
+            background-image: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 101;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-badge {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+            animation: popCheck 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        .success-badge svg {
+            width: 44px;
+            height: 44px;
+            fill: #10b981;
+        }
+
+        .success-title {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .success-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 340px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .btn-close {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: none;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 14px 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-close:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 12px 24px;
+            color: #ffffff;
+            font-size: 0.85rem;
+            z-index: 1000;
+            pointer-events: none;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast-msg.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes popCheck {
+            0% { transform: scale(0.6); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .glass-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            .amount-big {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="container">
+        <div class="glass-card">
+            <div class="logo-area">
+                <span class="logo-icon">🛡️</span>
+                <div class="logo-text">SafeCleaner <span>Pro</span></div>
+            </div>
+
+            <h1 class="title" style="margin-bottom:10px;">自助扫码支付自动激活系统</h1>
+            <span class="lifetime-badge" style="display:inline-block; background:rgba(0, 240, 255, 0.08); border:1px solid rgba(0, 240, 255, 0.2); padding:6px 12px; border-radius:30px; font-size:0.85rem; color:#00f0ff; font-weight:bold; margin-bottom:20px; letter-spacing:0.5px;">🛡️ 终身版 · 一次买断永久授权</span>
+
+            <div class="price-badge">
+                <div class="price-row">
+                    <span class="currency">￥</span>
+                    <span class="amount-big">1</span>
+                    <span class="amount-small">.99</span>
+                    <span class="term">(永久尊享)</span>
+                </div>
+            </div>
+
+            <div class="hwid-container">
+                <span class="hwid-label">已识别设备指纹 (HWID)</span>
+                <div class="hwid-value-row">
+                    <span id="hwid-display" class="hwid-value">SCPRO-LOADING-HWID</span>
+                    <button id="copy-btn" class="btn-copy">复制</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <!-- Alipay Button -->
+                <button id="btn-alipay" class="pay-btn alipay">
+                    <svg viewBox="0 0 1024 1024"><path d="M512 0C229.248 0 0 229.248 0 512s229.248 512 512 512 512-229.248 512-512S794.752 0 512 0zm201.216 636.928H560.64s2.048-28.16 2.048-52.224h139.776a38.4 38.4 0 0 0 38.4-38.4v-40.448a38.4 38.4 0 0 0-38.4-38.4H563.712c-5.12-70.656-11.264-129.024-11.264-129.024h159.232a38.4 38.4 0 0 0 38.4-38.4V260.864a38.4 38.4 0 0 0-38.4-38.4H541.696c1.024-11.264 2.56-22.528 4.608-33.792a38.4 38.4 0 0 0-32.256-43.52 38.4 38.4 0 0 0-43.52 32.256c-2.56 18.944-5.12 37.888-6.656 45.056H300.544a38.4 38.4 0 0 0-38.4 38.4v40.448a38.4 38.4 0 0 0 38.4 38.4h156.672S446.976 401.408 440.32 466.944H296.96a38.4 38.4 0 0 0-38.4 38.4v40.448a38.4 38.4 0 0 0 38.4 38.4h140.288c-1.532 23.552-3.072 49.152-3.072 52.224H280.576a38.4 38.4 0 0 0-38.4 38.4v40.448a38.4 38.4 0 0 0 38.4 38.4H429.568c-18.944 68.608-59.392 120.832-113.152 153.6a38.4 38.4 0 0 0-14.848 51.712A38.4 38.4 0 0 0 353.28 926.464C436.736 876.8 493.568 794.624 521.216 715.264c33.28 72.192 98.816 142.336 187.392 198.656a38.4 38.4 0 0 0 52.736-12.8 38.4 38.4 0 0 0-12.8-52.736C673.28 801.792 612.864 737.792 579.584 636.928h133.632a38.4 38.4 0 0 0 38.4-38.4v-40.448a38.4 38.4 0 0 0-38.4-38.4z"/></svg>
+                    支付宝付款 (推荐)
+                </button>
+
+                <!-- WeChat Button -->
+                <button id="btn-wechat" class="pay-btn wechat">
+                    <svg viewBox="0 0 1024 1024"><path d="M512 0C229.248 0 0 229.248 0 512s229.248 512 512 512 512-229.248 512-512S794.752 0 512 0zm174.08 729.088c-11.264 0-22.528-2.048-32.256-6.144a165.888 165.888 0 0 1-52.736-39.936c-28.672 8.192-58.88 12.8-90.112 12.8-150.528 0-272.384-102.4-272.384-228.864S360.448 238.08 510.976 238.08s272.384 102.4 272.384 228.864c0 60.928-28.16 116.224-74.752 158.208 6.144 26.624 21.504 57.344 38.4 81.408a20.48 20.48 0 0 1 3.072 17.408 20.48 20.48 0 0 1-13.824 13.824c-1.536 0-4.608 0.384-6.144 0.384zM621.056 409.6a38.4 38.4 0 1 0 0-76.8 38.4 38.4 0 0 0 0 76.8zm-220.16 0a38.4 38.4 0 1 0 0-76.8 38.4 38.4 0 0 0 0 76.8z"/></svg>
+                    微信安全支付
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redirection / Loading Overlay -->
+    <div id="loading-overlay" class="overlay">
+        <div class="spinner-container">
+            <div class="spinner-ring"></div>
+            <div class="spinner-glow"></div>
+        </div>
+        <div id="overlay-title" class="overlay-title">正在为您建立加密通道...</div>
+        <div id="overlay-text" class="overlay-text">正在向易支付网关发起安全对账握手，整个过程通常需要 1.5 - 3.5 秒。</div>
+        <div id="overlay-subtext" class="overlay-subtext">🔒 对账安全锁已开启，请勿刷新页面</div>
+    </div>
+
+    <!-- Success Modal Overlay -->
+    <div id="success-overlay" class="success-overlay">
+        <div class="success-badge">
+            <svg viewBox="0 0 1024 1024"><path d="M512 0C229.248 0 0 229.248 0 512s229.248 512 512 512 512-229.248 512-512S794.752 0 512 0zm-87.04 742.4L204.8 522.24a38.4 38.4 0 0 1 0-54.272l54.272-54.272a38.4 38.4 0 0 1 54.272 0l111.616 111.616L710.656 238.08a38.4 38.4 0 0 1 54.272 0l54.272 54.272a38.4 38.4 0 0 1 0 54.272L424.96 742.4a38.4 38.4 0 0 1-54.272 0z"/></svg>
+        </div>
+        <h2 class="success-title">🎉 激活重构成功！</h2>
+        <p class="success-text">已为您签发终身永久特权数字证书卡密。<br><strong>您的电脑客户端已同步感知，瞬间自动放行解锁！</strong><br>您可以安全地关闭手机上的这个网页了。</p>
+        <button id="btn-done" class="btn-close">我已了解</button>
+    </div>
+
+    <!-- Toast message -->
+    <div id="toast" class="toast-msg">已成功复制到剪贴板</div>
+
+    <script>
+        const API_URL = "/api";
+        let currentHwid = "";
+        let pollingInterval = null;
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Initialize Page
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Get HWID from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            let hwid = urlParams.get('hwid');
+
+            // 2. Fallback to localStorage if no HWID in URL
+            if (hwid) {
+                hwid = hwid.trim();
+                localStorage.setItem('safecleaner_hwid', hwid);
+            } else {
+                hwid = localStorage.getItem('safecleaner_hwid');
+            }
+
+            if (!hwid) {
+                showToast("❌ 未检测到设备指纹，请先从客户端中打开激活链接！");
+                document.getElementById('hwid-display').textContent = "未检测到有效 HWID";
+                document.getElementById('hwid-display').style.color = "#ff4757";
+            } else {
+                currentHwid = hwid;
+                document.getElementById('hwid-display').textContent = hwid;
+                startPolling(hwid);
+            }
+
+            // 3. Bind Copy Button
+            document.getElementById('copy-btn').onclick = () => {
+                if (currentHwid) {
+                    navigator.clipboard.writeText(currentHwid);
+                    showToast("📋 设备指纹已成功复制到剪贴板！");
+                }
+            };
+
+            // 4. Bind Pay Buttons
+            document.getElementById('btn-alipay').onclick = () => initiatePayment('alipay');
+            document.getElementById('btn-wechat').onclick = () => initiatePayment('wxpay');
+            
+            // 5. Done Button
+            document.getElementById('btn-done').onclick = () => {
+                window.close();
+            };
+        });
+
+        // Slow checkout redirection animations
+        function showRedirectionOverlay() {
+            const overlay = document.getElementById('loading-overlay');
+            const title = document.getElementById('overlay-title');
+            const text = document.getElementById('overlay-text');
+            
+            overlay.classList.add('active');
+            
+            // Dynamic text updates to keep user engaged during the slow EPay cashier redirection!
+            setTimeout(() => {
+                if (overlay.classList.contains('active')) {
+                    title.textContent = "正在向易支付网关发起安全对账握手...";
+                    text.textContent = "正在连接杭州智富通高安全支付节点，开启 100% 对账核销防御，请勿退出浏览器...";
+                }
+            }, 1200);
+
+            setTimeout(() => {
+                if (overlay.classList.contains('active')) {
+                    title.textContent = "正在安全拉起支付收银台...";
+                    text.textContent = "正在秒级引导您至移动扫码支付平台，请在收银台上完成扫码。";
+                }
+            }, 2500);
+        }
+
+        async function initiatePayment(payType) {
+            if (!currentHwid) {
+                showToast("❌ 错误：设备指纹缺失，无法发起支付！");
+                return;
+            }
+
+            showRedirectionOverlay();
+
+            try {
+                const res = await fetch(`${API_URL}/pay`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ hwid: currentHwid, type: payType })
+                });
+
+                const data = await res.json();
+                if (res.ok && data.success && data.redirect_url) {
+                    // Instantly redirect to EPay submitted checkout URL
+                    window.location.href = data.redirect_url;
+                } else {
+                    document.getElementById('loading-overlay').classList.remove('active');
+                    showToast("❌ " + (data.error || "拉起支付失败，请检查密钥配置或稍后再试。"));
+                }
+            } catch (err) {
+                document.getElementById('loading-overlay').classList.remove('active');
+                showToast("❌ 网络连接异常：无法与极客服务器通信！");
+            }
+        }
+
+        // Double-ended status polling
+        function startPolling(hwid) {
+            if (pollingInterval) clearInterval(pollingInterval);
+
+            pollingInterval = setInterval(async () => {
+                try {
+                    const res = await fetch(`${API_URL}/check_activation?hwid=${encodeURIComponent(hwid)}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data.activated) {
+                            clearInterval(pollingInterval);
+                            
+                            // Show success overlay
+                            document.getElementById('loading-overlay').classList.remove('active');
+                            document.getElementById('success-overlay').classList.add('active');
+                        }
+                    }
+                } catch (err) {
+                    console.error("Polling error", err);
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
