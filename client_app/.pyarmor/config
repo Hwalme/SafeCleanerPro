@@ -1,0 +1,2 @@
+[pack]
+pyi_options = --exclude-module numpy --exclude-module sqlite3 --exclude-module IPython --exclude-module pandas --exclude-module matplotlib

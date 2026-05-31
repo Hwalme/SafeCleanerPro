@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 | SafeCleaner Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+    <div class="background-anim"></div>
+    
+    <div id="login-screen" class="glass-panel admin-login">
+        <h2>系统管理员登录</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="btn primary">Login</button>
+            <div id="login-msg" class="msg error"></div>
+        </form>
+    </div>
+
+    <div id="dashboard-screen" class="glass-panel dashboard" style="display: none; width: 90%; max-width: 1100px;">
+        <div class="dash-header">
+            <h2>授权发卡与全自动收款控制台</h2>
+            <button id="logout-btn" class="btn outline small">登出</button>
+        </div>
+        
+        <!-- 二维码配置面板 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div class="glass-panel" style="padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3 style="color: #00f0ff; margin-bottom: 10px;">🟢 微信收款二维码配置</h3>
+                <form id="wechat-qr-form" enctype="multipart/form-data">
+                    <input type="file" id="wechat-file" accept="image/*" required style="margin-bottom: 10px;">
+                    <button type="submit" class="btn primary small">上传微信收款码</button>
+                </form>
+                <div id="wechat-status" style="margin-top: 10px; font-size: 0.85em;"></div>
+            </div>
+            <div class="glass-panel" style="padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
+                <h3 style="color: #ff9f43; margin-bottom: 10px;">🔵 支付宝收款二维码配置</h3>
+                <form id="alipay-qr-form" enctype="multipart/form-data">
+                    <input type="file" id="alipay-file" accept="image/*" required style="margin-bottom: 10px;">
+                    <button type="submit" class="btn primary small">上传支付宝收款码</button>
+                </form>
+                <div id="alipay-status" style="margin-top: 10px; font-size: 0.85em;"></div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <h3 style="color: #2ed573; margin-bottom: 10px;">📋 全自动免签核销订单列表</h3>
+            <div class="table-container" style="max-height: 250px; overflow-y: auto; margin-bottom: 30px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>订单 ID</th>
+                            <th>核销交易单号</th>
+                            <th>设备指纹 (HWID)</th>
+                            <th>生成密钥 (部分)</th>
+                            <th>核销时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-list">
+                        <!-- Dynamic orders -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div>
+            <h3 style="color: #00f0ff; margin-bottom: 10px;">📨 手动激活申请列表</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>申请 ID</th>
+                            <th>机器码 (HWID)</th>
+                            <th>联系方式</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="app-list">
+                        <!-- Dynamic rows -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for showing license -->
+    <div id="license-modal" class="modal" style="display: none;">
+        <div class="modal-content glass-panel">
+            <h3>授权码生成成功！</h3>
+            <p>请将此授权码发给客户：</p>
+            <textarea id="license-result" readonly></textarea>
+            <button id="close-modal" class="btn primary">关闭</button>
+        </div>
+    </div>
+
+    <script src="admin.js?v=2"></script>
+</body>
+</html>

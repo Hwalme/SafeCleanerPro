@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    container_name: safecleaner_backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./keys:/app/keys
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    restart: always
