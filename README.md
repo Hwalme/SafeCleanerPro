@@ -27,6 +27,7 @@ Unlike generic cleaning software that wipes critical developer assets or breaks 
 
 ### 1. 🧠 AI-Agent Memory Immunity Protection (智能体免擦除网)
 Modern AI-driven coding environments store critical local context, neural weights, and agent memories. SafeCleanerPro features hardcoded, immutable safety shields that **guarantee** the following directories are never touched:
+*   **OpenAI Codex Agent:** `.codex/*` and `AppData/Roaming/OpenAI/Codex/*` (Local neural core and active context maps)
 *   **Antigravity (Google Gemini) Agent:** `.gemini/antigravity/*` (Local memory neurons and session states)
 *   **Cursor IDE:** `AppData/Roaming/Cursor/*` (Model context indexes and system configuration)
 *   **Claude Desktop:** `AppData/Roaming/Claude/*` (Local conversation logs and DB indexes)
@@ -61,7 +62,7 @@ graph TD
     UI[CustomTkinter GUI - main.py] --> Core[Cleaner Core - cleaner_core.py]
     Core --> Scan[App Registry & Drive Scanner]
     Core --> Filter[Immunity & Risk Filter]
-    Filter --> |Immune| Locked[Antigravity / Cursor / Claude databases]
+    Filter --> |Immune| Locked[OpenAI Codex / Antigravity / Cursor / Claude databases]
     Filter --> |Safe Clean| Sys[Browser Caches / System Temp / Update packages]
     Filter --> |Risk Clean| Risk[Adobe Cache / WeChat / Ollama Models]
 ```

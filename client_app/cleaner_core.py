@@ -490,6 +490,19 @@ def get_supported_apps():
         # 免疫保护资产 (Immune Locked)
         # ==========================================
         {
+            "id": "openaicodex",
+            "name": "OpenAI Codex Agent Local Neural Core (安全锁定)",
+            "paths": [
+                os.path.join(user_home, ".codex", "*"),
+                os.path.join(appdata_roaming, "OpenAI", "Codex", "*")
+            ],
+            "icon": "🤖",
+            "immune": True,
+            "type": "ai",
+            "risk_level": "safe",
+            "risk_desc": "OpenAI Codex 智能体本地运行核心与上下文脑图，受高级非擦除保护网安全锁死。"
+        },
+        {
             "id": "googlegemini",
             "name": "Antigravity AI Agent 记忆神经元池 (安全锁定)",
             "paths": [
