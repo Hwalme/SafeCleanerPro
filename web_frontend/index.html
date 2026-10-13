@@ -1,438 +1,349 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeCleaner Pro | 极客级系统深度优化与清理神器</title>
-    <link rel="stylesheet" href="style.css?v=3.6">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeCleaner Pro · 把 AI 的记忆和 C 盘，搬到该去的地方</title>
+<meta name="description" content="给重度 AI 用户准备的 Windows 清理器：AI 记忆无损迁移 + 深度缓存清理。Claude / Gemini / Codex / Cursor 等 20+ 款 AI 工具，会话一条不丢。">
+<style>
+:root{
+  --bg:#070d1a; --panel:#0d1526; --card:#101a30; --line:#1c2942;
+  --cyan:#00f0ff; --violet:#8b5cf6; --ok:#34d399; --warn:#fbbf24;
+  --text:#e2e8f0; --dim:#8fa3bf; --dim2:#5c7089;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);
+  font-family:"Microsoft YaHei UI","PingFang SC",sans-serif;
+  line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:var(--cyan);text-decoration:none}
+.mono{font-family:Consolas,monospace}
+
+/* ── 顶部 ── */
+header.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(7,13,26,.82);border-bottom:1px solid var(--line)}
+.topin{max-width:1080px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:1.05rem;letter-spacing:.5px}
+.logo span{color:var(--cyan)}
+.topin nav a{color:var(--dim);margin-left:26px;font-size:.92rem}
+.topin nav a:hover{color:var(--cyan)}
+
+/* ── Hero ── */
+.hero{padding:110px 0 90px}
+.ver{display:inline-block;font-family:Consolas,monospace;font-size:.8rem;
+  color:var(--cyan);border:1px solid rgba(0,240,255,.35);border-radius:99px;
+  padding:3px 14px;margin-bottom:26px;letter-spacing:1px}
+h1{font-size:clamp(2.2rem,5.6vw,3.9rem);line-height:1.22;font-weight:900;
+  letter-spacing:1px}
+h1 em{font-style:normal;color:var(--cyan)}
+.sub{margin-top:26px;max-width:760px;font-size:1.08rem;color:var(--dim)}
+.sub b{color:var(--text);font-weight:600}
+.cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;border-radius:10px;padding:15px 34px;font-size:1.02rem;
+  font-weight:700;transition:.18s}
+.btn.pri{background:var(--cyan);color:#04202a}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,240,255,.25)}
+.btn.ghost{border:1px solid var(--line);color:var(--text)}
+.btn.ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.cta .meta{font-size:.85rem;color:var(--dim2)}
+
+/* ── 数字带 ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  border:1px solid var(--line);border-radius:16px;background:var(--panel);
+  padding:30px 26px;margin-bottom:20px}
+.stats div b{display:block;font-size:2rem;font-weight:900;color:var(--cyan);
+  font-family:Consolas,monospace}
+.stats div i{font-style:normal;font-size:.86rem;color:var(--dim)}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ── 章节 ── */
+section{padding:84px 0;border-top:1px solid var(--line)}
+.num{font-family:Consolas,monospace;color:var(--cyan);font-size:.9rem;
+  letter-spacing:3px}
+h2{font-size:clamp(1.6rem,3.4vw,2.35rem);font-weight:900;margin:10px 0 14px;
+  line-height:1.3}
+.lead{color:var(--dim);max-width:780px;font-size:1.02rem}
+.lead b{color:var(--text)}
+h3{font-size:1.06rem;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+@media(max-width:760px){.grid,.grid3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:24px 22px}
+.card p{color:var(--dim);font-size:.92rem;margin-top:6px}
+.card .big{font-family:Consolas,monospace;font-weight:800;color:var(--cyan);
+  font-size:1.5rem;display:block;margin-top:12px}
+.tag{display:inline-block;background:rgba(0,240,255,.08);color:var(--cyan);
+  border-radius:6px;padding:2px 10px;font-size:.82rem;margin:4px 4px 0 0}
+.note{font-size:.84rem;color:var(--dim2);margin-top:22px}
+.note code{color:var(--dim);background:var(--card);border-radius:5px;
+  padding:1px 7px;font-family:Consolas,monospace}
+
+/* 流水线 */
+.pipe{margin-top:34px;display:grid;gap:10px}
+.pipe li{list-style:none;display:flex;gap:16px;background:var(--panel);
+  border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.pipe li b{color:var(--cyan);font-family:Consolas,monospace;min-width:34px}
+.pipe li span{color:var(--dim);font-size:.94rem}
+.pipe li span strong{color:var(--text)}
+
+/* 不系列 */
+.nope{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
+@media(max-width:760px){.nope{grid-template-columns:1fr}}
+.nope div{border:1px solid var(--line);border-radius:12px;padding:16px 20px;
+  background:var(--panel);font-size:.95rem}
+.nope b{color:var(--ok);margin-right:10px;font-family:Consolas,monospace}
+
+/* STEP */
+.step{display:flex;gap:20px;margin-top:26px;align-items:baseline}
+.step b{font-family:Consolas,monospace;color:var(--violet);font-size:1rem;
+  min-width:64px}
+.step div strong{font-size:1.05rem}
+.step div p{color:var(--dim);font-size:.93rem}
+
+/* 下载 */
+.dl{background:linear-gradient(160deg,#0d1d33,#0d1526);border:1px solid var(--line);
+  border-radius:18px;padding:44px 38px;margin-top:34px}
+.dl .file{font-family:Consolas,monospace;color:var(--cyan);font-size:1.06rem;
+  font-weight:700}
+.sha{font-size:.8rem;color:var(--dim2);word-break:break-all;margin-top:10px;
+  font-family:Consolas,monospace}
+
+/* FAQ */
+details{border:1px solid var(--line);border-radius:12px;background:var(--panel);
+  margin-top:12px;padding:18px 24px}
+details summary{cursor:pointer;font-weight:700;font-size:1rem}
+details p{color:var(--dim);margin-top:12px;font-size:.95rem}
+details p b{color:var(--text)}
+
+footer{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--dim2);
+  font-size:.86rem}
+footer a{color:var(--dim)}
+</style>
 </head>
 <body>
-    <div class="background-anim"></div>
-    <nav class="glass-nav">
-        <div class="logo">SafeCleaner <span>Pro</span></div>
-        <div class="links">
-            <a href="#features">清理引擎</a>
-            <a href="#compatibility">兼容矩阵</a>
-            <a href="#comparison">清理对比</a>
-            <a href="#download">软件下载</a>
-            <a href="admin.html" class="admin-link">控制台</a>
-        </div>
+
+<header class="top">
+  <div class="topin">
+    <div class="logo">SafeCleaner <span>Pro</span></div>
+    <nav>
+      <a href="#migrate">记忆迁移</a>
+      <a href="#cache">缓存清理</a>
+      <a href="#immune">免疫网</a>
+      <a href="#faq">FAQ</a>
+      <a href="admin.html">控制台</a>
     </nav>
-    
-    <header class="hero">
-        <h1>系统底层<br><span class="highlight">物理安全重构</span></h1>
-        <p style="font-size: 1.15rem; color: #a0aec0; margin-top: 15px;">
-            100% 数据安全保障 · 极速释放 50GB-150GB+ 空间 · 专为大模型研究者、开发人员与极客打造
-        </p>
-        <a href="#download" class="btn primary" style="font-size:1.2rem;padding:15px 40px;margin-top:25px;">免费下载深度扫描</a>
-    </header>
+  </div>
+</header>
 
-    <section id="features" class="glass-panel">
-        <h2 style="text-align:center;margin-bottom:30px;color:#00f0ff;">全维度清理引擎</h2>
-        <div style="display:flex;gap:20px;text-align:center;margin-bottom:40px;">
-            <div class="card" style="flex:1;">
-                <h3 style="color:#2ed573;margin-bottom:10px;">社交软件缓存</h3>
-                <p style="font-size:0.9em;color:#a0aec0;line-height:1.5;">微信/QQ 聊天媒体、视频、文件及加密日志</p>
-                <strong style="font-size:1.3em;color:#fff;">15GB - 45GB</strong>
-            </div>
-            <div class="card" style="flex:1;">
-                <h3 style="color:#ff4757;margin-bottom:10px;">创意设计暂存</h3>
-                <p style="font-size:0.9em;color:#a0aec0;line-height:1.5;">Photoshop/PR/AE 渲染暂存及临时预览</p>
-                <strong style="font-size:1.3em;color:#fff;">30GB - 100GB+</strong>
-            </div>
-            <div class="card" style="flex:1;">
-                <h3 style="color:#00f0ff;margin-bottom:10px;">开发工具链冗余</h3>
-                <p style="font-size:0.9em;color:#a0aec0;line-height:1.5;">JetBrains/VSCode 历史数据库及 Docker 废弃包</p>
-                <strong style="font-size:1.3em;color:#fff;">20GB - 60GB</strong>
-            </div>
-        </div>
-    </section>
+<div class="wrap">
 
-    <!-- 36-Item Compatible Matrix Grid -->
-    <section id="compatibility" class="glass-panel" style="max-width:1050px;">
-        <h2 style="text-align:center;margin-bottom:10px;color:#00f0ff;">兼容管理与防御矩阵 (36项支持)</h2>
-        <p style="text-align:center;color:#a0aec0;font-size:0.9rem;margin-bottom:30px;">
-            鼠标悬停即可点亮软件图标，查看智能优化与安全免疫的实时防护状态
-        </p>
-        
-        <div class="app-grid">
-            <!-- Row 1: Social -->
-            <div class="app-card">
-                <img class="app-logo" src="icons/wechat.svg" alt="微信">
-                <div class="app-info">
-                    <p class="app-name">微信 (WeChat)</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/qq.svg" alt="QQ">
-                <div class="app-info">
-                    <p class="app-name">腾讯QQ (QQ)</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/wecom.svg" alt="企业微信">
-                <div class="app-info">
-                    <p class="app-name">企业微信 (WeCom)</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/dingtalk.svg" alt="钉钉">
-                <div class="app-info">
-                    <p class="app-name">钉钉 (DingTalk)</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/feishu.svg" alt="飞书">
-                <div class="app-info">
-                    <p class="app-name">飞书 (Feishu)</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/tencentmeeting.svg" alt="腾讯会议">
-                <div class="app-info">
-                    <p class="app-name">腾讯会议 (Meeting)</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <span class="ver">v3.9.14 · 2026-10-13 · Windows 免安装</span>
+  <h1>把 AI 的记忆，<br>和 C 盘一起，<em>搬到该去的地方。</em></h1>
+  <p class="sub">
+    SafeCleaner Pro 是给<b>重度 AI 用户</b>准备的 Windows 清理器：把 Claude、Gemini、
+    Codex、Cursor 等 <b>20+ 款 AI 工具的记忆目录无损搬到第二块硬盘</b>——会话一条不丢，
+    软件零感知；顺手把 10 GB 级纯缓存清干净，但<b>绝对不碰</b>你的会话、登录态和模型权重。
+  </p>
+  <div class="cta">
+    <a class="btn pri" href="#download">免费下载 v3.9.14</a>
+    <a class="btn ghost" href="#migrate">迁移是怎么做到无损的</a>
+    <span class="meta">免安装 · 不需要管理员权限 · 数据不出本机</span>
+  </div>
+</div>
 
-            <!-- Row 2: AI & LLM -->
-            <div class="app-card">
-                <img class="app-logo" src="icons/googlegemini.svg" alt="Antigravity">
-                <div class="app-info">
-                    <p class="app-name">Antigravity AI</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/cursor.svg" alt="Cursor">
-                <div class="app-info">
-                    <p class="app-name">Cursor AI</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/claude.svg" alt="Claude">
-                <div class="app-info">
-                    <p class="app-name">Claude Desktop</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/openai.svg" alt="OpenAI Codex">
-                <div class="app-info">
-                    <p class="app-name">OpenAI Codex 智能体</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/ollama.svg" alt="Ollama">
-                <div class="app-info">
-                    <p class="app-name">Ollama 本地模型</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/huggingface.svg" alt="HuggingFace">
-                <div class="app-info">
-                    <p class="app-name">Hugging Face 缓存</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
+<!-- ═══ 数字带 ═══ -->
+<div class="stats">
+  <div><b>54</b><i>项 AI 记忆目录自动识别（本机实测）</i></div>
+  <div><b>36.41 GB</b><i>C 盘实测可释放空间</i></div>
+  <div><b>24 项</b><i>已迁移 · 哈希级校验零丢失</i></div>
+  <div><b>110 条</b><i>AI 免疫网硬编码保护</i></div>
+</div>
+<p class="note">* 本页所有数字均由开发机实测生成（2026-10-13），口径见各节脚注；不同机器因安装的软件不同，数字会不同。</p>
 
-            <!-- Row 3: Adobe & Design -->
-            <div class="app-card">
-                <img class="app-logo" src="icons/adobephotoshop.svg" alt="Photoshop">
-                <div class="app-info">
-                    <p class="app-name">Adobe Photoshop</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/adobepremierepro.svg" alt="Premiere">
-                <div class="app-info">
-                    <p class="app-name">Adobe Premiere Pro</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/adobeaftereffects.svg" alt="After Effects">
-                <div class="app-info">
-                    <p class="app-name">Adobe After Effects</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/adobeillustrator.svg" alt="Illustrator">
-                <div class="app-info">
-                    <p class="app-name">Adobe Illustrator</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/davinciresolve.svg" alt="DaVinci">
-                <div class="app-info">
-                    <p class="app-name">DaVinci Resolve</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/blender.svg" alt="Blender">
-                <div class="app-info">
-                    <p class="app-name">Blender 3D 工程</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
+<!-- ═══ 01 迁移 ═══ -->
+<section id="migrate">
+  <span class="num">01</span>
+  <h2>AI 记忆无损迁移：不是压缩，不是删除，是搬家。</h2>
+  <p class="lead">
+    重度使用半年，Claude 的会话、Gemini 的工作区、Ollama 的模型就能吃掉 C 盘几十 GB。
+    传统做法是删缓存、赌运气。SafeCleaner 的做法是把整个记忆目录
+    <b>原样搬到第二块硬盘</b>，在原位置留下一个 NTFS 目录联接（Junction）——
+    <b>绝对路径不变，软件完全无感知</b>，会话历史照常续接。
+  </p>
+  <ul class="pipe">
+    <li><b>1-2</b><span><strong>复制 → 校验</strong>　逐文件复制到目标盘，文件数、总字节、内部联接清单与源完全一致才允许进入下一步。</span></li>
+    <li><b>3</b><span><strong>原子换位</strong>　原目录瞬间改名保留为备份。文件正被占用？在这一步失败——<strong>自动回滚，数据原封不动</strong>，提示你关闭软件后重试（已复制部分断点续传）。</span></li>
+    <li><b>4-5</b><span><strong>建联接 → 穿透校验</strong>　原位置建立 Junction，再通过原路径完整统计一遍，证明"程序按原路径读到的数据"分毫不差。</span></li>
+    <li><b>6</b><span><strong>清备份</strong>　穿透校验通过后，才删除 C 盘备份，真正释放空间。全程数据在验证通过前从未离开 C 盘。</span></li>
+  </ul>
+  <p class="note">
+    * 随时可「一键迁回 C 盘」完整还原，同样走复制→校验→换位流程。
+    * 迁移不需要管理员权限（Junction ≠ 符号链接）。
+    * 已知唯一前提：目标盘需为固定 NTFS 硬盘（exFAT / 可移动盘会被直接排除）。
+  </p>
+</section>
 
-            <!-- Row 4: Coding & Dev -->
-            <div class="app-card">
-                <img class="app-logo" src="icons/visualstudiocode.svg" alt="VSCode">
-                <div class="app-info">
-                    <p class="app-name">Visual Studio Code</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/intellijidea.svg" alt="IntelliJ">
-                <div class="app-info">
-                    <p class="app-name">IntelliJ IDEA</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/pycharm.svg" alt="PyCharm">
-                <div class="app-info">
-                    <p class="app-name">PyCharm IDE</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/webstorm.svg" alt="WebStorm">
-                <div class="app-info">
-                    <p class="app-name">WebStorm IDE</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/docker.svg" alt="Docker">
-                <div class="app-info">
-                    <p class="app-name">Docker 废弃镜像</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/npm.svg" alt="NPM">
-                <div class="app-info">
-                    <p class="app-name">NPM 包暂存区</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
+<!-- ═══ 02 发现 ═══ -->
+<section id="discover">
+  <span class="num">02</span>
+  <h2>你不用告诉它装了什么，它自己认得。</h2>
+  <p class="lead">
+    内置两套自动发现：一套认 <b>VSCode 家族布局</b>（凡是带 <code>User/globalStorage</code>
+    标记的 AI IDE，Qoder、通义灵码、Comate、CodeBuddy、Antigravity、Trae、devin……以后新装的也自动识别）；
+    一套是 <b>45 个 AI CLI 记忆目录白名单</b>（<code>~/.claude</code>、<code>~/.qoder-cn</code>、
+    <code>~/.workbuddy</code> 这类）。装了就出现在列表里，没装的不占一行。
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>🤖 编程助手</h3>
+      <p>
+        <span class="tag">Claude Code</span><span class="tag">Claude 桌面端</span>
+        <span class="tag">Gemini / Antigravity</span><span class="tag">OpenAI Codex</span>
+        <span class="tag">ZCode</span><span class="tag">OpenCode</span>
+        <span class="tag">Qwen Code</span>
+      </p>
+      <span class="big">7 类 CLI 全目录迁移</span>
+    </div>
+    <div class="card">
+      <h3>🧩 AI 编辑器（VSCode 家族）</h3>
+      <p>
+        <span class="tag">Cursor</span><span class="tag">Windsurf / Devin</span>
+        <span class="tag">Trae 全版本</span><span class="tag">Qoder</span>
+        <span class="tag">通义灵码</span><span class="tag">百度 Comate</span>
+        <span class="tag">CodeBuddy CN</span><span class="tag">WorkBuddy</span>
+        <span class="tag">VS Code</span><span class="tag">MiniMax</span>
+      </p>
+      <span class="big">History / workspaceStorage / globalStorage 三记忆位</span>
+    </div>
+    <div class="card">
+      <h3>💬 AI 助手数据</h3>
+      <p>
+        <span class="tag">豆包</span><span class="tag">ima 知识库</span>
+        <span class="tag">Cherry Studio</span><span class="tag">MiniMax 桌面版</span>
+        <span class="tag">Kimi</span><span class="tag">ZCode 桌面版</span>
+      </p>
+      <span class="big">整库可迁 · 迁回一键</span>
+    </div>
+    <div class="card">
+      <h3>📦 本地模型权重</h3>
+      <p>
+        <span class="tag">Ollama models</span><span class="tag">HuggingFace 缓存</span>
+        <span class="tag">LM Studio models</span>
+      </p>
+      <span class="big">几十 GB 的大头都在这里</span>
+    </div>
+  </div>
+  <p class="note">
+    * 开发机实测 54 项命中（含 24 项已迁移），界面里每项带真实软件图标、体积、迁移状态，按类别分组、整组勾选。
+  </p>
+</section>
 
-            <!-- Row 5: Package & Browsers -->
-            <div class="app-card">
-                <img class="app-logo" src="icons/python.svg" alt="Pip">
-                <div class="app-info">
-                    <p class="app-name">Python Pip 缓存</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/git.svg" alt="Git">
-                <div class="app-info">
-                    <p class="app-name">Git 版本库日志</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/googlechrome.svg" alt="Chrome">
-                <div class="app-info">
-                    <p class="app-name">Google Chrome</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/microsoftedge.svg" alt="Edge">
-                <div class="app-info">
-                    <p class="app-name">Microsoft Edge</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/firefox.svg" alt="Firefox">
-                <div class="app-info">
-                    <p class="app-name">Mozilla Firefox</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/steam.svg" alt="Steam">
-                <div class="app-info">
-                    <p class="app-name">Steam 游戏着色器</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
+<!-- ═══ 03 缓存 ═══ -->
+<section id="cache">
+  <span class="num">03</span>
+  <h2>缓存清理：清得动 10 GB，碰不到一条登录态。</h2>
+  <p class="lead">
+    <b>366 条缓存规则</b>覆盖浏览器、Electron 应用、AI IDE、开发工具链、系统与游戏平台，
+    开发机实测命中 <b>10.0 GB</b> 纯缓存。每条规则精确到缓存子目录——
+    <b>Partitions、WebStorage、IndexedDB、Cookies 这类登录态与用户数据被保护关键字直接拦下</b>，
+    列都不会出现在可清列表里。
+  </p>
+  <div class="grid3">
+    <div class="card"><h3>⚡ 应用缓存</h3>
+      <p>扩展安装包缓存、Crashpad、CachedData、GPUCache……Qoder / 通义灵码实测各清出 470-700 MB。</p></div>
+    <div class="card"><h3>🌐 Chromium 系</h3>
+      <p>浏览器与 AI 应用（豆包 / ima / 元宝）的网页缓存，密码、书签、登录态一律不动。</p></div>
+    <div class="card"><h3>⚠️ 手动确认档</h3>
+      <p>TRAE SOLO 虚拟机缓存（9.5 GB）这类"删了能恢复但要重下"的大件，默认不勾选，由你决定。</p></div>
+  </div>
+</section>
 
-            <!-- Row 6: Games & System -->
-            <div class="app-card">
-                <img class="app-logo" src="icons/epicgames.svg" alt="Epic">
-                <div class="app-info">
-                    <p class="app-name">Epic 平台下载缓存</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/unity.svg" alt="Unity">
-                <div class="app-info">
-                    <p class="app-name">Unity 3D 渲染暂存</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/slack.svg" alt="Slack">
-                <div class="app-info">
-                    <p class="app-name">Slack 工作区缓存</p>
-                    <p class="app-status immune">🔒 安全免疫</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/nodedotjs.svg" alt="NodeModules">
-                <div class="app-info">
-                    <p class="app-name">全局 Node_Modules</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/windows.svg" alt="Temp">
-                <div class="app-info">
-                    <p class="app-name">Windows 临时垃圾</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-            <div class="app-card">
-                <img class="app-logo" src="icons/windows.svg" alt="Update">
-                <div class="app-info">
-                    <p class="app-name">Windows 更新补丁</p>
-                    <p class="app-status clean">🧹 智能清理</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ═══ 04 免疫网 ═══ -->
+<section id="immune">
+  <span class="num">04</span>
+  <h2>AI Agent 免疫网：这条线，规则也压不过去。</h2>
+  <p class="lead">
+    通用清理器的经典事故：按第三方规则库把 <code>~/.claude/sessions</code>、
+    <code>%APPDATA%\Cursor\User\History</code> 当"缓存"清了——开发者赖以生存的
+    上下文一夜清零。SafeCleaner 在删除路径上垫了 <b>110 条硬编码免疫条目</b>，
+    覆盖全部已知的 AI 会话、记忆、凭据与模型权重位置，<b>任何清理规则都无法覆盖它</b>，
+    每次删除前逐一校验，命中即跳过。
+  </p>
+  <div class="nope">
+    <div><b>✗</b>不碰会话与对话记忆</div>
+    <div><b>✗</b>不碰登录态、Cookie、凭据</div>
+    <div><b>✗</b>不删模型权重与数据集</div>
+    <div><b>✗</b>迁移失败不丢数据（自动回滚）</div>
+  </div>
+</section>
 
-    <!-- Before vs After -->
-    <section id="comparison" class="glass-panel">
-        <h2 style="text-align:center;margin-bottom:30px;color:#00f0ff;">优化效果前后对比</h2>
-        <div class="comparison-container">
-            <div class="card before">
-                <h3>清理前 (C盘爆满红色警告)</h3>
-                <div class="storage-bar"><div class="fill red" style="width:98%;"></div></div>
-                <p>可用空间: 1.2 GB / 512 GB</p>
-            </div>
-            <div class="card after">
-                <h3>清理后 (系统满血复活)</h3>
-                <div class="storage-bar"><div class="fill green" style="width:65%;"></div></div>
-                <p>可用空间: 178.5 GB / 512 GB</p>
-            </div>
-        </div>
-        
-        <div style="margin-top:30px;text-align:center;background:rgba(46,213,115,0.1);padding:20px;border-radius:12px;border:1px solid rgba(46,213,115,0.2);">
-            <h3 style="color:#2ed573;margin-bottom:10px;">🛡️ 100% 数据安全屏障</h3>
-            <p style="color:#a0aec0;font-size:0.95em;line-height:1.6;margin:0;">
-                系统深度免疫微信聊天核心数据、用户特定下载文件夹，以及 <strong>Antigravity / Cursor / Claude</strong> 等本地大模型记忆池。
-                <br>我们只对无用的应用冗余暂存物、编译碎片进行物理粉碎，确保您的个人配置不受任何干扰，零数据泄露风险。
-            </p>
-        </div>
-    </section>
+<!-- ═══ STEP ═══ -->
+<section id="steps">
+  <span class="num">05</span>
+  <h2>三步上手。</h2>
+  <div class="step"><b>STEP 1</b><div><strong>下载免安装单文件</strong>
+    <p>35 MB 一个 exe，双击即用，不写注册表，数据不出本机。</p></div></div>
+  <div class="step"><b>STEP 2</b><div><strong>打开「AI 记忆无损迁移台」</strong>
+    <p>自动扫描全机 AI 记忆目录，按类别分组、带真实软件图标，点分组行整组勾选，选目标盘（默认记住你的选择）。</p></div></div>
+  <div class="step"><b>STEP 3</b><div><strong>迁移 → 体检 → 忘掉它</strong>
+    <p>迁移完成后可随时用健康体检复检（SHA256 哈希级），或一键迁回 C 盘完整还原。</p></div></div>
+</section>
 
-    <!-- Download & Activation Form -->
-    <section id="download" class="glass-panel download-section">
-        <h2 style="color:#00f0ff;">软件下载与卡密激活</h2>
-        <p style="color:#a0aec0;font-size:0.95rem;margin-bottom:25px;">
-            1. 点击下方下载 SafeCleaner Pro &nbsp;&nbsp;&nbsp;&nbsp; 2. 运行并点击激活自动带参打开网页 &nbsp;&nbsp;&nbsp;&nbsp; 3. 手机扫码粘贴单号，电脑端 3 秒内自动感应解锁！
-        </p>
-        
-        <div class="download-box" style="margin-bottom:40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="downloads/SafeCleanerPro_Portable.rar?v=3.7" class="btn primary" download="SafeCleanerPro_Portable.rar" style="font-size:1.15em;padding:14.5px 35px; text-decoration: none; border-radius: 6px;">
-                📥 推荐：下载极速绿色版 (.rar) — [1秒秒开，无杀毒扫描延迟]
-            </a>
-            <a href="downloads/SafeCleanerPro.rar?v=3.7" class="btn outline" download="SafeCleanerPro.rar" style="font-size:1.15em;padding:14.5px 35px; text-decoration: none; border-radius: 6px;">
-                📥 下载极简单文件版 (.rar) — [体积缩小 65%，极速启动]
-            </a>
-        </div>
-        
-        <div class="apply-form" style="border-top:1px solid #334155;padding-top:30px;max-width:550px;">
-            <h3 style="color:#00f0ff;text-align:center;margin-bottom:10px;">自助扫码支付自动激活系统</h3>
-            
-            <div style="text-align:center; margin-bottom: 20px;">
-                <span class="lifetime-badge">🛡️ 终身版 · 一次买断永久授权</span>
-                <div class="price-container">
-                    <span class="price-symbol">￥</span>
-                    <span class="price-large">1</span>
-                    <span class="price-decimal">.99</span>
-                    <span style="font-size: 0.9rem; color: #a0aec0; margin-left: 5px; font-weight: normal;">(永久尊享)</span>
-                </div>
-            </div>
+<!-- ═══ 下载 ═══ -->
+<section id="download">
+  <span class="num">06</span>
+  <h2>下载。</h2>
+  <div class="dl">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center">
+      <div>
+        <div class="file">SafeCleanerPro_v3.9.14.exe</div>
+        <div style="color:var(--dim);font-size:.9rem;margin-top:4px">
+          免安装 · 33.8 MB · Windows 10/11 x64 · 2026-10-13</div>
+      </div>
+      <a class="btn pri" href="downloads/SafeCleanerPro_v3.9.14.exe"
+         download="SafeCleanerPro_v3.9.14.exe">下载 Windows 版</a>
+    </div>
+    <p class="sha">SHA-256　67d56c7636d2f2fb1e9ad6a8f105d8feb5376d8b738ba417b1c547f900061ef2</p>
+    <p class="note" style="margin-top:18px">
+      历史版本： <a href="downloads/SafeCleanerPro_Portable.rar" download>便携版 v3.7 (rar)</a> ·
+      授权与激活见 <a href="admin.html">控制台</a>。基础功能免费使用。
+    </p>
+  </div>
+</section>
 
-            <p style="font-size:0.9em;color:#cbd5e1;text-align:center;margin-bottom:25px;line-height:1.7;">
-                💡 <strong>全自动解锁体验：</strong>在下方输入您的设备 HWID，点击微信/支付宝按钮拉起安全支付收银台。<br>
-                扫码付款完成后，云端会自动识别并<strong>在 3 秒内全自动放行电脑客户端</strong>，零人工复制粘贴！
-            </p>
-            
-            <!-- PC-to-Mobile Quick Sync Portal (Only shown on PC and when HWID is pre-filled) -->
-            <div id="pc-sync-portal" class="mobile-sync-card pc-only" style="display:none; margin-bottom: 25px;">
-                <h4 style="color:#00f0ff;margin:0 0 10px 0;font-size:1rem;">📱 手机扫码进入极速付款页</h4>
-                <p style="color:#a0aec0;font-size:0.85em;line-height:1.5;margin:0 0 10px 0;">
-                    请使用手机微信或支付宝扫描下方二维码：<br>
-                    <strong>在手机浏览器上直接打开极速付款页（已预填指纹），完成付款后电脑端将瞬间自动解锁！</strong>
-                </p>
-                <div class="mobile-sync-qr">
-                    <img id="sync-qr-img" src="" alt="手机扫码核销" style="width:140px;height:140px;">
-                </div>
-                <div id="sync-polling-status" style="color:#38bdf8;font-size:0.85em;font-weight:bold;margin-top:5px;">
-                    🔄 正在等待手机端付款...
-                </div>
-            </div>
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <span class="num">07</span>
+  <h2>几个诚实的问答。</h2>
+  <details open><summary>迁移之后，会话真的一条不丢？</summary>
+    <p>原理上不可能丢：Junction 只是文件系统层的路标，软件打开的仍是原路径，Windows 自动转到新位置，<b>软件自己都不知道数据搬过</b>。实践上我们提供了健康体检工具：对每项已迁移数据做文件数、总字节、抽样文件 SHA256 三层比对（含最新 10 个会话文件），开发机 24 项迁移后全量通过。</p></details>
+  <details><summary>哪一步可能失败？失败了会怎样？</summary>
+    <p>唯一常见失败是目标软件正在运行、文件被占用——发生在"原目录改名"这一步，此时<b>自动回滚</b>，C 盘数据原封未动，界面提示关闭软件后重试，已复制的部分断点续传。校验不过（比如迁移期间目录仍在被写入）同样回滚。</p></details>
+  <details><summary>目标盘坏了 / 被拔了怎么办？</summary>
+    <p>数据物理在目标盘上，盘在数据在。所以目标盘只允许<b>固定内置 NTFS 硬盘</b>（U 盘、移动盘、exFAT 直接排除）。万一盘出问题，联接会悬空且界面标红提醒；数据本体是否完好取决于盘本身——建议把迁移目录纳入你已有的备份计划。</p></details>
+  <details><summary>清理会误删我的东西吗？</summary>
+    <p>深度清理只碰白名单里的纯缓存子目录；登录态、数据库、会话、模型权重由保护关键字 + 110 条免疫网双重拦截，且每条规则清理前再做一次校验。TRAE SOLO 虚拟机缓存这类"可恢复但要重下 10GB"的大件放在手动确认档，默认不勾选。</p></details>
+  <details><summary>需要管理员权限吗？数据会上传吗？</summary>
+    <p>都不。目录联接（Junction）不需要管理员；扫描、迁移、清理全部在本机完成，软件不含任何数据上传通道，联网仅用于检查更新。</p></details>
+  <details><summary>和 CCleaner / BleachBit 有什么不同？</summary>
+    <p>它们是通用清理器，规则库经常把 AI 工具的会话目录当缓存清（BleachBit 的 claude 规则就是著名案例）。SafeCleaner 是给 AI 重度用户做的：记忆迁移是它独有的能力，免疫网让它"敢"在装满 AI 工具的机器上做清理。</p></details>
+</section>
 
-            <!-- Clean EPay Checkout Form -->
-            <div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
-                <input type="text" id="hwid-input" placeholder="请在这里输入或粘贴您的客户端 HWID 设备指纹" required style="padding:12px; font-family:Consolas; border-radius:6px; border:1px solid rgba(0,240,255,0.2); background:rgba(0,0,0,0.5); color:#fff; text-align:center;">
-                
-                <div style="display:flex; gap:15px; justify-content:center; width:100%; margin-top:5px;">
-                    <button id="pay-alipay" class="btn primary" style="flex:1; padding:13px; font-size:1em; display:flex; justify-content:center; align-items:center; gap:8px; background:#0078d6; color:#fff; box-shadow: 0 0 10px rgba(0, 120, 214, 0.4);">
-                        🔵 支付宝支付
-                    </button>
-                    <button id="pay-wechat" class="btn primary" style="flex:1; padding:13px; font-size:1em; display:flex; justify-content:center; align-items:center; gap:8px; background:#2ed573; color:#fff; box-shadow: 0 0 10px rgba(46, 213, 115, 0.4);">
-                        🟢 微信支付
-                    </button>
-                </div>
-            </div>
-            
-            <div id="checkout-msg" class="msg" style="margin-top:15px;"></div>
-            
-            <!-- Output license key box -->
-            <div id="license-output-box" style="display:none;margin-top:20px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.2);padding:15px;border-radius:8px;text-align:center;">
-                <div style="color:#00f0ff;font-weight:bold;margin-bottom:8px;">您的专属特权授权码生成成功：</div>
-                <textarea id="generated-license" readonly style="width:96%;height:80px;font-family:Consolas;font-size:0.9em;background:rgba(0,0,0,0.5);color:#fff;border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:8px;resize:none;text-align:center;"></textarea>
-                <button onclick="navigator.clipboard.writeText(document.getElementById('generated-license').value);alert('授权码已成功复制到剪贴板！')" class="btn primary small" style="margin-top:12px;">一键复制授权码</button>
-            </div>
-        </div>
-        
-        <!-- Legacy Form (Hidden) -->
-        <form id="legacy-form" class="apply-form" style="display:none;">
-            <input type="text" id="hwid" placeholder="HWID">
-            <input type="text" id="contact" placeholder="联系方式">
-            <button type="submit">提交</button>
-            <div id="apply-msg"></div>
-        </form>
-    </section>
+<footer>
+  <div class="wrap" style="padding:0">
+    SafeCleaner Pro · v3.9.14 · 为重度 AI 用户而作 ·
+    <a href="https://github.com/Hwalme/SafeCleanerPro" target="_blank">GitHub</a> ·
+    <a href="admin.html">控制台</a>
+    <br>本页所有数字来自开发机实测（2026-10-13），脚本可复现。
+  </div>
+</footer>
 
-    <footer>
-        <p style="color:#475569;font-size:0.85em;">SafeCleaner Pro © 2026. 基于 RSA-2048 非对称非签名安全防护及卡密自动分发系统.</p>
-    </footer>
-
-    <script src="app.js?v=4.0"></script>
+</div>
+<script src="app.js?v=4.0"></script>
 </body>
 </html>
