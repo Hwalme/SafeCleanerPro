@@ -50,7 +50,11 @@ header.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);
 .logo span{color:var(--cyan)}
 .topin nav a{color:var(--dim);margin-left:20px;font-size:.92rem;transition:.15s}
 .topin nav a:hover{color:var(--cyan)}
-@media(max-width:920px){.topin nav{display:none}}
+@media(max-width:920px){
+  .topin{flex-direction:column;gap:6px;padding:10px 16px}
+  .topin nav{text-align:center}
+  .topin nav a{margin:0 10px;font-size:.88rem;white-space:nowrap}
+}
 
 /* ═══ Hero：左文右图 ═══ */
 .hero{padding:96px 0 84px}
@@ -236,6 +240,27 @@ footer a{color:var(--dim)}
 /* 滚动渐显 */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* ═══ 移动端适配 ═══ */
+@media(max-width:760px){
+  .hero{padding:56px 0 52px}
+  .hero-in{gap:34px}
+  section{padding:52px 0}
+  .stats{padding:18px 16px;gap:10px}
+  .stats div b{font-size:1.55rem}
+  .dl{padding:26px 20px}
+  .apply-form{margin-top:32px}
+  .sh{gap:12px}
+  .si{width:40px;height:40px;font-size:1.1rem}
+}
+@media(max-width:520px){
+  .grid4{grid-template-columns:1fr}
+  .app-grid{grid-template-columns:1fr}
+  .chips{grid-template-columns:1fr}
+  .hv{padding:20px 16px}
+  .cta .btn{width:100%;text-align:center}
+  .cta{gap:10px}
+}
 </style>
 </head>
 <body>
@@ -528,7 +553,7 @@ footer a{color:var(--dim)}
         <div style="color:var(--dim);font-size:.9rem;margin-top:4px">
           免安装，下载后双击即可运行 · 33.8 MB · Windows 10/11 x64 · 2026-10-13</div>
       </div>
-      <a class="btn pri" href="https://ppsai.chat/safecleaner/downloads/SafeCleanerPro_v3.9.14.exe"
+      <a class="btn pri" href="downloads/SafeCleanerPro_v3.9.14.exe"
          download="SafeCleanerPro_v3.9.14.exe">📥 下载 Windows 版</a>
     </div>
     <p class="sha">SHA-256　67d56c7636d2f2fb1e9ad6a8f105d8feb5376d8b738ba417b1c547f900061ef2</p>
