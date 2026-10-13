@@ -9,4 +9,8 @@ services:
       - ./keys:/app/keys
       - ./data:/app/data
       - ./uploads:/app/uploads
+    environment:
+      - ADMIN_USER=${ADMIN_USER:-admin}
+      - ADMIN_PASS=${ADMIN_PASS}
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
     restart: always

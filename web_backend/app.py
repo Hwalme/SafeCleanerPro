@@ -20,9 +20,11 @@ app = Flask(__name__)
 CORS(app)  # Allow all domains for simplicity in this separation
 
 # Admin Credentials (In production, use env variables)
-ADMIN_USER = "admin"
-ADMIN_PASS = "pps88888"
-ADMIN_TOKEN = "secret-admin-token-xyz" # Simple static token for demo
+# 管理员凭据从环境变量读取；真实值只存在于部署服务器 /opt/safecleaner_backend/.env
+# （该文件不进 git。历史上曾硬编码在本文件且仓库公开，务必不要再写回。）
+ADMIN_USER = os.environ.get("ADMIN_USER", "admin")
+ADMIN_PASS = os.environ.get("ADMIN_PASS", "")
+ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "")
 
 # Upload Folder for QR Codes
 UPLOAD_FOLDER = 'uploads'
@@ -193,25 +195,27 @@ def check_activation():
     except Exception as e:
         return jsonify({"activated": False, "error": str(e)}), 500
 
+def parse_version(ver_str):
+    try:
+        return [int(x) for x in ver_str.split(".")]
+    except Exception:
+        return [0]
+
 # 客户端版本更新检查接口
 @app.route('/api/check_update', methods=['GET'])
 def check_update():
     client_version = request.args.get('version', '3.5')
-    latest_version = "3.6"
-    download_url = f"{config.API_BASE_URL}/safecleaner/downloads/SafeCleanerPro.rar"
+    latest_version = "3.9.7"
+    download_url = f"{config.API_BASE_URL}/safecleaner/downloads/SafeCleanerPro_v3.9.7.rar"
     changelog = (
-        "1. 升级深度垃圾扫描算法，增加多款 Adobe 软件垃圾扫描 (Photoshop/Illustrator/After Effects/Premiere/Acrobat等)\\n"
-        "2. 增加可选清理和风险提示功能，分为[安全清理]与[风险清理]两个维度\\n"
-        "3. 支持查看具体清理文件详情，可自主剔除或保留特定文件\\n"
-        "4. 支持永久保存授权密钥到本地 AppData，防止软件版本升级时丢失激活凭证"
+        "1. 解决双击打开后启动画面延迟问题：重写界面构建逻辑，将重量级UI组件的构建推迟到闪屏启动后异步进行，使带进度条的启动画面瞬时呈现在屏幕上。\\n"
+        "2. 消除双启动画面：完全移除了PyInstaller静态闪屏，只保留动态加载的渐变进度条闪屏。\\n"
+        "3. 底部信息栏：集成手动检查更新、联系邮箱(vip@ppsai.chat)和官网链接。"
     )
     
-    try:
-        cv_f = float(client_version)
-        lv_f = float(latest_version)
-        has_update = lv_f > cv_f
-    except Exception:
-        has_update = latest_version != client_version
+    cv = parse_version(client_version)
+    lv = parse_version(latest_version)
+    has_update = lv > cv
 
     return jsonify({
         "has_update": has_update,
