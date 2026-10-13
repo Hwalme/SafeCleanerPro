@@ -29,6 +29,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
             <div class="glass-panel" style="padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
                 <h3 style="color: #00f0ff; margin-bottom: 10px;">🟢 微信收款二维码配置</h3>
+                <div id="wechat-preview" class="qr-preview"></div>
                 <form id="wechat-qr-form" enctype="multipart/form-data">
                     <input type="file" id="wechat-file" accept="image/*" required style="margin-bottom: 10px;">
                     <button type="submit" class="btn primary small">上传微信收款码</button>
@@ -37,6 +38,7 @@
             </div>
             <div class="glass-panel" style="padding: 15px; border: 1px solid rgba(255,255,255,0.05);">
                 <h3 style="color: #ff9f43; margin-bottom: 10px;">🔵 支付宝收款二维码配置</h3>
+                <div id="alipay-preview" class="qr-preview"></div>
                 <form id="alipay-qr-form" enctype="multipart/form-data">
                     <input type="file" id="alipay-file" accept="image/*" required style="margin-bottom: 10px;">
                     <button type="submit" class="btn primary small">上传支付宝收款码</button>

@@ -51,6 +51,26 @@ async function showDashboard() {
     await loadApplications();
     await loadOrders();
     setupQrUploads();
+    await loadQRCodes();
+}
+
+async function loadQRCodes() {
+    try {
+        const res = await fetch(`/api/qrcodes`);
+        const data = await res.json();
+        for (const [ch, label] of [["wechat", "微信"], ["alipay", "支付宝"]]) {
+            const box = document.getElementById(ch + "-preview");
+            if (!box) continue;
+            if (data[ch]) {
+                box.innerHTML = `<img src="${data[ch]}?t=${Date.now()}" alt="${label}收款码">`
+                    + `<span class="set">✓ 当前已设置（重新上传可更换）</span>`;
+            } else {
+                box.innerHTML = `<span class="unset">⚠ 尚未设置${label}收款码——请选择图片上传</span>`;
+            }
+        }
+    } catch (err) {
+        console.error("loadQRCodes failed", err);
+    }
 }
 
 async function loadOrders() {
@@ -103,6 +123,7 @@ function setupQrUploads() {
                 const data = await res.json();
                 if (res.ok) {
                     statusDiv.innerHTML = `✅ ${type === 'wechat' ? '微信' : '支付宝'}收款码上传成功！`;
+                    loadQRCodes();
                 } else {
                     statusDiv.innerHTML = `❌ 上传失败: ${data.error}`;
                 }
