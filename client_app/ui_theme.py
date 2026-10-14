@@ -151,6 +151,26 @@ def show_item_detail(owner, app_id):
         ctk.CTkLabel(body, text=mark + shown, font=F(MONO_FAMILY, 10),
                      text_color="#94a3b8", anchor="w", wraplength=265,
                      justify="left").pack(fill="x", padx=16, pady=1)
+    # 已迁移标注：Junction 原路径，真实数据在目标盘
+    try:
+        import migrate_core as _mc
+        seen_bases = set()
+        for p in paths:
+            base = str(p).split("*")[0].rstrip(chr(47) + chr(92))
+            if not base or base in seen_bases:
+                continue
+            seen_bases.add(base)
+            real = _mc._exp(base)
+            if _mc.is_junction(real):
+                tgt = _mc.migrated_target_of(real)
+                if tgt:
+                    drv = os.path.splitdrive(tgt)[0].upper()
+                    ctk.CTkLabel(body, text=f"⤳ 已迁移 → {drv} 盘：{tgt}（C 盘不占用）",
+                                 font=F(UI_FAMILY, 10), text_color="#34d399",
+                                 anchor="w", wraplength=265,
+                                 justify="left").pack(fill="x", padx=16, pady=(0, 2))
+    except Exception:
+        pass
 
     # 操作区
     btn_box = ctk.CTkFrame(body, fg_color="transparent")

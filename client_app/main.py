@@ -1137,6 +1137,29 @@ class SafeCleanerApp(ctk.CTk):
                 ctk.CTkLabel(row, text=obfuscate_path(str(pat)),
                              font=F(MONO_FAMILY, 11), text_color="#cbd5e1",
                              anchor="w").pack(side="left", fill="x", expand=True)
+            # 已迁移记忆标注：原路径是 Junction 入口，真实数据在目标盘，
+            # 避免误读为"C 盘仍占用"
+            try:
+                from migrate_core import is_junction, migrated_target_of, _exp
+                seen_bases = set()
+                for pat in patterns:
+                    base = str(pat).split("*")[0].rstrip(chr(47) + chr(92))
+                    if not base or base in seen_bases:
+                        continue
+                    seen_bases.add(base)
+                    real = _exp(base)
+                    if is_junction(real):
+                        tgt = migrated_target_of(real)
+                        if tgt:
+                            drv = os.path.splitdrive(tgt)[0].upper()
+                            ctk.CTkLabel(
+                                panel, text=(f"⤳ 已迁移：{real} 现存于 {tgt}"
+                                             f"（数据在 {drv} 盘，C 盘不占用）"),
+                                font=F(UI_FAMILY, 11), text_color="#34d399",
+                                anchor="w", wraplength=780,
+                                justify="left").pack(anchor="w", padx=14, pady=(2, 0))
+            except Exception:
+                pass
             if is_immune:
                 from cleaner_core import is_agent_memory_path
                 agent_protected = any(is_agent_memory_path(str(p)) for p in patterns)
