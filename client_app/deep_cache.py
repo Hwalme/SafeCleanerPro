@@ -19,6 +19,7 @@ from cleaner_core import (
     is_agent_memory_path,
 )
 
+BS = chr(92)
 LOCAL = os.environ.get("LOCALAPPDATA", "") or ""
 ROAM = os.environ.get("APPDATA", "") or ""
 HOME = os.path.expanduser("~")
@@ -295,6 +296,10 @@ SYSTEM_CACHE = [
     ("内核实时转储", r"C:\Windows\LiveKernelReports"),
     ("Windows 更新下载缓存", r"C:\Windows\SoftwareDistribution\Download"),
     ("HubStudio SDK 缓存", _R("hubstudio-client", "sdk", "cache")),
+    ("微信日志 (xwechat)", _R("Tencent", "xwechat", "log")),
+    ("微信旧版日志", _R("Tencent", "WeChat", "log")),
+    ("Office 升级包下载缓存", "C:" + BS + "Program Files (x86)" + BS + "Microsoft Office" + BS + "Updates" + BS + "Download"),
+    ("Office 升级包下载缓存 (x64)", "C:" + BS + "Program Files" + BS + "Microsoft Office" + BS + "Updates" + BS + "Download"),
 ]
 
 # 游戏 / 大平台缓存
@@ -388,6 +393,42 @@ def discover_electron_caches():
                         "desc": "应用通用渲染/脚本缓存，进程退出后自动重建。",
                     })
     return found
+
+
+
+def discover_updater_caches():
+    """扫描 %LOCALAPPDATA% 下所有 *-updater 应用更新残留缓存。
+
+    electron-updater 布局：优先清 pending 子目录（下载的安装包）；
+    无 pending 的目录仅当内容全部是安装包/日志文件时才整目录清理，
+    含 Update.exe / app-* 等程序结构的跳过（那是程序本体，不是缓存）。
+    """
+    base = os.environ.get("LOCALAPPDATA", "") or ""
+    if not base or not os.path.isdir(base):
+        return []
+    paths = []
+    try:
+        names = os.listdir(base)
+    except OSError:
+        return []
+    safe_exts = (".exe", ".nupkg", ".zip", ".log", ".txt", ".json", ".yaml")
+    for name in names:
+        if "-updater" not in name.lower():
+            continue
+        root = os.path.join(base, name)
+        if not os.path.isdir(root):
+            continue
+        pend = os.path.join(root, "pending")
+        if os.path.isdir(pend):
+            paths.append(pend)
+            continue
+        try:
+            entries = os.listdir(root)
+        except OSError:
+            continue
+        if entries and all(f.lower().endswith(safe_exts) for f in entries):
+            paths.append(root)
+    return paths
 
 
 def build_rules():
@@ -498,6 +539,21 @@ def build_rules():
             })
     # 6) 通配发现（覆盖硬编码名单之外的应用）
     rules += discover_electron_caches()
+    # 6.5) 应用更新残留缓存（*-updater）与 Office 升级包
+    up_paths = discover_updater_caches()
+    office_paths = [q for q in (
+        "C:" + BS + "Program Files (x86)" + BS + "Microsoft Office" + BS + "Updates" + BS + "Download",
+        "C:" + BS + "Program Files" + BS + "Microsoft Office" + BS + "Updates" + BS + "Download",
+    ) if os.path.isdir(q)]
+    if up_paths or office_paths:
+        rules.append({
+            "id": "sys_app_updater_caches",
+            "name": "应用更新残留缓存与升级包",
+            "cat": "system",
+            "paths": up_paths + office_paths,
+            "risk": "safe",
+            "desc": "应用自动更新下载的安装包与 Office 升级包，删除不影响已安装版本。",
+        })
 
     # 去重：同一路径被多条规则命中时只保留第一条（父子套叠防重复计数）
     seen = set()
