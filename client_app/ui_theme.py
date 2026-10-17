@@ -30,7 +30,7 @@ from cleaner_core import format_size, get_app_drives, obfuscate_path, scan_app_f
 
 # 字体族不是性能杠杆。真正的原因是 Tk 为自动定尺寸而测量 emoji 文字，
 # 而这一点靠给图标标签固定 width/height 来规避。
-UI_FAMILY = "Microsoft YaHei"
+UI_FAMILY = "Microsoft YaHei UI"
 MONO_FAMILY = "Consolas"
 
 _FONT_CACHE = {}
@@ -450,7 +450,7 @@ def show_file_viewer(owner, app):
     dialog.grab_set()
 
     ctk.CTkLabel(dialog, text=f' {app["name"]} - 文件清理清单',
-                 font=ctk.CTkFont(family="Microsoft YaHei UI", size=18, weight="bold"),
+                 font=F(UI_FAMILY, 18, "bold"),
                  text_color="#F0F4F7").pack(pady=(15, 5))
 
     risk_color = "#ECA0A6" if app["risk_level"] == "risk" else "#295443"
@@ -460,11 +460,11 @@ def show_file_viewer(owner, app):
     info_frame.pack(fill="x", padx=20, pady=5)
 
     ctk.CTkLabel(info_frame, text=risk_label_text,
-                 font=ctk.CTkFont(family="Microsoft YaHei UI", size=13, weight="bold"),
+                 font=F(UI_FAMILY, 13, "bold"),
                  text_color=risk_color).pack(anchor="w", padx=15, pady=(8, 2))
     ctk.CTkLabel(info_frame,
                  text=f'安全提示: {app.get("risk_desc", "本项清理无任何数据风险。")}',
-                 font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                 font=F(UI_FAMILY, 12),
                  text_color="#A3AFBD").pack(anchor="w", padx=15, pady=(0, 8))
 
     files_scroll = ctk.CTkScrollableFrame(dialog, fg_color="#161C23",
@@ -475,7 +475,7 @@ def show_file_viewer(owner, app):
 
     loading_label = ctk.CTkLabel(files_scroll,
                                  text="正在分析文件清单，大目录可能需要片刻，请稍候...",
-                                 font=ctk.CTkFont(family="Microsoft YaHei UI", size=13),
+                                 font=F(UI_FAMILY, 13),
                                  text_color="#8CDEEF")
     loading_label.pack(pady=80)
 
@@ -502,7 +502,7 @@ def show_file_viewer(owner, app):
 
             if not files:
                 ctk.CTkLabel(files_scroll, text="此项目没有扫描到可显示的文件。",
-                             font=ctk.CTkFont(family="Microsoft YaHei UI", size=13),
+                             font=F(UI_FAMILY, 13),
                              text_color="#8795A5").pack(pady=50)
                 return
 
@@ -510,23 +510,23 @@ def show_file_viewer(owner, app):
             if total_count > len(shown):
                 summary += "（仅展示最大的 %d 个）" % len(shown)
             ctk.CTkLabel(files_scroll, text=summary,
-                         font=ctk.CTkFont(family="Consolas", size=11),
+                         font=F(MONO_FAMILY, 11),
                          text_color="#8CDEEF").pack(anchor="w", padx=12, pady=(2, 4))
 
             if any(is_personal_file(p) for p, _ in files):
                 ctk.CTkLabel(
                     info_frame,
                     text=" 提示：检测到当前目录包含用户个人文档/媒体资产，已默认取消勾选以防误删！",
-                    font=ctk.CTkFont(family="Microsoft YaHei UI", size=12, weight="bold"),
+                    font=F(UI_FAMILY, 12, "bold"),
                     text_color="#E7BA7A").pack(anchor="w", padx=15, pady=(2, 8))
 
             col_frame = ctk.CTkFrame(files_scroll, fg_color="transparent")
             col_frame.pack(fill="x", padx=10, pady=2)
             ctk.CTkLabel(col_frame, text="要清理的文件路径 (已按大小降序排序)",
-                         font=ctk.CTkFont(family="Microsoft YaHei UI", size=12, weight="bold"),
+                         font=F(UI_FAMILY, 12, "bold"),
                          text_color="#8795A5").pack(side="left")
             ctk.CTkLabel(col_frame, text="大小",
-                         font=ctk.CTkFont(family="Microsoft YaHei UI", size=12, weight="bold"),
+                         font=F(UI_FAMILY, 12, "bold"),
                          text_color="#8795A5").pack(side="right", padx=(0, 20))
 
             for path, size in shown:
@@ -551,7 +551,7 @@ def show_file_viewer(owner, app):
                 chk_file = ctk.CTkCheckBox(
                     file_row, text=display_path,
                     variable=var, onvalue="checked", offvalue="unchecked",
-                    font=ctk.CTkFont(family="Consolas", size=12),
+                    font=F(MONO_FAMILY, 12),
                     text_color="#E7BA7A" if is_personal else "#CFD7E0",
                     width=18, height=18,
                     command=make_toggle(path, var))
@@ -563,7 +563,7 @@ def show_file_viewer(owner, app):
                     chk_file.deselect()
 
                 ctk.CTkLabel(file_row, text=format_size(size),
-                             font=ctk.CTkFont(family="Consolas", size=12),
+                             font=F(MONO_FAMILY, 12),
                              text_color="#E7BA7A" if is_personal else "#A3AFBD"
                              ).pack(side="right", padx=15, pady=6)
 
@@ -596,15 +596,15 @@ def show_file_viewer(owner, app):
         owner.show_file_viewer(app)
 
     ctk.CTkButton(bottom_frame, text="全部勾选",
-                  font=ctk.CTkFont(family="Microsoft YaHei UI", size=12, weight="bold"),
+                  font=F(UI_FAMILY, 12, "bold"),
                   fg_color="#8CDEEF", hover_color="#8CDEEF",
                   width=110, height=36, command=select_all).pack(side="left", padx=5)
     ctk.CTkButton(bottom_frame, text="全部排除",
-                  font=ctk.CTkFont(family="Microsoft YaHei UI", size=12, weight="bold"),
+                  font=F(UI_FAMILY, 12, "bold"),
                   fg_color="#1D252E", hover_color="#2A3541",
                   width=110, height=36, command=deselect_all).pack(side="left", padx=5)
     ctk.CTkButton(bottom_frame, text="确认保存设置",
-                  font=ctk.CTkFont(family="Microsoft YaHei UI", size=12, weight="bold"),
+                  font=F(UI_FAMILY, 12, "bold"),
                   fg_color="#295443", hover_color="#3C6D58",
                   width=130, height=36, command=dialog.destroy).pack(side="right", padx=5)
 
@@ -640,11 +640,11 @@ def style_dark_treeview(rowheight=30):
                     background="#161C23", fieldbackground="#101419",
                     foreground="#CFD7E0", rowheight=max(36, rowheight),
                     borderwidth=0, relief="flat", indent=16,
-                    font=("Microsoft YaHei UI", 10))
+                    font=(UI_FAMILY, 10))
     style.configure("Treeview.Heading",
                     background="#1D252E", foreground="#A3AFBD",
                     borderwidth=0, relief="flat", padding=(6, 7),
-                    font=("Microsoft YaHei UI", 10, "bold"))
+                    font=(UI_FAMILY, 10, "bold"))
     style.map("Treeview.Heading", background=[("active", "#2A3541")])
     style.map("Treeview",
               background=[("selected", "#203640")],
@@ -657,9 +657,13 @@ def style_dark_treeview(rowheight=30):
 # ======================================================================
 # 全局设计令牌 —— 所有窗口（含弹窗）统一取色/取字，禁止各自定义
 # ======================================================================
-from brand_ui import BG, PANEL, CARD, ACCENT, OK, WARN, ERR, TEXT, DIM
+from brand_ui import (BG, PANEL, CARD, ACCENT, OK, WARN, ERR, TEXT, DIM,
+                      MUTED)
 BG_DEEP = BG
 ACCENT2 = ACCENT
+if UI_FAMILY != FAMILY:      # 字体族双定义防漂移（见 brand_ui.FAMILY 注释）
+    raise RuntimeError(f"字体族令牌不一致: ui_theme.UI_FAMILY={UI_FAMILY!r} "
+                       f"vs brand_ui.FAMILY={FAMILY!r}")
 
 
 def app_icon_path():

@@ -22,6 +22,8 @@ TINT = "#203640"
 OK = "#91D5B6"
 WARN = "#E7BA7A"
 ERR = "#ECA0A6"
+# 字体族唯一来源；ui_theme.UI_FAMILY 必须与此保持同值（ui_theme 反向导入
+# 本模块的色板，字体族定义放在这里避免循环导入）
 FAMILY = "Microsoft YaHei UI"
 
 

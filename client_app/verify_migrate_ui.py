@@ -61,12 +61,36 @@ def main():
     ok_btn = (str(mig_btn_state) == "normal") if migratable else True
     print(f"[{'PASS' if ok_btn else 'FAIL'}] 迁移按钮状态 = {mig_btn_state}")
 
-    root = win._selected_root()
-    saved = mc.load_target_root()
-    # 记住的上次目标位置优先；无记忆时默认 <盘>\C盘迁移
-    ok_root = bool(root) and (root == saved or root.endswith("C盘迁移"))
-    print(f"[{'PASS' if ok_root else 'FAIL'}] 目标根 = {root}"
-          f"（记忆位置={saved}）")
+    root_shell = win._selected_root_shell()
+    root_ai = win._selected_root_ai()
+    cfg = mc.load_target_config()
+    # 两条默认总路径互相独立：常规目录/AI记忆 各有各的根（记忆位置优先）
+    ok_root = (
+        bool(root_shell) and bool(root_ai)
+        and root_shell != root_ai
+        and (root_shell == cfg.get("root_shell")
+             or root_shell.endswith(os.path.join("C盘迁移", "常规目录")))
+        and (root_ai == cfg.get("root_ai")
+             or root_ai.endswith(os.path.join("C盘迁移", "AI记忆"))))
+    print(f"[{'PASS' if ok_root else 'FAIL'}] 双目标根独立："
+          f"常规目录={root_shell} · AI记忆={root_ai}")
+
+    # 右键自定义子项目标：设置后 _effective_target 精确指向、行内可见
+    if win.items:
+        it0 = next((x for x in win.items
+                    if win.info.get(x["id"], {}).get("status") in _MIGRATABLE),
+                   None)
+        if it0:
+            probe = os.path.join(os.path.expanduser("~"), "_scp_probe_tgt")
+            win.custom_targets[it0["id"]] = probe
+            ok_eff = win._effective_target(it0) == probe
+            win.custom_targets.pop(it0["id"], None)
+            print(f"[{'PASS' if ok_eff else 'FAIL'}] 子项目标自定义 "
+                  f"（{it0['name']} → 精确路径生效）")
+        else:
+            ok_eff = True
+    else:
+        ok_eff = False
 
     drive_ok = bool(mc.list_target_drives())
     print(f"[{'PASS' if drive_ok else 'FAIL'}] 目标盘候选 = {mc.list_target_drives()}")
@@ -83,9 +107,10 @@ def main():
     app.destroy()
 
     fails = [n for n, v in [("rows", ok_rows), ("select", ok_sel),
-                            ("button", ok_btn), ("root", ok_root),
+                            ("button", ok_btn), ("roots", ok_root),
+                            ("custom", ok_eff),
                             ("drives", drive_ok)] if not v]
-    print(f"===== GUI 冒烟：{5 - len(fails)} 通过 / {len(fails)} 失败 =====")
+    print(f"===== GUI 冒烟：{6 - len(fails)} 通过 / {len(fails)} 失败 =====")
     sys.exit(1 if fails else 0)
 
 

@@ -407,7 +407,7 @@ class SafeCleanerApp(ctk.CTk):
                     ctk.CTkLabel(
                         self.scroll_frame,
                         text=text,
-                        font=ctk.CTkFont(family="Microsoft YaHei UI", size=13, weight="bold"),
+                        font=F(UI_FAMILY, 13, "bold"),
                         text_color=color,
                     ).pack(anchor="w", padx=10, pady=pady)
                 else:
@@ -457,7 +457,7 @@ class SafeCleanerApp(ctk.CTk):
                 ctk.CTkLabel(
                     self.scroll_frame,
                     text=f"已隐藏 {self._hidden_zero_count} 个空项目",
-                    font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                    font=F(UI_FAMILY, 12),
                     text_color="#8795A5",
                 ).pack(pady=(6, 14))
         except Exception:
@@ -1243,7 +1243,7 @@ class SafeCleanerApp(ctk.CTk):
         win.resizable(False, False)
         win.grab_set()
 
-        box = ctk.CTkTextbox(win, font=ctk.CTkFont(family="Consolas", size=12))
+        box = ctk.CTkTextbox(win, font=F(MONO_FAMILY, 12))
         box.pack(fill="both", expand=True, padx=14, pady=14)
 
         apps = self.apps_data
@@ -1322,15 +1322,15 @@ class SafeCleanerApp(ctk.CTk):
             pass
 
         ctk.CTkLabel(win, text=" 发现新版本 PPSAI Cleaner",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=19, weight="bold"),
+                     font=F(UI_FAMILY, 19, "bold"),
                      text_color="#8CDEEF").pack(pady=(20, 8))
         ctk.CTkLabel(win,
                      text=f"最新版本: v{update_info.get('latest_version', '')}   "
                           f"(当前版本: v{CURRENT_VERSION})",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=13),
+                     font=F(UI_FAMILY, 13),
                      text_color="#A3AFBD").pack(pady=(0, 10))
 
-        box = ctk.CTkTextbox(win, font=ctk.CTkFont(family="Microsoft YaHei UI", size=12))
+        box = ctk.CTkTextbox(win, font=F(UI_FAMILY, 12))
         box.pack(fill="both", expand=True, padx=20, pady=6)
         notes = update_info.get("release_notes") or "（无更新说明）"
         if isinstance(notes, list):
@@ -1342,7 +1342,7 @@ class SafeCleanerApp(ctk.CTk):
             self.open_url(update_info.get("download_url") or "https://ppsai.chat/safecleaner/")
 
         ctk.CTkButton(win, text="立即下载更新", command=download,
-                      font=ctk.CTkFont(family="Microsoft YaHei UI", size=13, weight="bold"),
+                      font=F(UI_FAMILY, 13, "bold"),
                       fg_color="#295443", hover_color="#3C6D58").pack(pady=10)
         ctk.CTkButton(win, text="稍后再说", command=win.destroy).pack(pady=(0, 12))
 

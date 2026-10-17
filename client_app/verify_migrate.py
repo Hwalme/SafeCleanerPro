@@ -13,6 +13,7 @@
   I. 非 NTFS 目标盘拒绝（monkeypatch volume_fs）
   J. 目标与已迁移条目重叠 → 拒绝且源无损
 """
+import json
 import os
 import shutil
 import sys
@@ -533,6 +534,113 @@ def main():
         finally:
             mc.read_shell_folders = orig_read
             mc.write_shell_folder = orig_write
+
+        # ------------------------------------------------------------------
+        print("== O. 子项自定义目标 + 双根配置 ==")
+        # O1 AI 项单源 + item_target：精确落到该路径，不自动加子文件夹
+        o_src = os.path.join(sandbox, "home", ".custom_tgt_like")
+        os.makedirs(o_src)
+        make_tree(o_src, 5)
+        o_exact = os.path.join(sandbox, "vault4", "我的AI记忆")
+        o_item = {"id": "custom_tgt", "name": "自定义目标项",
+                  "sources_resolved": [o_src]}
+        mc.migrate_item(o_item, os.path.join(sandbox, "vault4"),
+                        item_target=o_exact, log=logs.append,
+                        progress=lambda *a: None)
+        check("O1 精确落位（无 01_ 前缀子目录）",
+              mc.is_junction(o_src) and
+              mc.link_target(o_src) == os.path.normcase(o_exact),
+              str(mc.link_target(o_src)))
+        check("O2 穿透内容一致", len(tree_signature(o_src)) == 6)
+        mc.restore_item(o_item, log=logs.append, progress=lambda *a: None)
+
+        # O3 多源 + item_target：路径内按 <序号_目录名> 分放
+        o_m1 = os.path.join(sandbox, "home", ".multi_a")
+        o_m2 = os.path.join(sandbox, "home", ".multi_b")
+        os.makedirs(o_m1)
+        os.makedirs(o_m2)
+        make_tree(o_m1, 3)
+        make_tree(o_m2, 3)
+        o_multi_root = os.path.join(sandbox, "vault4", "多源目录")
+        mc.migrate_item({"id": "multi", "name": "多源项",
+                         "sources_resolved": [o_m1, o_m2]},
+                        os.path.join(sandbox, "vault4"),
+                        item_target=o_multi_root,
+                        log=logs.append, progress=lambda *a: None)
+        check("O3 多源在自定义路径内分子目录",
+              mc.is_junction(o_m1) and mc.is_junction(o_m2) and
+              mc.link_target(o_m1) == os.path.normcase(
+                  os.path.join(o_multi_root, "00_.multi_a")) and
+              mc.link_target(o_m2) == os.path.normcase(
+                  os.path.join(o_multi_root, "01_.multi_b")),
+              f"{mc.link_target(o_m1)} | {mc.link_target(o_m2)}")
+        mc.restore_item({"id": "multi", "name": "x",
+                         "sources_resolved": [o_m1, o_m2]},
+                        log=logs.append, progress=lambda *a: None)
+
+        # O4 shell 项 target_dir 覆盖：精确路径 + 注册表照常归位
+        fake_reg2 = {}
+        orig_read2, orig_write2 = mc.read_shell_folders, mc.write_shell_folder
+        mc.read_shell_folders = lambda: dict(fake_reg2)
+        reg2_writes = []
+
+        def _fw2(name, path):
+            reg2_writes.append((name, path))
+            fake_reg2[name] = path
+
+        mc.write_shell_folder = _fw2
+        try:
+            fake_home2 = os.path.join(sandbox, "shellhome2")
+            dl = os.path.join(fake_home2, "Downloads")
+            os.makedirs(dl)
+            make_tree(dl, 4)
+            # 模拟他迁（注册表指向别处且有内容）+ 自定义目标：两者叠加
+            f360dl = os.path.join(sandbox, "360move", "Downloads")
+            os.makedirs(f360dl)
+            with open(os.path.join(f360dl, "setup.exe"), "wb") as f:
+                f.write(b"from-360")
+            it_dl = next(x for x in mc.build_shell_items(home=fake_home2)
+                         if x["id"] == "shell_downloads")
+            fake_reg2[it_dl["value_name"]] = f360dl
+            o_dl = os.path.join(sandbox, "vault5", "我的下载仓")
+            mc.unify_shell_item(it_dl, os.path.join(sandbox, "vault5"),
+                                target_dir=o_dl, log=logs.append,
+                                progress=lambda *a: None)
+            check("O4 常规目录精确落位（无「下载」子文件夹）",
+                  mc.is_junction(dl) and
+                  mc.link_target(dl) == os.path.normcase(o_dl),
+                  str(mc.link_target(dl)))
+            check("O5 注册表照常改回 C 盘原路径", reg2_writes == [
+                (it_dl["value_name"], os.path.abspath(dl))])
+            check("O6 穿透统计一致（含他处并入文件）",
+                  len(tree_signature(dl)) == 6 and
+                  os.path.isfile(os.path.join(dl, "setup.exe")))
+        finally:
+            mc.read_shell_folders = orig_read2
+            mc.write_shell_folder = orig_write2
+
+        # O7 双根配置：旧单 root 兼容为 AI 根；增量保存互不覆盖
+        cfgp = os.path.join(sandbox, "cfg", "migrate_target.json")
+        mc._target_config_path = lambda: cfgp
+        os.makedirs(os.path.dirname(cfgp), exist_ok=True)
+        with open(cfgp, "w", encoding="utf-8") as f:
+            json.dump({"root": "E:\\temp\\Agent"}, f)
+        cfg = mc.load_target_config()
+        check("O7 旧 root 兼容为 AI 根",
+              cfg["root_ai"] == "E:\\temp\\Agent" and
+              cfg["root_shell"] == "")
+        mc.save_target_config(root_shell="D:\\C盘迁移\\常规目录")
+        cfg = mc.load_target_config()
+        check("O8 增量保存（AI 根不被冲掉）",
+              cfg["root_ai"] == "E:\\temp\\Agent" and
+              cfg["root_shell"] == "D:\\C盘迁移\\常规目录")
+        mc.save_target_config(custom_targets={"shell_desktop": "X:\\桌面仓"})
+        cfg = mc.load_target_config()
+        check("O9 子项目标持久化",
+              cfg["custom_targets"].get("shell_desktop") == "X:\\桌面仓"
+              and cfg["root_ai"] == "E:\\temp\\Agent")
+        check("O10 load_target_root 兼容旧接口",
+              mc.load_target_root() == "E:\\temp\\Agent")
 
     except Exception:
         traceback.print_exc()

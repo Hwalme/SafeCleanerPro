@@ -819,7 +819,7 @@ def migrate_item(item, target_root, log=None, progress=None, cancel=None,
         if log:
             log(m)
 
-    plans = _plan_targets(item, target_root)
+    plans = _plan_targets(item, target_root, item_target=item_target)
 
     # ---- 1. 预检：状态 ----
     for s in item["sources_resolved"]:

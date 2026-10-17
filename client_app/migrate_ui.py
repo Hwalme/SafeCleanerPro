@@ -27,8 +27,8 @@ import win_icons
 from cleaner_core import format_size
 from ui_theme import style_dark_treeview
 
-from ui_theme import (BG, PANEL, CARD, ACCENT, OK, WARN, ERR, DIM,
-                      UI_FAMILY as FONT, setup_popup)
+from ui_theme import (BG, PANEL, CARD, ACCENT, OK, WARN, ERR, DIM, MUTED,
+                      UI_FAMILY, MONO_FAMILY, F, setup_popup)
 
 # item 运行期状态 ， (显示文本, 颜色)
 _ROW_STATUS = {
@@ -76,6 +76,7 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
         self.items = []            # 常规目录 + AI 记忆 全部迁移项
         self.info = {}             # id -> {files, bytes, status}
         self.checked = set()       # 勾选的 item id
+        self.custom_targets = {}   # item id -> 用户自定义目标路径
         self.working = False       # 扫描或迁移进行中
         self.q = queue.Queue()
         self._cancel = False
@@ -173,7 +174,7 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
         self.prog.set(0)
         self.lbl_status = ctk.CTkLabel(
             self, text="正在统计 C 盘迁移项体积（常规目录 + AI 记忆）…",
-            font=ctk.CTkFont(family=FONT, size=12), text_color=WARN,
+            font=F(UI_FAMILY, 12), text_color=WARN,
             anchor="w")
         self.lbl_status.pack(fill="x", padx=24, pady=(0, 6))
 
@@ -208,6 +209,7 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
         self.tree.tag_configure("partial", foreground="#E7BA7A")
         self.tree.tag_configure("clean", foreground="#F0F4F7")
         self.tree.bind("<ButtonRelease-1>", self._on_click)
+        self.tree.bind("<Button-3>", self._on_right_click)
 
         # 底部操作条
         bar = ctk.CTkFrame(self, fg_color="transparent")
@@ -230,13 +232,13 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
         self.btn_restore.pack(side="left", padx=8)
         ctk.CTkLabel(bar, text="点击「分组行」整组勾选/取消 · 组可折叠 · "
                                "迁移前请关闭对应软件，占用会自动回滚",
-                     font=ctk.CTkFont(family=FONT, size=11),
+                     font=F(UI_FAMILY, 11),
                      text_color=DIM).pack(side="right")
 
         # 日志
         self.txt_log = ctk.CTkTextbox(self, height=112, fg_color=PANEL,
                                       text_color="#A3AFBD",
-                                      font=ctk.CTkFont(family="Consolas", size=12))
+                                      font=F(MONO_FAMILY, 12))
         self.txt_log.pack(fill="x", padx=24, pady=(4, 14))
         self.txt_log.insert("1.0", "› 原理：把桌面/下载/文档与 AI 记忆整体搬到目标盘，"
                                    "原位置建立 NTFS 目录联接，所有程序仍按原路径访问"
@@ -245,18 +247,19 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
                                    "勾选后自动合并（同名文件重命名共存），注册表归位，只留一张桌面。\n"
                                    "› OneDrive 接管的目录不迁移（避免破坏同步）。\n")
         self.txt_log.configure(state="disabled")
-        self.var_root.trace_add("write", lambda *_: self._update_buttons())
-        self.var_drive.trace_add("write", lambda *_: self._update_buttons())
+        for var in (self.var_root_shell, self.var_drive_shell,
+                    self.var_root_ai, self.var_drive_ai):
+            var.trace_add("write", lambda *_: self._update_buttons())
         self._update_buttons()
 
     def _card(self, parent, title, value):
         f = ctk.CTkFrame(parent, fg_color="transparent", corner_radius=0, width=230, height=78)
         f.pack(side="left", fill="x", expand=True, padx=(0, 14))
         f.pack_propagate(False)
-        ctk.CTkLabel(f, text=title, font=ctk.CTkFont(family=FONT, size=11),
+        ctk.CTkLabel(f, text=title, font=F(UI_FAMILY, 11),
                      text_color=DIM).pack(pady=(8, 0))
         lbl = ctk.CTkLabel(f, text=value,
-                           font=ctk.CTkFont(family=FONT, size=26, weight="bold"),
+                           font=F(UI_FAMILY, 26, "bold"),
                            text_color="#F0F4F7")
         lbl.pack()
         return lbl
@@ -483,10 +486,16 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
                             f"（重复：C 盘原位 {c_n} 个 · 他处 {r_n} 个文件）")
                 else:
                     path = f"注册表 → {it['reg_path']}"
+            tgt = self._effective_target(it)
+            if it["id"] in self.custom_targets and tgt:
+                path = f"{path}  ⤵ {tgt}"
         else:
             path = it["sources_resolved"][0]
             if len(it["sources_resolved"]) > 1:
                 path = f"{path}  (+{len(it['sources_resolved']) - 1} 处)"
+            tgt = self._effective_target(it)
+            if it["id"] in self.custom_targets and tgt:
+                path = f"{path}  ⤵ {tgt}"
         return ("已选" if it["id"] in self.checked else
                 ("不可" if status in ("onedrive", "missing", "broken") else "选择"),
                 format_size(stat.get("bytes", 0)),
@@ -619,19 +628,81 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
             for i in self.checked)
         has_mig = any(
             self.info.get(i, {}).get("status") == "migrated" for i in self.checked)
-        self.btn_migrate.configure(state="normal" if has_clean and self._selected_drive() and self._selected_root() else "disabled")
+        self.btn_migrate.configure(
+            state="normal" if has_clean
+            and self._selected_root_shell() and self._selected_root_ai()
+            else "disabled")
         self.btn_restore.configure(state="normal" if has_mig else "disabled")
 
     def _update_cards(self):
         total_b = sum(v.get("bytes", 0) for v in self.info.values()
-                      if v.get("status") == "clean")
+                      if v.get("status") in _MIGRATABLE)
         mig = sum(1 for v in self.info.values() if v.get("status") == "migrated")
         self.card_free.configure(text=format_size(total_b))
         self.card_hits.configure(text=str(len(self.items)))
         self.card_done.configure(text=str(mig))
-        root = self._selected_root()
+        root = self._selected_root_shell() or self._selected_root_ai()
         if root:
             self.card_tfree.configure(text=format_size(mc.get_dir_free_space(root)))
+
+    # ------------------------------------------------------------------
+    # 子项自定义目标
+    # ------------------------------------------------------------------
+    def _effective_target(self, it):
+        """该项迁移的真实落点：自定义路径优先，否则按类别默认根推导。"""
+        custom = self.custom_targets.get(it["id"])
+        if custom:
+            return custom
+        if it.get("kind") == "shell":
+            root = self._selected_root_shell()
+            return os.path.join(root, it["name"]) if root else None
+        root = self._selected_root_ai()
+        if not root:
+            return None
+        if len(it.get("sources_resolved", [])) > 1:
+            return os.path.join(root, it["id"]) + "（内分多个子目录）"
+        return os.path.join(root, it["id"])
+
+    def _set_custom_target(self, iid):
+        it = next((x for x in self.items if x["id"] == iid), None)
+        if not it:
+            return
+        picked = filedialog.askdirectory(
+            parent=self,
+            title=f"「{it['name']}」的迁移目标（将精确使用此文件夹，"
+                  f"不再自动建立子文件夹）")
+        if not picked:
+            return
+        self.custom_targets[iid] = os.path.normpath(picked)
+        mc.save_target_config(custom_targets=self.custom_targets)
+        self._refresh_row(iid)
+        self._log(f"{it['name']} 目标已自定义 → {self.custom_targets[iid]}"
+                  f"（将精确落到该文件夹）")
+
+    def _clear_custom_target(self, iid):
+        it = next((x for x in self.items if x["id"] == iid), None)
+        if not it:
+            return
+        self.custom_targets.pop(iid, None)
+        mc.save_target_config(custom_targets=self.custom_targets)
+        self._refresh_row(iid)
+        self._log(f"{it['name']} 已恢复默认目标位置")
+
+    def _on_right_click(self, event):
+        if self.working:
+            return
+        row = self.tree.identify_row(event.y)
+        if not row or row.startswith("g:") or \
+                row not in {it["id"] for it in self.items}:
+            return
+        menu = tk.Menu(self, tearoff=0)
+        custom = row in self.custom_targets
+        menu.add_command(label="设置此项目标位置…",
+                         command=lambda r=row: self._set_custom_target(r))
+        if custom:
+            menu.add_command(label="恢复默认位置",
+                             command=lambda r=row: self._clear_custom_target(r))
+        menu.tk_popup(event.x_root, event.y_root)
 
     # ------------------------------------------------------------------
     # 迁移
@@ -645,15 +716,19 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
                    and self.info.get(it["id"], {}).get("status") in _MIGRATABLE]
         if not targets or self.working:
             return
-        root = self._selected_root()
-        if not root:
-            self._toast("请先选择目标盘与目标根目录", WARN)
+        root_shell = self._selected_root_shell()
+        root_ai = self._selected_root_ai()
+        if any(it.get("kind") == "shell" for it in targets) and not root_shell:
+            self._toast("请先选择「常规目录」的目标盘与根目录", WARN)
             return
-        mc.save_target_root(root)          # 记住本次目标位置，下次自动带上
+        if any(it.get("kind") != "shell" for it in targets) and not root_ai:
+            self._toast("请先选择「AI 记忆」的目标盘与根目录", WARN)
+            return
+        mc.save_target_config(root_shell=root_shell, root_ai=root_ai)
         total_b = sum(self.info[it["id"]].get("bytes", 0) for it in targets)
-        if not self._confirm_dialog(targets, root, total_b):
+        if not self._confirm_dialog(targets, root_shell, root_ai, total_b):
             return
-        self._run("migrate", targets, root)
+        self._run("migrate", targets, root_shell, root_ai)
 
     def start_restore(self):
         from brand_ui import workspace_available
@@ -672,9 +747,9 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
                 "过程同样自动校验，失败会保持联接不动。继续？",
                 parent=self):
             return
-        self._run("restore", targets, None)
+        self._run("restore", targets, None, None)
 
-    def _run(self, kind, targets, root):
+    def _run(self, kind, targets, root_shell, root_ai):
         self.working = True
         self._cancel = False
         self.btn_migrate.configure(state="disabled")
@@ -685,10 +760,11 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
         verb = " 迁移中" if kind == "migrate" else "迁回中"
         self.lbl_status.configure(text=f"{verb} 0/{len(targets)} 项…", text_color=WARN)
         threading.Thread(target=self._work_thread,
-                         args=(kind, targets, root), daemon=True).start()
+                         args=(kind, targets, root_shell, root_ai),
+                         daemon=True).start()
         self.after(80, self._poll)
 
-    def _work_thread(self, kind, targets, root):
+    def _work_thread(self, kind, targets, root_shell, root_ai):
         total = len(targets)
         done_count = 0
         failed = []          # (名称, 错误, "locked"|"")
@@ -714,11 +790,13 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
 
             try:
                 if kind == "migrate":
+                    custom = self.custom_targets.get(it["id"])
                     self.q.put(("log", f"── 开始迁移：{it['name']} ──"))
                     if it.get("kind") == "shell":
                         res = mc.unify_shell_item(
-                            it, root, sub_name=it["name"],
+                            it, root_shell, sub_name=it["name"],
                             auto_mkdir=self.var_auto.get(),
+                            target_dir=custom,
                             log=log, progress=progress,
                             cancel=lambda: self._cancel)
                         n_ren = len(res.get("renames", []))
@@ -729,8 +807,9 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
                                     f"{format_size(res['bytes'])}"
                                     f"（{res['files']} 个文件）{extra}"))
                     else:
-                        res = mc.migrate_item(it, root, log=log,
+                        res = mc.migrate_item(it, root_ai, log=log,
                                               progress=progress,
+                                              item_target=custom,
                                               cancel=lambda: self._cancel)
                         self.q.put(("log", f" {it['name']} 完成：释放 C 盘 "
                                            f"{format_size(res['bytes'])}"
@@ -898,36 +977,79 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
     # ------------------------------------------------------------------
     # 确认弹窗 / 小工具
     # ------------------------------------------------------------------
-    def _confirm_dialog(self, targets, root, total_b):
+    def _confirm_dialog(self, targets, root_shell, root_ai, total_b):
         lines = []
         for it in targets:
             size = format_size(self.info[it["id"]].get("bytes", 0))
-            if it.get("kind") == "shell":
-                lines.append(f"    {it.get('icon')}  {it['name']}"
-                             f"（{size}）→ {os.path.join(root, it['name'])}")
-            else:
-                lines.append(f"    {it.get('icon')}  {it['name']}  ({size})")
+            mark = "（自定义）" if it["id"] in self.custom_targets else ""
+            tgt = self._effective_target(it)
+            lines.append(f"    {it.get('icon')}  {it['name']}"
+                         f"（{size}）{mark}→ {tgt}")
         names = "\n".join(lines)
         auto_txt = ("将自动建立对应文件夹（桌面、下载、文档…）"
                     if self.var_auto.get()
                     else "未勾选自动建立：目标位置必须已存在对应文件夹")
         dlg = ctk.CTkToplevel(self)
         dlg.title("确认迁移")
-        dlg.geometry("680x560")
+        dlg.geometry("720x580")
         dlg.configure(fg_color=PANEL)
         dlg.attributes("-topmost", True)
         dlg.grab_set()
         box = ctk.CTkFrame(dlg, fg_color="transparent")
         box.pack(fill="both", expand=True, padx=24, pady=20)
         ctk.CTkLabel(box, text=" 确认迁移以下项目？",
-                     font=ctk.CTkFont(family=FONT, size=17, weight="bold"),
+                     font=F(UI_FAMILY, 17, "bold"),
                      text_color=ACCENT).pack(anchor="w")
         txt = ctk.CTkTextbox(box, fg_color=CARD, text_color="#F0F4F7",
-                             font=ctk.CTkFont(family=FONT, size=13))
+                             font=F(UI_FAMILY, 13))
         txt.pack(fill="both", expand=True, pady=12)
         txt.insert("1.0",
-                   f"迁移到：{root}\n"
+                   f"常规目录 →：{root_shell}\n"
+                   f"AI 记忆 →：{root_ai}\n"
                    f"合计：{len(targets)} 项 · 约 {format_size(total_b)}\n"
                    f"{auto_txt}\n\n{names}\n\n"
                    "━━ 迁移过程（全自动，逐项执行）━━\n"
-                   "  1. 复制到目标盘 ， 文件
+                   "  1. 复制到目标盘 ， 文件数/字节数逐项校验\n"
+                   "  2. 原目录改名保留为备份（此步若文件被占用会自动回滚）\n"
+                   "  3. 原位置建立 Junction 联接 ， 穿透校验通过\n"
+                   "  4.  校验全部通过后才删除 C 盘备份，真正释放空间\n\n"
+                   "━━ 无感保证（常规目录）━━\n"
+                   "  • 桌面/下载/文档的入口路径不变，之后放进去的文件\n"
+                   "    自动落到目标盘 —— 永远只有一张桌面，不会出现多桌面\n"
+                   "  • 其他软件迁过造成重复的，两侧内容自动合并，\n"
+                   "    同名文件重命名共存，谁也不覆盖谁\n\n"
+                   "━━ 安全保证 ━━\n"
+                   "  • 校验不通过 / 程序占用 ， 自动回滚，数据无损伤\n"
+                   "  • 随时可用「迁回 C 盘」完整还原\n\n"
+                   " 建议先关闭微信/QQ/编辑器等正在使用这些目录的软件")
+        txt.configure(state="disabled")
+        btns = ctk.CTkFrame(box, fg_color="transparent")
+        btns.pack(fill="x")
+        result = {"go": False}
+
+        def _yes():
+            result["go"] = True
+            dlg.destroy()
+
+        ctk.CTkButton(btns, text=" 开始迁移", width=140, height=34,
+                      fg_color="#294652", hover_color="#395C68",
+                      command=_yes).pack(side="right")
+        ctk.CTkButton(btns, text="取消", width=100, height=34,
+                      fg_color="#1D252E", hover_color="#2A3541",
+                      command=dlg.destroy).pack(side="right", padx=10)
+        dlg.wait_window()
+        return result["go"]
+
+    def _toast(self, text, color):
+        self.lbl_status.configure(text=text, text_color=color)
+
+    def _log(self, line):
+        self.txt_log.configure(state="normal")
+        self.txt_log.insert("end", f"› {line}\n")
+        self.txt_log.see("end")
+        self.txt_log.configure(state="disabled")
+
+    def _on_close(self):
+        self._icon_stop = True
+        self._cancel = True
+        self.destroy()

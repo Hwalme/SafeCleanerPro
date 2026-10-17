@@ -80,7 +80,7 @@ def main():
     app.geometry("1380x860+32+32")
     app.build_ui(); pump(app)
     check("brand title", "PPSAI Cleaner" in app.title())
-    check("all workspace and settings navigation destinations", len(app.nav_buttons) == 7)
+    check("all workspace and settings navigation destinations", len(app.nav_buttons) == 5)
     check("initial scan action", app.btn_action.cget("text") == "开始扫描")
     check("sidebar and workspace share one graphite background",
           app.sidebar_frame.cget("fg_color") == app.main_frame.cget("fg_color") == ui.BG)

@@ -73,7 +73,7 @@ class DeepOptimizeWindow(ctk.CTkToplevel):
         self.prog.pack(fill="x", padx=24, pady=(0, 6))
         self.prog.set(0)
         self.lbl_status = ctk.CTkLabel(self, text="点击「开始扫描」分析 AppData 缓存",
-                                       font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                                       font=F(UI_FAMILY, 12),
                                        text_color=WARN)
         self.lbl_status.pack(anchor="w", padx=24, pady=(0, 6))
 
@@ -116,16 +116,16 @@ class DeepOptimizeWindow(ctk.CTkToplevel):
         self.btn_clean.pack(side="left", padx=8)
         self.btn_clean.configure(state="disabled")
         ctk.CTkLabel(bar, text="大文件：仅  可安全删 能勾选 ·  不建议删 = 程序本体/依赖/模型",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=11),
+                     font=F(UI_FAMILY, 11),
                      text_color=DIM).pack(side="right")
 
     def _card(self, parent, title, value):
         f = ctk.CTkFrame(parent, fg_color="transparent", corner_radius=0, width=230, height=78)
         f.pack(side="left", fill="x", expand=True, padx=(0, 14))
         f.pack_propagate(False)
-        ctk.CTkLabel(f, text=title, font=ctk.CTkFont(family="Microsoft YaHei UI", size=11),
+        ctk.CTkLabel(f, text=title, font=F(UI_FAMILY, 11),
                      text_color=DIM).pack(pady=(8, 0))
-        lbl = ctk.CTkLabel(f, text=value, font=ctk.CTkFont(family="Microsoft YaHei UI", size=26, weight="bold"),
+        lbl = ctk.CTkLabel(f, text=value, font=F(UI_FAMILY, 26, "bold"),
                            text_color="#F0F4F7")
         lbl.pack()
         return lbl
@@ -338,7 +338,7 @@ class DeepOptimizeWindow(ctk.CTkToplevel):
         win.title("明细")
         win.geometry("900x520")
         win.configure(fg_color=BG)
-        box = ctk.CTkTextbox(win, font=ctk.CTkFont(family="Consolas", size=12), fg_color=PANEL)
+        box = ctk.CTkTextbox(win, font=F(MONO_FAMILY, 12), fg_color=PANEL)
         box.pack(fill="both", expand=True, padx=12, pady=12)
         box.insert("1.0", "\n".join(lines))
         box.configure(state="disabled")

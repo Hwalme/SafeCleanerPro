@@ -89,10 +89,10 @@ class DedupWindow(ctk.CTkToplevel):
         left.grid(row=1, column=0, sticky="nsew", padx=(24, 12), pady=(0, 24))
 
         ctk.CTkLabel(left, text="选择比对位置",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=14, weight="bold"),
+                     font=F(UI_FAMILY, 14, "bold"),
                      text_color=ACCENT).pack(anchor="w", padx=14, pady=(12, 0))
         ctk.CTkLabel(left, text="所有位置互相比对（不限同一目录/同一盘），同一内容仅保留一份",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=10),
+                     font=F(UI_FAMILY, 10),
                      text_color=DIM, wraplength=272, justify="left", anchor="nw",
                      height=32).pack(anchor="w", padx=14, pady=(0, 4))
 
@@ -105,16 +105,16 @@ class DedupWindow(ctk.CTkToplevel):
             ctk.CTkButton(
                 self.drive_frame, text=txt, height=32,
                 fg_color="#2A3541", hover_color="#2A3541",
-                font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                font=F(UI_FAMILY, 12),
                 command=lambda l=letter, s=txt: self.add_scope(f"{l}:\\", s),
             ).grid(row=i // 2, column=i % 2, padx=3, pady=3, sticky="ew")
         self.drive_frame.grid_columnconfigure(0, weight=1)
         self.drive_frame.grid_columnconfigure(1, weight=1)
 
         # 位置列表
-        ctk.CTkLabel(left, text="已添加位置（双击移除）", font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+        ctk.CTkLabel(left, text="已添加位置（双击移除）", font=F(UI_FAMILY, 12),
                      text_color=DIM).pack(anchor="w", padx=14, pady=(8, 2))
-        self.scope_box = ctk.CTkTextbox(left, height=90, font=ctk.CTkFont(family="Microsoft YaHei UI", size=12))
+        self.scope_box = ctk.CTkTextbox(left, height=90, font=F(UI_FAMILY, 12))
         self.scope_box.pack(fill="x", padx=14)
         self.scope_box.insert("1.0", "（尚未添加位置，点上方盘符或下方按钮）")
         self.scope_box.configure(state="disabled")
@@ -128,15 +128,15 @@ class DedupWindow(ctk.CTkToplevel):
         self.var_sysdrive = ctk.BooleanVar(value=False)
         self.var_excl_sysdir = ctk.BooleanVar(value=True)
         ctk.CTkCheckBox(left, text="增量模式（跳过没变过的文件）", variable=self.var_increment,
-                        font=ctk.CTkFont(family="Microsoft YaHei UI", size=12)).pack(anchor="w", padx=14, pady=(10, 0))
+                        font=F(UI_FAMILY, 12)).pack(anchor="w", padx=14, pady=(10, 0))
         ctk.CTkCheckBox(left, text="扫描系统盘（默认排除C盘）", variable=self.var_sysdrive,
-                        font=ctk.CTkFont(family="Microsoft YaHei UI", size=12)).pack(anchor="w", padx=14, pady=(4, 0))
+                        font=F(UI_FAMILY, 12)).pack(anchor="w", padx=14, pady=(4, 0))
         ctk.CTkCheckBox(left, text="排除系统目录/系统文件", variable=self.var_excl_sysdir,
-                        font=ctk.CTkFont(family="Microsoft YaHei UI", size=12)).pack(anchor="w", padx=14, pady=(4, 0))
+                        font=F(UI_FAMILY, 12)).pack(anchor="w", padx=14, pady=(4, 0))
 
         # 开始
         self.btn_start = ctk.CTkButton(left, text=" 开始查重", height=38,
-                                       font=ctk.CTkFont(family="Microsoft YaHei UI", size=14, weight="bold"),
+                                       font=F(UI_FAMILY, 14, "bold"),
                                        fg_color=ACCENT, hover_color="#B1ECF7", text_color="#101419",
                                        command=self.start_scan)
         self.btn_start.pack(fill="x", padx=14, pady=(12, 4))
@@ -152,19 +152,19 @@ class DedupWindow(ctk.CTkToplevel):
         self.progress.set(0)
         self.progress.pack(fill="x", padx=14)
         # wraplength=272 折行 + 固定两行高：状态文本可任意长而不撑宽/抖高左列
-        self.lbl_status = ctk.CTkLabel(left, text="就绪", font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+        self.lbl_status = ctk.CTkLabel(left, text="就绪", font=F(UI_FAMILY, 12),
                                        text_color=DIM, anchor="nw", justify="left",
                                        wraplength=272, height=34)
         self.lbl_status.pack(fill="x", padx=14, pady=(2, 4))
 
         # 历史
-        ctk.CTkLabel(left, text="扫描历史", font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+        ctk.CTkLabel(left, text="扫描历史", font=F(UI_FAMILY, 12),
                      text_color=DIM).pack(anchor="w", padx=14, pady=(6, 2))
         self.hist_combo = ctk.CTkComboBox(left, values=self._history_labels(),
                                           command=self.load_history)
         self.hist_combo.pack(fill="x", padx=14)
 
-        self.log_box = ctk.CTkTextbox(left, height=140, font=ctk.CTkFont(family="Microsoft YaHei UI", size=11))
+        self.log_box = ctk.CTkTextbox(left, height=140, font=F(UI_FAMILY, 11))
         self.log_box.pack(fill="both", expand=True, padx=14, pady=(8, 12))
         self.log_box.insert("end", "PPSAI Cleaner 查重引擎就绪。\n")
         self.log_box.configure(state="disabled")
@@ -180,7 +180,7 @@ class DedupWindow(ctk.CTkToplevel):
         cards.grid(row=0, column=0, sticky="ew", pady=(0, 6))
         # wraplength=860 折行 + 固定两行高：统计文本不撑宽右列
         self.lbl_stat = ctk.CTkLabel(cards, text="尚未扫描 · 载入上次结果或开始新扫描",
-                                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=13), text_color=DIM,
+                                     font=F(UI_FAMILY, 13), text_color=DIM,
                                      anchor="nw", justify="left", wraplength=860, height=36)
         self.lbl_stat.pack(anchor="w", fill="x")
 
@@ -199,24 +199,24 @@ class DedupWindow(ctk.CTkToplevel):
                                         command=self.delete_selected)
         self.btn_delete.pack(side="left", padx=6)
         ctk.CTkLabel(bar, text="红行=冗余副本 · 每组保留 1 份",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=11), text_color=DIM).pack(side="right")
+                     font=F(UI_FAMILY, 11), text_color=DIM).pack(side="right")
 
         # 筛选条：类型 / 大小 / 日期（只过滤视图，扫描中和扫描后均可随时切换）
         self.filter = {"cat": "全部类型", "size": 0, "date": None}
         fbar = ctk.CTkFrame(right, fg_color="transparent")
         fbar.grid(row=2, column=0, sticky="ew", pady=(0, 6))
-        ctk.CTkLabel(fbar, text="筛选:", font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+        ctk.CTkLabel(fbar, text="筛选:", font=F(UI_FAMILY, 12),
                      text_color=DIM).pack(side="left", padx=(0, 4))
         self.om_cat = ctk.CTkOptionMenu(fbar, values=CAT_FILTERS, width=86, height=32,
-                                        font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                                        font=F(UI_FAMILY, 12),
                                         command=lambda v: self._set_filter("cat", v))
         self.om_cat.pack(side="left", padx=3)
         self.om_size = ctk.CTkOptionMenu(fbar, values=list(SIZE_FILTERS.keys()), width=96, height=32,
-                                         font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                                         font=F(UI_FAMILY, 12),
                                          command=lambda v: self._set_filter("size", v))
         self.om_size.pack(side="left", padx=3)
         self.om_date = ctk.CTkOptionMenu(fbar, values=list(DATE_FILTERS.keys()), width=140, height=32,
-                                         font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                                         font=F(UI_FAMILY, 12),
                                          command=lambda v: self._set_filter("date", v))
         self.om_date.pack(side="left", padx=3)
         ctk.CTkButton(fbar, text=" 清除筛选", width=78, height=32, fg_color="#1D252E",
@@ -225,11 +225,11 @@ class DedupWindow(ctk.CTkToplevel):
         self.show_all = False
         self.chk_showall = ctk.CTkCheckBox(fbar, text="显示所有项", width=96, height=32,
                                            checkbox_width=16, checkbox_height=16,
-                                           font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
+                                           font=F(UI_FAMILY, 12),
                                            command=self._toggle_showall)
         self.chk_showall.pack(side="left", padx=6)
         self.lbl_fcount = ctk.CTkLabel(fbar, text="显示 0/0 行",
-                                       font=ctk.CTkFont(family="Microsoft YaHei UI", size=11),
+                                       font=F(UI_FAMILY, 11),
                                        text_color=DIM)
         self.lbl_fcount.pack(side="right")
 
