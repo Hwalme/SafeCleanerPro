@@ -844,4 +844,10 @@ def to_apps():
             "risk_level": "risk" if manual else "safe",
             "risk_desc": r.get("desc", "只清理可再生缓存，不影响账号与数据。"),
         })
+    # 360 痕迹规则库（Directory/File 类，默认不勾选，确认后清理）
+    try:
+        import trace_rules_360
+        apps += trace_rules_360.build_trace_apps()
+    except Exception:
+        pass
     return apps
