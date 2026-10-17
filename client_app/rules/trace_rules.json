@@ -1,0 +1,6408 @@
+[
+ {
+  "id": "Trace000010",
+  "category": "11",
+  "app": "FireFox 缓存清理",
+  "processes": "firefox.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile2%\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile3%\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFireFoxHistory",
+  "category": "11",
+  "app": "FireFox 历史清理",
+  "processes": "firefox.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%\\places.sqlite",
+    "options": "(Table=moz_historyvisits)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%\\places.sqlite",
+    "options": "(Table=moz_places)(condition=\"where id not in (select fk from moz_bookmarks where not fk isnull)\")"
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%",
+    "options": "(files=2history url;downloads.rdf;history.dat;sessionstore.js;downloads.sqlite)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000011",
+  "category": "11",
+  "app": "FireFox 自动保存的表单和搜索历史",
+  "processes": "firefox.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%",
+    "options": "(files=formhistory.dat;formhistory.sqlite)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000012",
+  "category": "11",
+  "app": "FireFox 自动保存的密码",
+  "processes": "firefox.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%\\signons.sqlite",
+    "options": "(Table=moz_logins)(ScanFolder=1)"
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%",
+    "options": "(files=signons2.txt)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFirefoxCookie",
+  "category": "11",
+  "app": "FireFox Cookie",
+  "processes": "firefox.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%",
+    "options": "(files=cookies.txt;cookies.sqlite)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000013",
+  "category": "12",
+  "app": "Chrome 缓存文件清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000013Chrome",
+  "category": "12",
+  "app": "Chrome 历史清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\History",
+    "options": "(Table=visits)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\History",
+    "options": "(Table=keyword_search_terms)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\History",
+    "options": "(Table=downloads)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000014",
+  "category": "12",
+  "app": "Chrome 自动保存的表单",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000015",
+  "category": "12",
+  "app": "Chrome 自动保存的密码",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Web Data",
+    "options": "(Table=logins)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Login Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000016",
+  "category": "13",
+  "app": "谷歌工具栏搜索记录",
+  "processes": "iexplore.exe;FireFox.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Google\\Local Search History\\google%2Eweb.w",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Google\\Local Search History\\google.web.w",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%\\GoogleToolbarData\\searchhistory.xml",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceChromeCookie",
+  "category": "12",
+  "app": "Chrome Cookie",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\User Data\\Default\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromiumCache",
+  "category": "12",
+  "app": "Chromium 缓存文件清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromiumHistory",
+  "category": "12",
+  "app": "Chromium 历史清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=segments)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=segment_usages)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=visits)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=keyword_search_terms)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=downloads)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=segment_usage)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\History",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromiumForm",
+  "category": "12",
+  "app": "Chromium 自动保存的表单",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Web Data",
+    "options": "(Table=autofill_dates)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromiumPassword",
+  "category": "12",
+  "app": "Chromium 自动保存的密码",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Web Data",
+    "options": "(Table=logins)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Login Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromiumCookie",
+  "category": "12",
+  "app": "Chromium Cookie",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Chromium\\User Data\\*\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromeCanaryCache",
+  "category": "12",
+  "app": "Chrome Canary 缓存文件清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromeCanaryHistory",
+  "category": "12",
+  "app": "Chrome Canary 历史清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=segments)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=segment_usages)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=visits)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=keyword_search_terms)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=downloads)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=segment_usage)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\History",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromeCanaryForm",
+  "category": "12",
+  "app": "Chrome Canary 自动保存的表单",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Web Data",
+    "options": "(Table=autofill_dates)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromeCanaryPassword",
+  "category": "12",
+  "app": "Chrome Canary 自动保存的密码",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Web Data",
+    "options": "(Table=logins)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Login Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceChromeCanaryCookie",
+  "category": "12",
+  "app": "Chrome Canary Cookie",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome SxS\\User Data\\*\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "TraceComodoDragonCache",
+  "category": "12",
+  "app": "Comodo 龙安全浏览器缓存文件清理",
+  "processes": "dragon.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceComodoDragonHistory",
+  "category": "12",
+  "app": "Comodo 龙安全浏览器历史清理",
+  "processes": "dragon.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=segments)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=segment_usages)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=visits)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=keyword_search_terms)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=downloads)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=segment_usage)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\History",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "TraceComodoDragonForm",
+  "category": "12",
+  "app": "Comodo 龙安全浏览器自动保存的表单",
+  "processes": "dragon.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Web Data",
+    "options": "(Table=autofill_dates)"
+   }
+  ]
+ },
+ {
+  "id": "TraceComodoDragonPassword",
+  "category": "12",
+  "app": "Comodo 龙安全浏览器自动保存的密码",
+  "processes": "dragon.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Web Data",
+    "options": "(Table=logins)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Login Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceComodoDragonCookie",
+  "category": "12",
+  "app": "Comodo 龙安全浏览器Cookie",
+  "processes": "dragon.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\COMODO\\Dragon\\User Data\\*\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000071",
+  "category": "13",
+  "app": "360极速浏览器缓存",
+  "processes": "360chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360Chrome",
+  "category": "13",
+  "app": "360极速浏览器历史",
+  "processes": "360chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360ChromeFormData",
+  "category": "13",
+  "app": "360极速浏览器表单和密码",
+  "processes": "360chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_profiles)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360ChromeCookie",
+  "category": "13",
+  "app": "360极速浏览器Cookie",
+  "processes": "360chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360se6Cache",
+  "category": "13",
+  "app": "360安全浏览器缓存",
+  "processes": "360se.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\CacheIE",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360se6History",
+  "category": "13",
+  "app": "360安全浏览器历史",
+  "processes": "360se.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\360se\\*\\data\\",
+    "options": "(files=history.dat)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\360se\\data\\history.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\360se\\data\\user.dat",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360se6FormData",
+  "category": "13",
+  "app": "360安全浏览器表单和密码",
+  "processes": "360se.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_profiles)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Web Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360se6Cookie",
+  "category": "13",
+  "app": "360安全浏览器Cookie",
+  "processes": "360se.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000040",
+  "category": "13",
+  "app": "Maxthon浏览器历史",
+  "processes": "maxthon.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%DataFile1%\\Config\\Dynamic.ini",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%DataFile2%\\*\\Data\\LastSession.ini",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%DataFile2%\\*\\Data\\Session.ini",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%DataFile2%\\*\\Data\\Dynamic.ini",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%DataFile2%\\*\\Data\\history2.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Maxthon3\\Users\\*\\History",
+    "options": "(files=History.dat;lasttab.dat;mxundo.dat)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%AppData%\\Maxthon3\\Users\\*\\Config\\config.ini",
+    "options": "(SectionList=LastTabs)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000075",
+  "category": "13",
+  "app": "Maxthon地址栏历史记录",
+  "processes": "maxthon.exe",
+  "items": [
+   {
+    "type": "INISection",
+    "target": "%DataFile1%\\*\\Config\\Config.ini",
+    "options": "(SectionList=TypedUrls)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Maxthon3\\Users\\*\\SmartUrl\\SmartUrl.dat",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceMaxthonCookie",
+  "category": "13",
+  "app": "Maxthon浏览器Cookie",
+  "processes": "maxthon.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%AppData%\\Maxthon3\\Users\\*\\Cookie\\Cookie.dat",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000038",
+  "category": "13",
+  "app": "MyIE2",
+  "processes": "myie.exe",
+  "items": [
+   {
+    "type": "IniKey",
+    "target": "%DataFile1%\\Config\\myie.ini",
+    "options": "(Section=UndoUrl)(RegExpr=\"(?i)(Title|url)[\\d]+\")"
+   },
+   {
+    "type": "IniKey",
+    "target": "%Local_AppData%\\VirtualStore\\Program Files\\MYIE2\\Config\\myie.ini",
+    "options": "(Section=UndoUrl)(RegExpr=\"(?i)(Title|url)[\\d]+\")"
+   }
+  ]
+ },
+ {
+  "id": "Trace000069",
+  "category": "13",
+  "app": "腾讯TT浏览器历史记录",
+  "processes": "TTraveler.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\TencentTraveler\\100\\navinfo.db",
+    "options": "(Table=histable)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\TencentTraveler\\100\\navinfo.db",
+    "options": "(Table=urltable)(condition=\"where iIndex not in (select iUrlIndex from favtable)\")"
+   },
+   {
+    "type": "IniSection",
+    "target": "%AppData%\\Tencent\\TencentTraveler\\100\\TtConf.dat",
+    "options": "(SectionList=strNameSpace_Mbrowser;SEARCHHISTORY;MAXVISITURLS;MAXVISITHOSTS;LASTOPENURL;CUROPENURL)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Tencent\\TencentTraveler\\100",
+    "options": "(files=NewMostVisitInfo.ini;TtConf.dat.bak)"
+   }
+  ]
+ },
+ {
+  "id": "TraceQQBrowser",
+  "category": "13",
+  "app": "腾讯QQ浏览器历史记录",
+  "processes": "QQBrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Tencent\\QQBrowser\\thumb",
+    "options": "(IncludeSubFolder=1)(exclude=thumbs.db)(FilterWhiteList=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\0\\recent_closed_tab.db",
+    "options": "(Table=recent_closed_tab)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\0\\history.db",
+    "options": "(Table=history)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\0\\{ED81EB6C-3DC4-4322-96F1-1B8716C404C4}.db",
+    "options": "(Table=top_most)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\0\\{ED81EB6C-3DC4-4322-96F1-1B8716C404C4}.db",
+    "options": "(Table=urls)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\DB\\history.db",
+    "options": "(Table=history)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\DB\\history.db",
+    "options": "(Table=history)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Tencent\\QQBrowser\\repeal.xml",
+    "options": ""
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Tencent\\QQBrowser\\User Data\\Default\\history",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "TraceQQBrowserCookie",
+  "category": "13",
+  "app": "腾讯QQ浏览器Cookie",
+  "processes": "QQBrowser.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\0\\cookie.db",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Tencent\\QQBrowser\\webkit_cache\\*\\",
+    "options": "(files=cookies)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Tencent\\QQBrowser\\User Data\\Default\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "TraceQQBrowserFormData",
+  "category": "13",
+  "app": "腾讯QQ浏览器自动保存的表单和密码",
+  "processes": "QQBrowser.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\Tencent\\QQBrowser\\user_data\\0\\{75A78384-8765-4852-ABB7-8D5FA8BF48E2}.db",
+    "options": "(Table=autoFillList)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000080",
+  "category": "13",
+  "app": "世界之窗浏览器(TheWorld)历史",
+  "processes": "TheWorld.exe;TheWorld6.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\data",
+    "options": "(files=history.dat;user.dat)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\TheWorld\\data",
+    "options": "(files=history.dat;user.dat)"
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\TheWorld 3\\data",
+    "options": "(files=history.dat;user.dat)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000081",
+  "category": "13",
+  "app": "世界之窗极速浏览器(TheWorld Chrome)缓存",
+  "processes": "twchrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldChrome",
+  "category": "13",
+  "app": "世界之窗极速浏览器(TheWorld Chrome)历史",
+  "processes": "twchrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldChromeForm",
+  "category": "13",
+  "app": "世界之窗极速浏览器(TheWorld Chrome)表单",
+  "processes": "twchrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Web Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldChromePassword",
+  "category": "13",
+  "app": "世界之窗极速浏览器(TheWorld Chrome)密码",
+  "processes": "twchrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldChromeCookie",
+  "category": "13",
+  "app": "世界之窗极速浏览器(TheWorld Chrome)Cookie",
+  "processes": "twchrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldCache",
+  "category": "13",
+  "app": "世界之窗浏览器缓存",
+  "processes": "TheWorld6.exe;TheWorld.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldHistory",
+  "category": "13",
+  "app": "世界之窗浏览器历史",
+  "processes": "TheWorld6.exe;TheWorld.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldForm",
+  "category": "13",
+  "app": "世界之窗浏览器表单",
+  "processes": "TheWorld6.exe;TheWorld.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default",
+    "options": "(include=Web Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldPassword",
+  "category": "13",
+  "app": "世界之窗浏览器密码",
+  "processes": "TheWorld6.exe;TheWorld.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceTheWorldCookie",
+  "category": "13",
+  "app": "世界之窗浏览器cookie",
+  "processes": "TheWorld6.exe;TheWorld.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\TheWorld6\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSunChromeCache",
+  "category": "13",
+  "app": "太阳花浏览器缓存",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSunChromeHistory",
+  "category": "13",
+  "app": "太阳花浏览器历史",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSunChromeForm",
+  "category": "13",
+  "app": "太阳花浏览器表单",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%",
+    "options": "(include=Web Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default",
+    "options": "(include=Web Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSunChromePassword",
+  "category": "13",
+  "app": "太阳花浏览器密码",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSunChromeCookie",
+  "category": "13",
+  "app": "太阳花浏览器Cookie",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMapleSChromeCache",
+  "category": "13",
+  "app": "枫树浏览器缓存",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMapleChromeHistory",
+  "category": "13",
+  "app": "枫树浏览器历史",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMapleChromeForm",
+  "category": "13",
+  "app": "枫树浏览器表单",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Web Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMapleChromePassword",
+  "category": "13",
+  "app": "枫树浏览器密码",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMapleChromeCookie",
+  "category": "13",
+  "app": "枫树浏览器Cookie",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\..\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLiebaoCache",
+  "category": "13",
+  "app": "猎豹浏览器缓存",
+  "processes": "liebao.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\CacheIE",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\iecache\\Content.IE5",
+    "options": "(exclude=index.dat;desktop.ini)(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLiebaoHistory",
+  "category": "13",
+  "app": "猎豹浏览器历史",
+  "processes": "liebao.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\",
+    "options": "(include=History Index*;History;Thumbnails;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Archived History*;Last Session;Shortcuts*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLiebaoForm",
+  "category": "13",
+  "app": "猎豹浏览器表单",
+  "processes": "liebao.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\",
+    "options": "(include=Web Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLiebaoPassword",
+  "category": "13",
+  "app": "猎豹浏览器密码",
+  "processes": "liebao.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLiebaoCookie",
+  "category": "13",
+  "app": "猎豹浏览器Cookie",
+  "processes": "liebao.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\",
+    "options": "(include=Cookies*;SafeBox*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\iecache\\cookies",
+    "options": "(exclude=index.dat;desktop.ini)(DeleteSubFolder=1)(IncludeSubFolder=0)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\liebao\\User Data\\*\\Local Storage",
+    "options": "(IncludeSubFolder=0)(FilterWhiteList=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceAlibrowserCache",
+  "category": "12",
+  "app": "阿云浏览器缓存清理",
+  "processes": "Alibrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\Profiles\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\WebKit\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\WebKit\\database_cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\WebKit\\file_cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\WebKit\\media_cahe",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceAlibrowserHistory",
+  "category": "12",
+  "app": "阿云浏览器历史清理",
+  "processes": "Alibrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\Profiles",
+    "options": "(include=History.aef;HistoryBackup.aef;CurrentStates.aef;RecentClosed Url.aef;Ropen Url.aef;*.tmp)(IncludeSubFolder=0)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceAlibrowserFormPassWord",
+  "category": "12",
+  "app": "阿云浏览器自动保存的表单和密码",
+  "processes": "Alibrowser.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\Profiles\\LoginData.aef",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\Profiles\\WebData.aef",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceAlibrowserCookie",
+  "category": "12",
+  "app": "阿云浏览器 Cookie",
+  "processes": "Alibrowser.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\Profiles\\Cookies.aef",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\WebKit\\Cookies",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Alibaba Cloud Computing\\AliBrowser\\Profiles\\Cookies",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceBaidubrowserCache",
+  "category": "12",
+  "app": "百度浏览器缓存清理",
+  "processes": "baidubrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\browser\\DiskCache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceBaidubrowserHistory",
+  "category": "12",
+  "app": "百度浏览器历史清理",
+  "processes": "baidubrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\browser\\UserData\\*\\",
+    "options": "(include=history.db;TopSites.db;VisitedLinks.db;Visited_Link)(IncludeSubFolder=0)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceBaidubrowserFormData",
+  "category": "12",
+  "app": "百度浏览器自动保存的表单、密码和Cookie",
+  "processes": "baidubrowser.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Baidu\\browser\\UserData\\*\\AutoFill.db",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Baidu\\browser\\UserData\\*\\cookie.db",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Baidu\\browser\\UserData\\*\\AutoFill_v2",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Baidu\\browser\\UserData\\*\\AutoLogin_v2",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\browser\\Cookie",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Baidu\\browser\\SysData\\cookie.db",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\browser\\SysData\\LocalStorage",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceTTFormData",
+  "category": "13",
+  "app": "腾讯TT浏览器自动填表记录",
+  "processes": "TTraveler.exe",
+  "items": [
+   {
+    "type": "IniSection",
+    "target": "%AppData%\\Tencent\\TencentTraveler\\100\\TtConf.dat",
+    "options": "(SectionList=FORMDATA)"
+   }
+  ]
+ },
+ {
+  "id": "TraceOperaSession",
+  "category": "13",
+  "app": "Opera 会话",
+  "processes": "Opera.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Opera\\Opera\\sessions",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Opera Software\\Opera Stable",
+    "options": "(include=session.*)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceOperaPassword",
+  "category": "13",
+  "app": "Opera 自动保存的密码",
+  "processes": "Opera.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Opera\\Opera\\wand.dat",
+    "options": ""
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\Opera Software\\Opera Stable\\Web Data",
+    "options": "(Table=logins)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\Opera Software\\Opera Stable\\Login Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceOperaCookie",
+  "category": "13",
+  "app": "Opera Cookie",
+  "processes": "Opera.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Opera\\Opera",
+    "options": "(include=cookies*.dat)(IncludeSubFolder=0)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Opera Software\\Opera Stable",
+    "options": "(include=Cookies*)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceOperaDial",
+  "category": "13",
+  "app": "Opera 快速拨号",
+  "processes": "Opera.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Opera\\Opera\\speeddial.ini",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Opera Software\\Opera Stable",
+    "options": "(include=favorites.*)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000019",
+  "category": "13",
+  "app": "Live 工具条搜索记录",
+  "processes": "iexplore.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Search Enhancement Pack\\Search Box Extension\\history.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA_LOW%\\Microsoft\\Search Enhancement Pack\\Search Box Extension\\history.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Search Enhancement Pack\\Search Box Extension\\searchhs.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA_LOW%\\Microsoft\\Search Enhancement Pack\\Search Box Extension\\searchhs.dat",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\MSN Apps\\SearchBox",
+    "options": "(ValueList=History)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\MSN Apps\\MSN Toolbar",
+    "options": "(ValueList=SearchStrings)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\InternetRegistry\\REGISTRY\\USER\\%SID%\\Software\\Microsoft\\MSN Apps\\MSN Toolbar",
+    "options": "(ValueList=SearchStrings)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000018",
+  "category": "13",
+  "app": "百度工具条搜索记录",
+  "processes": "iexplore.exe;FireFox.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\AppDataLow\\Software\\baidu\\BaiduToolbar\\History",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\AppDataLow\\Software\\baidu\\BaiduToolbar\\navhistory",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\baidu\\BaiduToolbar\\History",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\baidu\\BaiduToolbar\\navhistory",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\AppDataLow\\Software\\baidu\\BaiduBar\\History",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\AppDataLow\\Software\\baidu\\BaiduBar\\navhistory",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\baidu\\BaiduBar\\History",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\baidu\\BaiduBar\\navhistory",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "TextFile",
+    "target": "%APPDATA%\\Mozilla\\Firefox\\%DataFile1%\\prefs.js",
+    "options": "(RegxKey=baidu.stored_historybaidusearch)"
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Baidu\\Toolbar",
+    "options": "(files=iexp.dat;logex.dat)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000017",
+  "category": "13",
+  "app": "QQ工具条搜索记录",
+  "processes": "iexplore.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\AppDataLow\\Tencent\\QQToolbar\\History",
+    "options": "(RegExpr=\"(?i)History[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\AppDataLow\\Tencent\\QQToolbar\\History",
+    "options": "(ValueList=Count)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Tencent\\QQToolbar\\History",
+    "options": "(RegExpr=\"(?i)History[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Tencent\\QQToolbar\\History",
+    "options": "(ValueList=Count)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Tencent\\QQToolbar",
+    "options": "(ValueList=Data)"
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\TENCENT\\QQToolbar\\visitHistory\\visitHistory.ini",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\TENCENT\\QQToolbar\\PaneImg",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Tencent\\QQToolbar\\History",
+    "options": "(ValueList=Width;Height)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSafariCache",
+  "category": "12",
+  "app": "Safari浏览器缓存",
+  "processes": "Safari.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Apple Computer\\Safari\\Cache.db",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceSafariHistory",
+  "category": "12",
+  "app": "Safari浏览器历史",
+  "processes": "Safari.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Safari\\History.plist",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Safari\\LastSession.plist",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Safari\\Downloads.plist",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Apple Computer\\Safari\\History",
+    "options": "(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Apple Computer\\Safari\\Webpage Previews",
+    "options": "(FilterWhiteList=0)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Apple Computer\\Safari\\Webpage Previews\\*\\RECURSE",
+    "options": "(FilterWhiteList=0)"
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Preferences\\com.apple.Safari.plist",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceSafariCookies",
+  "category": "12",
+  "app": "Safari浏览器Cookie",
+  "processes": "Safari.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Apple Computer\\Safari\\Cookies",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Apple Computer\\Safari\\LocalStorage",
+    "options": "(include=*.localstorage)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSafariForm",
+  "category": "12",
+  "app": "Safari浏览器表单和密码",
+  "processes": "Safari.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Safari\\FormValues.plist",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Safari\\Form Values.plist",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\Apple Computer\\Preferences\\keychain.plist",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceWindowsConsole",
+  "category": "3",
+  "app": "Windows 控制台历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Microsoft Management Console\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000057",
+  "category": "3",
+  "app": "运行(开始菜单中，重启后生效)",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RunMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000058",
+  "category": "3",
+  "app": "最近运行的程序历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ComDlg32\\LastVisitedPidlMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ComDlg32\\LastVisitedPidlMRULegacy",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ComDlg32\\LastVisitedMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000059",
+  "category": "3",
+  "app": "文件打开与保存历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ComDlg32\\OpenSavePidlMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ComDlg32\\OpenSaveMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000060",
+  "category": "3",
+  "app": "窗口位置与大小历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StreamMRU",
+    "options": "(ShowSubValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000061",
+  "category": "3",
+  "app": "查找计算机",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Search Assistant\\ACMru\\5647",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FindComputerMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000062",
+  "category": "3",
+  "app": "最近打开的文件",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RecentDocs",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\TypedPaths",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%PROFILE%\\Recent",
+    "options": "(include=*.lnk)"
+   },
+   {
+    "type": "Directory",
+    "target": "%RECENT%",
+    "options": "(include=*.lnk)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000035",
+  "category": "3",
+  "app": "Windows 7 跳转列表（用户锁定项目也会被删除，请慎用）",
+  "processes": "",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Microsoft\\Windows\\Recent\\AutomaticDestinations",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Microsoft\\Windows\\Recent\\CustomDestinations",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000064",
+  "category": "3",
+  "app": "通知区域图标历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\TrayNotify",
+    "options": "(ValueList=IconStreams;PastIconsStream;PromotedIconCache)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\TrayNotify",
+    "options": "(ValueList=IconStreams;PastIconsStream;PromotedIconCache)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CLASSES_ROOT\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\TrayNotify",
+    "options": "(ValueList=IconStreams;PastIconsStream;PromotedIconCache)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000066",
+  "category": "3",
+  "app": "Windows搜索历史",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Search Assistant\\ACMru\\5604",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Search Assistant\\ACMru\\5603",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\WordWheelQuery",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000068",
+  "category": "3",
+  "app": "网络驱动器映射历史",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Map Network Drive MRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace00005",
+  "category": "59",
+  "app": "SnagIt Editor",
+  "processes": "snagit32.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\1\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\2\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\3\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\4\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\5\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\6\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\7\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\8\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\9\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\1\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\2\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\3\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\4\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\5\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\6\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\7\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\8\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\9\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\TechSmith\\Snagit\\Tray.bin",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\10\\SnagItEditor\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\TechSmith\\SnagIt\\10\\Catalog\\Recent Editor Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace00006",
+  "category": "59",
+  "app": "EditPlus 文本编辑器",
+  "processes": "editplus.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\ES-Computing\\EditPlus 2\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\ES-Computing\\EditPlus 2\\Recent Dir List",
+    "options": "(RegExpr=\"(?i)Dir[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\ES-Computing\\EditPlus 3\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\ES-Computing\\EditPlus 3\\Recent Dir List",
+    "options": "(RegExpr=\"(?i)Dir[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\combobox.ini",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\combobox_u.ini",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000020",
+  "category": "41",
+  "app": "Windows 画图",
+  "processes": "mspaint.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Paint\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000021",
+  "category": "41",
+  "app": "Windows 写字板",
+  "processes": "wordpad.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Wordpad\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000022",
+  "category": "41",
+  "app": "Windows Defender",
+  "processes": "",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\Microsoft\\Windows Defender\\Scans\\History\\Results\\Resource",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000023",
+  "category": "59",
+  "app": "UltraEdit 文本编辑软件",
+  "processes": "uedit32.exe",
+  "items": [
+   {
+    "type": "INIKey",
+    "target": "%InstallPath%\\Uedit32.ini",
+    "options": "(Section=Recent File List)(RegExpr=\"(?i)File[\\d]+\")"
+   },
+   {
+    "type": "INIKey",
+    "target": "%InstallPath%\\Uedit32.ini",
+    "options": "(Section=Settings)(KeyList=Last File)"
+   },
+   {
+    "type": "INISection",
+    "target": "%InstallPath%\\Uedit32.ini",
+    "options": "(SectionList=Find/Replace)"
+   },
+   {
+    "type": "INISection",
+    "target": "%InstallPath%\\Uedit32.ini",
+    "options": "(SectionList=Find in File History;Find History;Replace History;Open Files;LCI)"
+   },
+   {
+    "type": "INIKey",
+    "target": "%AppData%\\IDMComp\\UltraEdit\\Uedit32.ini",
+    "options": "(Section=Recent File List)(RegExpr=\"(?i)File[\\d]+\")"
+   },
+   {
+    "type": "INIKey",
+    "target": "%AppData%\\IDMComp\\UltraEdit\\Uedit32.ini",
+    "options": "(Section=Settings)(KeyList=Last File;Last Active Document;Last Project Dir)"
+   },
+   {
+    "type": "INISection",
+    "target": "%AppData%\\IDMComp\\UltraEdit\\Uedit32.ini",
+    "options": "(SectionList=Find/Replace)"
+   },
+   {
+    "type": "INISection",
+    "target": "%AppData%\\IDMComp\\UltraEdit\\Uedit32.ini",
+    "options": "(SectionList=Find in File History;Find History;Replace History;Open Files;LCI)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000024",
+  "category": "41",
+  "app": "Windows 媒体播放器",
+  "processes": "wmplayer.exe;mplayer2.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\MediaPlayer\\Player\\RecentFileList",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\MediaPlayer\\Player\\RecentURLList",
+    "options": "(RegExpr=\"(?i)URL[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000025",
+  "category": "43",
+  "app": "RealPlayer/RealOne播放器",
+  "processes": "realplay.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips1",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips2",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips3",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips4",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips5",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips6",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips7",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentClips8",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins1",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins2",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins3",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins4",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins5",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins6",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins7",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\MostRecentSkins8",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\LastOpenFileDir",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips1",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips2",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips3",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips4",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips5",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips6",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\6.0\\Preferences\\OpenLocationClips7",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips1",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips2",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips3",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips4",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips5",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips6",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips7",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentClips8",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins1",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins2",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins3",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins4",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins5",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins6",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins7",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\MostRecentSkins8",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\LastOpenFileDir",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips1",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips2",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips3",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips4",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips5",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips6",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\RealNetworks\\RealPlayer\\12.0\\Preferences\\OpenLocationClips7",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Real\\RealPlayer\\History",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Real\\RealPlayer\\历史记录",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Real\\RealPlayer",
+    "options": "(files=realplayer.ste;urls.ini;cookies.txt;ctd.dat)"
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Real\\RealOne Player\\History",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Real\\RealOne Player\\历史记录",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Real\\RealOne Player",
+    "options": "(files=realplayer.ste;urls.ini;cookies.txt;ctd.dat;)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000026",
+  "category": "43",
+  "app": "暴风影音",
+  "processes": "storm.exe;StormPlayer.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Gabest\\Media Player Classic\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\Storm\\playlist.smpl",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\Storm\\tracfg.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\Storm\\CannotPlay.xml",
+    "options": ""
+   },
+   {
+    "type": "XMLNode",
+    "target": "%COMMON_APPDATA%\\Storm\\config.xml",
+    "options": "(XPath=/config/netplayhist/item;/config/localplayhist/item)"
+   },
+   {
+    "type": "XMLNode",
+    "target": "%LOCAL_APPDATA%\\VirtualStore\\ProgramData\\Storm\\config.xml",
+    "options": "(XPath=/config/netplayhist/item;/config/localplayhist/item)"
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\Baofeng\\StormPlayer\\Profiles\\StormPlayer.smpl",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Baofeng\\StormPlayer\\UserConfig",
+    "options": "(ValueList=RecordedLastPlayUrl)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000030",
+  "category": "42",
+  "app": "微软 Office",
+  "processes": "",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Microsoft\\Office\\Recent",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Office\\OffDiag",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Common\\Open Find\\*\\Settings\\New\\View\\2052",
+    "options": "(ValueList=Categories;FileNewUpdateTimestamp)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Common\\Open Find\\*\\Settings\\*\\File Name MRU",
+    "options": "(ValueList=Maximum Entries;Value)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Common\\Open Find\\*\\Settings\\*\\View",
+    "options": "(ValueList=Data)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Common\\Open Find\\*\\Settings\\*\\",
+    "options": "(ValueList=PositionInfo-Monitor1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Common\\Open Find\\*\\Settings\\New\\View\\2052",
+    "options": "(ValueList=Categories;FileNewUpdateTimestamp)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Common\\Open Find\\*\\Settings\\*\\File Name MRU",
+    "options": "(ValueList=Maximum Entries;Value)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Common\\Open Find\\*\\Settings\\*\\View",
+    "options": "(ValueList=Data)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Common\\Open Find\\*\\Settings\\*\\",
+    "options": "(ValueList=PositionInfo-Monitor1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Common\\Open Find\\*\\Settings\\New\\View\\2052",
+    "options": "(ValueList=Categories;FileNewUpdateTimestamp)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Common\\Open Find\\*\\Settings\\*\\File Name MRU",
+    "options": "(ValueList=Maximum Entries;Value)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Common\\Open Find\\*\\Settings\\*\\View",
+    "options": "(ValueList=Data)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Common\\Open Find\\*\\Settings\\*\\",
+    "options": "(ValueList=PositionInfo-Monitor1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Common\\Open Find\\Places",
+    "options": "(ValueList=ItemSize)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Common\\Open Find\\Places\\StandardPlaces\\Recent",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Common\\Open Find\\Places",
+    "options": "(ValueList=ItemSize)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Common\\Open Find\\Places\\StandardPlaces\\Recent",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Common\\Open Find\\Places",
+    "options": "(ValueList=ItemSize)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Common\\Open Find\\Places\\StandardPlaces\\Recent",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Open Find\\*\\Settings\\New\\View\\2052",
+    "options": "(ValueList=Categories;FileNewUpdateTimestamp)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Open Find\\*\\Settings\\*\\File Name MRU",
+    "options": "(ValueList=Maximum Entries;Value)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Open Find\\*\\Settings\\*\\View",
+    "options": "(ValueList=Data)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Open Find\\*\\Settings\\*\\",
+    "options": "(ValueList=PositionInfo-Monitor1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Open Find\\Places",
+    "options": "(ValueList=ItemSize)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Open Find\\Places\\StandardPlaces\\Recent",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000031",
+  "category": "42",
+  "app": "微软 Word",
+  "processes": "msword.exe;winword.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\Word\\Data",
+    "options": "(ValueList=Settings)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\Word\\Data",
+    "options": "(ValueList=Settings)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Word\\Data",
+    "options": "(ValueList=Settings)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Word\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Word\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Word\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Word\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Word\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Word\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Word\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Word\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000034",
+  "category": "42",
+  "app": "微软 Excel",
+  "processes": "excel.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\Excel\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\Excel\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Excel\\Recent Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Excel\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Excel\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Excel\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Excel\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Excel\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Excel\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Excel\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Excel\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000033",
+  "category": "42",
+  "app": "微软 PowerPoint",
+  "processes": "powerpnt.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\PowerPoint\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\PowerPoint\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\PowerPoint\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\PowerPoint\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\PowerPoint\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\PowerPoint\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\PowerPoint\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\PowerPoint\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\PowerPoint\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\PowerPoint\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\PowerPoint\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceAccess",
+  "category": "42",
+  "app": "微软 Access",
+  "processes": "msaccess.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Access\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Access\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRU[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Access\\Settings",
+    "options": "(RegExpr=\"(?i)MRUDate[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Access\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSharePoint",
+  "category": "42",
+  "app": "微软 SharePoint Designer",
+  "processes": "SPDESIGN.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\SharePoint Designer\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\SharePoint Designer\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\SharePoint Designer\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\SharePoint Designer\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\SharePoint Designer\\Recent Page List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\SharePoint Designer\\Recent Web List",
+    "options": "(RegExpr=\"(?i)Web[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\SharePoint Designer\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\SharePoint Designer\\Recent Page List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\SharePoint Designer\\Recent Web List",
+    "options": "(RegExpr=\"(?i)Web[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracePublisher",
+  "category": "42",
+  "app": "微软 Publisher",
+  "processes": "MSPUB.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\Publisher\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\Publisher\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Publisher\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Publisher\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Publisher\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Publisher\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Publisher\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Publisher\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceVisio",
+  "category": "42",
+  "app": "微软 Visio",
+  "processes": "VISIO.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\9.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\10.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\11.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\12.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\13.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\14.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Visio\\Application",
+    "options": "(RegExpr=\"(?i)LastFile[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Visio\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Visio\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Visio\\Place MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\16.0\\Visio\\File MRU",
+    "options": "(RegExpr=\"(?i)Item\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000032",
+  "category": "42",
+  "app": "微软 FrontPage",
+  "processes": "frontpage.exe;frontpg.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\FrontPage\\Editor\\Insert Hyperlink\\Recently Used URLs",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\FrontPage\\Editor\\Insert Image\\Recently Used URLs",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\FrontPage\\Explorer\\FrontPage Explorer\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\FrontPage\\Explorer\\FrontPage Explorer\\Recent Page List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\FrontPage\\Explorer\\FrontPage Explorer\\Recent Web List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000043",
+  "category": "42",
+  "app": "微软Office Picture Manager",
+  "processes": "ois.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%Local_AppData%\\Microsoft\\OIS\\thumbnails\\",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%Local_AppData%\\Microsoft\\OIS\\",
+    "options": "(include=OIScatalog.cag)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000027",
+  "category": "42",
+  "app": "WPS文字历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\4.0\\wps\\RecentFiles\\files",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\5.0\\wps\\RecentFiles\\files",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\6.0\\wps\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\6.0\\wps\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\7.0\\wps\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\7.0\\wps\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\8.0\\wps\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\8.0\\wps\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000028",
+  "category": "42",
+  "app": "WPS表格历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\4.0\\et\\RecentFiles\\files",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\5.0\\et\\RecentFiles\\files",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\6.0\\et\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\6.0\\et\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\7.0\\et\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\7.0\\et\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\8.0\\et\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\8.0\\et\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000029",
+  "category": "42",
+  "app": "WPS演示历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\4.0\\wpp\\RecentFiles\\files",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\5.0\\wpp\\RecentFiles\\files",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\6.0\\wpp\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\6.0\\wpp\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\7.0\\wpp\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\7.0\\wpp\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\8.0\\wpp\\RecentFiles",
+    "options": "(ValueList=maximum)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Kingsoft\\Office\\8.0\\wpp\\RecentFiles\\files\\*\\",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000036",
+  "category": "44",
+  "app": "WinZip",
+  "processes": "winzip.exe;winzip32.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Nico Mak Computing\\WinZip\\filemenu",
+    "options": "(RegExpr=\"(?i)filemenu[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Nico Mak Computing\\WinZip\\mru\\archives",
+    "options": "(RegExpr=\"(?i)[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000037",
+  "category": "44",
+  "app": "WinRAR",
+  "processes": "winrar.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\WinRAR\\ArcHistory",
+    "options": "(RegExpr=\"(?i)[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\WinRAR\\General",
+    "options": "(ValueList=LastFolder)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\WinRAR\\DialogEditHistory\\ExtrPath",
+    "options": "(RegExpr=\"(?i)[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\WinRAR\\DialogEditHistory\\ViewerSearch",
+    "options": "(RegExpr=\"(?i)[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\WinRAR\\DialogEditHistory\\ArcName",
+    "options": "(RegExpr=\"(?i)[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace360Zip",
+  "category": "59",
+  "app": "360zip",
+  "processes": "360zip.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\360zip\\Recent Document List",
+    "options": "(RegExpr=\"(?i)Document[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKugoo",
+  "category": "43",
+  "app": "酷狗播放器",
+  "processes": "Kugoo.exe;kugou7.exe;KuGou.exe",
+  "items": [
+   {
+    "type": "IniSection",
+    "target": "%DataFile1%\\*\\Option.ini",
+    "options": "(SectionList=SearchItems)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%Local_AppData%\\VirtualStore\\Program Files\\KuGoo2007\\*\\Option.ini",
+    "options": "(SectionList=SearchItems)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%DataFile2%\\*\\Option.ini",
+    "options": "(SectionList=SearchItems)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%Local_AppData%\\VirtualStore\\Program Files\\KuGoo2010\\*\\Option.ini",
+    "options": "(SectionList=SearchItems)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%APPDATA%\\KuGou7\\kugou.ini",
+    "options": "(SectionList=SearchHistory)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\KuGou8\\kugou.db",
+    "options": "(Table=KeywordSearchHistory)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\KuGou8\\KGMusicV2.db",
+    "options": "(Table=KeywordSearchHistory)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000067",
+  "category": "59",
+  "app": "鲁大师漏洞修复留下的补丁",
+  "processes": "ComputerZ_cn.exe;ComputerZ_cn.ex;ComputerOptZ.exe;ComputerOptZ.exe;ComputerOptZ.ex",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\Hotfix",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000041",
+  "category": "43",
+  "app": "KMPlayer",
+  "processes": "kmplayer.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\PlayList\\default.kpl",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\KMPlayer\\KMP2.0",
+    "options": "(ValueList=LastFileName)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\KMPlayer\\LastViewFile",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\KMPlayer\\KMP3.0",
+    "options": "(ValueList=LastFileName)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000042",
+  "category": "59",
+  "app": "Windows Live Messenger",
+  "processes": "msnmsgr.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%AppData%\\Microsoft\\MSN Messenger",
+    "options": "(include=*.sqm)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%Local_AppData%\\Microsoft\\MSN Messenger\\SqmAPI",
+    "options": "(include=*.sqm)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%Local_AppData%\\Microsoft\\Windows Live\\SqmAPI",
+    "options": "(include=*.sqm)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000044",
+  "category": "59",
+  "app": "Acrobat Reader",
+  "processes": "acrord32.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\1.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\2.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\3.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\4.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\5.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\6.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\7.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\8.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\9.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\10.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Acrobat Reader\\11.0\\AVGeneral\\cRecentFiles",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000045",
+  "category": "43",
+  "app": "QQ影音",
+  "processes": "QQPlayer.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%AppData%\\Tencent\\QQPlayer\\default.qpl",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%AppData%\\Tencent\\QQPlayer\\History.xml",
+    "options": ""
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Tencent\\QQPlayer\\Settings",
+    "options": "(ValueList=FileDlgLastPath)"
+   }
+  ]
+ },
+ {
+  "id": "Trace00007",
+  "category": "43",
+  "app": "QQLive网络电视",
+  "processes": "qqlive.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%\\vodcache",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Tencent\\QQLive\\*\\XML",
+    "options": "(IncludeSubFolder=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Tencent\\QQLive\\xml\\*\\",
+    "options": "(IncludeSubFolder=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000046",
+  "category": "44",
+  "app": "7ZIP（压缩/解压缩工具）",
+  "processes": "7zfm.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\7-Zip\\FM",
+    "options": "(ValueList=FolderHistory;PanelPath0;PanelPath1;CopyHistory)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\7-Zip\\Compression",
+    "options": "(ValueList=ArcHistory)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\7-Zip\\Extraction",
+    "options": "(ValueList=PathHistory)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000047",
+  "category": "59",
+  "app": "迅雷搜索历史记录",
+  "processes": "thunder.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\Thunder Network\\ThunderGougouSearch\\SearchHistory.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\..\\Profiles\\GougouSearch\\history.history",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceWangWang",
+  "category": "59",
+  "app": "淘宝旺旺登录名信息",
+  "processes": "aliim.exe;aliwangwang.exe;aliwangwang.ex",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\profiles\\system\\logininfo.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\profiles\\system\\lastlogininfo2.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\profiles\\system\\lastlogininfo.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\log.log",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\profiles\\system\\gconf.db",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\..\\profiles\\system\\logininfo.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\..\\profiles\\system\\lastlogininfo2.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\..\\profiles\\system\\lastlogininfo.xml",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\..\\log.log",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\..\\profiles\\system\\gconf.db",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\*\\log.log",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000049",
+  "category": "59",
+  "app": "WinImage",
+  "processes": "winimage.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\WinImage",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_LOCAL_MACHINE\\Software\\WinImage",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000050",
+  "category": "59",
+  "app": "HyperSnap",
+  "processes": "hprsnap6.exe;hprsnap5.exe;hprsnap.exe;HprSnap7.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Hyperionics\\HyperSnap 6\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Hyperionics\\HyperSnap-DX v.4\\HyperSnap-DX\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Hyperionics\\HyperSnap-DX v.5\\HyperSnap-DX\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Hyperionics\\HyperSnap 7\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000051",
+  "category": "59",
+  "app": "Download Accelerator Plus",
+  "processes": "dap.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\SpeedBit\\Download Accelerator",
+    "options": "(ValueList=HistoryFindIndex)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\SpeedBit\\Download Accelerator\\SearchTab",
+    "options": "(ValueList=SearchHistory)(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\SpeedBit\\DAP\\History\\*\\",
+    "options": "(include=*.dat)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000052",
+  "category": "59",
+  "app": "GetRight",
+  "processes": "getright.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Headlight\\GetRight\\MRU",
+    "options": "(RegExpr=\"(?i)(Desc|File|URL)[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Headlight\\GetRight\\TypedDescs",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Headlight\\GetRight\\TypedURLs",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\GetRight Pro",
+    "options": "(include=*.hst)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000053",
+  "category": "59",
+  "app": "EmEditor",
+  "processes": "emeditor.exe",
+  "items": [
+   {
+    "type": "IniSection",
+    "target": "%InstallPath%\\eeCommon.ini",
+    "options": "(SectionList=Recent File List)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%InstallPath%\\eeCommon.ini",
+    "options": "(SectionList=Recent Folder List)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\EmSoft\\EmEditor v3\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\EmSoft\\EmEditor v3\\Recent Folder List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\EmSoft\\EmEditorPlugIns\\Explorer",
+    "options": "(ValueList=LastPath)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceeMule",
+  "category": "59",
+  "app": "eMule搜索及文件哈希记录",
+  "processes": "eMule.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\config\\AC_SearchStrings.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\eMule\\config\\AC_SearchStrings.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\eMule\\config\\AC_SearchStrings.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\config\\known.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\config\\known2.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\config\\known2_64.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\eMule\\config\\known.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\eMule\\config\\known2.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\eMule\\config\\known2_64.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\eMule\\config\\known.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\eMule\\config\\known2.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\eMule\\config\\known2_64.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\eMule\\config\\AC_SearchStrings.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\eMule\\config\\known.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\eMule\\config\\known2.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\eMule\\config\\known2_64.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\config\\StoredSearches.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\eMule\\config\\StoredSearches.met",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%APPDATA%\\eMule\\config\\StoredSearches.met",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceInternetDownloadManager",
+  "category": "59",
+  "app": "Internet Download Manager",
+  "processes": "IDM.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\IDM",
+    "options": "(include=UrlHistory*.txt)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceUltraISO",
+  "category": "59",
+  "app": "UltraISO",
+  "processes": "UltraISO.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\EasyBoot Systems\\UltraISO\\5.0",
+    "options": "(ValueList=Reopen;OpenFolder)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\EasyBoot Systems\\UltraISO\\5.0",
+    "options": "(RegExpr=\"[a-zA-Z]\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "Trace000054",
+  "category": "43",
+  "app": "Media Player Classic",
+  "processes": "mpc.exe;mplayerc.exe;mpc-hc.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%AppData%\\Media Player Classic\\default.mpcpl",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Gabest\\Media Player Classic\\Recent Dub List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Gabest\\Media Player Classic\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Gabest\\Media Player Classic\\Settings",
+    "options": "(RegExpr=\"(?i)(File Name|File Position|DVD Position)\\s*[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceWindowsMediaCenter",
+  "category": "43",
+  "app": "Windows Media Center",
+  "processes": "ehshell.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Media Center\\MRU\\SettingsMRU",
+    "options": "(RegExpr=\"(?i)MRU #[\\d] Path+\")(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\Microsoft\\eHome\\logs",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Trace000055",
+  "category": "43",
+  "app": "迅雷看看播放器",
+  "processes": "xmp.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%PUBLIC%\\Thunder Network\\XMP\\Playlists",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\Thunder Network\\XMP\\Playlists",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%PUBLIC%\\Thunder Network\\XMP4\\Playlists",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\Thunder Network\\XMP4\\Playlists",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\Thunder Network\\XMP4\\ProgramData\\Playlists",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\Thunder Network\\XMP4\\ProgramData\\ProgramList",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%PUBLIC%\\Thunder Network\\XMP4\\ProgramData\\ProgramList",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%PUBLIC%\\Thunder Network\\XMP4\\ProgramData\\Playlists",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\Thunder Network\\KanKan\\Cookie\\view_histroy.dat",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceFunshion",
+  "category": "43",
+  "app": "风行网络电视",
+  "processes": "Funshion.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%DataFile1%",
+    "options": "(Include=*.fsp)"
+   },
+   {
+    "type": "Directory",
+    "target": "%UserProfile%\\funshion\\historyTorrent",
+    "options": "(Include=*.fsp)"
+   },
+   {
+    "type": "File",
+    "target": "%UserProfile%\\funshion\\history.txt",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile2%",
+    "options": "(Include=*.fsp)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%DataFile2%\\..\\funshion.ini",
+    "options": "(SectionList=PlayerTrace)"
+   },
+   {
+    "type": "Directory",
+    "target": "%DataFile2%\\..\\control",
+    "options": "(Include=*.fsp)"
+   }
+  ]
+ },
+ {
+  "id": "TracePPTV",
+  "category": "43",
+  "app": "PPTV网络电视",
+  "processes": "PPLive.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\PPLive\\PPTV\\Favorites\\Favorites.s3db",
+    "options": "(Table=StoreType)(Condition=\"where st=1\")"
+   },
+   {
+    "type": "SQLite",
+    "target": "%COMMON_APPDATA%\\PPLive\\PPTV\\Favorites\\FavoritesNew.s3db",
+    "options": "(Table=StoreType)(Condition=\"where st=1\")"
+   },
+   {
+    "type": "SQLite",
+    "target": "%COMMON_APPDATA%\\PPLive\\PPTV\\Favorites\\watchlog.s3db",
+    "options": "(Table=WatchLog)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\PPLive\\PPTV\\Favorites\\FavoritesNew.s3db",
+    "options": "(Table=StoreType)(Condition=\"where st=1\")"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\PPLive\\PPTV\\Favorites\\watchlog.s3db",
+    "options": "(Table=WatchLog)"
+   },
+   {
+    "type": "Directory",
+    "target": "%PERSONAL%\\PPTV\\PP播放记录",
+    "options": "(Include=*.lnk)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%COMMON_APPDATA%\\PPLive\\PPTV\\Favorites\\Common.s3db",
+    "options": "(Table=Recent)"
+   }
+  ]
+ },
+ {
+  "id": "TracePPS",
+  "category": "43",
+  "app": "PPS网络电视",
+  "processes": "PPStream.exe",
+  "items": [
+   {
+    "type": "IniSection",
+    "target": "%AppData%\\PPStream\\ppstream.ini",
+    "options": "(SectionList=recent)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\PPStream\\recent",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\PPStream\\PlayHistory",
+    "options": "(Include=*.xml)"
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\PPStream\\MediaList\\PlayList",
+    "options": "(Include=默认播放列表.xml)"
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\PPStream\\MediaList\\Music",
+    "options": "(Include=*.xml)"
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\PPStream\\MediaList",
+    "options": "(Include=MediaDirs.xml;PlayList_Config.xml;pps_medialist_log.txt);"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\PPStream\\PPSDB.db",
+    "options": "(Table=table_file)(Condition=\"where [name]='historyfile'\")"
+   }
+  ]
+ },
+ {
+  "id": "TraceQVOD",
+  "category": "43",
+  "app": "快播(QVOD)",
+  "processes": "QvodPlayer.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\PlayList\\PlayList.xml",
+    "options": ""
+   },
+   {
+    "type": "XMLNode",
+    "target": "%InstallPath%\\QvodPlayer.xml",
+    "options": "(XPath=/QvodPlayer/NewLy)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\PlayList",
+    "options": "(include=*.xml)(exclude=Mediacenter.xml)"
+   },
+   {
+    "type": "File",
+    "target": "%InstallPath%\\TaskCfg.db",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%ProgramData%\\QvodPlayer\\TaskCfg.db",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%ProgramData%\\QvodPlayer\\PlayList",
+    "options": "(include=*.xml)(exclude=Mediacenter.xml)"
+   }
+  ]
+ },
+ {
+  "id": "TraceQuicktimePlayer",
+  "category": "43",
+  "app": "Quicktime播放器",
+  "processes": "QuickTimePlayer.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_LOCAL_MACHINE\\Software\\Apple Computer, Inc.\\QuickTime\\Recent Movies",
+    "options": "(ShowSubValue=1)(ShowValue=1)(WOW64KEY=2)"
+   },
+   {
+    "type": "File",
+    "target": "%UserProfile%\\QTPlayerSession.xml",
+    "options": ""
+   },
+   {
+    "type": "XMLNode",
+    "target": "%APPDATA%\\Apple Computer\\QuickTime\\QTPlayerSession.xml",
+    "options": "(XPath=/plist/dict/array)"
+   },
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Apple Computer\\QuickTime\\QTPlayerSession.xml",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceBaiduPlayer",
+  "category": "43",
+  "app": "百度影音播放器",
+  "processes": "BaiduPlayer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\BaiduPlayer",
+    "options": "(include=*.xml)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA_LOW%\\Baidu\\BaiduPlayer",
+    "options": "(include=RecentPlayList.xml;BDYYPlayList.xml)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFenglei",
+  "category": "43",
+  "app": "风雷影音播放历史",
+  "processes": "fenglei.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\fenglei",
+    "options": "(include=default.mpcpl;default.fl)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\fenglei\\fenglei\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceXigua",
+  "category": "43",
+  "app": "西瓜播放器播放历史",
+  "processes": "XiGuaPlayer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\data",
+    "options": "(include=recentplays.xml;histories.xml)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLetv",
+  "category": "43",
+  "app": "乐视网络电视播放历史",
+  "processes": "LeTVLoader.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Letv\\Client",
+    "options": "(include=tv_playlist.xml)"
+   }
+  ]
+ },
+ {
+  "id": "TraceQiyi",
+  "category": "43",
+  "app": "奇艺影音播放器历史",
+  "processes": "QiyiClient.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%COMMON_APPDATA%\\QiYi\\QiyiClient\\qiyi_xkernel.dll",
+    "options": "(Table=playlist)(Condition=\"where iMovieId<>0\")"
+   },
+   {
+    "type": "SQLite",
+    "target": "%PUBLIC%\\QiYi\\QiyiClient\\qiyi_xkernel.dll",
+    "options": "(Table=playlist)(Condition=\"where iMovieId<>0\")"
+   }
+  ]
+ },
+ {
+  "id": "TraceHaoJieDVD",
+  "category": "43",
+  "app": "超级解霸播放器历史",
+  "processes": "SthSDVD.exe;SuperPlayer.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\Default.m3u",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%COMMON_APPDATA%\\SuperPlayer\\SuperPlayer.supl",
+    "options": ""
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\SuperPlayer\\Config\\History",
+    "options": "(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\SuperPlayer\\Config\\UrlHistory",
+    "options": "(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceBaiduTing",
+  "category": "43",
+  "app": "百度Ting播放器记录",
+  "processes": "ting.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\Music\\TingPC\\PlayList",
+    "options": "(include=*.pl)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSogouExplorerHistory",
+  "category": "13",
+  "app": "搜狗浏览器上网历史记录",
+  "processes": "SogouExplorer.exe;SogouExplorer.e",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\HistoryUrl.db",
+    "options": "(Table=UndoUrl)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\HistoryUrl.db",
+    "options": "(Table=UserRankUrl)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\HistoryUrl.db",
+    "options": "(Table=often)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\uhistory.db",
+    "options": "(Table=tb_urlhistory)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\uhistory.db",
+    "options": "(Table=tb_urlinfo)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\Misc.db",
+    "options": "(Table=DLHis)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\Misc.db",
+    "options": "(Table=UndoURL)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\uhistory3.db",
+    "options": "(Table=tb_urlhistory)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\uhistory3.db",
+    "options": "(Table=tb_urlinfo)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\HistoryUrl3.db",
+    "options": "(Table=UserRankUrl)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSogouExplorerDownload",
+  "category": "59",
+  "app": "搜狗浏览器下载历史记录",
+  "processes": "SogouExplorer.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\p4p.db",
+    "options": "(Table=p4p)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\Misc.db",
+    "options": "(Table=DList)"
+   }
+  ]
+ },
+ {
+  "id": "TraceSogouExplorerFormData",
+  "category": "13",
+  "app": "搜狗浏览器智能填表记录",
+  "processes": "SogouExplorer.exe;SogouExplorer.e",
+  "items": [
+   {
+    "type": "File",
+    "target": "%AppData%\\SogouExplorer\\FormData.dat",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceSogouExplorerCookie",
+  "category": "13",
+  "app": "搜狗浏览器高速模式Cookie",
+  "processes": "SogouExplorer.exe;SogouExplorer.e",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\WebKit\\Cookies",
+    "options": "(Table=cookies)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%AppData%\\SogouExplorer\\Webkit\\Default\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "TraceShooter",
+  "category": "43",
+  "app": "射手影音播放器历史记录",
+  "processes": "splayer.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\SPlayer\\射手影音播放器\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\SPlayer\\射手影音播放器\\Recent Dub List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%AppData%\\SPlayer",
+    "options": "(include=*.mpcpl)"
+   }
+  ]
+ },
+ {
+  "id": "TraceYingYinxf",
+  "category": "43",
+  "app": "影音先锋播放器历史",
+  "processes": "xfplay.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%AppData%\\xfplayer",
+    "options": "(include=PlayList.xfu)"
+   }
+  ]
+ },
+ {
+  "id": "TraceGVOD",
+  "category": "43",
+  "app": "迅播播放器历史",
+  "processes": "gvod.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\GVOD\\Playlists\\",
+    "options": "(include=*.xml)"
+   },
+   {
+    "type": "Directory",
+    "target": "%COMMON_APPDATA%\\GVOD\\",
+    "options": "(include=XmpPlaylists.xml;XMPCommitData.sts)"
+   },
+   {
+    "type": "XMLNode",
+    "target": "%COMMON_APPDATA%\\GVOD\\GvodUserConfig.xml",
+    "options": "(XPath=/XmpConfig/StringSection)"
+   },
+   {
+    "type": "Directory",
+    "target": "%PUBLIC%\\GVOD\\Playlists\\",
+    "options": "(include=*.xml)"
+   },
+   {
+    "type": "Directory",
+    "target": "%PUBLIC%\\GVOD\\",
+    "options": "(include=XmpPlaylists.xml;XMPCommitData.sts)"
+   },
+   {
+    "type": "XMLNode",
+    "target": "%PUBLIC%\\GVOD\\GvodUserConfig.xml",
+    "options": "(XPath=/XmpConfig/StringSection)"
+   }
+  ]
+ },
+ {
+  "id": "TraceDuoMi",
+  "category": "43",
+  "app": "多米音乐历史",
+  "processes": "DuoMi.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\data\\list",
+    "options": "(include=*.pl)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFoxit",
+  "category": "59",
+  "app": "福昕PDF阅读器历史记录",
+  "processes": "Foxit Reader.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\福昕阅读器\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\Foxit Reader 5.0\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\Foxit Reader 5.0\\RecentFiles",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\Foxit Reader 4.0\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\Foxit Reader 4.0\\RecentFiles",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\Foxit Reader 3.0\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Foxit Software\\Foxit Reader 3.0\\RecentFiles",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFlashGet",
+  "category": "59",
+  "app": "FlashGet下载记录",
+  "processes": "Flashget3.exe;Flashget.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\dat",
+    "options": "(include=*.db;*.bak)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\flashget\\v3\\dat",
+    "options": "(include=*.db;*.bak)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\JetCar\\JetCar\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%",
+    "options": "(include=Default.*)"
+   }
+  ]
+ },
+ {
+  "id": "TraceBitComet",
+  "category": "59",
+  "app": "BitComet下载记录",
+  "processes": "BitComet.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\BitComet",
+    "options": "(include=Downloads.xml;Downloads.xml.bak)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%",
+    "options": "(include=Downloads.xml;Downloads.xml.bak)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\VirtualStore\\Program Files\\BitComet",
+    "options": "(include=Downloads.xml;Downloads.xml.bak)"
+   }
+  ]
+ },
+ {
+  "id": "TraceQQDownload",
+  "category": "59",
+  "app": "QQ旋风下载记录",
+  "processes": "QQDownload.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Tencent\\QQDownload\\*\\Setting",
+    "options": "(include=History.dat;BTHistory.dat;HistoryBk.dat)"
+   }
+  ]
+ },
+ {
+  "id": "TraceDreamweaver",
+  "category": "59",
+  "app": "Dreamweaver历史记录",
+  "processes": "Dreamweaver.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 1\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 2\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 3\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 4\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 5\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 6\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 7\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Dreamweaver 8\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver 9\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS1\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS2\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS3\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS3\\Open Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS3\\Open Files",
+    "options": "(ValueList=Number Open Files)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS4\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS4\\Open Files",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS4\\Open Files",
+    "options": "(ValueList=Number Open Files)(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS5\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS5\\Open Files",
+    "options": "(RegExpr=\"(?i)Open File\\s*[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Dreamweaver CS5\\Open Files",
+    "options": "(ValueList=Number Open Files)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFireWorks",
+  "category": "59",
+  "app": "Fireworks历史记录",
+  "processes": "Fireworks.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\1\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\2\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\3\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\4\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\5\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\6\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\7\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Fireworks\\8\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Fireworks\\9\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Fireworks\\10\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Fireworks\\11\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Fireworks\\12\\ini\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFlash",
+  "category": "59",
+  "app": "Flash历史记录",
+  "processes": "Flash.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 1\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 2\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 3\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 4\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 5\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 6\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 7\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\Flash 8\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Flash 9\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Flash 10\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Flash 11\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\Flash 12\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Macromedia\\FlashPlayer",
+    "options": "(RegExpr=\"(?i)RecentMovie[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceNetHood",
+  "category": "3",
+  "app": "Windows网上邻居",
+  "processes": "",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%",
+    "options": "(exclude=*.exe)(DeleteSubFolder=1)(IncludeSubFolder=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracePrintHood",
+  "category": "3",
+  "app": "查找打印机历史记录",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\PrnPortsMRU",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceLastRegisterPos",
+  "category": "3",
+  "app": "注册表编辑器最后一次使用位置",
+  "processes": "",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Regedit",
+    "options": "(ValueList=Lastkey)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceFlashFXP",
+  "category": "59",
+  "app": "FlashFXP连接历史记录",
+  "processes": "FlashFXP.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\quick.dat",
+    "options": ""
+   },
+   {
+    "type": "File",
+    "target": "%DataFile1%\\quick.dat",
+    "options": ""
+   },
+   {
+    "type": "IniSection",
+    "target": "%InstallPath%\\FlashFXP.ini",
+    "options": "(SectionList=SITE_MRU)"
+   },
+   {
+    "type": "IniSection",
+    "target": "%DataFile1%\\FlashFXP.ini",
+    "options": "(SectionList=SITE_MRU)"
+   },
+   {
+    "type": "File",
+    "target": "%DataFile2%\\quick.dat",
+    "options": ""
+   },
+   {
+    "type": "IniSection",
+    "target": "%DataFile2%\\FlashFXP.ini",
+    "options": "(SectionList=SITE_MRU)"
+   }
+  ]
+ },
+ {
+  "id": "TraceBeyondCompare",
+  "category": "59",
+  "app": "Beyond Compare历史记录",
+  "processes": "BCompare.exe;BC2.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Scooter Software\\Beyond Compare 3",
+    "options": "(include=BCSessions.xml;BCCommands.xml;*.bak)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "XMLNode",
+    "target": "%APPDATA%\\Scooter Software\\Beyond Compare 3\\BCState.xml",
+    "options": "(XPath=/BCState/TTextCompareState;/BCState/TDirCompareState;/BCState/TPixCompareState;/BCState/TVerCompareState;/BCState/TTextFindState;/BCState/TDataCompareState;/BCState/THexCompareState;/BCState/TMP3CompareState;/BCState/TRegCompareState;/BCState/TDirSyncState;/BCState/TTextMergeState)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Scooter Software\\Beyond Compare\\Recent",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceNero",
+  "category": "59",
+  "app": "Nero历史记录",
+  "processes": "nero.exe",
+  "items": [
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Nero\\*\\Nero Burning ROM\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Nero\\*\\Cover Designer\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   },
+   {
+    "type": "RegValue",
+    "target": "HKEY_CURRENT_USER\\Software\\Nero\\*\\Nero - Burning Rom\\Recent File List",
+    "options": "(RegExpr=\"(?i)File[\\d]+\")(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroIECache",
+  "category": "8",
+  "app": "Metro IE 缓存",
+  "processes": "iexplore.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\windows_ie_ac_001\\AC\\INetCache",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)(exclude=container.dat）"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\windows_ie_ac_001\\AC\\AppCache",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)(exclude=container.dat）"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\windows_ie_ac_001\\AC\\IECompatCache",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)(exclude=container.dat）"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\windows_ie_ac_001\\AC\\iecompatuaCache",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)(exclude=container.dat）"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroIECookie",
+  "category": "8",
+  "app": "Metro IE Cookie",
+  "processes": "iexplore.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\windows_ie_ac_001\\AC\\INetCookies",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)(exclude=container.dat）"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\windows_ie_ac_001\\AC\\Microsoft\\Internet Explorer\\DOMStore",
+    "options": "(DeleteSubFolder=0)(IncludeSubFolder=1)(FilterWhiteList=0)(exclude=container.dat）"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroChromeCache",
+  "category": "8",
+  "app": "Chrome 应用缓存文件清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Media Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\App Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Application Cache",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\JumpListIcons",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\JumpListIconsOld",
+    "options": "(DeleteSubFolder=1)(IncludeSubFolder=1)(FilterWhiteList=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroChromeHistory",
+  "category": "8",
+  "app": "Chrome 应用历史清理",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=segments)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=segment_usages)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=visits)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=keyword_search_terms)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=downloads)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=segment_usage)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\History",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroChromeForm",
+  "category": "8",
+  "app": "Chrome 应用自动保存的表单",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroChromePwd",
+  "category": "12",
+  "app": "Chrome 应用自动保存的密码",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Web Data",
+    "options": "(Table=logins)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Login Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroChromeCookie",
+  "category": "8",
+  "app": "Chrome 应用Cookie",
+  "processes": "chrome.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Google\\Chrome\\Metro\\User Data\\Default\\Cookies",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroPPTV",
+  "category": "8",
+  "app": "PPTV网络电视",
+  "processes": "PPTVForWin8.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Packages\\PPTV.PPTVHD_svvymaqds8vhm\\LocalState\\filerecent.db",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroQiyi",
+  "category": "8",
+  "app": "奇艺影音播放器历史",
+  "processes": "iQiyiVideo.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\0C72C7CD.217379CB4AE6F_atj5cpqqdhzyp\\LocalState",
+    "options": "(include=history.xml;cloudhistory.xml)"
+   }
+  ]
+ },
+ {
+  "id": "TraceUUSee",
+  "category": "43",
+  "app": "UUSee网络电视",
+  "processes": "uutran.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\cache\\5C\\5CACD8D891055D1513D7AE33DD118E36",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceSMPlayer",
+  "category": "43",
+  "app": "SMPlayer",
+  "processes": "SMPlayer.exe",
+  "items": [
+   {
+    "type": "IniSection",
+    "target": "%UserProfile%\\.smplayer\\smplayer.ini",
+    "options": "(SectionList=history;playlist_contents)"
+   }
+  ]
+ },
+ {
+  "id": "TraceXiuXiu",
+  "category": "44",
+  "app": "XiuXiu",
+  "processes": "XiuXiu.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%InstallPath%\\Resources\\RecentFiles.ini",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroTencentVideo",
+  "category": "8",
+  "app": "腾讯视频",
+  "processes": "QQLive.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Packages\\903DB504.56054E940A214_a99ra4d2cbcxa\\LocalState\\Cache\\History\\WatchHistory.data",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroSohuVideoPlay",
+  "category": "8",
+  "app": "搜狐视频播放",
+  "processes": "搜狐视频.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Packages\\518B6F23.22397EDDD7953_93b28d6rvp5bg\\LocalState\\sohuvideo.db.win8sohuvideo.Model.PlayEpisode[HistorysEpisode.table]",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceMetroSohuVideoLogin",
+  "category": "8",
+  "app": "搜狐视频登录",
+  "processes": "搜狐视频.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%LOCAL_APPDATA%\\Packages\\518B6F23.22397EDDD7953_93b28d6rvp5bg\\LocalState\\sohuvideo.db.win8sohuvideo.Model.User[User.table]",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceAdobeFlashPlayer",
+  "category": "43",
+  "app": "Flash播放器",
+  "processes": "",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Macromedia\\Flash Player\\#SharedObjects",
+    "options": "(IncludeSubFolder=1)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Macromedia\\Flash Player\\macromedia.com",
+    "options": "(IncludeSubFolder=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracePotPlyer",
+  "category": "43",
+  "app": "PotPlayer播放器",
+  "processes": "PotPlayerMini.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\PotPlayerMini\\Playlist",
+    "options": "(include=PotPlayerMini.dpl)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\PotPlayerMini64\\Playlist",
+    "options": "(include=PotPlayerMini64.dpl)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\Playlist",
+    "options": "(include=PotPlayerMini.dpl)"
+   },
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\Playlist",
+    "options": "(include=PotPlayerMini64.dpl)"
+   }
+  ]
+ },
+ {
+  "id": "TraceGeePlayer",
+  "category": "43",
+  "app": "爱奇艺万能播放器历史",
+  "processes": "GeePlayer.exe",
+  "items": [
+   {
+    "type": "File",
+    "target": "%APPDATA%\\IQIYI Video\\LStyle\\GpLocalList.xml",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "TraceUCBrowserHistory",
+  "category": "13",
+  "app": "UC浏览器历史",
+  "processes": "UCBrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\UCBrowser\\User Data\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*;History.*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceUCBrowserFormData",
+  "category": "13",
+  "app": "UC浏览器表单和密码",
+  "processes": "UCBrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\UCBrowser\\User Data\\Default",
+    "options": "(include=UC Login Data*)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\UCBrowser\\User Data\\Default\\Web Data.55",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\UCBrowser\\User Data\\Default\\Web Data.55",
+    "options": "(Table=autofill_profiles)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\UCBrowser\\User Data\\Default\\Web Data.55",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceUCBrowserCookie",
+  "category": "13",
+  "app": "UC浏览器Cookie",
+  "processes": "UCBrowser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\UCBrowser\\User Data\\Default",
+    "options": "(include=Cookies.7)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceYYExplorerHistory",
+  "category": "13",
+  "app": "YY浏览器历史",
+  "processes": "YYExplorer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*;History)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceYYExplorerCookie",
+  "category": "13",
+  "app": "YY浏览器Cookie",
+  "processes": "YYExplorer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceYYExplorerFormData",
+  "category": "13",
+  "app": "YY浏览器表单和密码",
+  "processes": "YYExplorer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_profiles)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\YYExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKChromeHistory",
+  "category": "13",
+  "app": "快快浏览器历史",
+  "processes": "KChrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\KChromeUserData\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*;History)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKChromeCookie",
+  "category": "13",
+  "app": "快快浏览器Cookie",
+  "processes": "KChrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\KChromeUserData\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKChromeFormData",
+  "category": "13",
+  "app": "快快浏览器表单和密码",
+  "processes": "KChrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%InstallPath%\\KChromeUserData\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\KChromeUserData\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\KChromeUserData\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\KChromeUserData\\Default\\Web Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKWExplorerHistory",
+  "category": "13",
+  "app": "快玩浏览器历史",
+  "processes": "KWExplorer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\KWExplorer\\User Data\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Top Sites*;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*;History)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKWExplorerCookie",
+  "category": "13",
+  "app": "快玩浏览器Cookie",
+  "processes": "KWExplorer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\KWExplorer\\User Data\\Default",
+    "options": "(include=Cookies)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "TraceKWExplorerFormData",
+  "category": "13",
+  "app": "快玩浏览器表单和密码",
+  "processes": "KWExplorer.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\KWExplorer\\User Data\\Default",
+    "options": "(include=Login Data)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\KWExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\KWExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=autofill_dates)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\KWExplorer\\User Data\\Default\\Web Data",
+    "options": "(Table=logins)"
+   }
+  ]
+ },
+ {
+  "id": "TraceJuziHistory",
+  "category": "13",
+  "app": "桔子浏览器历史",
+  "processes": "Juzi.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%InstallPath%\\User_Data\\Default\\History.db",
+    "options": "(Table=history_main)"
+   }
+  ]
+ },
+ {
+  "id": "Trace2345ExplorerHistory",
+  "category": "13",
+  "app": "2345王牌浏览器历史",
+  "processes": "2345Explorer.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\2345Explorer\\Users\\Default\\History.data",
+    "options": "(Table=url_history)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\2345Explorer\\Users\\Default\\History.data",
+    "options": "(Table=url_info)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\2345Explorer\\User Data\\Default\\History",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "Trace2345ExplorerCookie",
+  "category": "13",
+  "app": "2345王牌浏览器Cookies",
+  "processes": "2345Explorer.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\2345Explorer\\User Data\\Default\\CookiesV3",
+    "options": "(Table=cookies)"
+   }
+  ]
+ },
+ {
+  "id": "Trace2345chromeHistory",
+  "category": "13",
+  "app": "2345加速浏览器历史",
+  "processes": "2345chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\2345chrome\\User Data\\Default",
+    "options": "(include=History Index *;Archived History*;Visited Links;Current Tabs;Last Tabs;Current Session;Last Session;History Provider Cache;Shortcuts*;History)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Trace2345chromeCookie",
+  "category": "13",
+  "app": "2345加速浏览器Cookie",
+  "processes": "2345chrome.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\2345chrome\\User Data\\Default",
+    "options": "(include=Cookies*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Tracehao123browserHistory",
+  "category": "13",
+  "app": "百度浏览器hao123专版历史",
+  "processes": "hao123browser.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%APPDATA%\\Baidu\\Hao123Browser\\UserData\\*\\history.db",
+    "options": "(Table=history)"
+   }
+  ]
+ },
+ {
+  "id": "Tracehao123browserCookie",
+  "category": "13",
+  "app": "百度浏览器hao123专版Cookie",
+  "processes": "hao123browser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\Hao123Browser\\SysData",
+    "options": "(include=Cookie*)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Tracehao123browserFormData",
+  "category": "13",
+  "app": "百度浏览器hao123专版表单和密码",
+  "processes": "hao123browser.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\Hao123Browser\\UserData\\*\\",
+    "options": "(include=AutoFill_v2)(IncludeSubFolder=0)"
+   },
+   {
+    "type": "Directory",
+    "target": "%APPDATA%\\Baidu\\Hao123Browser\\UserData\\*\\",
+    "options": "(include=AutoLogin_v2)(IncludeSubFolder=0)"
+   }
+  ]
+ },
+ {
+  "id": "Tracespartan_edgeHistory",
+  "category": "13",
+  "app": "Edge浏览历史",
+  "processes": "spartan_edge.exe;MicrosoftEdge.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\Microsoft.Windows.Spartan_cw5n1h2txyewy\\AC\\Spartan\\History",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\Microsoft.Windows.Spartan_cw5n1h2txyewy\\AC\\*\\Spartan\\History",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\microsoft.microsoftedge_8wekyb3d8bbwe\\AC\\MicrosoftEdge\\History",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\microsoft.microsoftedge_8wekyb3d8bbwe\\AC\\*\\MicrosoftEdge\\History",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Tracespartan_edgeDownloadHistory",
+  "category": "13",
+  "app": "Edge下载历史",
+  "processes": "spartan_edge.exe;MicrosoftEdge.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\Microsoft.Windows.Spartan_cw5n1h2txyewy\\AC\\Spartan\\User\\Default\\DownloadHistory",
+    "options": ""
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\microsoft.microsoftedge_8wekyb3d8bbwe\\AC\\MicrosoftEdge\\User\\Default\\DownloadHistory",
+    "options": ""
+   }
+  ]
+ },
+ {
+  "id": "Tracespartan_edgeCookie",
+  "category": "13",
+  "app": "Microsoft Edge的Cookie",
+  "processes": "spartan_edge.exe;MicrosoftEdge.exe",
+  "items": [
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\Microsoft.Windows.Spartan_cw5n1h2txyewy\\AC\\*\\Spartan\\Cookies",
+    "options": "(include=*.txt)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\Microsoft.Windows.Spartan_cw5n1h2txyewy\\AC\\Spartan\\Cookies",
+    "options": "(include=*.txt)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\microsoft.microsoftedge_8wekyb3d8bbwe\\AC\\*\\MicrosoftEdge\\Cookies",
+    "options": "(include=*.txt)"
+   },
+   {
+    "type": "Directory",
+    "target": "%LOCAL_APPDATA%\\Packages\\microsoft.microsoftedge_8wekyb3d8bbwe\\AC\\MicrosoftEdge\\Cookies",
+    "options": "(include=*.txt)"
+   }
+  ]
+ },
+ {
+  "id": "TracesAlZipHistory",
+  "category": "44",
+  "app": "AlZip的文件打开记录",
+  "processes": "ALZip.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\ESTsoft\\ALZip\\MRUOpen",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\ESTsoft\\ALZip\\MRUExtract",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesWinAceHistory",
+  "category": "44",
+  "app": "WinAce的文件打开记录",
+  "processes": "winace.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\e-merge\\WinAce\\2.0\\Favorites",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\e-merge\\WinAce\\2.0\\\\MRU Items",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesZipMagicHistory",
+  "category": "44",
+  "app": "ZipMagic的文件打开记录",
+  "processes": "ZipTools.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Mijenix\\ZipMagic\\CurrentVersion\\Recent",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Mijenix\\ZipMagic\\CurrentVersion\\Archive Manager\\UnZip To",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Mijenix\\ZipMagic\\CurrentVersion\\UnZip To",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Mijenix\\ZipMagic\\CurrentVersion\\Zip To",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesPKZIPHistory",
+  "category": "44",
+  "app": "PKZIP的文件打开记录",
+  "processes": "PKZIPW.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\PKWARE\\PKZIP70\\History",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesUniversalExtractorHistory",
+  "category": "44",
+  "app": "Universal Extractor的文件打开记录",
+  "processes": "UniExtract.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\UniExtract\\File",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\UniExtract\\Directory",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesNitroPDFHistory",
+  "category": "44",
+  "app": "Nitro PDF的文件打开记录",
+  "processes": "NitroPDF.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Nitro\\Pro\\9.0\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Nitro PDF\\Reader\\3.0\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Nitro\\pro\\10.0\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesAdobeillustratorHistory",
+  "category": "44",
+  "app": "Adobe illustrator的文件打开记录",
+  "processes": "Illustrator.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Adobe\\MediaBrowser\\MRU\\illustrator\\FileList",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesVirtualDubHistory",
+  "category": "44",
+  "app": "VirtualDub的文件打开记录",
+  "processes": "VirtualDub.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Freeware\\VirtualDub\\MRU List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesTextPadHistory",
+  "category": "44",
+  "app": "TextPad的文件打开记录",
+  "processes": "VirtualDub.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Helios\\TextPad 4\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   },
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Helios\\TextPad 8\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesAVIPreviewHistory",
+  "category": "44",
+  "app": "AVIPreview的文件打开记录",
+  "processes": "AVIPreview.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\Software\\Andrei Jefremov\\AVIPreview by Andrei Jefremov, visit www.avipreview.com for more\\Recent File List",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ },
+ {
+  "id": "TracesMicrosoftEdgeHistory",
+  "category": "13",
+  "app": "Microsoft Edge浏览历史",
+  "processes": "msedge.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Edge\\User Data\\Default\\History",
+    "options": "(Table=urls)"
+   }
+  ]
+ },
+ {
+  "id": "TracesMicrosoftEdgeSearchHistory",
+  "category": "13",
+  "app": "Microsoft Edge搜索历史",
+  "processes": "msedge.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Edge\\User Data\\Default\\History",
+    "options": "(Table=keyword_search_terms)"
+   }
+  ]
+ },
+ {
+  "id": "TracesMicrosoftEdgeDownload",
+  "category": "59",
+  "app": "Microsoft Edge下载记录",
+  "processes": "msedge.exe",
+  "items": [
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Edge\\User Data\\Default\\History",
+    "options": "(Table=downloads)"
+   },
+   {
+    "type": "SQLite",
+    "target": "%LOCAL_APPDATA%\\Microsoft\\Edge\\User Data\\Default\\History",
+    "options": "(Table=downloads_url_chains)"
+   }
+  ]
+ },
+ {
+  "id": "TracesKuaiZipHistory",
+  "category": "44",
+  "app": "快压的文件打开记录",
+  "processes": "KuaiZip.exe",
+  "items": [
+   {
+    "type": "RegKey",
+    "target": "HKEY_CURRENT_USER\\SOFTWARE\\KuaiZip\\KuaiZip\\OpenHistoryList",
+    "options": "(ShowSubValue=1)(ShowValue=1)"
+   }
+  ]
+ }
+]
