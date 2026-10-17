@@ -1280,16 +1280,6 @@ def build_ui(owner, version):
     )
     owner.lbl_hwid.grid(row=6, column=0, padx=20, pady=(10, 6))
 
-    owner.btn_deep_opt = ctk.CTkButton(
-        owner.sidebar_frame,
-        text="🧽 AppData 深度优化",
-        font=ctk.CTkFont(family="Microsoft YaHei UI", size=13, weight="bold"),
-        fg_color="#7c3aed",
-        hover_color="#8b5cf6",
-        command=owner.open_deep_optimize
-    )
-    owner.btn_deep_opt.grid(row=7, column=0, padx=20, pady=4, sticky="ew")
-
     owner.btn_dedup = ctk.CTkButton(
         owner.sidebar_frame,
         text="🔍 重复文件查重台",
@@ -1298,7 +1288,7 @@ def build_ui(owner, version):
         hover_color="#0891b2",
         command=owner.open_dedup
     )
-    owner.btn_dedup.grid(row=8, column=0, padx=20, pady=4, sticky="ew")
+    owner.btn_dedup.grid(row=7, column=0, padx=20, pady=4, sticky="ew")
 
     owner.btn_migrate = ctk.CTkButton(
         owner.sidebar_frame,
@@ -1308,7 +1298,7 @@ def build_ui(owner, version):
         hover_color="#059669",
         command=owner.open_memory_migrate
     )
-    owner.btn_migrate.grid(row=9, column=0, padx=20, pady=4, sticky="ew")
+    owner.btn_migrate.grid(row=8, column=0, padx=20, pady=4, sticky="ew")
 
     owner.btn_check_update = ctk.CTkButton(
         owner.sidebar_frame,
@@ -1316,7 +1306,7 @@ def build_ui(owner, version):
         font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
         command=owner.manual_check_update
     )
-    owner.btn_check_update.grid(row=10, column=0, padx=20, pady=4, sticky="ew")
+    owner.btn_check_update.grid(row=9, column=0, padx=20, pady=4, sticky="ew")
 
     # ==========================================
     # MAIN PANEL

@@ -261,11 +261,6 @@ class SafeCleanerApp(ctk.CTk):
         from dedup_ui import DedupWindow
         DedupWindow(self)
 
-    def open_deep_optimize(self):
-        """打开 AppData 深度优化台（独立窗口）。"""
-        from deep_ui import DeepOptimizeWindow
-        DeepOptimizeWindow(self)
-
     def open_memory_migrate(self):
         """打开 AI 记忆无损迁移台（独立窗口，Junction 方案）。"""
         from migrate_ui import MemoryMigrateWindow

@@ -811,3 +811,37 @@ def scan_rules(rules, on_progress=None):
             on_progress(idx + 1, len(rules), rule["name"])
     out.sort(key=lambda x: x["size"], reverse=True)
     return out
+
+# ----------------------------------------------------------------------
+# 并入主界面两条扫描线（安全扫描 / 深度扫描）
+# ----------------------------------------------------------------------
+CAT_TYPE = {"chromium": "system", "electron": "app", "dev": "dev",
+            "system": "system", "game": "app", "manual": "system"}
+CAT_ICON = {"chromium": "🌐", "electron": "⚡", "dev": "💻",
+            "system": "⚙️", "game": "🎮", "manual": "⚠️", "ai": "🤖"}
+
+
+def to_apps():
+    """把清理规则转换为主界面的清理项（按风险等级分流）。
+
+    risk="safe"   → 安全扫描线（默认勾选，放心清理）
+    risk="manual" → 深度扫描线（默认不勾选，清理前有确认流）
+    """
+    apps = []
+    seen = set()
+    for r in build_rules():
+        if r["id"] in seen:
+            continue
+        seen.add(r["id"])
+        manual = r.get("risk") == "manual"
+        apps.append({
+            "id": "dc_" + r["id"],
+            "name": r["name"],
+            "paths": list(r["paths"]),
+            "icon": CAT_ICON.get(r["cat"], "🧩"),
+            "immune": False,
+            "type": CAT_TYPE.get(r["cat"], "system"),
+            "risk_level": "risk" if manual else "safe",
+            "risk_desc": r.get("desc", "只清理可再生缓存，不影响账号与数据。"),
+        })
+    return apps
