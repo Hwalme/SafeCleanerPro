@@ -85,7 +85,6 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
 
         self._build()
         from ui_theme import popup_front, apply_window_chrome
-        popup_front(self, master)
         apply_window_chrome(self)
         self.after(260, lambda: apply_window_chrome(self))
         self.protocol("WM_DELETE_WINDOW", self._on_close)
@@ -295,9 +294,9 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
         best = max(opts, key=lambda x: mc.get_dir_free_space(x[0]))
         for var_drive, var_root, key, default_tail in (
                 (self.var_drive_shell, self.var_root_shell, "root_shell",
-                 os.path.join("C盘迁移", "常规目录")),
+                 os.path.join("MoveData", "Shell")),
                 (self.var_drive_ai, self.var_root_ai, "root_ai",
-                 os.path.join("C盘迁移", "AI记忆"))):
+                 os.path.join("MoveData", "Agent"))):
             saved = cfg.get(key, "")
             sd = os.path.splitdrive(saved)[0].lower() if saved else ""
             match = next((d for d, _l in opts
@@ -326,12 +325,12 @@ class MemoryMigrateWindow(ctk.CTkToplevel):
     def _on_drive_changed_shell(self, _label=None):
         drive = self._label_drive(self.var_drive_shell.get())
         if drive and not self._root_on_drive(self.var_root_shell.get(), drive):
-            self.var_root_shell.set(os.path.join(drive, "C盘迁移", "常规目录"))
+            self.var_root_shell.set(os.path.join(drive, "MoveData", "Shell"))
 
     def _on_drive_changed_ai(self, _label=None):
         drive = self._label_drive(self.var_drive_ai.get())
         if drive and not self._root_on_drive(self.var_root_ai.get(), drive):
-            self.var_root_ai.set(os.path.join(drive, "C盘迁移", "AI记忆"))
+            self.var_root_ai.set(os.path.join(drive, "MoveData", "Agent"))
 
     @staticmethod
     def _root_on_drive(root, drive):

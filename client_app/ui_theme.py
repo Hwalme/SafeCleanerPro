@@ -658,7 +658,7 @@ def style_dark_treeview(rowheight=30):
 # 全局设计令牌 —— 所有窗口（含弹窗）统一取色/取字，禁止各自定义
 # ======================================================================
 from brand_ui import (BG, PANEL, CARD, ACCENT, OK, WARN, ERR, TEXT, DIM,
-                      MUTED)
+                      MUTED, FAMILY)
 BG_DEEP = BG
 ACCENT2 = ACCENT
 if UI_FAMILY != FAMILY:      # 字体族双定义防漂移（见 brand_ui.FAMILY 注释）
@@ -776,4 +776,127 @@ def popup_front(win, master):
         win.after(500, lambda: win.attributes("-topmost", False))
     except Exception:
         pass
+
+# ----------------------------------------------------------------------
+# 自绘标题栏：移除原生 WS_CAPTION（保留缩放边框/任务栏/最小化语义），
+# 顶部绘制应用风格标题行：拖动移动、双击最大化、最小化/最大化/关闭。
+# ----------------------------------------------------------------------
+
+
+def install_custom_titlebar(win, title, on_close=None, bg="#060b16",
+                            manager="pack", grid_span=2):
+    """在窗口顶部安装自绘标题栏。manager: "pack" 或 "grid"。
+
+    grid 模式占用第 0 行整行（调用方需把既有内容下移一行）。
+    on_close：关闭按钮回调；缺省走 WM_DELETE_WINDOW 协议（保留关闭确认流）。
+    """
+    import ctypes
+    win.update_idletasks()
+    try:
+        hwnd = ctypes.windll.user32.GetParent(win.winfo_id())
+        GWL_STYLE = -16
+        WS_CAPTION = 0x00C00000
+        WS_THICKFRAME = 0x00040000
+        WS_SYSMENU = 0x00080000
+        WS_MINIMIZEBOX = 0x00020000
+        WS_MAXIMIZEBOX = 0x00010000
+        style = ctypes.windll.user32.GetWindowLongW(hwnd, GWL_STYLE)
+        new = ((style & ~WS_CAPTION) | WS_THICKFRAME | WS_SYSMENU
+               | WS_MINIMIZEBOX | WS_MAXIMIZEBOX)
+        ctypes.windll.user32.SetWindowLongW(hwnd, GWL_STYLE, new)
+        SWP_FRAMECHANGED = 0x0020
+        ctypes.windll.user32.SetWindowPos(
+            hwnd, 0, 0, 0, 0, 0,
+            SWP_FRAMECHANGED | 0x0001 | 0x0002 | 0x0004)  # NOSIZE|NOMOVE|NOZORDER
+    except Exception:
+        pass
+
+    state = {"zoomed": False}
+
+    def do_min():
+        try:
+            win.iconify()
+        except Exception:
+            pass
+
+    def do_max():
+        try:
+            if state["zoomed"]:
+                win.state("normal")
+                state["zoomed"] = False
+                maxbtn.configure(text="□")
+            else:
+                win.state("zoomed")
+                state["zoomed"] = True
+                maxbtn.configure(text="❐")
+        except Exception:
+            pass
+
+    def do_close():
+        if on_close:
+            on_close()
+            return
+        try:
+            handler = win.protocol("WM_DELETE_WINDOW")
+            if handler:
+                handler()
+                return
+        except Exception:
+            pass
+        win.destroy()
+
+    bar = ctk.CTkFrame(win, fg_color=bg, height=36)
+    win._titlebar = bar
+    if manager == "grid":
+        bar.grid(row=0, column=0, columnspan=grid_span, sticky="ew")
+    elif manager == "place":
+        # 与既有 pack/grid 内容互不干扰：固定尺寸后覆盖在顶部预留带上方
+        spacer = ctk.CTkFrame(win, height=36, fg_color="transparent")
+        spacer.pack(side="top", fill="x")
+        bar.configure(width=1080, height=36)
+        bar.place(x=0, y=0, relwidth=1.0)
+    else:
+        bar.pack(side="top", fill="x")
+    try:
+        spacer._is_title_spacer = True
+    except Exception:
+        pass
+    tlabel = ctk.CTkLabel(bar, text=title, height=36,
+                          font=ctk.CTkFont(family="Microsoft YaHei UI",
+                                           size=12, weight="bold"),
+                          text_color="#9fb3cc")
+    tlabel.pack(side="left", padx=14)
+    btns = ctk.CTkFrame(bar, fg_color="transparent", height=36)
+    btns.pack(side="right", padx=6)
+
+    def _btn(text, cmd, hover):
+        b = ctk.CTkButton(btns, text=text, width=40, height=26, corner_radius=6,
+                           fg_color="transparent", hover_color=hover,
+                           text_color="#9fb3cc",
+                           font=ctk.CTkFont(size=12, weight="bold"),
+                           command=cmd)
+        b.pack(side="left", padx=2)
+        return b
+
+    maxbtn = _btn("□", do_max, "#1c2942")
+    _btn("—", do_min, "#1c2942")
+    _btn("✕", do_close, "#c0392b")
+
+    def start_move(e):
+        win._tb_dx = e.x
+        win._tb_dy = e.y
+
+    def on_move(e):
+        if state["zoomed"]:
+            return
+        try:
+            win.geometry(f"+{e.x_root - win._tb_dx}+{e.y_root - win._tb_dy}")
+        except Exception:
+            pass
+
+    for w in (bar, tlabel):
+        w.bind("<Button-1>", start_move)
+        w.bind("<B1-Motion>", on_move)
+        w.bind("<Double-Button-1>", lambda e: do_max())
+    return bar
 

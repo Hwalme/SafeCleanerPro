@@ -18,7 +18,8 @@ import customtkinter as ctk
 
 from dedup_core import DedupEngine, logical_drives, system_drive, category_of, SYSTEM_DIR_EXCLUDE
 
-from ui_theme import ACCENT, CARD as PANEL, DIM, BG, setup_popup
+from ui_theme import (ACCENT, CARD as PANEL, DIM, BG, UI_FAMILY, F,
+                      setup_popup)
 
 # 结果筛选条：类型 / 大小 / 日期（只过滤视图显示，不动数据与删除校验）
 CAT_FILTERS = ["全部类型", "图片", "视频", "音频", "文档",
@@ -53,7 +54,6 @@ class DedupWindow(ctk.CTkToplevel):
         self.after(50, self.lift)
         self.attributes("-topmost", True)
         from ui_theme import popup_front, apply_window_chrome
-        popup_front(self, master)
         apply_window_chrome(self)
         self.after(260, lambda: apply_window_chrome(self))
         self.after(200, lambda: self.attributes("-topmost", False))
