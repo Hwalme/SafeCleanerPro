@@ -622,22 +622,38 @@ def stat_path(path, protected_check=True):
 # 大文件安全分级
 # ----------------------------------------------------------------------
 # 明确「删了会坏」的：属于程序本体/依赖/模型，绝不推荐
-LARGE_UNSAFE_FRAGMENTS = (
-    "\\site-packages\\", "\\node_modules\\", "\\dist-info\\", "\\.venv\\",
-    "\\venv\\", "\\python\\python", "\\programs\\ollama\\lib\\", "\\miniconda",
-    "\\anaconda", "\\jdk", "\\jre\\", "\\microsoft\\windows\\", "\\windows\\",
-    "\\program files", "\\packages\\", "\\wsl\\", "\\.ollama\\models",
-    "\\huggingface\\hub", "\\ms-playwright", "\\jetbrains\\", "\\android\\sdk",
-    "\\gradle\\wrapper", "\\.m2\\repository", "\\.cargo\\registry", "\\.nuget\\",
-)
+def _bs(text):
+    """把 / 写法转成路径分隔符（运行时转换，源码零转义）。"""
+    return text.replace("/", chr(92))
+
+
+LARGE_UNSAFE_FRAGMENTS = tuple(_bs(x) for x in (
+    "/site-packages/", "/node_modules/", "/dist-info/", "/.venv/",
+    "/venv/", "/python/python", "/programs/ollama/lib/", "/miniconda",
+    "/anaconda", "/jdk", "/jre/", "/microsoft/windows/", "/windows/",
+    "/program files", "/packages/", "/wsl/", "/.ollama/models",
+    "/huggingface/hub", "/ms-playwright", "/jetbrains/", "/android/sdk",
+    "/gradle/wrapper", "/.m2/repository", "/.cargo/registry", "/.nuget/",
+    "/componentstore/", "/cwd_global/", "/applicationplugins/",
+    "/unrealengine/", "/sogoupy/models/", "/office6/backup/",
+    "/provenancedata/", "/crx_cache/", "/app.asar", "/qqguild/",
+    "/motion graphics templates/", "/im/file/", "/wwmapp/", "/tbs/",
+    "/support/plugins/", "/bin/",
+    "/sdk_storage/", "/modelzoo/", ".bak-",
+))
 # 明确「可安全删」的：缓存/日志/转储/更新残留/临时
-LARGE_SAFE_FRAGMENTS = (
-    "\\cache\\", "\\logs\\", "\\log\\", "\\temp\\", "\\tmp\\", "\\crash",
-    "updates_v2", "\\crashdumps\\", "\\dumps\\", "-updater\\pending",
-    "\\thumbcache", "\\iconcache", "\\d3dscache\\", "\\dxcache\\",
-    "\\vmcache", "\\cachedextensionvsixs",
-)
-LARGE_SAFE_EXTS = {
+LARGE_SAFE_FRAGMENTS = tuple(_bs(x) for x in (
+    "/cache/", "/logs/", "/log/", "/temp/", "/tmp/", "/crash",
+    "updates_v2", "/crashdumps/", "/dumps/", "-updater/pending",
+    "/thumbcache", "/iconcache", "/d3dscache/", "/dxcache/",
+    "/vmcache", "/cachedextensionvsixs", "-updater", "/env-kit/",
+    "/user data/updates/", "/component_crx_cache/",
+))
+# 文件名级精确判级（组件 DLL = 程序本体；安装器 = 可重下缓存）
+LARGE_UNSAFE_FILENAMES = ("chrome.dll", "libcef.dll", "flue.dll", "unins000.dat")
+LARGE_SAFE_FILENAMES = ("installer.exe",)
+
+LARGE_SAFE_EXTS = {".msi", ".cache",
     ".log", ".dmp", ".tmp", ".log.txt", ".etl", ".old", ".bak.tmp",
 }
 
@@ -651,6 +667,15 @@ def grade_large_file(path):
     low = path.lower()
     if is_protected_path(path):
         return "unsafe"
+    base = os.path.basename(low)
+    for fn in LARGE_UNSAFE_FILENAMES:
+        if base == fn:
+            return "unsafe"
+    for fn in LARGE_SAFE_FILENAMES:
+        if base == fn:
+            return "safe"
+    if low.endswith(".exe"):
+        return "unsafe"          # AppData 下的大 exe 默认是程序本体
     for frag in LARGE_UNSAFE_FRAGMENTS:
         if frag in low:
             return "unsafe"
