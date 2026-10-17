@@ -13,6 +13,7 @@
 """
 import os
 import time
+from secure_rules import RulePackError
 
 from cleaner_core import (
     AGENT_MEMORY_WHITELIST,
@@ -848,6 +849,8 @@ def to_apps():
     try:
         import trace_rules_360
         apps += trace_rules_360.build_trace_apps()
+    except RulePackError:
+        raise
     except Exception:
         pass
     return apps

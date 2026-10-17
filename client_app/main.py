@@ -17,6 +17,7 @@ import time
 import threading
 import json
 import io
+from queue import SimpleQueue, Empty
 import urllib.request
 import urllib.parse
 import customtkinter as ctk
@@ -46,6 +47,8 @@ ctk.set_widget_scaling(1.0)
 ctk.set_window_scaling(1.0)
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
+from brand_ui import install_theme
+install_theme()
 
 CURRENT_VERSION = "3.9.14"
 
@@ -131,9 +134,10 @@ class SafeCleanerApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title(f"SafeCleaner Pro - 终极安全进化版 v{CURRENT_VERSION}")
-        self.geometry("1300x780")
-        self.resizable(False, False)
+        self.title(f"PPSAI Cleaner · v{CURRENT_VERSION}")
+        self.geometry("1380x860")
+        self.minsize(1120, 740)
+        self.resizable(True, True)
         ico = app_icon_path()
         if ico:
             try:
@@ -174,6 +178,8 @@ class SafeCleanerApp(ctk.CTk):
         self.risk_state = "idle"
         self.current_view = "safe"   # 列表当前显示的安全/深度项目
         self.log_queue = []
+        self._ui_events = SimpleQueue()
+        self.after(25, self._drain_ui)
 
         # 目标磁盘（跳过 A/B 软驱）
         self.detected_drives = []
@@ -188,24 +194,30 @@ class SafeCleanerApp(ctk.CTk):
 
         self.after(2000, self.check_for_updates)
 
-        # 拖动响应探针（测量帧间隔，用于诊断卡顿）
-        self._last_cfg = time.monotonic()
-        self._drag_ema = 0.0
-
-        def _probe(event):
-            if event.widget is self:
-                return None
-            now = time.monotonic()
-            dt = now - self._last_cfg
-            self._last_cfg = now
-            self._drag_ema = self._drag_ema * 0.8 + dt * 0.2
-
-        self.bind("<Configure>", _probe)
-
     # ------------------------------------------------------------------
     # 日志与进度
     # ------------------------------------------------------------------
+    def _post_ui(self, callback, *args):
+        """Workers enqueue events without touching Tcl/Tk."""
+        self._ui_events.put((callback, args))
+
+    def _drain_ui(self):
+        for _ in range(40):
+            try:
+                callback, args = self._ui_events.get_nowait()
+            except Empty:
+                break
+            try:
+                callback(*args)
+            except Exception:
+                self.report_callback_exception(*sys.exc_info())
+        self.after(25, self._drain_ui)
+
     def append_log(self, message):
+        from collections import deque
+        if not hasattr(self, "log_history"):
+            self.log_history = deque(maxlen=500)
+        self.log_history.append(str(message))
         self.log_queue.append(message)
 
     @staticmethod
@@ -223,8 +235,8 @@ class SafeCleanerApp(ctk.CTk):
             if lbl is not None and not status_locked and self.log_queue:
                 latest = self.log_queue[-1]
                 self.log_queue = []
-                color = "#22c55e" if "[✓]" in latest else "#fbbf24" \
-                    if not latest.startswith(">>>") else "#7dd3fc"
+                color = "#91D5B6" if "[]" in latest else "#E7BA7A" \
+                    if not latest.startswith(">>>") else "#B1ECF7"
                 try:
                     lbl.configure(text=self._truncate_log(latest), text_color=color)
                 except Exception:
@@ -257,17 +269,17 @@ class SafeCleanerApp(ctk.CTk):
                 pass
 
     def open_dedup(self):
-        """打开重复文件查重台。"""
-        from dedup_ui import DedupWindow
-        DedupWindow(self)
+        from brand_ui import open_tool
+        open_tool(self, "dedup")
+
 
     def open_memory_migrate(self):
-        """打开 AI 记忆无损迁移台（独立窗口，Junction 方案）。"""
-        from migrate_ui import MemoryMigrateWindow
-        MemoryMigrateWindow(self)
+        from brand_ui import open_tool
+        open_tool(self, "migrate")
+
 
     def manual_check_update(self):
-        self.btn_check_update.configure(text="⏳ 检查中...", state="disabled")
+        self.btn_check_update.configure(text="正在检查…", state="disabled")
         self.append_log(">>> 正在连接云端服务器检测版本更新...")
 
         def do_check():
@@ -278,20 +290,20 @@ class SafeCleanerApp(ctk.CTk):
                     data = json.loads(resp.read().decode("utf-8"))
 
                 def on_result():
-                    self.btn_check_update.configure(text="🔄 检查更新", state="normal")
+                    self.btn_check_update.configure(text="检查更新", state="normal")
                     if data.get("has_update"):
                         self.append_log(f">>> 发现新版本 v{data['latest_version']}！正在弹出升级窗口...")
                         self.show_update_dialog(data)
                         return
                     self.append_log(f">>> 当前版本 v{CURRENT_VERSION} 已是最新版本，无需更新。")
 
-                self.after(0, on_result)
+                self._post_ui(on_result)
             except Exception:
                 def on_error():
-                    self.btn_check_update.configure(text="🔄 检查更新", state="normal")
+                    self.btn_check_update.configure(text="检查更新", state="normal")
                     self.append_log(">>> 版本检查失败：网络连接异常或服务器未响应。")
 
-                self.after(0, on_error)
+                self._post_ui(on_error)
 
         threading.Thread(target=do_check, daemon=True).start()
 
@@ -327,29 +339,25 @@ class SafeCleanerApp(ctk.CTk):
         return filtered
 
     def on_drive_changed(self):
-        """盘符勾选变化：只改扫描/清理范围，不再重建列表（v3.9.13 反馈）。
-
-        此前每次点盘符都会全量销毁+重建 1400 个列表控件，用户看到
-        「列表为什么重新刷新了」且明显卡顿。现在列表保持稳定，
-        盘符选择在下次扫描/清理时生效（扫描池/清理池走 get_filtered_apps）。
-        """
+        """A changed scope invalidates findings; cleaning always follows a fresh scan."""
+        from brand_ui import busy
+        if busy(self):
+            return
+        self.safe_state = self.risk_state = "idle"
+        self.safe_bytes = self.risk_bytes = self.total_immune_bytes = self.locked_user_bytes = 0
+        self.sizes = {app["id"]: 0 for app in self.apps_data}
+        self.file_cache = {}
+        self.immune_items = {}
+        self.locked_items = {}
+        self.update_stat_cards()
+        self.render_scroll_list()
         selected = self.get_selected_drives()
-        scanning = (getattr(self, "safe_state", "") in ("scanning", "cleaning")
-                    or getattr(self, "risk_state", "") in ("scanning", "cleaning"))
-        if scanning:
-            return   # 进行中不打断进度状态行（扫描池已在启动时锁定）
-        if not selected:
-            text = "⚠️ 请至少选择一个磁盘 — 否则扫描/清理范围为空"
-            color = "#f87171"
-        else:
-            drives_str = ", ".join(f"{d}:" for d in sorted(selected))
-            text = f"💾 清理范围: [{drives_str}] · 盘符只影响下次扫描/清理，列表不刷新"
-            color = "#7dd3fc"
-        self._status_line_locked = False
-        try:
-            self.lbl_progress_info.configure(text=text, text_color=color)
-        except Exception:
-            pass
+        self._status_line_locked = True
+        self.lbl_progress_info.configure(
+            text="扫描范围已更新，请重新扫描。" if selected else "请至少选择一个磁盘。",
+            text_color="#A3AFBD" if selected else "#E7BA7A")
+        self._set_buttons()
+
 
     def select_all_apps(self):
         for app in self.get_filtered_apps():
@@ -419,17 +427,9 @@ class SafeCleanerApp(ctk.CTk):
             self._finish_rows()
 
     def _show_placeholder(self):
-        """列表为空时的提示，首次扫描后自动移除。"""
-        try:
-            self._placeholder = ctk.CTkLabel(
-                self.scroll_frame,
-                text="点击「开始安全扫描」或「开始深度扫描」后在此列出对应项目",
-                font=F(UI_FAMILY, 13, "normal"),
-                text_color="#475569",
-            )
-            self._placeholder.pack(pady=40)
-        except Exception:
-            self._placeholder = None
+        from brand_ui import show_placeholder
+        show_placeholder(self)
+
 
     def _hide_placeholder(self):
         try:
@@ -456,9 +456,9 @@ class SafeCleanerApp(ctk.CTk):
             if getattr(self, "_hidden_zero_count", 0) > 0 and not getattr(self, "show_all_items", False):
                 ctk.CTkLabel(
                     self.scroll_frame,
-                    text=f"⊙ {self._hidden_zero_count} 个 0 大小/无内容项已隐藏 — 勾选下方「显示所有项」查看",
+                    text=f"已隐藏 {self._hidden_zero_count} 个空项目",
                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=12),
-                    text_color="#64748b",
+                    text_color="#8795A5",
                 ).pack(pady=(6, 14))
         except Exception:
             pass
@@ -514,14 +514,17 @@ class SafeCleanerApp(ctk.CTk):
             # 双阶段互斥展示：安全视图只列安全项(+系统免疫)，深度视图只列风险项。
             # 上锁项保留在各自视图中（锁定样式，无法勾选），便于查看与解锁。
             view = getattr(self, "current_view", "safe")
-            if view == "risk":
+            if view == "protected":
+                apps = [a for a in apps if a["immune"] or a["id"] in self.locked_ids]
+                view_banner = "保护中的项目"
+            elif view == "risk":
                 apps = [a for a in apps
                         if not a["immune"] and a.get("risk_level") == "risk"]
-                view_banner = ("🔥 深度清理清单（风险项 · 默认不勾选 · 清理前需确认）")
+                view_banner = ("深度项目 · 默认不选中")
             else:
                 apps = [a for a in apps
                         if a["immune"] or a.get("risk_level") == "safe"]
-                view_banner = ("🧹 安全清理清单（缓存/日志/临时文件 · 可放心清理）")
+                view_banner = ("缓存、日志与临时文件")
             # Round M：默认只显示「扫出来有内容」的垃圾项（0 大小/未扫描隐藏）。
             # 只能在**显示层**过滤，且**扫描/清理进行中不过滤** —— 扫描刚开始时
             # sizes 还没写入（全为 0），此时过滤会让列表瞬间清空。
@@ -529,11 +532,14 @@ class SafeCleanerApp(ctk.CTk):
             show_all = getattr(self, "show_all_items", False)
             busy = (getattr(self, "safe_state", "") in ("scanning", "cleaning")
                     or getattr(self, "risk_state", "") in ("scanning", "cleaning"))
-            if not show_all and not busy:
+            query = self.search_var.get().strip().casefold() if hasattr(self, "search_var") else ""
+            if query:
+                apps = [a for a in apps if query in a["name"].casefold()]
+            if not show_all and not busy and view != "protected":
                 visible = [a for a in apps if self.sizes.get(a["id"], 0) > 0]
                 self._hidden_zero_count = len(apps) - len(visible)
                 apps = visible
-            queue = [("h", view_banner, "#00f0ff", (6, 4))]
+            queue = []
 
             if mode == "size":
                 apps = sorted(apps, key=lambda a: self.sizes.get(a["id"], 0), reverse=True)
@@ -541,19 +547,21 @@ class SafeCleanerApp(ctk.CTk):
                     queue.append(("r", a))
             else:
                 groups = [
-                    (["system"], "⚙️ Windows 系统垃圾与核心瘦身 (回收站、日志、组件缓存)", "#38bdf8"),
-                    (["app", "adobe"], "🌐 常用软件与多媒体渲染缓存 (浏览器、音视频、办公缓存)", "#10b981"),
-                    (["chat"], "💬 社交协同与云文档专清 (微信、QQ、协同办公同步)", "#fbbf24"),
-                    (["dev", "ai"], "💻 开发者工具与 AI 模型引擎 (编译、IDE、大模型缓存)", "#a855f7"),
+                    (["system"], "Windows 系统", "#8CDEEF"),
+                    (["app", "adobe"], "应用与创意工具", "#295443"),
+                    (["chat"], "通讯与协作", "#E7BA7A"),
+                    (["dev", "ai"], "开发与 AI 工具", "#A3AFBD"),
                 ]
                 for types, title, color in groups:
                     matched = [a for a in apps if a.get("type", "app") in types]
                     if not matched:
                         continue
-                    queue.append(("h", title, color, (8, 2)))
+                    queue.append(("h", title, "#A3AFBD", (18, 6)))
                     for a in matched:
                         queue.append(("r", a))
 
+            if not apps:
+                queue = []
             self._row_queue = queue
             self._row_index = 0
             self._rows_started = True
@@ -599,36 +607,9 @@ class SafeCleanerApp(ctk.CTk):
         return other in ("scanning", "cleaning")
 
     def _set_buttons(self):
-        """按双线状态刷新两个按钮的文字/颜色/可用性。"""
-        try:
-            s, r = self.safe_state, self.risk_state
-            safe_texts = {
-                "idle": ("🛡️ 开始安全扫描", "#10b981", "#34d399"),
-                "scanning": ("🔍 正在安全扫描...", None, None),
-                "ready": ("🟢 安全清理", "#10b981", "#34d399"),
-                "cleaning": ("🧹 正在安全清理...", None, None),
-                "done": ("🛡️ 重新安全扫描", "#10b981", "#34d399"),
-            }
-            risk_texts = {
-                "idle": ("🔥 开始深度扫描", "#ef4444", "#f87171"),
-                "scanning": ("🔍 正在深度扫描...", None, None),
-                "ready": ("🔴 深度清理 (风险)", "#ef4444", "#f87171"),
-                "cleaning": ("🧹 正在深度清理...", None, None),
-                "done": ("🔥 重新深度扫描", "#ef4444", "#f87171"),
-            }
-            for btn, state, texts in (
-                (self.btn_action, s, safe_texts),
-                (self.btn_deep, r, risk_texts),
-            ):
-                text, fg, hover = texts[state]
-                busy = state in ("scanning", "cleaning")
-                kw = {"state": "disabled" if busy else "normal", "text": text}
-                if fg:
-                    kw["fg_color"] = fg
-                    kw["hover_color"] = hover
-                btn.configure(**kw)
-        except Exception:
-            pass
+        from brand_ui import sync_actions
+        sync_actions(self)
+
 
     def on_action_click(self):
         """安全线按钮：扫描 -> 安全清理 -> 重新扫描。"""
@@ -653,13 +634,16 @@ class SafeCleanerApp(ctk.CTk):
 
     def toggle_lock(self, app):
         """手动上锁/解锁：持久记忆 + 刷新统计与列表。"""
+        from brand_ui import busy
+        if busy(self):
+            return
         app_id = app["id"]
         if app_id in self.locked_ids:
             self.locked_ids.discard(app_id)
-            self.append_log(f"🔓 已解锁保护: {app['name']}（可重新参与清理）")
+            self.append_log(f" 已解锁保护: {app['name']}（可重新参与清理）")
         else:
             self.locked_ids.add(app_id)
-            self.append_log(f"🔒 已上锁保护: {app['name']}（永不参与清理，重启后保持）")
+            self.append_log(f" 已上锁保护: {app['name']}（永不参与清理，重启后保持）")
         save_locks(self.locked_ids)
         self.update_stat_cards()
         self.render_scroll_list()
@@ -678,8 +662,8 @@ class SafeCleanerApp(ctk.CTk):
         try:
             paths = app.get("paths", []) or []
             if any(is_agent_memory_path(str(p)) for p in paths):
-                self.append_log(f"⛔ {app['name']} 位于 Agent 记忆免疫网，内核级保护不可解锁")
-                self._show_toast("⛔ Agent 记忆免疫网不可解锁", "#450a0a", "#f87171")
+                self.append_log(f" {app['name']} 位于 Agent 记忆免疫网，内核级保护不可解锁")
+                self._show_toast(" Agent 记忆免疫网不可解锁", "#3D282E", "#ECA0A6")
                 return
             show_unlock_confirm(self, app, self._do_unlock_immunity)
         except Exception:
@@ -697,13 +681,13 @@ class SafeCleanerApp(ctk.CTk):
                 self.total_immune_bytes = max(0, self.total_immune_bytes - (freed_imm or 0))
             except Exception:
                 pass
-            self.append_log(f"🔓 已解除系统免疫: {app['name']}（解锁后立即解除，重启后保持）")
+            self.append_log(f" 已解除系统免疫: {app['name']}（解锁后立即解除，重启后保持）")
             self.update_stat_cards()
             self.render_scroll_list()
             # 右侧详情面板正显示该项时同步刷新（解锁后徽章/按钮/勾选框变化）
             if getattr(self, "_detail_current", None) == app_id:
                 show_item_detail(self, app_id)
-            self._show_toast(f"🔓 已解锁: {app['name']}", "#064e3b", "#34d399")
+            self._show_toast(f" 已解锁: {app['name']}", "#203B30", "#3C6D58")
         except Exception:
             pass
 
@@ -730,7 +714,11 @@ class SafeCleanerApp(ctk.CTk):
 
     def start_scan(self, tier):
         """tier: 'safe' 安全扫描 / 'risk' 深度扫描。只列并只扫对应项目。"""
+        from brand_ui import busy, tools_busy
+        if busy(self) or tools_busy(self) or not self.get_selected_drives():
+            return
         self.current_view = tier
+        self._active_page = tier
         if tier == "safe":
             self.safe_state = "scanning"
             self.safe_bytes = 0
@@ -744,7 +732,7 @@ class SafeCleanerApp(ctk.CTk):
         self._status_line_locked = False
         try:
             self.lbl_progress_info.configure(
-                text="🔍 准备扫描...", text_color="#fbbf24")
+                text=" 准备扫描...", text_color="#E7BA7A")
         except Exception:
             pass
         # 渐进式列表：扫描期间不再一次性构建全部行（781 行全量建行曾致
@@ -768,23 +756,38 @@ class SafeCleanerApp(ctk.CTk):
             w.destroy()
         self._scan_placeholder = ctk.CTkLabel(
             self.scroll_frame,
-            text="🔍 正在扫描，垃圾项会在这里陆续出现…",
-            font=F(UI_FAMILY, 13), text_color="#64748b")
+            text=" 正在扫描，垃圾项会在这里陆续出现…",
+            font=F(UI_FAMILY, 13), text_color="#8795A5")
         self._scan_placeholder.pack(pady=40)
 
         # 主线程先取盘符（后台线程读 Tk 变量跨线程不安全）
         selected_drives = self.get_selected_drives()
-        threading.Thread(target=self._scan_thread, args=(tier, selected_drives),
+        threading.Thread(target=self._scan_worker, args=(tier, selected_drives),
                          daemon=True).start()
+
+    def _scan_worker(self, tier, selected_drives):
+        try:
+            self._scan_thread(tier, selected_drives)
+        except Exception as error:
+            message = str(error)
+            self._post_ui(lambda: self._scan_failed(tier, message))
+
+    def _scan_failed(self, tier, message):
+        setattr(self, tier + "_state", "idle")
+        self._status_line_locked = True
+        self.lbl_progress_info.configure(text="扫描未完成，请重试或查看活动记录。", text_color="#ECA0A6")
+        self.append_log("扫描未完成：" + message)
+        self.render_scroll_list()
+        self._set_buttons()
 
     def _scan_thread(self, tier, selected_drives=None):
         if selected_drives is None:
             selected_drives = self.get_selected_drives()
         drives_str = ", ".join(f"{d}:" for d in sorted(selected_drives))
         tier_name = "安全扫描" if tier == "safe" else "深度扫描"
-        self.append_log(f">>> 启动引擎: SafeCleaner Pro 物理雷达[{tier_name}]...")
+        self.append_log(f"启动 PPSAI Cleaner 扫描[{tier_name}]...")
         self.append_log(f">>> 目标磁盘: [{drives_str}]")
-        self.append_log(">>> 安全协议: 核心路径物理指纹加密脱敏已开启。")
+        self.append_log("受保护的记忆与工作区不会参与清理。")
         time.sleep(0.3)
 
         from cleaner_core import get_app_size
@@ -831,24 +834,22 @@ class SafeCleanerApp(ctk.CTk):
 
             # 统计卡片每 15 项刷一次（781 项逐项刷会拖慢主线程）
             if idx % 15 == 0 or idx == total_items - 1:
-                self.after(0, self.update_stat_cards)
-            self.after(0, lambda i=idx, n=total_items, name=app["name"],
+                self._post_ui(self.update_stat_cards)
+            self._post_ui(lambda i=idx, n=total_items, name=app["name"],
                        aid=app["id"], sz=app_size, a=app:
                        self._ui_scan_progress(i, n, name, aid, sz, a))
             time.sleep(0.01)
 
         if tier == "safe":
-            self.safe_state = "ready"
-            self.append_log(f"\n[✓] 安全扫描完成！可放心清理: {format_size(self.safe_bytes)}")
-            self.append_log(f"🛡️ 自动免疫锁定大模型上下文与微信数据目录: {format_size(self.total_immune_bytes)}")
+            self.append_log(f"\n[] 安全扫描完成！可放心清理: {format_size(self.safe_bytes)}")
+            self.append_log(f" 自动免疫锁定大模型上下文与微信数据目录: {format_size(self.total_immune_bytes)}")
         else:
-            self.risk_state = "ready"
-            self.append_log(f"\n[✓] 深度扫描完成！风险项目: {format_size(self.risk_bytes)}（默认不勾选，请确认后再清理）")
+            self.append_log(f"\n[] 深度扫描完成！风险项目: {format_size(self.risk_bytes)}（默认不勾选，请确认后再清理）")
         self.append_log("═" * 46)
-        done_text = (f"✅ 安全扫描完成，可清理 {format_size(self.safe_bytes)}"
+        done_text = (f" 安全扫描完成，可清理 {format_size(self.safe_bytes)}"
                      if tier == "safe" else
-                     f"✅ 深度扫描完成，发现风险项 {format_size(self.risk_bytes)}")
-        self.after(0, lambda: self._ui_scan_done(tier, done_text))
+                     f" 深度扫描完成，发现风险项 {format_size(self.risk_bytes)}")
+        self._post_ui(lambda: self._ui_scan_done(tier, done_text))
 
     def _ui_scan_progress(self, idx, total, name, app_id=None, size=0, app=None):
         """主线程侧扫描进度：进度条 + 状态行；扫出垃圾的项逐行出现。"""
@@ -856,7 +857,7 @@ class SafeCleanerApp(ctk.CTk):
             self.progress_bar.set((idx + 1) / max(1, total))
             self._status_line_locked = True
             self.lbl_progress_info.configure(
-                text=self._truncate_log(f"🔍 正在扫描: {name}  ({idx + 1}/{total})"))
+                text=self._truncate_log(f" 正在扫描: {name}  ({idx + 1}/{total})"))
             if app_id and size:
                 # 渐进式建行：只建扫出垃圾的行（Round M 口径），零大小项不建
                 self._scan_found_bytes = getattr(self, "_scan_found_bytes", 0) + size
@@ -866,15 +867,16 @@ class SafeCleanerApp(ctk.CTk):
                 info = self.app_rows.get(app_id)
                 if info:
                     info["size"].configure(text="● " + format_size(size),
-                                           fg="#fbbf24", font=(MONO_FAMILY, 12, "bold"))
+                                           fg="#E7BA7A", font=(MONO_FAMILY, 12, "bold"))
                 ph = getattr(self, "_scan_placeholder", None)
                 if ph is not None and ph.winfo_exists():
-                    ph.configure(text=f"🔍 扫描中… 已发现垃圾 {format_size(self._scan_found_bytes)}"
+                    ph.configure(text=f" 扫描中… 已发现垃圾 {format_size(self._scan_found_bytes)}"
                                       f"（{idx + 1}/{total}）— 完成后自动整理列表")
         except Exception:
             pass
 
     def _ui_scan_done(self, tier, text):
+        setattr(self, tier + "_state", "ready")
         """扫描完成强提示：提示音 + 浮动结果卡 + 报告弹窗 + 状态复位。"""
         try:
             self._status_line_locked = False
@@ -883,87 +885,51 @@ class SafeCleanerApp(ctk.CTk):
             self._set_buttons()
             self.render_scroll_list()
             self.lbl_progress_info.configure(
-                text=f"{text}  → 请点击{'「安全清理」' if tier == 'safe' else '「深度清理」'}",
-                text_color="#22c55e")
-            try:
-                import winsound
-                winsound.MessageBeep(winsound.MB_ICONASTERISK)
-            except Exception:
-                pass
-            self._show_toast(text, "#064e3b", "#22c55e")
+                text=f"{text}  → 请核对底部已选容量后继续",
+                text_color="#91D5B6")
+            self._show_toast(text, "#203B30", "#91D5B6")
             self.show_final_report("scan", tier)
         except Exception:
             pass
 
     def _show_toast(self, text, bg, fg, duration_ms=2600):
-        """右上角浮动提示卡，自动淡出关闭，不抢主窗口焦点。"""
-        try:
-            toast = ctk.CTkToplevel(self)
-            toast.overrideredirect(True)
-            try:
-                toast.attributes("-topmost", True)
-            except Exception:
-                pass
-            sw = toast.winfo_screenwidth()
-            toast.geometry(f"360x64+{sw - 390}+90")
-            box = ctk.CTkFrame(toast, fg_color=bg, corner_radius=10,
-                               border_width=1, border_color=fg)
-            box.pack(fill="both", expand=True, padx=2, pady=2)
-            ctk.CTkLabel(box, text=text, font=F(UI_FAMILY, 13, "bold"),
-                         text_color=fg).place(relx=0.5, rely=0.5, anchor="center")
+        self._status_line_locked = True
+        self.lbl_progress_info.configure(text=text, text_color=fg)
 
-            def _fade(step=6):
-                if step <= 0:
-                    try:
-                        toast.destroy()
-                    except Exception:
-                        pass
-                    return
-                try:
-                    toast.attributes("-alpha", step / 6.0)
-                except Exception:
-                    pass
-                toast.after(70, lambda: _fade(step - 1))
-
-            toast.after(duration_ms, _fade)
-        except Exception:
-            pass
 
     def on_clean_finished(self, clean_type, freed_bytes):
         self.progress_bar.stop()
         self.progress_bar.configure(mode="determinate")
         self.progress_bar.set(1.0)
-        self.append_log(f"\n[✓] {clean_type} 清理完成，共释放 {format_size(freed_bytes)}。")
+        self.append_log(f"\n[] {clean_type} 清理完成，共释放 {format_size(freed_bytes)}。")
         self.append_log("═" * 46)
         if clean_type == "safe":
             self.freed_safe += freed_bytes
             self.safe_state = "done"
-            done_text = f"🧹 安全清理完成，共释放 {format_size(freed_bytes)}"
+            done_text = f" 安全清理完成，共释放 {format_size(freed_bytes)}"
         else:
             self.freed_risk += freed_bytes
             self.risk_state = "done"
-            done_text = f"🧹 深度清理完成，共释放 {format_size(freed_bytes)}"
+            done_text = f" 深度清理完成，共释放 {format_size(freed_bytes)}"
         self._status_line_locked = False
         self.update_stat_cards()
         self._set_buttons()
         self.render_scroll_list()
         try:
             self.lbl_progress_info.configure(
-                text=f"{done_text}（可重新扫描）", text_color="#22c55e")
+                text=f"{done_text}（可重新扫描）", text_color="#91D5B6")
         except Exception:
             pass
-        try:
-            import winsound
-            winsound.MessageBeep(winsound.MB_ICONASTERISK)
-        except Exception:
-            pass
-        self._show_toast(done_text, "#052e16", "#4ade80")
+        self._show_toast(done_text, "#203B30", "#91D5B6")
         self.show_final_report("clean", clean_type, freed_bytes)
 
     # ------------------------------------------------------------------
     # 清理流程（含授权校验）
     # ------------------------------------------------------------------
     def start_cleanup_flow(self, clean_type):
+        from brand_ui import selected_apps, busy, tools_busy
+        if busy(self) or tools_busy(self) or not selected_apps(self, clean_type):
+            return
         hwid = get_hwid()
         license_key, _ = load_license_key()
 
@@ -987,7 +953,7 @@ class SafeCleanerApp(ctk.CTk):
             self.show_auth_dialog(hwid, clean_type)
             return
 
-        self.append_log(">>> 授权验证成功：尊贵的特权用户，已放行底层物理清除权限！")
+        self.append_log("授权验证成功，准备清理所选项目。")
         if clean_type == "risk":
             self.show_risk_confirmation(clean_type, lambda: self.execute_cleaning(clean_type))
             return
@@ -995,6 +961,12 @@ class SafeCleanerApp(ctk.CTk):
         self.execute_cleaning(clean_type)
 
     def execute_cleaning(self, clean_type):
+        from brand_ui import selected_apps, busy, tools_busy
+        if busy(self) or tools_busy(self):
+            return
+        self._clean_snapshot = tuple(selected_apps(self, clean_type))
+        if not self._clean_snapshot:
+            return
         if clean_type == "safe":
             self.safe_state = "cleaning"
         else:
@@ -1007,35 +979,40 @@ class SafeCleanerApp(ctk.CTk):
         self._status_line_locked = False
         try:
             self.lbl_progress_info.configure(
-                text="🧹 准备清理...", text_color="#fbbf24")
+                text=" 准备清理...", text_color="#E7BA7A")
         except Exception:
             pass
-        threading.Thread(target=self._clean_thread, args=(clean_type,), daemon=True).start()
+        threading.Thread(target=self._clean_worker, args=(clean_type,), daemon=True).start()
+
+    def _clean_worker(self, clean_type):
+        try:
+            self._clean_thread(clean_type)
+        except Exception as error:
+            message = str(error)
+            self._post_ui(lambda: self._clean_failed(clean_type, message))
+
+    def _clean_failed(self, clean_type, message):
+        setattr(self, clean_type + "_state", "done")
+        self._status_line_locked = True
+        self.lbl_progress_info.configure(text="清理中断，请重新扫描后核对剩余项目。", text_color="#ECA0A6")
+        self.append_log("清理中断：" + message)
+        self.render_scroll_list()
+        self.update_stat_cards()
+        self._set_buttons()
 
     def _clean_thread(self, clean_type):
-        self.append_log(f">>> 启动特权模式: 执行物理底层粉碎 [{'安全清理' if clean_type == 'safe' else '风险清理'}]...")
+        self.append_log(f"正在清理所选项目 [{'安全清理' if clean_type == 'safe' else '风险清理'}]...")
         # 累计唯一入口：循环内只加局部 stage_freed，收尾由 on_clean_finished 统一入账。
         # 历史 Bug：循环里逐项加过 freed_safe/freed_risk，收尾又加 stage_freed → 总量翻倍。
         stage_freed = 0
         freed_base = self.freed_safe + self.freed_risk
         self.last_clean_detail = []   # [(项目名, 本项释放字节)] 供完成报告 TOP5
 
-        cleanable_apps = []
-        for app in self.get_filtered_apps():
-            if app["immune"]:
-                continue
-            chk_var = self.app_checkbox_vars.get(app["id"])
-            if not chk_var:
-                continue
-            if chk_var.get() != 1:
-                continue
-            if app["risk_level"] != clean_type:
-                continue
-            cleanable_apps.append(app)
+        cleanable_apps = list(getattr(self, "_clean_snapshot", ()))
 
         if not cleanable_apps:
             self.append_log("\n[!] 没有勾选任何属于当前清理分类的软件项。")
-            self.after(0, lambda: self.on_clean_finished(clean_type, 0))
+            self._post_ui(lambda: self.on_clean_finished(clean_type, 0))
             return
 
         # 绝不清理自身运行目录（打包后的临时解压目录）
@@ -1048,7 +1025,7 @@ class SafeCleanerApp(ctk.CTk):
             app_id = app["id"]
             self.append_log(f'[*] 正在抹除: {app["name"]}')
             # 跟随反馈：列表自动滚到该项 + 行底条琥珀色(处理中) + 总进度条
-            self.after(0, lambda aid=app_id, i=idx, n=total_items:
+            self._post_ui(lambda aid=app_id, i=idx, n=total_items:
                        self._ui_clean_row_state(aid, "running", i, n, freed_base))
             time.sleep(0.05)
 
@@ -1073,12 +1050,12 @@ class SafeCleanerApp(ctk.CTk):
             stage_freed += deleted_size
             self.last_clean_detail.append((app["name"], deleted_size))
             # 完成反馈：行底条绿色从左到右填充 + 徽章更新 + 实时释放量
-            self.after(0, lambda aid=app_id, i=idx, n=total_items,
+            self._post_ui(lambda aid=app_id, i=idx, n=total_items,
                        freed=freed_base + stage_freed, name=app["name"]:
                        self._ui_clean_row_state(aid, "done", i, n, freed, name))
             time.sleep(0.3)
 
-        self.after(0, lambda: self.on_clean_finished(clean_type, stage_freed))
+        self._post_ui(lambda: self.on_clean_finished(clean_type, stage_freed))
 
     def _ui_clean_row_state(self, app_id, phase, idx, total, freed_base, app_name=None):
         """主线程侧的清理跟随 UI：滚动定位 + 行底条 + 徽章 + 实时释放量。"""
@@ -1092,17 +1069,17 @@ class SafeCleanerApp(ctk.CTk):
                 self._status_line_locked = True
                 self.lbl_progress_info.configure(
                     text=self._truncate_log(
-                        f"🧹 正在清理: {app_name or app_id}  ({idx + 1}/{total})"
+                        f" 正在清理: {app_name or app_id}  ({idx + 1}/{total})"
                         if phase == "running" else
-                        f"🧹 清理进度 {idx + 1}/{total} · 已释放 {format_size(freed_base)}"),
-                    text_color="#fbbf24")
+                        f" 清理进度 {idx + 1}/{total} · 已释放 {format_size(freed_base)}"),
+                    text_color="#E7BA7A")
             except Exception:
                 pass
             if phase == "done":
                 self.lbl_cleaned_val.configure(text=format_size(freed_base))
                 if app_id in self.app_rows:
                     self.app_rows[app_id]["size"].configure(text="0.00 B")
-                    style_row_badge(self, app_id, "✨ 已安全净化", "#22c55e", "#064e3b")
+                    style_row_badge(self, app_id, " 已安全净化", "#91D5B6", "#203B30")
         except Exception:
             pass
 
@@ -1125,6 +1102,9 @@ class SafeCleanerApp(ctk.CTk):
         免疫行：面板只读展示子路径（不参与清理，无勾选框），底部提供
         「解锁此项」入口（Agent 记忆免疫网项目显示不可解锁）。
         """
+        from brand_ui import busy
+        if busy(self):
+            return
         app_id = app["id"]
         is_immune = bool(app.get("immune"))
         try:
@@ -1139,29 +1119,29 @@ class SafeCleanerApp(ctk.CTk):
                 if getattr(old, "panel_app_id", None) == app_id:
                     return   # 再次点击同一项 = 收起
             choices = self.subpath_choices.setdefault(app_id, {})
-            panel = ctk.CTkFrame(self.scroll_frame, fg_color="#0b1220",
+            panel = ctk.CTkFrame(self.scroll_frame, fg_color="#101419",
                                  corner_radius=6, border_width=1,
-                                 border_color="#1e3a5f" if is_immune else "#312e81")
+                                 border_color="#203640" if is_immune else "#203640")
             panel.panel_app_id = app_id
             if is_immune:
-                ctk.CTkLabel(panel, text=f"🛡️ {app['name']} · 系统免疫明细（只读，不参与清理）",
-                             font=F(UI_FAMILY, 12, "bold"), text_color="#60a5fa",
+                ctk.CTkLabel(panel, text=f" {app['name']} · 系统免疫明细（只读，不参与清理）",
+                             font=F(UI_FAMILY, 12, "bold"), text_color="#8CDEEF",
                              ).pack(anchor="w", padx=10, pady=(6, 2))
             else:
-                ctk.CTkLabel(panel, text=f"📂 {app['name']} · 细分清理范围（取消勾选的路径本次不清理）",
-                             font=F(UI_FAMILY, 12, "bold"), text_color="#818cf8",
+                ctk.CTkLabel(panel, text=f" {app['name']} · 细分清理范围（取消勾选的路径本次不清理）",
+                             font=F(UI_FAMILY, 12, "bold"), text_color="#B1ECF7",
                              ).pack(anchor="w", padx=10, pady=(6, 2))
             patterns = app.get("paths", []) or []
             if not patterns:
                 ctk.CTkLabel(panel, text="（该项未定义细分路径）",
-                             font=F(UI_FAMILY, 12), text_color="#64748b",
+                             font=F(UI_FAMILY, 12), text_color="#8795A5",
                              ).pack(anchor="w", padx=14, pady=(0, 6))
             for pat in patterns:
                 key = str(pat).lower()
                 row = ctk.CTkFrame(panel, fg_color="transparent")
                 row.pack(fill="x", padx=10)
                 if is_immune:
-                    ctk.CTkLabel(row, text="🔒", width=18,
+                    ctk.CTkLabel(row, text="", width=18,
                                  font=F(UI_FAMILY, 11)).pack(side="left", padx=(4, 6), pady=2)
                 else:
                     svar = ctk.BooleanVar(value=choices.get(key, True))
@@ -1170,7 +1150,7 @@ class SafeCleanerApp(ctk.CTk):
                                     self.subpath_choices.setdefault(a, {}).__setitem__(k, bool(v.get()))
                                     ).pack(side="left", padx=(4, 6), pady=2)
                 ctk.CTkLabel(row, text=obfuscate_path(str(pat)),
-                             font=F(MONO_FAMILY, 11), text_color="#cbd5e1",
+                             font=F(MONO_FAMILY, 11), text_color="#CFD7E0",
                              anchor="w").pack(side="left", fill="x", expand=True)
             # 已迁移记忆标注：原路径是 Junction 入口，真实数据在目标盘，
             # 避免误读为"C 盘仍占用"
@@ -1190,7 +1170,7 @@ class SafeCleanerApp(ctk.CTk):
                             ctk.CTkLabel(
                                 panel, text=(f"⤳ 已迁移：{real} 现存于 {tgt}"
                                              f"（数据在 {drv} 盘，C 盘不占用）"),
-                                font=F(UI_FAMILY, 11), text_color="#34d399",
+                                font=F(UI_FAMILY, 11), text_color="#3C6D58",
                                 anchor="w", wraplength=780,
                                 justify="left").pack(anchor="w", padx=14, pady=(2, 0))
             except Exception:
@@ -1201,16 +1181,16 @@ class SafeCleanerApp(ctk.CTk):
                 foot = ctk.CTkFrame(panel, fg_color="transparent")
                 foot.pack(fill="x", padx=10, pady=(4, 8))
                 if agent_protected:
-                    ctk.CTkLabel(foot, text="⛔ Agent 记忆免疫网 · 内核级保护，不可解锁",
+                    ctk.CTkLabel(foot, text=" Agent 记忆免疫网 · 内核级保护，不可解锁",
                                  font=F(UI_FAMILY, 12, "bold"),
-                                 text_color="#f87171").pack(side="left")
+                                 text_color="#ECA0A6").pack(side="left")
                 else:
                     ctk.CTkLabel(foot, text="解锁后此项将参与扫描与清理",
                                  font=F(UI_FAMILY, 11),
-                                 text_color="#94a3b8").pack(side="left")
-                    ctk.CTkButton(foot, text="🔓 解锁此项并允许清理",
+                                 text_color="#A3AFBD").pack(side="left")
+                    ctk.CTkButton(foot, text=" 解锁此项并允许清理",
                                   font=F(UI_FAMILY, 12, "bold"), width=180, height=28,
-                                  fg_color="#7f1d1d", hover_color="#991b1b",
+                                  fg_color="#59353A", hover_color="#74434A",
                                   command=lambda a=app: self.unlock_immunity(a)
                                   ).pack(side="right")
             panel.pack(fill="x", padx=(14, 14), pady=(0, 6), after=self.app_rows.get(app_id, {}).get("frame"))
@@ -1236,6 +1216,9 @@ class SafeCleanerApp(ctk.CTk):
 
     def show_file_viewer(self, app):
         """文件清单预览（实现在 ui_theme）。"""
+        from brand_ui import busy
+        if busy(self):
+            return
         show_file_viewer(self, app)
 
     def show_protection_list(self):
@@ -1295,14 +1278,14 @@ class SafeCleanerApp(ctk.CTk):
                 self.sizes[app_to_clean["id"]] = 0
                 self.freed_safe += freed
                 self.update_stat_cards()
-                self.append_log(f"[✓] {app_to_clean['name']} 清理完成，释放 {format_size(freed)}。")
+                self.append_log(f"[] {app_to_clean['name']} 清理完成，释放 {format_size(freed)}。")
                 if parent_dialog is not None:
                     try:
                         parent_dialog.destroy()
                     except Exception:
                         pass
 
-            self.after(0, done)
+            self._post_ui(done)
 
         threading.Thread(target=run_single, daemon=True).start()
 
@@ -1315,7 +1298,7 @@ class SafeCleanerApp(ctk.CTk):
                     if response.status == 200:
                         data = json.loads(response.read().decode("utf-8"))
                         if data.get("has_update"):
-                            self.after(0, lambda: self.show_update_dialog(data))
+                            self._post_ui(lambda: self.show_update_dialog(data))
             except Exception as e:
                 print(f"Check update failed: {e}")
 
@@ -1323,7 +1306,7 @@ class SafeCleanerApp(ctk.CTk):
 
     def show_update_dialog(self, update_info):
         win = ctk.CTkToplevel(self)
-        win.title("🚀 发现新版本 SafeCleaner Pro")
+        win.title(" 发现新版本 PPSAI Cleaner")
         win.geometry("680x520")
         win.resizable(False, False)
         win.grab_set()
@@ -1332,14 +1315,14 @@ class SafeCleanerApp(ctk.CTk):
         except Exception:
             pass
 
-        ctk.CTkLabel(win, text="🚀 发现新版本 SafeCleaner Pro",
+        ctk.CTkLabel(win, text=" 发现新版本 PPSAI Cleaner",
                      font=ctk.CTkFont(family="Microsoft YaHei UI", size=19, weight="bold"),
-                     text_color="#38bdf8").pack(pady=(20, 8))
+                     text_color="#8CDEEF").pack(pady=(20, 8))
         ctk.CTkLabel(win,
                      text=f"最新版本: v{update_info.get('latest_version', '')}   "
                           f"(当前版本: v{CURRENT_VERSION})",
                      font=ctk.CTkFont(family="Microsoft YaHei UI", size=13),
-                     text_color="#94a3b8").pack(pady=(0, 10))
+                     text_color="#A3AFBD").pack(pady=(0, 10))
 
         box = ctk.CTkTextbox(win, font=ctk.CTkFont(family="Microsoft YaHei UI", size=12))
         box.pack(fill="both", expand=True, padx=20, pady=6)
@@ -1354,7 +1337,7 @@ class SafeCleanerApp(ctk.CTk):
 
         ctk.CTkButton(win, text="立即下载更新", command=download,
                       font=ctk.CTkFont(family="Microsoft YaHei UI", size=13, weight="bold"),
-                      fg_color="#10b981", hover_color="#34d399").pack(pady=10)
+                      fg_color="#295443", hover_color="#3C6D58").pack(pady=10)
         ctk.CTkButton(win, text="稍后再说", command=win.destroy).pack(pady=(0, 12))
 
 
@@ -1394,84 +1377,12 @@ def is_admin():
         return False
 
 
-class SplashScreen(ctk.CTkToplevel):
-    """无边框启动动画遮罩。
+from brand_ui import BrandSplash as SplashScreen
 
-    作为主窗口（此时隐藏）的 CTkToplevel 子窗口运行。
-    进度到 100% 时自行销毁并显示主窗口，让界面立刻出现。
-    """
-
-    def __init__(self, master_app):
-        super().__init__(master_app)
-        self.master_app = master_app
-        self.step = 0
-
-        try:
-            self.overrideredirect(True)
-            self.attributes("-topmost", True)
-        except Exception:
-            pass
-
-        w, h = 620, 380
-        sw = self.winfo_screenwidth()
-        sh = self.winfo_screenheight()
-        self.geometry(f"{w}x{h}+{(sw - w) // 2}+{(sh - h) // 2}")
-        self.configure(fg_color="#020617")
-
-        try:
-            from PIL import Image, ImageOps
-            img = Image.open(get_resource_path("splash_logo.png"))
-            # 满铺（cover）：保持宽高比缩放并居中裁切填满整窗，绝不上下压扁。
-            img = ImageOps.fit(img, (w, h), method=Image.LANCZOS, centering=(0.5, 0.5))
-            self._ctk_img = ctk.CTkImage(light_image=img, dark_image=img, size=(w, h))
-            self.lbl_bg = ctk.CTkLabel(self, text="", image=self._ctk_img)
-            self.lbl_bg.place(x=0, y=0, relwidth=1, relheight=1)
-            self.lbl_bg.lower()   # 图片沉底：文字与进度条叠在图片层的上一层
-        except Exception as e:
-            print("Failed to load splash logo:", e)
-
-        ctk.CTkLabel(self, text="SafeCleaner Pro",
-                     font=ctk.CTkFont(family="Microsoft YaHei UI", size=30, weight="bold"),
-                     text_color="#00f0ff").place(relx=0.5, rely=0.56, anchor="center")
-
-        self.lbl_status = ctk.CTkLabel(self, text="正在初始化 SafeCleaner Pro 内核...",
-                                       font=ctk.CTkFont(family="Microsoft YaHei UI", size=13),
-                                       text_color="#e2e8f0")
-        self.lbl_status.place(relx=0.5, rely=0.70, anchor="center")
-
-        self.progress = ctk.CTkProgressBar(self, width=420, fg_color="#1e293b")
-        self.progress.place(relx=0.5, rely=0.80, anchor="center")
-        self.progress.set(0)
-
-        self.lbl_pct = ctk.CTkLabel(self, text="0%",
-                                    font=ctk.CTkFont(family="Consolas", size=12),
-                                    text_color="#e2e8f0")
-        self.lbl_pct.place(relx=0.5, rely=0.88, anchor="center")
-
-        self.after(30, self.animate)
-
-    def animate(self):
-        self.step += 1
-        pct = min(self.step, 100)
-        self.progress.set(pct / 100.0)
-        self.lbl_pct.configure(text=f"{pct}%")
-        if pct >= 100:
-            try:
-                self.master_app.deiconify()
-                self.master_app.build_ui()
-            except Exception:
-                pass
-            try:
-                self.destroy()
-            except Exception:
-                pass
-            return
-        self.after(18, self.animate)
 
 
 if __name__ == "__main__":
     app = SafeCleanerApp()
     app.withdraw()
-    warm_emoji_glyphs(app)
     splash = SplashScreen(app)
     app.mainloop()

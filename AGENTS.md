@@ -20,6 +20,10 @@ The development of SafeCleanerPro was conducted in three distinct phases, levera
 *   **Codex Prompt:** *"Create a lightweight, beautiful license verification portal using pure HTML/CSS Glassmorphism styling and a Python Flask backend. The client should verify device HWID against RSA-2048 non-signed public keys."*
 *   **Outcome:** Codex implemented the cryptographic verification handshake (`cryptography` library) on both client and backend platforms, ensuring secure, tamper-proof license provisioning.
 
+### Phase 4: NTFS Junction Lossless Memory Migration (`migrate_core.py` & `migrate_ui.py`)
+*   **Codex Prompt:** *"Evaluate whether the AI-agent memory directories on drive C can be relocated to a secondary drive without breaking the owning applications and without any data loss. If feasible, implement it."*
+*   **Outcome:** Codex confirmed feasibility via **NTFS Directory Junctions** (transparent to apps, no admin rights needed) and shipped a full pipeline: copy → verify (file count + byte-exact) → atomic rename (locked files abort with auto-rollback) → junction → traverse-verify through the original path → only then delete the C-drive backup. Includes one-click restore back to C:, resumable transfers, a persistent manifest (`%LOCALAPPDATA%\SafeCleanerPro\move_map.json`), and a dedicated workstation window (`migrate_ui.py`). Covered by `verify_migrate.py` (25/25 assertions) and `verify_migrate_ui.py` (GUI smoke).
+
 ---
 
 ## 🛡️ The AI-Agent Safety Guarantee

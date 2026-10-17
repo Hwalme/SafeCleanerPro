@@ -11,15 +11,12 @@
         %InstallPath% / %SID% 等本机无法解析的变量。
 """
 import glob
-import io
-import json
 import os
 import re
-import sys
+from secure_rules import load_dataset
 
 NL = chr(10)
 BS = chr(92)
-_RES_BASE = None
 
 try:
     from deep_cache import is_protected_path
@@ -39,34 +36,8 @@ DENY_PAT = re.compile(
     r"|places\.sqlite|sessionstore|webdata|bookmark", re.I)
 
 
-def _resource_base():
-    global _RES_BASE
-    if _RES_BASE is None:
-        import sys
-        base = getattr(sys, "_MEIPASS", None) or os.path.dirname(
-            os.path.abspath(__file__))
-        _RES_BASE = base
-    return _RES_BASE
-
-
 def _load_json():
-    base = _resource_base()
-    parent = os.path.dirname(base)
-    cands = (
-        os.path.join(base, "rules", "trace_rules.json"),
-        os.path.join(base, "trace_rules.json"),
-        os.path.join(parent, "rules", "trace_rules.json"),
-        os.path.join("rules", "trace_rules.json"),
-        "trace_rules.json",
-    )
-    for cand in cands:
-        try:
-            if os.path.exists(cand):
-                with io.open(cand, "r", encoding="utf-8") as f:
-                    return json.load(f)
-        except Exception:
-            continue
-    return None
+    return load_dataset("trace")
 
 
 def _firefox_profiles(kind):
@@ -190,6 +161,7 @@ def build_trace_apps():
 
 
 if __name__ == "__main__":
+    import sys
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     apps = build_trace_apps()
     total = sum(len(a["paths"]) for a in apps)

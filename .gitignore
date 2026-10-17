@@ -151,3 +151,9 @@ $RECYCLE.BIN/
 *.pem
 *.key
 credentials.json
+
+# Protected build staging contains generated AES material and C source.
+.venv-release/
+*.scpack
+*.dpapi
+_release_config.py

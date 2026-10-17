@@ -1,5 +1,9 @@
 # SafeCleanerPro 🧹✨
 
+正式构建与后续规则接入：参见 [核心保护与发布](docs/核心保护与发布.md) 和
+[可复制给 AI 的规则接入指令](docs/规则接入_AI指令.md)。正式版本使用原生编译和
+加密签名规则包；`client_app/build.bat` 在保护失败时停止构建。
+
 <div align="center">
   <img alt="SafeCleanerPro Header" src="https://img.shields.io/badge/SafeCleanerPro-Workstation%20Optimizer-0078D6?style=for-the-badge&logo=windows&logoColor=white" />
   <br/>

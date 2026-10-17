@@ -7,6 +7,7 @@ import glob
 import winreg
 import ctypes
 import string
+from secure_rules import RulePackError
 
 class SHQUERYRBINFO(ctypes.Structure):
     _fields_ = [
@@ -1344,8 +1345,7 @@ def get_supported_apps():
     # ==========================================================
     # 合并外部规则库 (cleaner_rules.py)
     #
-    # 新增清理项统一放在 cleaner_rules.py，避免本文件继续膨胀
-    # （已 46KB，接近 Pyarmor 试用版单脚本上限）。
+    # 新增清理项统一放在 cleaner_rules.py；正式版本由原生编译流程保护。
     # 规则库自带存在性过滤，未安装的软件不会出现。
     # ==========================================================
     try:
@@ -1355,6 +1355,8 @@ def get_supported_apps():
             if extra.get("id") in existing_ids:
                 continue
             apps.append(extra)
+    except RulePackError:
+        raise
     except Exception:
         pass
 
@@ -1369,6 +1371,29 @@ def get_supported_apps():
             if extra["id"] in existing_ids:
                 continue
             apps.append(extra)
+    except RulePackError:
+        raise
+    except Exception:
+        pass
+
+    # ==========================================================
+    # 合并外部规则库（Winapp2 / BleachBit / Dism++ / 腾讯管家路径）
+    # 与既有规则按规范化路径去重，避免同一缓存重复计数
+    # ==========================================================
+    try:
+        import rules_extra
+        seen_paths = set()
+        for a in apps:
+            for pp in a.get("paths", []):
+                seen_paths.add(os.path.normcase(os.path.normpath(str(pp))))
+        existing_ids = {a.get("id") for a in apps}
+        for extra in rules_extra.build_apps(seen=seen_paths):
+            if extra["id"] in existing_ids:
+                continue
+            existing_ids.add(extra["id"])
+            apps.append(extra)
+    except RulePackError:
+        raise
     except Exception:
         pass
 
