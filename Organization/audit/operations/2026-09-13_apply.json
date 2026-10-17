@@ -1,0 +1,20 @@
+[
+  {
+    "action": "apply",
+    "ts": "2026-09-12T17:57:50Z",
+    "actor": "org.py",
+    "plan": "D:\\Coding\\Organization\\plans\\20260913_014716_move_Music.json",
+    "files": 1278,
+    "bytes": 12749983039,
+    "preserved": 1
+  },
+  {
+    "action": "apply",
+    "ts": "2026-09-12T18:48:22Z",
+    "actor": "org.py",
+    "plan": "D:\\Coding\\Organization\\plans\\20260913_023746_move_ViiTorVoice.json",
+    "files": 37559,
+    "bytes": 29927584322,
+    "preserved": 3
+  }
+]

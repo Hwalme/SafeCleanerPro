@@ -1,0 +1,5131 @@
+{
+  "created": "2026-09-12T17:47:16Z",
+  "src": "D:\\Coding\\Music",
+  "dst": "F:\\Date\\Music\\Tools",
+  "file_count": 1278,
+  "total_bytes": 12749983039,
+  "files": [
+    {
+      "rel": "01_自然说话.m4a",
+      "size": 1189760
+    },
+    {
+      "rel": "02_03_04.m4a",
+      "size": 15448640
+    },
+    {
+      "rel": "archive_and_clean_tool.py",
+      "size": 6280
+    },
+    {
+      "rel": "prepare_voice_dataset_v2.py",
+      "size": 5041
+    },
+    {
+      "rel": "启动_RVC_WebUI.bat",
+      "size": 517
+    },
+    {
+      "rel": "启动_Seed-VC_WebUI.bat",
+      "size": 433
+    },
+    {
+      "rel": "回到从前_重制方案与声音采集稿.md",
+      "size": 6326
+    },
+    {
+      "rel": "声音采集.m4a",
+      "size": 1913296
+    },
+    {
+      "rel": "瘦身与备份工具.bat",
+      "size": 998
+    },
+    {
+      "rel": "第二轮声音采集稿_自然歌声训练.md",
+      "size": 4543
+    },
+    {
+      "rel": "真人修音方案\\试唱引导_结尾16秒_戴耳机播放.mp3",
+      "size": 578498
+    },
+    {
+      "rel": "voice_test\\伴奏_最后段.wav",
+      "size": 5644878
+    },
+    {
+      "rel": "voice_test\\你的音色_40轮_最后段.wav",
+      "size": 2558444
+    },
+    {
+      "rel": "voice_test\\你的音色_40轮_最后段_带伴奏.mp3",
+      "size": 1282132
+    },
+    {
+      "rel": "voice_test\\你的音色_40轮_最后段_带伴奏.wav",
+      "size": 8462010
+    },
+    {
+      "rel": "voice_test\\原唱导唱_最后段.wav",
+      "size": 2560078
+    },
+    {
+      "rel": "voice_test\\asr_check_source\\原唱导唱_最后段.txt",
+      "size": 152
+    },
+    {
+      "rel": "voice_test\\asr_check\\你的音色_40轮_最后段.txt",
+      "size": 163
+    },
+    {
+      "rel": "voice_dataset_v2\\asr_stderr.log",
+      "size": 2223
+    },
+    {
+      "rel": "voice_dataset_v2\\asr_stdout.log",
+      "size": 0
+    },
+    {
+      "rel": "voice_dataset_v2\\base_infer_stderr.log",
+      "size": 5255
+    },
+    {
+      "rel": "voice_dataset_v2\\base_infer_stdout.log",
+      "size": 544
+    },
+    {
+      "rel": "voice_dataset_v2\\step25_infer_stderr.log",
+      "size": 5255
+    },
+    {
+      "rel": "voice_dataset_v2\\step25_infer_stdout.log",
+      "size": 144
+    },
+    {
+      "rel": "voice_dataset_v2\\train_manifest.tsv",
+      "size": 2956
+    },
+    {
+      "rel": "voice_dataset_v2\\train_manifest_v2.tsv",
+      "size": 5547
+    },
+    {
+      "rel": "voice_dataset_v2\\v3_full_infer_stderr.log",
+      "size": 6902
+    },
+    {
+      "rel": "voice_dataset_v2\\v3_full_infer_stdout.log",
+      "size": 145
+    },
+    {
+      "rel": "voice_dataset_v2\\v3_highref_stderr.log",
+      "size": 3608
+    },
+    {
+      "rel": "voice_dataset_v2\\v3_highref_stdout.log",
+      "size": 146
+    },
+    {
+      "rel": "voice_dataset_v2\\v3_infer_stderr.log",
+      "size": 5255
+    },
+    {
+      "rel": "voice_dataset_v2\\v3_infer_stdout.log",
+      "size": 144
+    },
+    {
+      "rel": "voice_dataset_v2\\交付_第二轮自然度测试\\1_你的真实高声区发声参考.mp3",
+      "size": 321871
+    },
+    {
+      "rel": "voice_dataset_v2\\交付_第二轮自然度测试\\2_新模型高声区歌唱干声.mp3",
+      "size": 321871
+    },
+    {
+      "rel": "voice_dataset_v2\\交付_10秒自然度测试\\1_你的真实明亮声线参考.mp3",
+      "size": 321871
+    },
+    {
+      "rel": "voice_dataset_v2\\交付_10秒自然度测试\\2_新模型原调歌唱干声.mp3",
+      "size": 321871
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_000_natural.wav",
+      "size": 610604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_001_natural.wav",
+      "size": 764204
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_002_natural.wav",
+      "size": 344684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_003_natural.wav",
+      "size": 595244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_004_natural.wav",
+      "size": 568364
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_005_natural.wav",
+      "size": 614444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_006_natural.wav",
+      "size": 576044
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_007_natural.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_008_natural.wav",
+      "size": 595244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_009_natural.wav",
+      "size": 618284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_010_natural.wav",
+      "size": 720044
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_011_natural.wav",
+      "size": 859244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_012_natural.wav",
+      "size": 785324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_013_natural.wav",
+      "size": 573164
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_014_natural.wav",
+      "size": 845804
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_015_natural.wav",
+      "size": 853484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_016_natural.wav",
+      "size": 556844
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_017_natural.wav",
+      "size": 602924
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_018_natural.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_019_natural.wav",
+      "size": 606764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_020_natural.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_021_natural.wav",
+      "size": 380844
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_022_emotions.wav",
+      "size": 881324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_023_emotions.wav",
+      "size": 853484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_024_emotions.wav",
+      "size": 873644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_025_emotions.wav",
+      "size": 877484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_026_emotions.wav",
+      "size": 798764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_027_emotions.wav",
+      "size": 878444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_028_emotions.wav",
+      "size": 846764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_029_emotions.wav",
+      "size": 884204
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_030_emotions.wav",
+      "size": 825644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_031_emotions.wav",
+      "size": 871724
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_032_emotions.wav",
+      "size": 883244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_033_emotions.wav",
+      "size": 752684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_034_emotions.wav",
+      "size": 875564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_035_emotions.wav",
+      "size": 798764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_036_emotions.wav",
+      "size": 849644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_037_emotions.wav",
+      "size": 786284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_038_emotions.wav",
+      "size": 886124
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_039_sustained.wav",
+      "size": 809324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_040_sustained.wav",
+      "size": 852524
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_041_sustained.wav",
+      "size": 793964
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_042_sustained.wav",
+      "size": 785324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_043_sustained.wav",
+      "size": 776684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_044_sustained.wav",
+      "size": 868844
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_045_sustained.wav",
+      "size": 882284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_046_sustained.wav",
+      "size": 688364
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_047_sustained.wav",
+      "size": 579884
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_048_sustained.wav",
+      "size": 817964
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_049_sustained.wav",
+      "size": 683564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_050_sustained.wav",
+      "size": 288044
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_051_sustained.wav",
+      "size": 849644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_052_sustained.wav",
+      "size": 878444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_053_sustained.wav",
+      "size": 853484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_054_sustained.wav",
+      "size": 887084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_055_rhythmic.wav",
+      "size": 634604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_056_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_057_rhythmic.wav",
+      "size": 656684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_058_rhythmic.wav",
+      "size": 583724
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_059_rhythmic.wav",
+      "size": 683564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_060_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_061_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_062_rhythmic.wav",
+      "size": 576044
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_063_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_064_rhythmic.wav",
+      "size": 590444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_065_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_066_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_067_rhythmic.wav",
+      "size": 576044
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_068_rhythmic.wav",
+      "size": 583724
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_069_rhythmic.wav",
+      "size": 591404
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_070_rhythmic.wav",
+      "size": 606764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_071_rhythmic.wav",
+      "size": 560684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_072_rhythmic.wav",
+      "size": 629804
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_073_rhythmic.wav",
+      "size": 595244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_074_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_075_rhythmic.wav",
+      "size": 599084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_076_rhythmic.wav",
+      "size": 595244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_077_rhythmic.wav",
+      "size": 514604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_078_rhythmic.wav",
+      "size": 595244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_079_rhythmic.wav",
+      "size": 602924
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_080_rhythmic.wav",
+      "size": 416684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_081_rhythmic.wav",
+      "size": 850604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_082_rhythmic.wav",
+      "size": 858284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_083_rhythmic.wav",
+      "size": 665324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_084_rhythmic.wav",
+      "size": 587564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_085_rhythmic.wav",
+      "size": 414764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_086_rhythmic.wav",
+      "size": 875564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_087_rhythmic.wav",
+      "size": 880364
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_088_rhythmic.wav",
+      "size": 587564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_089_rhythmic.wav",
+      "size": 358124
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_090_rhythmic.wav",
+      "size": 881324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_091_rhythmic.wav",
+      "size": 703724
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_092_rhythmic.wav",
+      "size": 610604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_093_rhythmic.wav",
+      "size": 610604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_094_rhythmic.wav",
+      "size": 514604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_095_rhythmic.wav",
+      "size": 637484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks_v2\\voice_v2_096_rhythmic.wav",
+      "size": 466994
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_000_natural.wav",
+      "size": 610604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_001_natural.wav",
+      "size": 764204
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_002_natural.wav",
+      "size": 344684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_003_natural.wav",
+      "size": 4725164
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_004_natural.wav",
+      "size": 859244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_005_natural.wav",
+      "size": 785324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_006_natural.wav",
+      "size": 573164
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_007_natural.wav",
+      "size": 845804
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_008_natural.wav",
+      "size": 853484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_009_natural.wav",
+      "size": 3230124
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_010_emotions.wav",
+      "size": 881324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_011_emotions.wav",
+      "size": 853484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_012_emotions.wav",
+      "size": 873644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_013_emotions.wav",
+      "size": 877484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_014_emotions.wav",
+      "size": 798764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_015_emotions.wav",
+      "size": 878444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_016_emotions.wav",
+      "size": 846764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_017_emotions.wav",
+      "size": 884204
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_018_emotions.wav",
+      "size": 825644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_019_emotions.wav",
+      "size": 871724
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_020_emotions.wav",
+      "size": 883244
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_021_emotions.wav",
+      "size": 752684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_022_emotions.wav",
+      "size": 875564
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_023_emotions.wav",
+      "size": 798764
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_024_emotions.wav",
+      "size": 849644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_025_emotions.wav",
+      "size": 786284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_026_emotions.wav",
+      "size": 886124
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_027_sustained.wav",
+      "size": 809324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_028_sustained.wav",
+      "size": 852524
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_029_sustained.wav",
+      "size": 793964
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_030_sustained.wav",
+      "size": 785324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_031_sustained.wav",
+      "size": 776684
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_032_sustained.wav",
+      "size": 868844
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_033_sustained.wav",
+      "size": 882284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_034_sustained.wav",
+      "size": 688364
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_035_sustained.wav",
+      "size": 2300204
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_036_sustained.wav",
+      "size": 849644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_037_sustained.wav",
+      "size": 878444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_038_sustained.wav",
+      "size": 853484
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_039_sustained.wav",
+      "size": 887084
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_040_rhythmic.wav",
+      "size": 5913644
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_041_rhythmic.wav",
+      "size": 8918444
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_042_rhythmic.wav",
+      "size": 850604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_043_rhythmic.wav",
+      "size": 858284
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_044_rhythmic.wav",
+      "size": 665324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_045_rhythmic.wav",
+      "size": 1985324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_046_rhythmic.wav",
+      "size": 880364
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_047_rhythmic.wav",
+      "size": 922604
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_048_rhythmic.wav",
+      "size": 881324
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_049_rhythmic.wav",
+      "size": 703724
+    },
+    {
+      "rel": "voice_dataset_v2\\train_chunks\\voice_v2_050_rhythmic.wav",
+      "size": 2747954
+    },
+    {
+      "rel": "voice_dataset_v2\\training_logs\\natural_v2_stderr.log",
+      "size": 9629
+    },
+    {
+      "rel": "voice_dataset_v2\\training_logs\\natural_v2_stdout.log",
+      "size": 971
+    },
+    {
+      "rel": "voice_dataset_v2\\training_logs\\natural_v3_stderr.log",
+      "size": 8908
+    },
+    {
+      "rel": "voice_dataset_v2\\training_logs\\natural_v3_stdout.log",
+      "size": 1223
+    },
+    {
+      "rel": "voice_dataset_v2\\test_v3_pitchlocked\\vc_guide_last10_target_bright_v2_1.0_30_0.65.wav",
+      "size": 1763408
+    },
+    {
+      "rel": "voice_dataset_v2\\test_v3_highref\\vc_导唱_最后16秒_target_sustained_high_v2_1.0_30_0.6.wav",
+      "size": 2822224
+    },
+    {
+      "rel": "voice_dataset_v2\\test_v3_fullphrase\\vc_导唱_最后16秒_target_bright_v2_1.0_30_0.65.wav",
+      "size": 2822224
+    },
+    {
+      "rel": "voice_dataset_v2\\test_step25\\vc_guide_last10_target_bright_v2_1.0_30_0.7.wav",
+      "size": 1763408
+    },
+    {
+      "rel": "voice_dataset_v2\\test_inputs\\guide_last10.wav",
+      "size": 882078
+    },
+    {
+      "rel": "voice_dataset_v2\\test_inputs\\target_bright_v2.wav",
+      "size": 2557878
+    },
+    {
+      "rel": "voice_dataset_v2\\test_inputs\\target_sustained_high_v2.wav",
+      "size": 1764078
+    },
+    {
+      "rel": "voice_dataset_v2\\test_base_newref\\vc_guide_last10_target_bright_v2_1.0_30_0.65.wav",
+      "size": 1763408
+    },
+    {
+      "rel": "voice_dataset_v2\\split\\02_emotions.wav",
+      "size": 21456102
+    },
+    {
+      "rel": "voice_dataset_v2\\split\\03_sustained.wav",
+      "size": 18576102
+    },
+    {
+      "rel": "voice_dataset_v2\\split\\04_rhythmic.wav",
+      "size": 38196688
+    },
+    {
+      "rel": "voice_dataset_v2\\raw\\01_natural.wav",
+      "size": 20336742
+    },
+    {
+      "rel": "voice_dataset_v2\\raw\\02_03_04_combined.wav",
+      "size": 78228688
+    },
+    {
+      "rel": "voice_dataset_v2\\asr\\02_03_04.json",
+      "size": 44318
+    },
+    {
+      "rel": "voice_dataset_v2\\asr\\02_03_04.srt",
+      "size": 7461
+    },
+    {
+      "rel": "voice_dataset_v2\\asr\\02_03_04.tsv",
+      "size": 4488
+    },
+    {
+      "rel": "voice_dataset_v2\\asr\\02_03_04.txt",
+      "size": 2781
+    },
+    {
+      "rel": "voice_dataset_v2\\asr\\02_03_04.vtt",
+      "size": 6193
+    },
+    {
+      "rel": "voice_dataset\\raw\\声音采集_48k_mono.wav",
+      "size": 21309518
+    },
+    {
+      "rel": "voice_dataset\\asr\\声音采集_48k_mono.json",
+      "size": 13374
+    },
+    {
+      "rel": "voice_dataset\\asr\\声音采集_48k_mono.srt",
+      "size": 2136
+    },
+    {
+      "rel": "voice_dataset\\asr\\声音采集_48k_mono.tsv",
+      "size": 1847
+    },
+    {
+      "rel": "voice_dataset\\asr\\声音采集_48k_mono.txt",
+      "size": 1664
+    },
+    {
+      "rel": "voice_dataset\\asr\\声音采集_48k_mono.vtt",
+      "size": 2025
+    },
+    {
+      "rel": "separated\\htdemucs\\回到从前_original_stereo\\no_vocals.wav",
+      "size": 31400188
+    },
+    {
+      "rel": "separated\\htdemucs\\回到从前_original_stereo\\vocals.wav",
+      "size": 31400188
+    },
+    {
+      "rel": "seed_vc_test\\伴奏_最后16秒.wav",
+      "size": 2822478
+    },
+    {
+      "rel": "seed_vc_test\\导唱_最后16秒.wav",
+      "size": 1411278
+    },
+    {
+      "rel": "seed_vc_test\\references\\你的声音_平静参考_12秒.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "seed_vc_test\\references\\你的声音_明亮参考_12秒.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "seed_vc_test\\outputs\\明亮参考\\vc_导唱_最后16秒_你的声音_明亮参考_12秒_1.0_30_0.8.wav",
+      "size": 2822224
+    },
+    {
+      "rel": "seed_vc_test\\outputs\\平静参考\\vc_导唱_最后16秒_你的声音_平静参考_12秒_1.0_30_0.8.wav",
+      "size": 2822224
+    },
+    {
+      "rel": "seed_vc_test\\metrics\\rvc.wav",
+      "size": 511438
+    },
+    {
+      "rel": "seed_vc_test\\metrics\\seed_bright.wav",
+      "size": 512032
+    },
+    {
+      "rel": "seed_vc_test\\metrics\\seed_calm.wav",
+      "size": 512032
+    },
+    {
+      "rel": "seed_vc_test\\metrics\\source.wav",
+      "size": 512078
+    },
+    {
+      "rel": "seed_vc_test\\metrics\\user_ref.wav",
+      "size": 384078
+    },
+    {
+      "rel": "seed_vc_test\\A_B试听\\A_旧RVC_对照.mp3",
+      "size": 641610
+    },
+    {
+      "rel": "seed_vc_test\\A_B试听\\B_SeedVC_平静参考.mp3",
+      "size": 642655
+    },
+    {
+      "rel": "seed_vc_test\\A_B试听\\C_SeedVC_明亮参考.mp3",
+      "size": 642655
+    },
+    {
+      "rel": "seed_vc_finetune\\source_unseen.mp3",
+      "size": 87696
+    },
+    {
+      "rel": "seed_vc_finetune\\source_unseen.wav",
+      "size": 644644
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_000.wav",
+      "size": 353786
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_001.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_002.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_003.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_004.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_005.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_006.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_007.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_008.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_009.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_010.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_011.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_012.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_013.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_014.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_015.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_016.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_017.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_018.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_019.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_020.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_021.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_022.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_023.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_024.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_025.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_026.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_027.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_028.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_029.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_030.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_031.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_032.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_033.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_034.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_035.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_036.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_037.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_038.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_039.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_040.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_041.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_042.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_043.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_044.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_045.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_046.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_047.wav",
+      "size": 353820
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_048.wav",
+      "size": 351936
+    },
+    {
+      "rel": "seed_vc_finetune\\train_short\\voice_049.wav",
+      "size": 263770
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_01.wav",
+      "size": 1587678
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_02.wav",
+      "size": 1675878
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_03.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_04.wav",
+      "size": 1587678
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_05.wav",
+      "size": 2557878
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_06.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_07.wav",
+      "size": 1675878
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_08.wav",
+      "size": 705678
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_09.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_10.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_11.wav",
+      "size": 1940478
+    },
+    {
+      "rel": "seed_vc_finetune\\train\\voice_12.wav",
+      "size": 970278
+    },
+    {
+      "rel": "seed_vc_finetune\\heldout\\voice_heldout.wav",
+      "size": 1940478
+    },
+    {
+      "rel": "seed-vc\\.gitignore",
+      "size": 304
+    },
+    {
+      "rel": "seed-vc\\app.py",
+      "size": 12821
+    },
+    {
+      "rel": "seed-vc\\app_svc.py",
+      "size": 23226
+    },
+    {
+      "rel": "seed-vc\\app_vc.py",
+      "size": 20212
+    },
+    {
+      "rel": "seed-vc\\app_vc_v2.py",
+      "size": 5094
+    },
+    {
+      "rel": "seed-vc\\campplus_cn_common.bin",
+      "size": 28036335
+    },
+    {
+      "rel": "seed-vc\\conda-nix-vc-py310.yaml",
+      "size": 407
+    },
+    {
+      "rel": "seed-vc\\EVAL.md",
+      "size": 11395
+    },
+    {
+      "rel": "seed-vc\\eval.py",
+      "size": 24930
+    },
+    {
+      "rel": "seed-vc\\hf_utils.py",
+      "size": 512
+    },
+    {
+      "rel": "seed-vc\\inference.py",
+      "size": 19978
+    },
+    {
+      "rel": "seed-vc\\inference_v2.py",
+      "size": 5871
+    },
+    {
+      "rel": "seed-vc\\LICENSE",
+      "size": 35821
+    },
+    {
+      "rel": "seed-vc\\optimizers.py",
+      "size": 3901
+    },
+    {
+      "rel": "seed-vc\\README-JA.md",
+      "size": 20129
+    },
+    {
+      "rel": "seed-vc\\README-ZH.md",
+      "size": 14165
+    },
+    {
+      "rel": "seed-vc\\README.md",
+      "size": 21326
+    },
+    {
+      "rel": "seed-vc\\real-time-gui.py",
+      "size": 54255
+    },
+    {
+      "rel": "seed-vc\\requirements-mac.txt",
+      "size": 655
+    },
+    {
+      "rel": "seed-vc\\requirements.txt",
+      "size": 639
+    },
+    {
+      "rel": "seed-vc\\seed_vc_wrapper.py",
+      "size": 22271
+    },
+    {
+      "rel": "seed-vc\\train.py",
+      "size": 20951
+    },
+    {
+      "rel": "seed-vc\\train_v2.py",
+      "size": 13993
+    },
+    {
+      "rel": "seed-vc\\__pycache__\\hf_utils.cpython-310.pyc",
+      "size": 551
+    },
+    {
+      "rel": "seed-vc\\__pycache__\\optimizers.cpython-310.pyc",
+      "size": 5634
+    },
+    {
+      "rel": "seed-vc\\__pycache__\\train.cpython-310.pyc",
+      "size": 14916
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_natural_v3_pitchlocked\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2428
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_natural_v3_pitchlocked\\DiT_epoch_00000_step_00010.pth",
+      "size": 800731840
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_natural_v3_pitchlocked\\DiT_epoch_00000_step_00020.pth",
+      "size": 800731840
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_natural_v3_pitchlocked\\ft_model.pth",
+      "size": 785751273
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_natural_v2\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2428
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_natural_v2\\DiT_epoch_00000_step_00025.pth",
+      "size": 808210918
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_light_C_v1\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2428
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_light_C_v1\\DiT_epoch_00000_step_00010.pth",
+      "size": 808210918
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_light_C_v1\\ft_model.pth",
+      "size": 785751273
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_identity_v2_short\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2428
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_svc_identity_v1\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2428
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_speech_identity_v1\\config_dit_mel_seed_uvit_whisper_small_wavenet.yml",
+      "size": 2287
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_speech_identity_v1\\DiT_epoch_00000_step_00050.pth",
+      "size": 1194702966
+    },
+    {
+      "rel": "seed-vc\\runs\\huangsheng_speech_identity_v1\\ft_model.pth",
+      "size": 412426080
+    },
+    {
+      "rel": "seed-vc\\modules\\audio.py",
+      "size": 2493
+    },
+    {
+      "rel": "seed-vc\\modules\\commons.py",
+      "size": 15610
+    },
+    {
+      "rel": "seed-vc\\modules\\diffusion_transformer.py",
+      "size": 22967
+    },
+    {
+      "rel": "seed-vc\\modules\\encodec.py",
+      "size": 12321
+    },
+    {
+      "rel": "seed-vc\\modules\\flow_matching.py",
+      "size": 6752
+    },
+    {
+      "rel": "seed-vc\\modules\\length_regulator.py",
+      "size": 6212
+    },
+    {
+      "rel": "seed-vc\\modules\\rmvpe.py",
+      "size": 23297
+    },
+    {
+      "rel": "seed-vc\\modules\\wavenet.py",
+      "size": 6630
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\audio.cpython-310.pyc",
+      "size": 2496
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\commons.cpython-310.pyc",
+      "size": 13267
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\diffusion_transformer.cpython-310.pyc",
+      "size": 17369
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\encodec.cpython-310.pyc",
+      "size": 10814
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\flow_matching.cpython-310.pyc",
+      "size": 5420
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\length_regulator.cpython-310.pyc",
+      "size": 4245
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\rmvpe.cpython-310.pyc",
+      "size": 17573
+    },
+    {
+      "rel": "seed-vc\\modules\\__pycache__\\wavenet.cpython-310.pyc",
+      "size": 5166
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\ar.py",
+      "size": 29083
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\cfm.py",
+      "size": 8356
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\dit_model.py",
+      "size": 9408
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\dit_wrapper.py",
+      "size": 5834
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\length_regulator.py",
+      "size": 4069
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\model.py",
+      "size": 12256
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\vc_wrapper.py",
+      "size": 34689
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\__pycache__\\ar.cpython-310.pyc",
+      "size": 22225
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\__pycache__\\cfm.cpython-310.pyc",
+      "size": 5997
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\__pycache__\\dit_model.cpython-310.pyc",
+      "size": 9502
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\__pycache__\\dit_wrapper.cpython-310.pyc",
+      "size": 4282
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\__pycache__\\length_regulator.cpython-310.pyc",
+      "size": 2896
+    },
+    {
+      "rel": "seed-vc\\modules\\v2\\__pycache__\\vc_wrapper.cpython-310.pyc",
+      "size": 18745
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\api.py",
+      "size": 7307
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\attentions.py",
+      "size": 16817
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\commons.py",
+      "size": 5116
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\mel_processing.py",
+      "size": 6288
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\models.py",
+      "size": 17267
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\modules.py",
+      "size": 19573
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\openvoice_app.py",
+      "size": 11883
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\se_extractor.py",
+      "size": 5316
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\transforms.py",
+      "size": 7462
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\utils.py",
+      "size": 5969
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__init__.py",
+      "size": 0
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\api.cpython-310.pyc",
+      "size": 6353
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\attentions.cpython-310.pyc",
+      "size": 11142
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\commons.cpython-310.pyc",
+      "size": 5702
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\mel_processing.cpython-310.pyc",
+      "size": 4029
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\models.cpython-310.pyc",
+      "size": 12734
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\modules.cpython-310.pyc",
+      "size": 12603
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\transforms.cpython-310.pyc",
+      "size": 3910
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\utils.cpython-310.pyc",
+      "size": 6192
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\__pycache__\\__init__.cpython-310.pyc",
+      "size": 146
+    },
+    {
+      "rel": "seed-vc\\modules\\openvoice\\checkpoints_v2\\converter\\config.json",
+      "size": 894
+    },
+    {
+      "rel": "seed-vc\\modules\\hifigan\\f0_predictor.py",
+      "size": 2031
+    },
+    {
+      "rel": "seed-vc\\modules\\hifigan\\generator.py",
+      "size": 17263
+    },
+    {
+      "rel": "seed-vc\\modules\\campplus\\classifier.py",
+      "size": 1867
+    },
+    {
+      "rel": "seed-vc\\modules\\campplus\\DTDNN.py",
+      "size": 5487
+    },
+    {
+      "rel": "seed-vc\\modules\\campplus\\layers.py",
+      "size": 9888
+    },
+    {
+      "rel": "seed-vc\\modules\\campplus\\__pycache__\\DTDNN.cpython-310.pyc",
+      "size": 4028
+    },
+    {
+      "rel": "seed-vc\\modules\\campplus\\__pycache__\\layers.cpython-310.pyc",
+      "size": 7748
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\activations.py",
+      "size": 4623
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\bigvgan.py",
+      "size": 18080
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\config.json",
+      "size": 1468
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\env.py",
+      "size": 527
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\meldataset.py",
+      "size": 11774
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\utils.py",
+      "size": 2663
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\__pycache__\\activations.cpython-310.pyc",
+      "size": 4010
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\__pycache__\\bigvgan.cpython-310.pyc",
+      "size": 11764
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\__pycache__\\env.cpython-310.pyc",
+      "size": 809
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\__pycache__\\meldataset.cpython-310.pyc",
+      "size": 8554
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\__pycache__\\utils.cpython-310.pyc",
+      "size": 2852
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\act.py",
+      "size": 855
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\filter.py",
+      "size": 3502
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\resample.py",
+      "size": 1889
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\__init__.py",
+      "size": 206
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\__pycache__\\act.cpython-310.pyc",
+      "size": 1060
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\__pycache__\\filter.cpython-310.pyc",
+      "size": 2771
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\__pycache__\\resample.cpython-310.pyc",
+      "size": 1918
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\torch\\__pycache__\\__init__.cpython-310.pyc",
+      "size": 230
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\activation1d.py",
+      "size": 2592
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\anti_alias_activation.cpp",
+      "size": 999
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\anti_alias_activation_cuda.cu",
+      "size": 10573
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\compat.h",
+      "size": 922
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\load.py",
+      "size": 2680
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\type_shim.h",
+      "size": 5930
+    },
+    {
+      "rel": "seed-vc\\modules\\bigvgan\\alias_free_activation\\cuda\\__init__.py",
+      "size": 0
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\bsq.py",
+      "size": 19007
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\convnext.py",
+      "size": 8403
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\default_model.py",
+      "size": 3326
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\transformer.py",
+      "size": 9836
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\__pycache__\\bsq.cpython-310.pyc",
+      "size": 12718
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\__pycache__\\convnext.cpython-310.pyc",
+      "size": 6883
+    },
+    {
+      "rel": "seed-vc\\modules\\astral_quantization\\__pycache__\\default_model.cpython-310.pyc",
+      "size": 2816
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\glados_0.wav",
+      "size": 640058
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\jay_0.wav",
+      "size": 1270124
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\source_s1.wav",
+      "size": 599038
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\source_s2.wav",
+      "size": 675496
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\source_s3.wav",
+      "size": 1168780
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\source_s4.wav",
+      "size": 1068360
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\TECHNOPOLIS - 2085 [vocals]_[cut_14sec].wav",
+      "size": 2796016
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\Wiz Khalifa,Charlie Puth - See You Again [vocals]_[cut_28sec].wav",
+      "size": 5411452
+    },
+    {
+      "rel": "seed-vc\\examples\\source\\yae_0.wav",
+      "size": 528044
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\azuma_0.wav",
+      "size": 628910
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\dingzhen_0.wav",
+      "size": 1088420
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s1p1.wav",
+      "size": 700714
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s1p2.wav",
+      "size": 526116
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s2p1.wav",
+      "size": 664838
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s2p2.wav",
+      "size": 564012
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s3p1.wav",
+      "size": 557386
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s3p2.wav",
+      "size": 1140390
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s4p1.wav",
+      "size": 618528
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\s4p2.wav",
+      "size": 651098
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\teio_0.wav",
+      "size": 366402
+    },
+    {
+      "rel": "seed-vc\\examples\\reference\\trump_0.wav",
+      "size": 1379484
+    },
+    {
+      "rel": "seed-vc\\data\\ft_dataset.py",
+      "size": 4230
+    },
+    {
+      "rel": "seed-vc\\data\\__pycache__\\ft_dataset.cpython-310.pyc",
+      "size": 4045
+    },
+    {
+      "rel": "seed-vc\\configs\\config.json",
+      "size": 441
+    },
+    {
+      "rel": "seed-vc\\configs\\hifigan.yml",
+      "size": 671
+    },
+    {
+      "rel": "seed-vc\\configs\\v2\\vc_wrapper.yaml",
+      "size": 3000
+    },
+    {
+      "rel": "seed-vc\\configs\\presets\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2428
+    },
+    {
+      "rel": "seed-vc\\configs\\presets\\config_dit_mel_seed_uvit_whisper_small_wavenet.yml",
+      "size": 2287
+    },
+    {
+      "rel": "seed-vc\\configs\\presets\\config_dit_mel_seed_uvit_xlsr_tiny.yml",
+      "size": 2075
+    },
+    {
+      "rel": "seed-vc\\configs\\astral_quantization\\default_2048.yml",
+      "size": 1078
+    },
+    {
+      "rel": "seed-vc\\configs\\astral_quantization\\default_32.yml",
+      "size": 968
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\snapshots\\257283f9f41585055e8f858fba4fd044e5caed6e\\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml",
+      "size": 2408
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\snapshots\\257283f9f41585055e8f858fba4fd044e5caed6e\\config_dit_mel_seed_uvit_whisper_small_wavenet.yml",
+      "size": 2289
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\snapshots\\257283f9f41585055e8f858fba4fd044e5caed6e\\DiT_seed_v2_uvit_whisper_base_f0_44k_bigvgan_pruned_ft_ema.pth",
+      "size": 820864573
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\snapshots\\257283f9f41585055e8f858fba4fd044e5caed6e\\DiT_seed_v2_uvit_whisper_base_f0_44k_bigvgan_pruned_ft_ema_v2.pth",
+      "size": 820865494
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\snapshots\\257283f9f41585055e8f858fba4fd044e5caed6e\\DiT_seed_v2_uvit_whisper_small_wavenet_bigvgan_pruned.pth",
+      "size": 440312082
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\snapshots\\257283f9f41585055e8f858fba4fd044e5caed6e\\se_db.pt",
+      "size": 102405286
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--Plachta--Seed-VC\\refs\\main",
+      "size": 40
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--myshell-ai--OpenVoiceV2\\snapshots\\f36e7edfe1684461a8343844af60babc2efbb727\\converter\\checkpoint.pth",
+      "size": 131320490
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--myshell-ai--OpenVoiceV2\\snapshots\\f36e7edfe1684461a8343844af60babc2efbb727\\converter\\config.json",
+      "size": 838
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--myshell-ai--OpenVoiceV2\\refs\\main",
+      "size": 40
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--lj1995--VoiceConversionWebUI\\snapshots\\b2c8cae96e3b05de46d36c5ef9970ef6cbccafba\\rmvpe.pt",
+      "size": 181184272
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--lj1995--VoiceConversionWebUI\\refs\\main",
+      "size": 40
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--funasr--campplus\\snapshots\\e4b6ede7ce16997aff4ae69fbca1f0175e2afede\\campplus_cn_common.bin",
+      "size": 28036335
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\models--funasr--campplus\\refs\\main",
+      "size": 40
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\hf_cache\\models--nvidia--bigvgan_v2_44khz_128band_512x\\snapshots\\95a9d1dcb12906c03edd938d77b9333d6ded7dfb\\bigvgan_generator.pt",
+      "size": 489041291
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\hf_cache\\models--nvidia--bigvgan_v2_44khz_128band_512x\\snapshots\\95a9d1dcb12906c03edd938d77b9333d6ded7dfb\\config.json",
+      "size": 1403
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\hf_cache\\models--nvidia--bigvgan_v2_44khz_128band_512x\\refs\\main",
+      "size": 40
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\hf_cache\\models--nvidia--bigvgan_v2_22khz_80band_256x\\snapshots\\633ff708ed5b74903e86ff1298cf4a98e921c513\\bigvgan_generator.pt",
+      "size": 449228171
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\hf_cache\\models--nvidia--bigvgan_v2_22khz_80band_256x\\snapshots\\633ff708ed5b74903e86ff1298cf4a98e921c513\\config.json",
+      "size": 1405
+    },
+    {
+      "rel": "seed-vc\\checkpoints\\hf_cache\\models--nvidia--bigvgan_v2_22khz_80band_256x\\refs\\main",
+      "size": 40
+    },
+    {
+      "rel": "seed-vc\\baselines\\cosyvoice.py",
+      "size": 983
+    },
+    {
+      "rel": "seed-vc\\baselines\\openvoice.py",
+      "size": 1213
+    },
+    {
+      "rel": "seed-vc\\baselines\\dnsmos\\dnsmos_computor.py",
+      "size": 5160
+    },
+    {
+      "rel": "seed-vc\\baselines\\dnsmos\\model_v8.onnx",
+      "size": 224860
+    },
+    {
+      "rel": "seed-vc\\baselines\\dnsmos\\sig_bak_ovr.onnx",
+      "size": 1157965
+    },
+    {
+      "rel": "seed-vc\\assets\\real-time-demo.webm",
+      "size": 3311794
+    },
+    {
+      "rel": "seed-vc\\.git\\config",
+      "size": 337
+    },
+    {
+      "rel": "seed-vc\\.git\\description",
+      "size": 73
+    },
+    {
+      "rel": "seed-vc\\.git\\HEAD",
+      "size": 21
+    },
+    {
+      "rel": "seed-vc\\.git\\index",
+      "size": 11595
+    },
+    {
+      "rel": "seed-vc\\.git\\packed-refs",
+      "size": 112
+    },
+    {
+      "rel": "seed-vc\\.git\\shallow",
+      "size": 41
+    },
+    {
+      "rel": "seed-vc\\.git\\refs\\remotes\\origin\\HEAD",
+      "size": 30
+    },
+    {
+      "rel": "seed-vc\\.git\\refs\\heads\\main",
+      "size": 41
+    },
+    {
+      "rel": "seed-vc\\.git\\objects\\pack\\pack-24d5426c04a7b76eafaff5a9141981362ad8d1b1.idx",
+      "size": 4880
+    },
+    {
+      "rel": "seed-vc\\.git\\objects\\pack\\pack-24d5426c04a7b76eafaff5a9141981362ad8d1b1.pack",
+      "size": 48956591
+    },
+    {
+      "rel": "seed-vc\\.git\\objects\\pack\\pack-24d5426c04a7b76eafaff5a9141981362ad8d1b1.rev",
+      "size": 596
+    },
+    {
+      "rel": "seed-vc\\.git\\logs\\HEAD",
+      "size": 181
+    },
+    {
+      "rel": "seed-vc\\.git\\logs\\refs\\remotes\\origin\\HEAD",
+      "size": 181
+    },
+    {
+      "rel": "seed-vc\\.git\\logs\\refs\\heads\\main",
+      "size": 181
+    },
+    {
+      "rel": "seed-vc\\.git\\info\\exclude",
+      "size": 240
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\applypatch-msg.sample",
+      "size": 478
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\commit-msg.sample",
+      "size": 896
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\fsmonitor-watchman.sample",
+      "size": 4726
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\post-update.sample",
+      "size": 189
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\pre-applypatch.sample",
+      "size": 424
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\pre-commit.sample",
+      "size": 1649
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\pre-merge-commit.sample",
+      "size": 416
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\pre-push.sample",
+      "size": 1374
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\pre-rebase.sample",
+      "size": 4898
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\pre-receive.sample",
+      "size": 544
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\prepare-commit-msg.sample",
+      "size": 1492
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\push-to-checkout.sample",
+      "size": 2783
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\sendemail-validate.sample",
+      "size": 2308
+    },
+    {
+      "rel": "seed-vc\\.git\\hooks\\update.sample",
+      "size": 3650
+    },
+    {
+      "rel": "RVC-WebUI\\.gitignore",
+      "size": 376
+    },
+    {
+      "rel": "RVC-WebUI\\api_231006.py",
+      "size": 19463
+    },
+    {
+      "rel": "RVC-WebUI\\api_240604.py",
+      "size": 22746
+    },
+    {
+      "rel": "RVC-WebUI\\CONTRIBUTING.md",
+      "size": 787
+    },
+    {
+      "rel": "RVC-WebUI\\docker-compose.yml",
+      "size": 501
+    },
+    {
+      "rel": "RVC-WebUI\\Dockerfile",
+      "size": 2692
+    },
+    {
+      "rel": "RVC-WebUI\\environment_dml.yaml",
+      "size": 6057
+    },
+    {
+      "rel": "RVC-WebUI\\go-realtime-gui-dml.bat",
+      "size": 70
+    },
+    {
+      "rel": "RVC-WebUI\\go-realtime-gui.bat",
+      "size": 37
+    },
+    {
+      "rel": "RVC-WebUI\\go-web-dml.bat",
+      "size": 85
+    },
+    {
+      "rel": "RVC-WebUI\\go-web.bat",
+      "size": 79
+    },
+    {
+      "rel": "RVC-WebUI\\gui_v1.py",
+      "size": 52133
+    },
+    {
+      "rel": "RVC-WebUI\\infer-web.py",
+      "size": 65849
+    },
+    {
+      "rel": "RVC-WebUI\\LICENSE",
+      "size": 1142
+    },
+    {
+      "rel": "RVC-WebUI\\MIT协议暨相关引用库协议",
+      "size": 2031
+    },
+    {
+      "rel": "RVC-WebUI\\poetry.lock",
+      "size": 418496
+    },
+    {
+      "rel": "RVC-WebUI\\pyproject.toml",
+      "size": 1370
+    },
+    {
+      "rel": "RVC-WebUI\\README.md",
+      "size": 9127
+    },
+    {
+      "rel": "RVC-WebUI\\requirements-amd.txt",
+      "size": 762
+    },
+    {
+      "rel": "RVC-WebUI\\requirements-dml.txt",
+      "size": 735
+    },
+    {
+      "rel": "RVC-WebUI\\requirements-ipex.txt",
+      "size": 1157
+    },
+    {
+      "rel": "RVC-WebUI\\requirements-py311.txt",
+      "size": 805
+    },
+    {
+      "rel": "RVC-WebUI\\requirements-win-for-realtime_vc_gui-dml.txt",
+      "size": 603
+    },
+    {
+      "rel": "RVC-WebUI\\requirements-win-for-realtime_vc_gui.txt",
+      "size": 581
+    },
+    {
+      "rel": "RVC-WebUI\\requirements.txt",
+      "size": 803
+    },
+    {
+      "rel": "RVC-WebUI\\Retrieval_based_Voice_Conversion_WebUI.ipynb",
+      "size": 16320
+    },
+    {
+      "rel": "RVC-WebUI\\Retrieval_based_Voice_Conversion_WebUI_v2.ipynb",
+      "size": 19329
+    },
+    {
+      "rel": "RVC-WebUI\\run.sh",
+      "size": 1869
+    },
+    {
+      "rel": "RVC-WebUI\\venv.sh",
+      "size": 38
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\app.py",
+      "size": 5835
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\audio_io_process.py",
+      "size": 6745
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\build_huangsheng_index.py",
+      "size": 1026
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\calc_rvc_model_similarity.py",
+      "size": 3052
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\dlmodels.bat",
+      "size": 16618
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\dlmodels.sh",
+      "size": 2983
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\download_models.py",
+      "size": 2556
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\export_onnx.py",
+      "size": 2058
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\infer_batch_rvc.py",
+      "size": 2494
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\infer_cli.py",
+      "size": 2135
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\onnx_inference_demo.py",
+      "size": 745
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\prepare_huangsheng_experiment.py",
+      "size": 1628
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\rvc_for_realtime.py",
+      "size": 16666
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\torchgate\\torchgate.py",
+      "size": 11512
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\torchgate\\utils.py",
+      "size": 2670
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\torchgate\\__init__.py",
+      "size": 372
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\infer\\infer-pm-index256.py",
+      "size": 6945
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\infer\\train-index-v2.py",
+      "size": 2353
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\infer\\train-index.py",
+      "size": 1313
+    },
+    {
+      "rel": "RVC-WebUI\\tools\\infer\\trans_weights.py",
+      "size": 762
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\3_feature768\\mute.npy",
+      "size": 457856
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\3_feature256\\mute.npy",
+      "size": 152704
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\2b-f0nsf\\mute.wav.npy",
+      "size": 2536
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\2a_f0\\mute.wav.npy",
+      "size": 1332
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\1_16k_wavs\\mute.wav",
+      "size": 96078
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\0_gt_wavs\\mute32k.wav",
+      "size": 192078
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\0_gt_wavs\\mute40k.spec.pt",
+      "size": 1230345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\0_gt_wavs\\mute40k.wav",
+      "size": 240078
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\mute\\0_gt_wavs\\mute48k.wav",
+      "size": 288078
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\added_IVF218_Flat_nprobe_1_huangsheng_voice_v1_v2.index",
+      "size": 26925499
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\config.json",
+      "size": 1364
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\D_2333333.pth",
+      "size": 857126906
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\events.out.tfevents.1784316180.Hrycg.38972.0",
+      "size": 88
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\events.out.tfevents.1784316235.Hrycg.9668.0",
+      "size": 492648
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\extract_f0_feature.log",
+      "size": 1340
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\filelist.txt",
+      "size": 20512
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\G_2333333.pth",
+      "size": 438183506
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\preprocess.log",
+      "size": 102
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\total_fea.npy",
+      "size": 26185856
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\train.log",
+      "size": 0
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\trained_IVF218_Flat_nprobe_1_huangsheng_voice_v1_v2.index",
+      "size": 669835
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\eval\\events.out.tfevents.1784316180.Hrycg.38972.1",
+      "size": 88
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\eval\\events.out.tfevents.1784316235.Hrycg.9668.1",
+      "size": 88
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_1.npy",
+      "size": 264320
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_10.npy",
+      "size": 503936
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_11.npy",
+      "size": 396416
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_12.npy",
+      "size": 411776
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_13.npy",
+      "size": 540800
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_14.npy",
+      "size": 497792
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_15.npy",
+      "size": 347264
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_16.npy",
+      "size": 374912
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_17.npy",
+      "size": 442496
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_18.npy",
+      "size": 430208
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_19.npy",
+      "size": 516224
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_2.npy",
+      "size": 298112
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_20.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_21.npy",
+      "size": 448640
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_22.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_24.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_26.npy",
+      "size": 101504
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_27.npy",
+      "size": 288896
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_28.npy",
+      "size": 580736
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_29.npy",
+      "size": 295040
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_3.npy",
+      "size": 430208
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_30.npy",
+      "size": 248960
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_31.npy",
+      "size": 467072
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_32.npy",
+      "size": 92288
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_33.npy",
+      "size": 445568
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_34.npy",
+      "size": 381056
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_35.npy",
+      "size": 402560
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_36.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_38.npy",
+      "size": 212096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_39.npy",
+      "size": 494720
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_4.npy",
+      "size": 338048
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_40.npy",
+      "size": 288896
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_41.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_43.npy",
+      "size": 156800
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_44.npy",
+      "size": 574592
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_45.npy",
+      "size": 252032
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_46.npy",
+      "size": 273536
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_47.npy",
+      "size": 205952
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_48.npy",
+      "size": 497792
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_49.npy",
+      "size": 522368
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_5.npy",
+      "size": 325760
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_50.npy",
+      "size": 543872
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_51.npy",
+      "size": 525440
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_52.npy",
+      "size": 399488
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_53.npy",
+      "size": 568448
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_54.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_56.npy",
+      "size": 353408
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_57.npy",
+      "size": 181376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_58.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_59.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_6.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_61.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_63.npy",
+      "size": 187520
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_64.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_65.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_67.npy",
+      "size": 135296
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_68.npy",
+      "size": 411776
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_69.npy",
+      "size": 513152
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_70.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_72.npy",
+      "size": 565376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_74.npy",
+      "size": 322688
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_75.npy",
+      "size": 83072
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_8.npy",
+      "size": 365696
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\3_feature768\\0_9.npy",
+      "size": 338048
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_1.wav.npy",
+      "size": 1528
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_10.wav.npy",
+      "size": 2760
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_11.wav.npy",
+      "size": 2208
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_12.wav.npy",
+      "size": 2296
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_13.wav.npy",
+      "size": 2952
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_14.wav.npy",
+      "size": 2736
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_15.wav.npy",
+      "size": 1944
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_16.wav.npy",
+      "size": 2104
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_17.wav.npy",
+      "size": 2448
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_18.wav.npy",
+      "size": 2392
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_19.wav.npy",
+      "size": 2832
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_2.wav.npy",
+      "size": 1696
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_20.wav.npy",
+      "size": 3088
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_21.wav.npy",
+      "size": 2472
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_22.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_24.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_26.wav.npy",
+      "size": 664
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_27.wav.npy",
+      "size": 1648
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_28.wav.npy",
+      "size": 3168
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_29.wav.npy",
+      "size": 1680
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_3.wav.npy",
+      "size": 2376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_30.wav.npy",
+      "size": 1440
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_31.wav.npy",
+      "size": 2584
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_32.wav.npy",
+      "size": 624
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_33.wav.npy",
+      "size": 2464
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_34.wav.npy",
+      "size": 2128
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_35.wav.npy",
+      "size": 2232
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_36.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_38.wav.npy",
+      "size": 1240
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_39.wav.npy",
+      "size": 2728
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_4.wav.npy",
+      "size": 1896
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_40.wav.npy",
+      "size": 1648
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_41.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_43.wav.npy",
+      "size": 968
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_44.wav.npy",
+      "size": 3136
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_45.wav.npy",
+      "size": 1456
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_46.wav.npy",
+      "size": 1576
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_47.wav.npy",
+      "size": 1216
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_48.wav.npy",
+      "size": 2736
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_49.wav.npy",
+      "size": 2856
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_5.wav.npy",
+      "size": 1840
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_50.wav.npy",
+      "size": 2976
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_51.wav.npy",
+      "size": 2880
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_52.wav.npy",
+      "size": 2224
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_53.wav.npy",
+      "size": 3112
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_54.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_56.wav.npy",
+      "size": 1984
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_57.wav.npy",
+      "size": 1080
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_58.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_59.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_6.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_61.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_63.wav.npy",
+      "size": 1120
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_64.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_65.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_67.wav.npy",
+      "size": 848
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_68.wav.npy",
+      "size": 2296
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_69.wav.npy",
+      "size": 2808
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_70.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_72.wav.npy",
+      "size": 3096
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_74.wav.npy",
+      "size": 1832
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_75.wav.npy",
+      "size": 576
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_8.wav.npy",
+      "size": 2048
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2b-f0nsf\\0_9.wav.npy",
+      "size": 1896
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_1.wav.npy",
+      "size": 828
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_10.wav.npy",
+      "size": 1444
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_11.wav.npy",
+      "size": 1168
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_12.wav.npy",
+      "size": 1212
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_13.wav.npy",
+      "size": 1540
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_14.wav.npy",
+      "size": 1432
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_15.wav.npy",
+      "size": 1036
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_16.wav.npy",
+      "size": 1116
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_17.wav.npy",
+      "size": 1288
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_18.wav.npy",
+      "size": 1260
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_19.wav.npy",
+      "size": 1480
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_2.wav.npy",
+      "size": 912
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_20.wav.npy",
+      "size": 1608
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_21.wav.npy",
+      "size": 1300
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_22.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_24.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_26.wav.npy",
+      "size": 396
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_27.wav.npy",
+      "size": 888
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_28.wav.npy",
+      "size": 1648
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_29.wav.npy",
+      "size": 904
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_3.wav.npy",
+      "size": 1252
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_30.wav.npy",
+      "size": 784
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_31.wav.npy",
+      "size": 1356
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_32.wav.npy",
+      "size": 376
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_33.wav.npy",
+      "size": 1296
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_34.wav.npy",
+      "size": 1128
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_35.wav.npy",
+      "size": 1180
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_36.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_38.wav.npy",
+      "size": 684
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_39.wav.npy",
+      "size": 1428
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_4.wav.npy",
+      "size": 1012
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_40.wav.npy",
+      "size": 888
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_41.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_43.wav.npy",
+      "size": 548
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_44.wav.npy",
+      "size": 1632
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_45.wav.npy",
+      "size": 792
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_46.wav.npy",
+      "size": 852
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_47.wav.npy",
+      "size": 672
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_48.wav.npy",
+      "size": 1432
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_49.wav.npy",
+      "size": 1492
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_5.wav.npy",
+      "size": 984
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_50.wav.npy",
+      "size": 1552
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_51.wav.npy",
+      "size": 1504
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_52.wav.npy",
+      "size": 1176
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_53.wav.npy",
+      "size": 1620
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_54.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_56.wav.npy",
+      "size": 1056
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_57.wav.npy",
+      "size": 604
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_58.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_59.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_6.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_61.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_63.wav.npy",
+      "size": 624
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_64.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_65.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_67.wav.npy",
+      "size": 488
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_68.wav.npy",
+      "size": 1212
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_69.wav.npy",
+      "size": 1468
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_70.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_72.wav.npy",
+      "size": 1612
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_74.wav.npy",
+      "size": 980
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_75.wav.npy",
+      "size": 352
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_8.wav.npy",
+      "size": 1088
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\2a_f0\\0_9.wav.npy",
+      "size": 1012
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_1.wav",
+      "size": 111418
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_10.wav",
+      "size": 210298
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_11.wav",
+      "size": 166138
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_12.wav",
+      "size": 172858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_13.wav",
+      "size": 225658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_14.wav",
+      "size": 208378
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_15.wav",
+      "size": 145018
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_16.wav",
+      "size": 157498
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_17.wav",
+      "size": 185338
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_18.wav",
+      "size": 180538
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_19.wav",
+      "size": 216058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_2.wav",
+      "size": 124858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_20.wav",
+      "size": 236218
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_21.wav",
+      "size": 187258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_22.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_24.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_26.wav",
+      "size": 42618
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_27.wav",
+      "size": 121018
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_28.wav",
+      "size": 242938
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_29.wav",
+      "size": 123898
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_3.wav",
+      "size": 179578
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_30.wav",
+      "size": 104698
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_31.wav",
+      "size": 195898
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_32.wav",
+      "size": 39418
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_33.wav",
+      "size": 186298
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_34.wav",
+      "size": 159418
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_35.wav",
+      "size": 168058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_36.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_38.wav",
+      "size": 88698
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_39.wav",
+      "size": 207418
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_4.wav",
+      "size": 141178
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_40.wav",
+      "size": 121018
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_41.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_43.wav",
+      "size": 66618
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_44.wav",
+      "size": 240058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_45.wav",
+      "size": 105658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_46.wav",
+      "size": 115258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_47.wav",
+      "size": 86458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_48.wav",
+      "size": 208378
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_49.wav",
+      "size": 217978
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_5.wav",
+      "size": 136378
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_50.wav",
+      "size": 227578
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_51.wav",
+      "size": 219898
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_52.wav",
+      "size": 167098
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_53.wav",
+      "size": 238138
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_54.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_56.wav",
+      "size": 148218
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_57.wav",
+      "size": 75898
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_58.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_59.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_6.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_61.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_63.wav",
+      "size": 79098
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_64.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_65.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_67.wav",
+      "size": 57338
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_68.wav",
+      "size": 172858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_69.wav",
+      "size": 214138
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_70.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_72.wav",
+      "size": 236858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_74.wav",
+      "size": 135738
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_75.wav",
+      "size": 35578
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_8.wav",
+      "size": 153018
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\1_16k_wavs\\0_9.wav",
+      "size": 141178
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_1.spec.pt",
+      "size": 713744
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_1.wav",
+      "size": 278458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_10.spec.pt",
+      "size": 1345145
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_10.wav",
+      "size": 525658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_11.spec.pt",
+      "size": 1062245
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_11.wav",
+      "size": 415258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_12.spec.pt",
+      "size": 1107345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_12.wav",
+      "size": 432058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_13.spec.pt",
+      "size": 1443545
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_13.wav",
+      "size": 564058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_14.spec.pt",
+      "size": 1332845
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_14.wav",
+      "size": 520858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_15.spec.pt",
+      "size": 926944
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_15.wav",
+      "size": 362458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_16.spec.pt",
+      "size": 1008944
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_16.wav",
+      "size": 393658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_17.spec.pt",
+      "size": 1185245
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_17.wav",
+      "size": 463258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_18.spec.pt",
+      "size": 1156545
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_18.wav",
+      "size": 451258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_19.spec.pt",
+      "size": 1382045
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_19.wav",
+      "size": 540058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_2.spec.pt",
+      "size": 799844
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_2.wav",
+      "size": 312058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_20.spec.pt",
+      "size": 1513245
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_20.wav",
+      "size": 590458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_21.spec.pt",
+      "size": 1197545
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_21.wav",
+      "size": 468058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_22.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_22.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_24.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_24.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_26.wav",
+      "size": 106458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_27.spec.pt",
+      "size": 775244
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_27.wav",
+      "size": 302458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_28.spec.pt",
+      "size": 1554245
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_28.wav",
+      "size": 607258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_29.spec.pt",
+      "size": 791644
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_29.wav",
+      "size": 309658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_3.spec.pt",
+      "size": 1148345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_3.wav",
+      "size": 448858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_30.spec.pt",
+      "size": 668644
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_30.wav",
+      "size": 261658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_31.spec.pt",
+      "size": 1254945
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_31.wav",
+      "size": 489658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_32.wav",
+      "size": 98458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_33.spec.pt",
+      "size": 1193445
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_33.wav",
+      "size": 465658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_34.spec.pt",
+      "size": 1021244
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_34.wav",
+      "size": 398458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_35.spec.pt",
+      "size": 1074545
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_35.wav",
+      "size": 420058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_36.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_36.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_38.spec.pt",
+      "size": 566144
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_38.wav",
+      "size": 221658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_39.spec.pt",
+      "size": 1328745
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_39.wav",
+      "size": 518458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_4.spec.pt",
+      "size": 902344
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_4.wav",
+      "size": 352858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_40.spec.pt",
+      "size": 775244
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_40.wav",
+      "size": 302458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_41.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_41.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_43.spec.pt",
+      "size": 426744
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_43.wav",
+      "size": 166458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_44.spec.pt",
+      "size": 1537845
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_44.wav",
+      "size": 600058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_45.spec.pt",
+      "size": 676844
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_45.wav",
+      "size": 264058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_46.spec.pt",
+      "size": 738344
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_46.wav",
+      "size": 288058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_47.spec.pt",
+      "size": 553844
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_47.wav",
+      "size": 216058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_48.spec.pt",
+      "size": 1332845
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_48.wav",
+      "size": 520858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_49.spec.pt",
+      "size": 1394345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_49.wav",
+      "size": 544858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_5.spec.pt",
+      "size": 873644
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_5.wav",
+      "size": 340858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_50.spec.pt",
+      "size": 1455845
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_50.wav",
+      "size": 568858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_51.spec.pt",
+      "size": 1406645
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_51.wav",
+      "size": 549658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_52.spec.pt",
+      "size": 1070445
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_52.wav",
+      "size": 417658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_53.spec.pt",
+      "size": 1525545
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_53.wav",
+      "size": 595258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_54.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_54.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_56.spec.pt",
+      "size": 947444
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_56.wav",
+      "size": 370458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_57.spec.pt",
+      "size": 484144
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_57.wav",
+      "size": 189658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_58.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_58.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_59.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_59.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_6.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_6.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_61.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_61.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_63.spec.pt",
+      "size": 504644
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_63.wav",
+      "size": 197658
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_64.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_64.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_65.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_65.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_67.spec.pt",
+      "size": 365244
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_67.wav",
+      "size": 143258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_68.spec.pt",
+      "size": 1107345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_68.wav",
+      "size": 432058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_69.spec.pt",
+      "size": 1369745
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_69.wav",
+      "size": 535258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_70.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_70.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_72.spec.pt",
+      "size": 1517345
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_72.wav",
+      "size": 592058
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_74.spec.pt",
+      "size": 869544
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_74.wav",
+      "size": 339258
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_75.wav",
+      "size": 88858
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_8.spec.pt",
+      "size": 980244
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_8.wav",
+      "size": 382458
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_9.spec.pt",
+      "size": 902344
+    },
+    {
+      "rel": "RVC-WebUI\\logs\\huangsheng_voice_v1\\0_gt_wavs\\0_9.wav",
+      "size": 352858
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\modules.py",
+      "size": 10579
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\pipeline.py",
+      "size": 16336
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\utils.py",
+      "size": 884
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\__init__.py",
+      "size": 0
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\__pycache__\\modules.cpython-310.pyc",
+      "size": 5377
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\__pycache__\\pipeline.cpython-310.pyc",
+      "size": 8960
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\__pycache__\\utils.cpython-310.pyc",
+      "size": 1254
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\vc\\__pycache__\\__init__.cpython-310.pyc",
+      "size": 147
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\uvr5\\mdxnet.py",
+      "size": 8846
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\uvr5\\modules.py",
+      "size": 4010
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\uvr5\\vr.py",
+      "size": 15288
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\uvr5\\__pycache__\\mdxnet.cpython-310.pyc",
+      "size": 6625
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\uvr5\\__pycache__\\modules.cpython-310.pyc",
+      "size": 2639
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\uvr5\\__pycache__\\vr.cpython-310.pyc",
+      "size": 7013
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\train\\extract_feature_print.py",
+      "size": 4445
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\train\\preprocess.py",
+      "size": 4526
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\train\\train.py",
+      "size": 22787
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\train\\extract\\extract_f0_print.py",
+      "size": 5770
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\train\\extract\\extract_f0_rmvpe.py",
+      "size": 4545
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\train\\extract\\extract_f0_rmvpe_dml.py",
+      "size": 4470
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\onnx\\export.py",
+      "size": 2028
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\ipex\\attention.py",
+      "size": 9064
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\ipex\\gradscaler.py",
+      "size": 8704
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\ipex\\hijacks.py",
+      "size": 13000
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\modules\\ipex\\__init__.py",
+      "size": 9474
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\audio.py",
+      "size": 1888
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\rmvpe.py",
+      "size": 24739
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\rtrvc.py",
+      "size": 17549
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\slicer2.py",
+      "size": 9195
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\__pycache__\\audio.cpython-310.pyc",
+      "size": 1651
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\__pycache__\\rmvpe.cpython-310.pyc",
+      "size": 18556
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\__pycache__\\slicer2.cpython-310.pyc",
+      "size": 5181
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\name_params.json",
+      "size": 12573
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\utils.py",
+      "size": 3746
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\__pycache__\\utils.cpython-310.pyc",
+      "size": 3020
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\dataset.py",
+      "size": 6021
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers.py",
+      "size": 3808
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers_123812KB .py",
+      "size": 3808
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers_123821KB.py",
+      "size": 3808
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers_33966KB.py",
+      "size": 4144
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers_537227KB.py",
+      "size": 4144
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers_537238KB.py",
+      "size": 4144
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\layers_new.py",
+      "size": 4111
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\model_param_init.py",
+      "size": 1743
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets.py",
+      "size": 3950
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_123812KB.py",
+      "size": 3952
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_123821KB.py",
+      "size": 3952
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_33966KB.py",
+      "size": 3953
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_537227KB.py",
+      "size": 3975
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_537238KB.py",
+      "size": 3975
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_61968KB.py",
+      "size": 3952
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\nets_new.py",
+      "size": 4358
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\spec_utils.py",
+      "size": 22271
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\__pycache__\\layers_123821KB.cpython-310.pyc",
+      "size": 4070
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\__pycache__\\layers_new.cpython-310.pyc",
+      "size": 4440
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\__pycache__\\model_param_init.cpython-310.pyc",
+      "size": 1645
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\__pycache__\\nets_61968KB.cpython-310.pyc",
+      "size": 3447
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\__pycache__\\nets_new.cpython-310.pyc",
+      "size": 3803
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\__pycache__\\spec_utils.cpython-310.pyc",
+      "size": 13663
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr16000_hl512.json",
+      "size": 310
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr32000_hl512.json",
+      "size": 312
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr33075_hl384.json",
+      "size": 310
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr44100_hl1024.json",
+      "size": 311
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr44100_hl256.json",
+      "size": 305
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr44100_hl512.json",
+      "size": 310
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\1band_sr44100_hl512_cut.json",
+      "size": 308
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\2band_32000.json",
+      "size": 513
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\2band_44100_lofi.json",
+      "size": 515
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\2band_48000.json",
+      "size": 511
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\3band_44100.json",
+      "size": 737
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\3band_44100_mid.json",
+      "size": 757
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\3band_44100_msb2.json",
+      "size": 757
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_44100.json",
+      "size": 960
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_44100_mid.json",
+      "size": 980
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_44100_msb.json",
+      "size": 980
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_44100_msb2.json",
+      "size": 980
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_44100_reverse.json",
+      "size": 977
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_44100_sw.json",
+      "size": 978
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_v2.json",
+      "size": 947
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_v2_sn.json",
+      "size": 983
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\4band_v3.json",
+      "size": 944
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\uvr5_pack\\lib_v5\\modelparams\\ensemble.json",
+      "size": 761
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\data_utils.py",
+      "size": 18736
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\losses.py",
+      "size": 1444
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\mel_processing.py",
+      "size": 3821
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\process_ckpt.py",
+      "size": 8313
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\utils.py",
+      "size": 15912
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\__pycache__\\data_utils.cpython-310.pyc",
+      "size": 12224
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\__pycache__\\losses.cpython-310.pyc",
+      "size": 1472
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\__pycache__\\mel_processing.cpython-310.pyc",
+      "size": 3014
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\__pycache__\\process_ckpt.cpython-310.pyc",
+      "size": 4479
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\train\\__pycache__\\utils.cpython-310.pyc",
+      "size": 11846
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\jit\\get_hubert.py",
+      "size": 12022
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\jit\\get_rmvpe.py",
+      "size": 323
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\jit\\get_synthesizer.py",
+      "size": 1329
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\jit\\__init__.py",
+      "size": 5024
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\jit\\__pycache__\\__init__.cpython-310.pyc",
+      "size": 4136
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\attentions.py",
+      "size": 16241
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\attentions_onnx.py",
+      "size": 16292
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\commons.py",
+      "size": 5541
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\models.py",
+      "size": 43867
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\models_onnx.py",
+      "size": 28440
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\modules.py",
+      "size": 20917
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\onnx_inference.py",
+      "size": 5382
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\transforms.py",
+      "size": 7458
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\__pycache__\\attentions.cpython-310.pyc",
+      "size": 10410
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\__pycache__\\commons.cpython-310.pyc",
+      "size": 5630
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\__pycache__\\models.cpython-310.pyc",
+      "size": 25880
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\__pycache__\\modules.cpython-310.pyc",
+      "size": 14174
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\__pycache__\\transforms.cpython-310.pyc",
+      "size": 3915
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\modules\\F0Predictor\\DioF0Predictor.py",
+      "size": 3277
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\modules\\F0Predictor\\F0Predictor.py",
+      "size": 442
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\modules\\F0Predictor\\HarvestF0Predictor.py",
+      "size": 3108
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\modules\\F0Predictor\\PMF0Predictor.py",
+      "size": 3516
+    },
+    {
+      "rel": "RVC-WebUI\\infer\\lib\\infer_pack\\modules\\F0Predictor\\__init__.py",
+      "size": 0
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\i18n.py",
+      "size": 817
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale_diff.py",
+      "size": 1508
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\scan_i18n.py",
+      "size": 2006
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\__pycache__\\i18n.cpython-310.pyc",
+      "size": 1191
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\en_US.json",
+      "size": 16255
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\es_ES.json",
+      "size": 17667
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\fr_FR.json",
+      "size": 19321
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\it_IT.json",
+      "size": 15207
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\ja_JP.json",
+      "size": 18330
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\ko_KR.json",
+      "size": 16571
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\pt_BR.json",
+      "size": 17562
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\ru_RU.json",
+      "size": 23372
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\tr_TR.json",
+      "size": 17317
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\zh_CN.json",
+      "size": 14136
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\zh_HK.json",
+      "size": 14325
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\zh_SG.json",
+      "size": 14325
+    },
+    {
+      "rel": "RVC-WebUI\\i18n\\locale\\zh_TW.json",
+      "size": 14325
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\小白简易教程.doc",
+      "size": 602624
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\tr\\Changelog_TR.md",
+      "size": 7919
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\tr\\faiss_tips_tr.md",
+      "size": 6149
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\tr\\faq_tr.md",
+      "size": 8307
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\tr\\README.tr.md",
+      "size": 7874
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\tr\\training_tips_tr.md",
+      "size": 5158
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\pt\\Changelog_pt.md",
+      "size": 8646
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\pt\\faiss_tips_pt.md",
+      "size": 6374
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\pt\\faq_pt.md",
+      "size": 16005
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\pt\\README.pt.md",
+      "size": 9290
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\pt\\training_tips_pt.md",
+      "size": 5108
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\kr\\Changelog_KO.md",
+      "size": 8766
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\kr\\faiss_tips_ko.md",
+      "size": 9308
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\kr\\faq_ko.md",
+      "size": 10646
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\kr\\README.ko.han.md",
+      "size": 5403
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\kr\\README.ko.md",
+      "size": 10167
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\kr\\training_tips_ko.md",
+      "size": 5007
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\jp\\Changelog_JA.md",
+      "size": 10274
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\jp\\faiss_tips_ja.md",
+      "size": 6375
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\jp\\faq_ja.md",
+      "size": 12314
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\jp\\README.ja.md",
+      "size": 11211
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\jp\\training_tips_ja.md",
+      "size": 5359
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\fr\\Changelog_FR.md",
+      "size": 8996
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\fr\\faiss_tips_fr.md",
+      "size": 6797
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\fr\\faq_fr.md",
+      "size": 13583
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\fr\\README.fr.md",
+      "size": 9311
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\fr\\training_tips_fr.md",
+      "size": 5636
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\en\\Changelog_EN.md",
+      "size": 6993
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\en\\faiss_tips_en.md",
+      "size": 5849
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\en\\faq_en.md",
+      "size": 8534
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\en\\README.en.md",
+      "size": 9395
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\en\\training_tips_en.md",
+      "size": 4605
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\cn\\Changelog_CN.md",
+      "size": 6290
+    },
+    {
+      "rel": "RVC-WebUI\\docs\\cn\\faq.md",
+      "size": 7530
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\config.json",
+      "size": 484
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\config.py",
+      "size": 8290
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\__pycache__\\config.cpython-310.pyc",
+      "size": 5514
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\v2\\32k.json",
+      "size": 1090
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\v2\\48k.json",
+      "size": 1092
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\v1\\32k.json",
+      "size": 1094
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\v1\\40k.json",
+      "size": 1092
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\v1\\48k.json",
+      "size": 1095
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\.gitignore",
+      "size": 26
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v2\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v2\\32k.json",
+      "size": 1090
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v2\\48k.json",
+      "size": 1092
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v1\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v1\\32k.json",
+      "size": 1094
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v1\\40k.json",
+      "size": 1092
+    },
+    {
+      "rel": "RVC-WebUI\\configs\\inuse\\v1\\48k.json",
+      "size": 1095
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\Synthesizer_inputs.pth",
+      "size": 122495
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\weights\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\weights\\huangsheng_voice_v1_e20_s340.pth",
+      "size": 55233457
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\weights\\huangsheng_voice_v1_e40_s680.pth",
+      "size": 55233457
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\uvr5_weights\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\rmvpe\\.gitignore",
+      "size": 33
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\rmvpe\\rmvpe.pt",
+      "size": 181184272
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\rmvpe\\rmvpe_inputs.pth",
+      "size": 33527
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\pretrained_v2\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\pretrained_v2\\f0D40k.pth",
+      "size": 142875703
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\pretrained_v2\\f0G40k.pth",
+      "size": 73106273
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\pretrained\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\indices\\.gitignore",
+      "size": 16
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\hubert\\.gitignore",
+      "size": 34
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\hubert\\hubert_base.pt",
+      "size": 189507909
+    },
+    {
+      "rel": "RVC-WebUI\\assets\\hubert\\hubert_inputs.pth",
+      "size": 169434
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\PULL_REQUEST_TEMPLATE.md",
+      "size": 911
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\workflows\\docker.yml",
+      "size": 2271
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\workflows\\genlocale.yml",
+      "size": 1198
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\workflows\\pull_format.yml",
+      "size": 1353
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\workflows\\push_format.yml",
+      "size": 1480
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\workflows\\sync_dev.yml",
+      "size": 487
+    },
+    {
+      "rel": "RVC-WebUI\\.github\\workflows\\unitest.yml",
+      "size": 1432
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\config",
+      "size": 371
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\description",
+      "size": 73
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\HEAD",
+      "size": 21
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\index",
+      "size": 23034
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\packed-refs",
+      "size": 112
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\shallow",
+      "size": 41
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\refs\\remotes\\origin\\HEAD",
+      "size": 30
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\refs\\heads\\main",
+      "size": 41
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\objects\\pack\\pack-fae616b6d00708426acf0a142bbc2b25f433263e.idx",
+      "size": 8156
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\objects\\pack\\pack-fae616b6d00708426acf0a142bbc2b25f433263e.pack",
+      "size": 1469847
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\objects\\pack\\pack-fae616b6d00708426acf0a142bbc2b25f433263e.rev",
+      "size": 1064
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\logs\\HEAD",
+      "size": 215
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\logs\\refs\\remotes\\origin\\HEAD",
+      "size": 215
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\logs\\refs\\heads\\main",
+      "size": 215
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\info\\exclude",
+      "size": 240
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\applypatch-msg.sample",
+      "size": 478
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\commit-msg.sample",
+      "size": 896
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\fsmonitor-watchman.sample",
+      "size": 4726
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\post-update.sample",
+      "size": 189
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\pre-applypatch.sample",
+      "size": 424
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\pre-commit.sample",
+      "size": 1649
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\pre-merge-commit.sample",
+      "size": 416
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\pre-push.sample",
+      "size": 1374
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\pre-rebase.sample",
+      "size": 4898
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\pre-receive.sample",
+      "size": 544
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\prepare-commit-msg.sample",
+      "size": 1492
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\push-to-checkout.sample",
+      "size": 2783
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\sendemail-validate.sample",
+      "size": 2308
+    },
+    {
+      "rel": "RVC-WebUI\\.git\\hooks\\update.sample",
+      "size": 3650
+    },
+    {
+      "rel": "identity_test\\ref_bright.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "identity_test\\ref_calm.wav",
+      "size": 1058478
+    },
+    {
+      "rel": "identity_test\\step50_stderr.log",
+      "size": 3608
+    },
+    {
+      "rel": "identity_test\\step50_stdout.log",
+      "size": 145
+    },
+    {
+      "rel": "identity_test\\请先听这组三段说话对照\\1_你的真实录音_未参与训练片段.mp3",
+      "size": 529806
+    },
+    {
+      "rel": "identity_test\\请先听这组三段说话对照\\2_陌生男声_转换前.mp3",
+      "size": 294182
+    },
+    {
+      "rel": "identity_test\\请先听这组三段说话对照\\3_你的声音模型_100步微调后.mp3",
+      "size": 294182
+    },
+    {
+      "rel": "identity_test\\第二轮_三声线盲听\\A_版本一.mp3",
+      "size": 294182
+    },
+    {
+      "rel": "identity_test\\第二轮_三声线盲听\\B_版本二.mp3",
+      "size": 294182
+    },
+    {
+      "rel": "identity_test\\第二轮_三声线盲听\\C_版本三.mp3",
+      "size": 294182
+    },
+    {
+      "rel": "identity_test\\step50\\vc_source_unseen_voice_heldout_1.0_30_0.8.wav",
+      "size": 1288272
+    },
+    {
+      "rel": "identity_test\\step100_calm\\vc_source_unseen_ref_calm_1.0_30_0.8.wav",
+      "size": 1288272
+    },
+    {
+      "rel": "identity_test\\step100_bright\\vc_source_unseen_ref_bright_1.0_30_0.8.wav",
+      "size": 1288272
+    },
+    {
+      "rel": "identity_test\\finetuned\\vc_source_unseen_voice_heldout_1.0_30_0.8.wav",
+      "size": 1288272
+    },
+    {
+      "rel": "identity_singing_bridge\\accompaniment_shift_m2_5.wav",
+      "size": 4233644
+    },
+    {
+      "rel": "identity_singing_bridge\\original_key_stderr.log",
+      "size": 1961
+    },
+    {
+      "rel": "identity_singing_bridge\\original_key_stdout.log",
+      "size": 146
+    },
+    {
+      "rel": "identity_singing_bridge\\shift_m14_stderr.log",
+      "size": 2009
+    },
+    {
+      "rel": "identity_singing_bridge\\shift_m14_stdout.log",
+      "size": 121
+    },
+    {
+      "rel": "identity_singing_bridge\\svc_light_train_stderr.log",
+      "size": 8674
+    },
+    {
+      "rel": "identity_singing_bridge\\svc_light_train_stdout.log",
+      "size": 1158
+    },
+    {
+      "rel": "identity_singing_bridge\\交付试听_C声线\\1_C声线_低八度干声.mp3",
+      "size": 514132
+    },
+    {
+      "rel": "identity_singing_bridge\\交付试听_C声线\\2_C声线_降调伴奏合成.mp3",
+      "size": 514132
+    },
+    {
+      "rel": "identity_singing_bridge\\svc_light_C_v1_original_key\\vc_导唱_最后16秒_ref_bright_1.0_30_0.8.wav",
+      "size": 2822224
+    },
+    {
+      "rel": "identity_singing_bridge\\svc_light_C_v1\\vc_导唱_最后16秒_ref_bright_1.0_30_0.8.wav",
+      "size": 2822224
+    },
+    {
+      "rel": "identity_singing_bridge\\bright_C\\vc_导唱_最后16秒_ref_bright_1.0_30_0.8.wav",
+      "size": 1411152
+    },
+    {
+      "rel": "human_pitch_workflow\\trial_guide_last16.mp3",
+      "size": 578498
+    },
+    {
+      "rel": "human_pitch_workflow\\trial_guide_last16.wav",
+      "size": 4762844
+    },
+    {
+      "rel": "backups\\Music_Code_And_Configs.zip",
+      "size": 660489
+    },
+    {
+      "rel": "analysis_output\\contact.jpg",
+      "size": 364137
+    },
+    {
+      "rel": "analysis_output\\contact_120_170.jpg",
+      "size": 607239
+    },
+    {
+      "rel": "analysis_output\\contact_20_70.jpg",
+      "size": 599961
+    },
+    {
+      "rel": "analysis_output\\contact_70_120.jpg",
+      "size": 605073
+    },
+    {
+      "rel": "analysis_output\\frame_108.png",
+      "size": 513404
+    },
+    {
+      "rel": "analysis_output\\frame_112.png",
+      "size": 524826
+    },
+    {
+      "rel": "analysis_output\\frame_116.png",
+      "size": 534236
+    },
+    {
+      "rel": "analysis_output\\frame_120.png",
+      "size": 514568
+    },
+    {
+      "rel": "analysis_output\\frame_124.png",
+      "size": 519302
+    },
+    {
+      "rel": "analysis_output\\frame_128.png",
+      "size": 526230
+    },
+    {
+      "rel": "analysis_output\\frame_22.png",
+      "size": 524624
+    },
+    {
+      "rel": "analysis_output\\frame_26.png",
+      "size": 520390
+    },
+    {
+      "rel": "analysis_output\\frame_30.png",
+      "size": 506347
+    },
+    {
+      "rel": "analysis_output\\frame_34.png",
+      "size": 514631
+    },
+    {
+      "rel": "analysis_output\\frame_38.png",
+      "size": 532693
+    },
+    {
+      "rel": "analysis_output\\frame_42.png",
+      "size": 505469
+    },
+    {
+      "rel": "analysis_output\\frame_46.png",
+      "size": 512755
+    },
+    {
+      "rel": "analysis_output\\frame_50.png",
+      "size": 507435
+    },
+    {
+      "rel": "analysis_output\\frame_54.png",
+      "size": 512639
+    },
+    {
+      "rel": "analysis_output\\frame_58.png",
+      "size": 511607
+    },
+    {
+      "rel": "analysis_output\\frame_62.png",
+      "size": 531596
+    },
+    {
+      "rel": "analysis_output\\frame_66.png",
+      "size": 502921
+    },
+    {
+      "rel": "analysis_output\\frame_70.png",
+      "size": 504180
+    },
+    {
+      "rel": "analysis_output\\frame_74.png",
+      "size": 533869
+    },
+    {
+      "rel": "analysis_output\\line_108.png",
+      "size": 513404
+    },
+    {
+      "rel": "analysis_output\\line_112.png",
+      "size": 524826
+    },
+    {
+      "rel": "analysis_output\\line_116.png",
+      "size": 534236
+    },
+    {
+      "rel": "analysis_output\\line_120.png",
+      "size": 514568
+    },
+    {
+      "rel": "analysis_output\\line_124.png",
+      "size": 519302
+    },
+    {
+      "rel": "analysis_output\\line_128.png",
+      "size": 526230
+    },
+    {
+      "rel": "analysis_output\\line_132.png",
+      "size": 494600
+    },
+    {
+      "rel": "analysis_output\\line_20.png",
+      "size": 515545
+    },
+    {
+      "rel": "analysis_output\\line_24.png",
+      "size": 497159
+    },
+    {
+      "rel": "analysis_output\\line_28.png",
+      "size": 524662
+    },
+    {
+      "rel": "analysis_output\\line_32.png",
+      "size": 512016
+    },
+    {
+      "rel": "analysis_output\\line_36.png",
+      "size": 504965
+    },
+    {
+      "rel": "analysis_output\\line_40.png",
+      "size": 523688
+    },
+    {
+      "rel": "analysis_output\\line_44.png",
+      "size": 532369
+    },
+    {
+      "rel": "analysis_output\\line_48.png",
+      "size": 507746
+    },
+    {
+      "rel": "analysis_output\\line_52.png",
+      "size": 511532
+    },
+    {
+      "rel": "analysis_output\\line_56.png",
+      "size": 530800
+    },
+    {
+      "rel": "analysis_output\\line_60.png",
+      "size": 499649
+    },
+    {
+      "rel": "analysis_output\\line_64.png",
+      "size": 528464
+    },
+    {
+      "rel": "analysis_output\\line_68.png",
+      "size": 515967
+    },
+    {
+      "rel": "analysis_output\\line_72.png",
+      "size": 512021
+    },
+    {
+      "rel": "analysis_output\\lyrics_montage.png",
+      "size": 1511555
+    },
+    {
+      "rel": "analysis_output\\original_mono.wav",
+      "size": 8544334
+    },
+    {
+      "rel": "analysis_output\\《回到从前》-黄昇.json",
+      "size": 9067
+    },
+    {
+      "rel": "analysis_output\\《回到从前》-黄昇.srt",
+      "size": 1466
+    },
+    {
+      "rel": "analysis_output\\《回到从前》-黄昇.tsv",
+      "size": 932
+    },
+    {
+      "rel": "analysis_output\\《回到从前》-黄昇.txt",
+      "size": 624
+    },
+    {
+      "rel": "analysis_output\\《回到从前》-黄昇.vtt",
+      "size": 1255
+    },
+    {
+      "rel": "analysis_output\\回到从前_original_stereo.wav",
+      "size": 31400222
+    }
+  ],
+  "excluded": [
+    {
+      "rel": "RVC-WebUI\\.env",
+      "size": 286,
+      "reason": "sensitive"
+    }
+  ],
+  "excludes": [],
+  "status": "done",
+  "applied_at": "2026-09-12T17:57:50Z"
+}

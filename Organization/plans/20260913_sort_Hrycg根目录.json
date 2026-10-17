@@ -1,0 +1,198 @@
+{
+  "created": "2026-09-13",
+  "moves": [
+    {
+      "src": "E:/Hrycg/FJCM-LOGO.jpg",
+      "dst": "E:/Hrycg/CI/FJCM-LOGO.jpg",
+      "why": "品牌LOGO归CI"
+    },
+    {
+      "src": "E:/Hrycg/FJCM-LOGO.png",
+      "dst": "E:/Hrycg/CI/FJCM-LOGO.png",
+      "why": "品牌LOGO归CI"
+    },
+    {
+      "src": "E:/Hrycg/hrycg-gq.png",
+      "dst": "E:/Hrycg/CI/hrycg-gq.png",
+      "why": "品牌图归CI"
+    },
+    {
+      "src": "E:/Hrycg/hrycg-gq.psd",
+      "dst": "E:/Hrycg/CI/hrycg-gq.psd",
+      "why": "品牌源文件归CI"
+    },
+    {
+      "src": "E:/Hrycg/hrycg.png",
+      "dst": "E:/Hrycg/CI/hrycg.png",
+      "why": "品牌图归CI"
+    },
+    {
+      "src": "E:/Hrycg/RENDER ME.mov",
+      "dst": "E:/Hrycg/Works/RENDER ME.mov",
+      "why": "成片素材归Works"
+    },
+    {
+      "src": "E:/Hrycg/earth.mov",
+      "dst": "E:/Hrycg/Works/earth.mov",
+      "why": "成片素材归Works"
+    },
+    {
+      "src": "E:/Hrycg/Place_on_The_Earth (converted).aep",
+      "dst": "E:/Hrycg/Works/Place_on_The_Earth (converted).aep",
+      "why": "AE工程归Works"
+    },
+    {
+      "src": "E:/Hrycg/2017.prproj",
+      "dst": "E:/Hrycg/Works/2017.prproj",
+      "why": "PR工程归Works"
+    },
+    {
+      "src": "E:/Hrycg/全息影片修改方案.docx",
+      "dst": "E:/Hrycg/Works/全息影片修改方案.docx",
+      "why": "影片方案归Works"
+    },
+    {
+      "src": "E:/Hrycg/636b3a05266fae8a0de11c17074b54e1.mp3",
+      "dst": "E:/Hrycg/Music/636b3a05266fae8a0de11c17074b54e1.mp3",
+      "why": "音频归Music"
+    },
+    {
+      "src": "E:/Hrycg/中国小城联盟商业计划书-2020.pptx",
+      "dst": "E:/Hrycg/Finance/中国小城联盟商业计划书-2020.pptx",
+      "why": "商业计划书归Finance"
+    },
+    {
+      "src": "E:/Hrycg/企业培训服务协议书8.2.doc",
+      "dst": "E:/Hrycg/Finance/企业培训服务协议书8.2.doc",
+      "why": "协议书归Finance"
+    },
+    {
+      "src": "E:/Hrycg/小说.mmap",
+      "dst": "E:/Hrycg/Writing/小说.mmap",
+      "why": "创作归Writing(PC-Plan)"
+    },
+    {
+      "src": "E:/Hrycg/Menu.xmind",
+      "dst": "E:/Hrycg/Operation/Menu.xmind",
+      "why": "思维导图归Operation"
+    },
+    {
+      "src": "E:/Hrycg/contacts.vcf",
+      "dst": "E:/Hrycg/Operation/contacts.vcf",
+      "why": "通讯录归Operation"
+    },
+    {
+      "src": "E:/Hrycg/Contact2023-05-24-101729.vcf",
+      "dst": "E:/Hrycg/Operation/Contact2023-05-24-101729.vcf",
+      "why": "通讯录归Operation"
+    },
+    {
+      "src": "E:/Hrycg/国内域名.txt",
+      "dst": "E:/Hrycg/Operation/国内域名.txt",
+      "why": "资料归Operation"
+    },
+    {
+      "src": "E:/Hrycg/suan.txt",
+      "dst": "E:/Hrycg/Operation/suan.txt",
+      "why": "个人资料归Operation"
+    },
+    {
+      "src": "E:/Hrycg/《轻型民用无人驾驶航空器安全操控》.docx",
+      "dst": "E:/Hrycg/Operation/《轻型民用无人驾驶航空器安全操控》.docx",
+      "why": "资料归Operation"
+    },
+    {
+      "src": "E:/Hrycg/passport.jpg",
+      "dst": "E:/Hrycg/证件/passport.jpg",
+      "why": "证件归独立文件夹(敏感)"
+    }
+  ],
+  "status": "done",
+  "executed_at": "2026-09-12T19:17:59Z",
+  "executed": [
+    {
+      "src": "E:\\Hrycg\\FJCM-LOGO.jpg",
+      "dst": "E:\\Hrycg\\CI\\FJCM-LOGO.jpg"
+    },
+    {
+      "src": "E:\\Hrycg\\FJCM-LOGO.png",
+      "dst": "E:\\Hrycg\\CI\\FJCM-LOGO.png"
+    },
+    {
+      "src": "E:\\Hrycg\\hrycg-gq.png",
+      "dst": "E:\\Hrycg\\CI\\hrycg-gq.png"
+    },
+    {
+      "src": "E:\\Hrycg\\hrycg-gq.psd",
+      "dst": "E:\\Hrycg\\CI\\hrycg-gq.psd"
+    },
+    {
+      "src": "E:\\Hrycg\\hrycg.png",
+      "dst": "E:\\Hrycg\\CI\\hrycg.png"
+    },
+    {
+      "src": "E:\\Hrycg\\RENDER ME.mov",
+      "dst": "E:\\Hrycg\\Works\\RENDER ME.mov"
+    },
+    {
+      "src": "E:\\Hrycg\\earth.mov",
+      "dst": "E:\\Hrycg\\Works\\earth.mov"
+    },
+    {
+      "src": "E:\\Hrycg\\Place_on_The_Earth (converted).aep",
+      "dst": "E:\\Hrycg\\Works\\Place_on_The_Earth (converted).aep"
+    },
+    {
+      "src": "E:\\Hrycg\\2017.prproj",
+      "dst": "E:\\Hrycg\\Works\\2017.prproj"
+    },
+    {
+      "src": "E:\\Hrycg\\全息影片修改方案.docx",
+      "dst": "E:\\Hrycg\\Works\\全息影片修改方案.docx"
+    },
+    {
+      "src": "E:\\Hrycg\\636b3a05266fae8a0de11c17074b54e1.mp3",
+      "dst": "E:\\Hrycg\\Music\\636b3a05266fae8a0de11c17074b54e1.mp3"
+    },
+    {
+      "src": "E:\\Hrycg\\中国小城联盟商业计划书-2020.pptx",
+      "dst": "E:\\Hrycg\\Finance\\中国小城联盟商业计划书-2020.pptx"
+    },
+    {
+      "src": "E:\\Hrycg\\企业培训服务协议书8.2.doc",
+      "dst": "E:\\Hrycg\\Finance\\企业培训服务协议书8.2.doc"
+    },
+    {
+      "src": "E:\\Hrycg\\小说.mmap",
+      "dst": "E:\\Hrycg\\Writing\\小说.mmap"
+    },
+    {
+      "src": "E:\\Hrycg\\Menu.xmind",
+      "dst": "E:\\Hrycg\\Operation\\Menu.xmind"
+    },
+    {
+      "src": "E:\\Hrycg\\contacts.vcf",
+      "dst": "E:\\Hrycg\\Operation\\contacts.vcf"
+    },
+    {
+      "src": "E:\\Hrycg\\Contact2023-05-24-101729.vcf",
+      "dst": "E:\\Hrycg\\Operation\\Contact2023-05-24-101729.vcf"
+    },
+    {
+      "src": "E:\\Hrycg\\国内域名.txt",
+      "dst": "E:\\Hrycg\\Operation\\国内域名.txt"
+    },
+    {
+      "src": "E:\\Hrycg\\suan.txt",
+      "dst": "E:\\Hrycg\\Operation\\suan.txt"
+    },
+    {
+      "src": "E:\\Hrycg\\《轻型民用无人驾驶航空器安全操控》.docx",
+      "dst": "E:\\Hrycg\\Operation\\《轻型民用无人驾驶航空器安全操控》.docx"
+    },
+    {
+      "src": "E:\\Hrycg\\passport.jpg",
+      "dst": "E:\\Hrycg\\证件\\passport.jpg"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<title>查重台 · Dedup Console</title>
+<style>
+:root{--bg:#141414;--panel:#1e1e1e;--panel2:#262626;--line:#333;--txt:#ddd;--dim:#888;
+--green:#4ade80;--red:#f87171;--blue:#60a5fa;--yellow:#fbbf24;--purple:#c084fc}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:13px/1.4 "Segoe UI",system-ui,"Microsoft YaHei",sans-serif;padding:14px}
+h1{font-size:17px;margin-bottom:10px}h1 span{color:var(--dim);font-size:12px;font-weight:normal}
+.cards{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;min-width:120px}
+.card b{display:block;font-size:20px}.card i{font-style:normal;color:var(--dim);font-size:11px}
+.card.g b{color:var(--red)}
+.bar{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;align-items:center;
+position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:9}
+input,select,button{background:var(--panel2);color:var(--txt);border:1px solid var(--line);
+border-radius:6px;padding:5px 9px;font-size:13px}
+input[type=text]{min-width:200px}
+button{cursor:pointer}button:hover{border-color:var(--blue)}
+button.danger{background:#450a0a;border-color:#7f1d1d;color:var(--red)}
+button.danger:hover{border-color:var(--red)}
+
+/* ===== 固定列宽表格：所有组完全对齐 ===== */
+.grp{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:6px;overflow:hidden}
+.grp>header{display:flex;align-items:center;gap:12px;padding:7px 12px;cursor:pointer;background:var(--panel2)}
+.grp>header:hover{background:#2d2d2d}
+.grp header .sz{color:var(--yellow);font-weight:bold;min-width:88px;font-size:13px}
+.grp header .waste{color:var(--red);min-width:110px}
+.grp header .cat{color:var(--purple);font-size:12px;min-width:50px}
+.grp header .cnt{color:var(--dim);font-size:12px;min-width:70px}
+.grp header .gnum{color:var(--dim);font-size:11px;flex:1}
+.grp header button{padding:3px 10px;font-size:12px}
+table{width:100%;table-layout:fixed;border-collapse:collapse}
+col.c-chk{width:32px}col.c-st{width:76px}col.c-name{width:auto}
+col.c-dir{width:300px}col.c-sz{width:82px}col.c-ct{width:118px}col.c-mt{width:118px}
+col.c-cat{width:56px}col.c-hs{width:88px}col.c-op{width:120px}
+td{padding:5px 8px;border-top:1px solid var(--line);overflow:hidden;white-space:nowrap;
+text-overflow:ellipsis;height:30px}
+td.mono{font-family:Consolas,monospace;font-size:12px;color:var(--dim)}
+tr.hdr td{color:var(--dim);font-size:11px;border-top:none;background:#1a1a1a;height:24px}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px}
+.keep{background:#14532d;color:var(--green)}
+.redund{background:#7f1d1d;color:var(--red)}
+td button.act{padding:2px 8px;font-size:12px;margin-right:3px}
+.chk{width:14px;height:14px;cursor:pointer;display:block;margin:auto}
+.dirlink{cursor:pointer}
+.dirlink:hover{color:var(--blue)}
+#foot{position:fixed;bottom:0;left:0;right:0;background:var(--panel2);border-top:1px solid var(--line);
+padding:10px 16px;display:flex;gap:16px;align-items:center;z-index:99}
+#foot b{color:var(--yellow)}
+#msg{position:fixed;top:12px;right:14px;z-index:999;display:none;
+background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px 14px;max-width:420px}
+.empty{color:var(--dim);text-align:center;padding:40px}
+.more{display:block;margin:10px auto;padding:8px 24px}
+</style>
+</head>
+<body>
+<h1>查重台 <span id="gen"></span></h1>
+<div class="cards" id="cards"></div>
+<div class="bar">
+  <input type="text" id="q" placeholder="搜文件名 / 所在文件夹…">
+  <select id="fcat"><option value="">全部类别</option></select>
+  <select id="fdrive"><option value="">全部盘</option></select>
+  <select id="fsize">
+    <option value="0">任意大小</option><option value="1048576">≥1MB</option>
+    <option value="10485760">≥10MB</option><option value="104857600">≥100MB</option>
+  </select>
+  <select id="sort">
+    <option value="waste">按浪费↓</option><option value="size">按大小↓</option>
+    <option value="mtime">按修改时间新→旧</option><option value="name">按名称</option>
+  </select>
+  <label style="color:var(--dim);font-size:12px"><input type="checkbox" id="fprot"> 仅红线区</label>
+  <button onclick="checkAll(true)">全选冗余</button>
+  <button onclick="checkAll(false)">取消全选</button>
+</div>
+<div id="list"><div class="empty">加载中…</div></div>
+<button class="more" id="more" style="display:none">加载更多组</button>
+<div style="height:56px"></div>
+<div id="foot">
+  <span>勾选 <b id="n">0</b> 项</span>
+  <span>可释放 <b id="w">0 B</b></span>
+  <button class="danger" id="del">🗑 删除勾选项</button>
+  <button id="export">导出计划 JSON</button>
+  <span style="color:var(--dim);font-size:12px">删除前服务端校验：同组保留副本必须存活 · 全程留 manifest+审计</span>
+</div>
+<div id="msg"></div>
+<script>
+let DATA=null, shown=0, PAGE=300;
+const fmtB=n=>{if(n>1073741824)return (n/1073741824).toFixed(2)+" GB";if(n>1048576)return (n/1048576).toFixed(1)+" MB";if(n>1024)return (n/1024).toFixed(1)+" KB";return n+" B"};
+const fmtT=t=>{const d=new Date(t*1000);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")};
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+const ENC=s=>encodeURIComponent(s);
+
+fetch("/api/index").then(r=>r.json()).then(d=>{DATA=d;init();});
+
+function init(){
+  const s=DATA.stats;
+  document.getElementById("gen").textContent="索引 "+DATA.generated+" · 来源 "+DATA.sources.length+" 份报告";
+  document.getElementById("cards").innerHTML=
+    `<div class="card"><b>${s.files}</b><i>重复涉及文件</i></div>`+
+    `<div class="card"><b>${s.groups}</b><i>重复组</i></div>`+
+    `<div class="card g"><b>${s.redundant}</b><i>冗余副本</i></div>`+
+    `<div class="card g"><b>${fmtB(s.reclaim_bytes)}</b><i>可释放</i></div>`;
+  const cats=[...new Set(DATA.files.map(f=>f.category))].sort();
+  const drvs=[...new Set(DATA.files.map(f=>f.drive))].sort();
+  document.getElementById("fcat").innerHTML='<option value="">全部类别</option>'+cats.map(c=>`<option>${c}</option>`).join("");
+  document.getElementById("fdrive").innerHTML='<option value="">全部盘</option>'+drvs.map(c=>`<option>${c}</option>`).join("");
+  ["q","fcat","fdrive","fsize","sort","fprot"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+  render();
+}
+
+function groups(){
+  const q=document.getElementById("q").value.toLowerCase();
+  const cat=document.getElementById("fcat").value, drv=document.getElementById("fdrive").value;
+  const min=+document.getElementById("fsize").value, sort=document.getElementById("sort").value;
+  const prot=document.getElementById("fprot").checked;
+  const byGroup={};
+  for(const f of DATA.files){
+    if(cat&&f.category!==cat)continue;
+    if(drv&&f.drive!==drv)continue;
+    if(f.size<min)continue;
+    if(prot&&!f.protected)continue;
+    if(q&&!(f.name.toLowerCase().includes(q)||f.folder.toLowerCase().includes(q)))continue;
+    (byGroup[f.group]=byGroup[f.group]||[]).push(f);
+  }
+  const gs=Object.values(byGroup).filter(g=>g.length>1);
+  const key={waste:g=>-g.reduce((a,f)=>a+f.waste,0),size:g=>-g[0].size,
+             mtime:g=>-Math.max(...g.map(f=>f.mtime)),name:g=>g[0].name};
+  gs.sort((a,b)=>key[sort](a)-key[sort](b)||a[0].group-b[0].group);
+  return gs;
+}
+
+function render(){
+  const gs=groups();shown=0;
+  document.getElementById("list").innerHTML=gs.length?"":"<div class='empty'>无匹配</div>";
+  addMore(gs);
+  document.getElementById("more").style.display=gs.length>shown?"block":"none";
+  document.getElementById("more").onclick=()=>{addMore(gs);
+    document.getElementById("more").style.display=gs.length>shown?"block":"none";};
+  updateFoot();
+}
+
+function addMore(gs){
+  const list=document.getElementById("list");
+  const slice=gs.slice(shown,shown+PAGE);
+  let html="";
+  for(const g of slice){
+    const waste=g.reduce((a,f)=>a+f.waste,0);
+    const cats=[...new Set(g.map(f=>f.category))].join("/");
+    const reds=g.filter(f=>f.redundant);
+    html+=`<div class="grp"><header onclick="var t=this.parentElement.querySelector('div');t.style.display=t.style.display==='none'?'':'none'">
+      <span class="sz">${fmtB(g[0].size)}</span><span class="cnt">×${g.length} 副本</span>
+      <span class="waste">浪费 ${fmtB(waste)}</span><span class="cat">${cats}</span>
+      <span class="cnt">组#${g[0].group}</span>
+      <span class="gnum"></span>
+      <button onclick="event.stopPropagation();delList(${JSON.stringify(reds.map(f=>f.path)).replace(/"/g,'&quot;')})">删冗余(${reds.length})</button></header>
+      <div><table>
+      <colgroup><col class="c-chk"><col class="c-st"><col class="c-name"><col class="c-dir"><col class="c-sz"><col class="c-ct"><col class="c-mt"><col class="c-cat"><col class="c-hs"><col class="c-op"></colgroup>
+      <tr class="hdr"><td></td><td>状态</td><td>文件名</td><td>所在文件夹（点击定位）</td><td>大小</td><td>创建时间</td><td>修改时间</td><td>类别</td><td>哈希</td><td>操作</td></tr>`;
+    for(const f of g){
+      html+=`<tr><td><input type="checkbox" class="chk" data-path="${esc(f.path)}" data-size="${f.size}"
+        ${f.redundant?"checked":""} onchange="updateFoot()"></td>
+        <td><span class="tag ${f.redundant?'redund':'keep'}">${f.redundant?'冗余':'保留'}</span></td>
+        <td class="mono" title="${esc(f.path)}">${esc(f.name)}</td>
+        <td class="mono dirlink" title="${esc(f.folder)}" onclick="api('reveal','${ENC(f.path)}')">${esc(f.folder)}</td>
+        <td>${fmtB(f.size)}</td><td class="mono">${fmtT(f.ctime)}</td><td class="mono">${fmtT(f.mtime)}</td>
+        <td>${f.category}</td><td class="mono" title="${f.hash||''}">${f.hash?f.hash.slice(0,10):"—"}</td>
+        <td><button class="act" onclick="api('open','${ENC(f.path)}')">打开</button>
+            <button class="act" onclick="api('reveal','${ENC(f.path)}')">定位</button></td></tr>`;
+    }
+    html+="</table></div></div>";
+  }
+  list.insertAdjacentHTML("beforeend",html);
+  shown+=slice.length;
+}
+
+function api(act,encPath){ fetch(`/api/${act}?path=${encPath}`)
+  .then(r=>r.json()).then(j=>{if(j.err)alert(j.err);}).catch(e=>alert(e)); }
+
+function checkAll(v){
+  document.querySelectorAll(".chk").forEach(c=>{c.checked=v;});
+  updateFoot();
+}
+
+function updateFoot(){
+  const chks=[...document.querySelectorAll(".chk:checked")];
+  const bytes=chks.reduce((a,c)=>a+ +c.dataset.size,0);
+  document.getElementById("n").textContent=chks.length;
+  document.getElementById("w").textContent=fmtB(bytes);
+  window._sel=chks.map(c=>({path:c.dataset.path,size:+c.dataset.size}));
+}
+
+/* ===== 直接删除 ===== */
+function toast(html,ok){
+  const m=document.getElementById("msg");
+  m.innerHTML=html;m.style.display="block";m.style.borderColor=ok?"var(--green)":"var(--red)";
+  clearTimeout(window._tt);window._tt=setTimeout(()=>m.style.display="none",8000);
+}
+function delList(paths){
+  // paths: 字符串数组
+  const items=paths.map(p=>({path:p,size:fileSizeOf(p)})).filter(x=>x.size>0);
+  if(!items.length){alert("没有可删项");return;}
+  doDelete(items);
+}
+function fileSizeOf(p){const f=DATA.files.find(x=>x.path===p);return f?f.size:0;}
+function delChecked(){
+  if(!window._sel||!window._sel.length){alert("先勾选");return;}
+  doDelete(window._sel);
+}
+function doDelete(items){
+  const bytes=items.reduce((a,x)=>a+x.size,0);
+  const reds=items.filter(x=>x.path.startsWith("G:")||x.path.toLowerCase().startsWith("f:\\temp"));
+  if(!confirm(`确认删除 ${items.length} 个冗余副本，释放 ${fmtB(bytes)}？\n`+
+    (reds.length?`⚠ 含红线区 ${reds.length} 个（G盘/F:\\temp）\n`:"")+
+    `\n服务端校验：同组保留副本存活才删；删前记录 manifest。`)) return;
+  fetch("/api/delete",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({paths:items.map(x=>x.path)})})
+  .then(r=>r.json()).then(j=>{
+    let h=`<b>删除 ${j.deleted.length} 项 / 释放 ${fmtB(j.freed)}</b>`;
+    if(j.skipped.length)h+=`<br>跳过 ${j.skipped.length}：`+j.skipped.slice(0,5).map(s=>`${esc(s.reason)}`).join("、");
+    toast(h,!j.skipped.length);
+    // 从内存索引移除已删文件并重渲染
+    const gone=new Set(j.deleted);
+    DATA.files=DATA.files.filter(f=>!gone.has(f.path));
+    recount();render();
+  }).catch(e=>alert(e));
+}
+function recount(){
+  const s=DATA.stats;
+  s.files=DATA.files.length;
+  const gm={};DATA.files.forEach(f=>gm[f.group]=(gm[f.group]||0)+1);
+  s.groups=Object.values(gm).filter(n=>n>1).length;
+  s.redundant=DATA.files.filter(f=>f.redundant).length;
+  s.reclaim_bytes=DATA.files.reduce((a,f)=>a+f.waste,0);
+}
+document.getElementById("del").onclick=delChecked;
+document.getElementById("export").onclick=()=>{
+  if(!window._sel||!window._sel.length){alert("先勾选");return;}
+  const plan={created:new Date().toISOString().slice(0,19),kind:"dedup-delete-plan",
+    deletes:window._sel,kept:"由 dedup_apply 校验同组保留副本"};
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(plan,null,2)],{type:"application/json"}));
+  a.download="dedup_plan.json";a.click();
+};
+</script>
+</body>
+</html>

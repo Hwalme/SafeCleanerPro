@@ -1,0 +1,10 @@
+[
+  {
+    "action": "scan",
+    "ts": "2026-09-12T17:45:31Z",
+    "actor": "org.py",
+    "path": "D:\\TkPath",
+    "items": 8,
+    "depth": 1
+  }
+]

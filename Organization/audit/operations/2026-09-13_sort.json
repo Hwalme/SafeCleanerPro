@@ -1,0 +1,30 @@
+[
+  {
+    "action": "sort",
+    "ts": "2026-09-12T18:07:22Z",
+    "actor": "org.py",
+    "plan": "plans\\20260913_sort_E盘散落截图.json",
+    "moved": 9
+  },
+  {
+    "action": "sort",
+    "ts": "2026-09-12T19:17:59Z",
+    "actor": "org.py",
+    "plan": "plans\\20260913_sort_Hrycg根目录.json",
+    "moved": 21
+  },
+  {
+    "action": "sort",
+    "ts": "2026-09-12T19:17:59Z",
+    "actor": "org.py",
+    "plan": "plans\\20260913_sort_Coding根目录散件.json",
+    "moved": 12
+  },
+  {
+    "action": "sort",
+    "ts": "2026-09-12T19:18:00Z",
+    "actor": "org.py",
+    "plan": "plans\\20260913_sort_E盘根目录散件.json",
+    "moved": 13
+  }
+]

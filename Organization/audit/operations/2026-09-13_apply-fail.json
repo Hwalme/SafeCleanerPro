@@ -1,0 +1,9 @@
+[
+  {
+    "action": "apply-fail",
+    "ts": "2026-09-12T18:45:44Z",
+    "actor": "org.py",
+    "plan": "D:\\Coding\\Organization\\plans\\20260913_023746_move_ViiTorVoice.json",
+    "code": 11
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "action": "scan_storage_landscape",
+  "actor": "agent:ZCode-MiniMax-M3",
+  "ts_start": "2026-09-12T17:00:48Z",
+  "ts_end": "2026-09-12T17:01:17Z",
+  "scope": [
+    "D:\\",
+    "E:\\"
+  ],
+  "files_read": 123,
+  "files_touched": 0,
+  "data_classifications": {
+    "S": 37,
+    "P": 0,
+    "R": 2,
+    "P'": 70
+  },
+  "sha256_evidence": {
+    "D:\\backup\\.hermes.v0.12\\.env": "PROTECTED-NO-READ",
+    "D:\\backup\\hermes_gui.v0.16.0\\cookies.txt": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\.env": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\.env.example": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\all_keys.json": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\wxdump_work\\.env": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\wxdump_work\\dec_MSG0.db": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\wxdump_work\\dec_MSG1.db": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\wxdump_work\\dec_MSG2.db": "PROTECTED-NO-READ",
+    "D:\\ChatRecords\\wxdump_work\\dec_MSG3.db": "PROTECTED-NO-READ"
+  },
+  "user_approval": "granted",
+  "rollback_plan": null,
+  "report_path": "D:\\Coding\\Organization\\audit\\2026-09-13_initial_scan.json"
+}

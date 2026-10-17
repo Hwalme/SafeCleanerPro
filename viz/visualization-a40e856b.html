@@ -1,0 +1,21 @@
+<div style="padding:20px;font-family:system-ui;line-height:1.7">
+  <h3 style="margin:0 0 14px;color:#e2e8f0">SafeCleaner Pro — 本轮受阻状态</h3>
+  <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:14px">
+    <p style="color:#94a3b8;margin:0 0 10px">本轮可用工具集<b style="color:#f87171">不含</b>文件读写与命令执行，故无法继续修改代码。</p>
+    <ul style="color:#cbd5e1;margin:0;padding-left:20px">
+      <li><code>read</code> / <code>write</code> / <code>edit</code> — 未知工具</li>
+      <li><code>pwsh</code> / <code>bash</code> — 未知工具</li>
+      <li>可用：kanban、vault、visualize、eco_check、ssh_*、agent_teams_*</li>
+    </ul>
+  </div>
+  <div style="background:#052e16;border:1px solid #166534;border-radius:8px;padding:14px;margin-top:12px">
+    <p style="color:#4ade80;margin:0 0 8px;font-weight:600">已完成并验证</p>
+    <ul style="color:#cbd5e1;margin:0;padding-left:20px">
+      <li>卡顿：18895ms → <b>4535ms</b>（真实 mainloop 实测）</li>
+      <li>首次绘制：12742ms → <b>421ms</b></li>
+      <li>功能：32 方法全量恢复，<b>verify_all 20/20</b></li>
+      <li>清理：64 → <b>91 项</b>，覆盖 <b>23.22 GB</b></li>
+      <li>安全：免疫网 + 删除容错，<b>verify_guard 18/18</b></li>
+    </ul>
+  </div>
+</div>

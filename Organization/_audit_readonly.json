@@ -1,0 +1,1035 @@
+{
+  "scan_time": "2026-09-12 23:55:32",
+  "D_top": [
+    {
+      "name": "$RECYCLE.BIN",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": ".accelerate",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": ".appdata",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": ".pnpm-store",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "360MoveData",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 7
+    },
+    {
+      "name": "Antigravity_backup_20260905_082321",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 35
+    },
+    {
+      "name": "Antigravity_backup_20260905_082321_IDE",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 28
+    },
+    {
+      "name": "ApowerRECData",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "ChatRecords",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 122
+    },
+    {
+      "name": "Coding",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 72
+    },
+    {
+      "name": "Config.Msi",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 0
+    },
+    {
+      "name": "DumpStack.log",
+      "is_dir": false,
+      "size_bytes": 8192
+    },
+    {
+      "name": "DumpStack.log.tmp",
+      "is_dir": false,
+      "size_bytes": 8192
+    },
+    {
+      "name": "FG_Aircraft",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "KimiData",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 3
+    },
+    {
+      "name": "MBL_AE_LogFile.txt",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "PSAutoRecover",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "Program Files",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 98
+    },
+    {
+      "name": "Program Files (x86)",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 25
+    },
+    {
+      "name": "ProgramData",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 3
+    },
+    {
+      "name": "System Volume Information",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 0
+    },
+    {
+      "name": "TempChromeProfile",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 43
+    },
+    {
+      "name": "TkPath",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "Ubuntu",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "_tmp_15964_22135402e6fd1506c0a7afe9f59318a6",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "_tmp_56008_db2201b53ce4cb4eb8008f298eae29ca",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "_tmp_5800_0e12fb3cf144eaa2042579b0fbdd3735",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "_tmp_66324_902fd71d44fb98d7e13e22f6e5e88d73",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "adb",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "adobeTemp",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "ai",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 5
+    },
+    {
+      "name": "backup",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "c",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "d",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "deploy_output.log",
+      "is_dir": false,
+      "size_bytes": 442
+    },
+    {
+      "name": "dev",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 3
+    },
+    {
+      "name": "fg_demo_start.bat",
+      "is_dir": false,
+      "size_bytes": 761
+    },
+    {
+      "name": "fg_min.bat",
+      "is_dir": false,
+      "size_bytes": 337
+    },
+    {
+      "name": "fg_min_out.log",
+      "is_dir": false,
+      "size_bytes": 3316
+    },
+    {
+      "name": "fg_run.bat",
+      "is_dir": false,
+      "size_bytes": 455
+    },
+    {
+      "name": "fg_test.bat",
+      "is_dir": false,
+      "size_bytes": 401
+    },
+    {
+      "name": "fgdata_isolated_A",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 51
+    },
+    {
+      "name": "fgdata_isolated_B",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 51
+    },
+    {
+      "name": "fgdata_isolated_C",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 51
+    },
+    {
+      "name": "mdbx.dat",
+      "is_dir": false,
+      "size_bytes": 2097152
+    },
+    {
+      "name": "opt",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "pagefile.sys",
+      "is_dir": false,
+      "size_bytes": 10200547328
+    },
+    {
+      "name": "temp",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 37
+    },
+    {
+      "name": "tmp",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 38
+    },
+    {
+      "name": "vMonitor.log",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "{9F2D32F9-E3DC-435A-A9E0-AD305E4E7EFC}",
+      "is_dir": false,
+      "size_bytes": 102
+    }
+  ],
+  "Coding_top": [
+    {
+      "name": "3DMap",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 21
+    },
+    {
+      "name": "Agent",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "Antigravity-Manager-main",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 31
+    },
+    {
+      "name": "Company",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 4
+    },
+    {
+      "name": "Contract",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 24
+    },
+    {
+      "name": "FateCat",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 10
+    },
+    {
+      "name": "Generative-Media-Skills-main",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 13
+    },
+    {
+      "name": "Learning",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 12
+    },
+    {
+      "name": "Live streaming",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 12
+    },
+    {
+      "name": "Map",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 27
+    },
+    {
+      "name": "Music",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 24
+    },
+    {
+      "name": "OpenChatCut-main",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 26
+    },
+    {
+      "name": "Organization",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "PPSAI",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 201
+    },
+    {
+      "name": "Personal",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 12
+    },
+    {
+      "name": "Prompt",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 96
+    },
+    {
+      "name": "Quantitative",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 48
+    },
+    {
+      "name": "ShieldCall",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 6
+    },
+    {
+      "name": "Toonflow-app-master",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 17
+    },
+    {
+      "name": "Video",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 38
+    },
+    {
+      "name": "Video Protect",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 13
+    },
+    {
+      "name": "ViiTorVoice",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 26
+    },
+    {
+      "name": "Write",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 20
+    },
+    {
+      "name": "_PROJECTS_DASHBOARD.html",
+      "is_dir": false,
+      "size_bytes": 57946
+    },
+    {
+      "name": "_scan_level2.py",
+      "is_dir": false,
+      "size_bytes": 3983
+    },
+    {
+      "name": "_scan_projects.py",
+      "is_dir": false,
+      "size_bytes": 7656
+    },
+    {
+      "name": "_scan_result.json",
+      "is_dir": false,
+      "size_bytes": 55924
+    },
+    {
+      "name": "_summarize.py",
+      "is_dir": false,
+      "size_bytes": 1868
+    },
+    {
+      "name": "accounts.json",
+      "is_dir": false,
+      "size_bytes": 1009
+    },
+    {
+      "name": "agent-plugin-main",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 6
+    },
+    {
+      "name": "ai-creativity",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 46
+    },
+    {
+      "name": "aidir",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 24
+    },
+    {
+      "name": "aipm",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 24
+    },
+    {
+      "name": "app",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 8
+    },
+    {
+      "name": "brand",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 25
+    },
+    {
+      "name": "camera",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 9
+    },
+    {
+      "name": "cnb",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 5
+    },
+    {
+      "name": "cockpit-tools-main",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 24
+    },
+    {
+      "name": "codex",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "coo",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 18
+    },
+    {
+      "name": "course",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 18
+    },
+    {
+      "name": "dc.txt",
+      "is_dir": false,
+      "size_bytes": 171240
+    },
+    {
+      "name": "deepseek-harness-master",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 145
+    },
+    {
+      "name": "dump.txt",
+      "is_dir": false,
+      "size_bytes": 3
+    },
+    {
+      "name": "fix.py",
+      "is_dir": false,
+      "size_bytes": 1381
+    },
+    {
+      "name": "fix2.py",
+      "is_dir": false,
+      "size_bytes": 5259
+    },
+    {
+      "name": "fix_marker.txt",
+      "is_dir": false,
+      "size_bytes": 7
+    },
+    {
+      "name": "hermes",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 82
+    },
+    {
+      "name": "hermes_backup",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 4
+    },
+    {
+      "name": "hermes_gui",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 133
+    },
+    {
+      "name": "main_bundle.txt",
+      "is_dir": false,
+      "size_bytes": 6250
+    },
+    {
+      "name": "media",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 4
+    },
+    {
+      "name": "minimax",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "mqn.txt",
+      "is_dir": false,
+      "size_bytes": 3074
+    },
+    {
+      "name": "net",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "openclaw",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 83
+    },
+    {
+      "name": "orig.txt",
+      "is_dir": false,
+      "size_bytes": 52713
+    },
+    {
+      "name": "out.txt",
+      "is_dir": false,
+      "size_bytes": 3
+    },
+    {
+      "name": "port3000.html",
+      "is_dir": false,
+      "size_bytes": 12207
+    },
+    {
+      "name": "projector",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 28
+    },
+    {
+      "name": "prompt-marketplace-research",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "resume",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 24
+    },
+    {
+      "name": "resume_upload.zip",
+      "is_dir": false,
+      "size_bytes": 148248614
+    },
+    {
+      "name": "rss",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 27
+    },
+    {
+      "name": "shop",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 13
+    },
+    {
+      "name": "sprit",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "start_fatecat.bat",
+      "is_dir": false,
+      "size_bytes": 263
+    },
+    {
+      "name": "test.txt",
+      "is_dir": false,
+      "size_bytes": 11
+    },
+    {
+      "name": "updream",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "video-shotcraft-main",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 14
+    },
+    {
+      "name": "vite_test.html",
+      "is_dir": false,
+      "size_bytes": 1970
+    },
+    {
+      "name": "yy",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 14
+    }
+  ],
+  "E_top": [
+    {
+      "name": "$RECYCLE.BIN",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": ".pnpm-store",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "360Downloads",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "360RecycleBin",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 35
+    },
+    {
+      "name": "AI",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "C_Drive_Rescue",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 28
+    },
+    {
+      "name": "Company",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 13
+    },
+    {
+      "name": "Copy of 广旅·爱琴海光影长廊(1).pptx",
+      "is_dir": false,
+      "size_bytes": 95148229
+    },
+    {
+      "name": "Date",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "Demo test",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 18
+    },
+    {
+      "name": "FLUX_REMIX.mp4",
+      "is_dir": false,
+      "size_bytes": 66692098
+    },
+    {
+      "name": "HitPaw VikPea",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "Hrycg",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 57
+    },
+    {
+      "name": "IMG_5917.PNG",
+      "is_dir": false,
+      "size_bytes": 482975
+    },
+    {
+      "name": "IMG_5920.PNG",
+      "is_dir": false,
+      "size_bytes": 1543619
+    },
+    {
+      "name": "IMG_5923.PNG",
+      "is_dir": false,
+      "size_bytes": 564700
+    },
+    {
+      "name": "IMG_5924.PNG",
+      "is_dir": false,
+      "size_bytes": 1619977
+    },
+    {
+      "name": "IMG_5930.PNG",
+      "is_dir": false,
+      "size_bytes": 995001
+    },
+    {
+      "name": "IMG_5931.PNG",
+      "is_dir": false,
+      "size_bytes": 838829
+    },
+    {
+      "name": "IMG_5933.PNG",
+      "is_dir": false,
+      "size_bytes": 510957
+    },
+    {
+      "name": "IMG_5960.PNG",
+      "is_dir": false,
+      "size_bytes": 1357352
+    },
+    {
+      "name": "OBS-Studio",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 3
+    },
+    {
+      "name": "Obsidian",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 11
+    },
+    {
+      "name": "OpenMontage-main.zip",
+      "is_dir": false,
+      "size_bytes": 76847313
+    },
+    {
+      "name": "Program Files (x86)",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "RealityScan.Temp",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 201
+    },
+    {
+      "name": "Screenshots",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "Soft",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 5
+    },
+    {
+      "name": "System Volume Information",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 0
+    },
+    {
+      "name": "UnrealProject",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 1
+    },
+    {
+      "name": "body_empty_mf.json",
+      "is_dir": false,
+      "size_bytes": 43
+    },
+    {
+      "name": "body_from_space_LF.json",
+      "is_dir": false,
+      "size_bytes": 52
+    },
+    {
+      "name": "body_from_x.json",
+      "is_dir": false,
+      "size_bytes": 49
+    },
+    {
+      "name": "body_raw_LF.json",
+      "is_dir": false,
+      "size_bytes": 51
+    },
+    {
+      "name": "clean.bat",
+      "is_dir": false,
+      "size_bytes": 738
+    },
+    {
+      "name": "codex_temp_jianlai",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 6
+    },
+    {
+      "name": "curl_create.err",
+      "is_dir": false,
+      "size_bytes": 0
+    },
+    {
+      "name": "curl_create.out",
+      "is_dir": false,
+      "size_bytes": 51
+    },
+    {
+      "name": "curl_empty_mf.bat",
+      "is_dir": false,
+      "size_bytes": 186
+    },
+    {
+      "name": "curl_from_space_LF.bat",
+      "is_dir": false,
+      "size_bytes": 191
+    },
+    {
+      "name": "curl_from_x.bat",
+      "is_dir": false,
+      "size_bytes": 184
+    },
+    {
+      "name": "curl_raw_LF.bat",
+      "is_dir": false,
+      "size_bytes": 184
+    },
+    {
+      "name": "desktop.ini",
+      "is_dir": false,
+      "size_bytes": 520
+    },
+    {
+      "name": "dianwei0510.max",
+      "is_dir": false,
+      "size_bytes": 222437376
+    },
+    {
+      "name": "fxxt.psd",
+      "is_dir": false,
+      "size_bytes": 10262059
+    },
+    {
+      "name": "kimi_3.0.27--downloadid-0c2417d27aac59411491ebc43b56ee1643.exe",
+      "is_dir": false,
+      "size_bytes": 786906560
+    },
+    {
+      "name": "palmier-pro-main.zip",
+      "is_dir": false,
+      "size_bytes": 15597169
+    },
+    {
+      "name": "temp",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 27
+    },
+    {
+      "name": "tmp",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 2
+    },
+    {
+      "name": "{9F2D32F9-E3DC-435A-A9E0-AD305E4E7EFC}",
+      "is_dir": false,
+      "size_bytes": 102
+    },
+    {
+      "name": "余杭1126.mp4",
+      "is_dir": false,
+      "size_bytes": 90537194
+    },
+    {
+      "name": "余杭1126_1.mp4",
+      "is_dir": false,
+      "size_bytes": 54199701
+    },
+    {
+      "name": "余杭1126_prob4.mov",
+      "is_dir": false,
+      "size_bytes": 1846203593
+    },
+    {
+      "name": "侧墙图.psd",
+      "is_dir": false,
+      "size_bytes": 73767465
+    },
+    {
+      "name": "光影潮汐",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 6
+    },
+    {
+      "name": "凡今数字",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 16
+    },
+    {
+      "name": "新建文件夹",
+      "is_dir": true,
+      "size_bytes": 0,
+      "files_top": 7
+    },
+    {
+      "name": "易安装缓存.dat",
+      "is_dir": false,
+      "size_bytes": 22
+    },
+    {
+      "name": "正面图.psd",
+      "is_dir": false,
+      "size_bytes": 72798666
+    },
+    {
+      "name": "黄昇 _ 个人简历.pdf",
+      "is_dir": false,
+      "size_bytes": 1323011
+    }
+  ]
+}

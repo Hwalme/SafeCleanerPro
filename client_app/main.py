@@ -514,16 +514,13 @@ class SafeCleanerApp(ctk.CTk):
             # 双阶段互斥展示：安全视图只列安全项(+系统免疫)，深度视图只列风险项。
             # 上锁项保留在各自视图中（锁定样式，无法勾选），便于查看与解锁。
             view = getattr(self, "current_view", "safe")
-            if view == "protected":
-                apps = [a for a in apps if a["immune"] or a["id"] in self.locked_ids]
-                view_banner = "保护中的项目"
-            elif view == "risk":
+            if view == "risk":
                 apps = [a for a in apps
-                        if not a["immune"] and a.get("risk_level") == "risk"]
-                view_banner = ("深度项目 · 默认不选中")
+                        if a["immune"] or a.get("risk_level") == "risk"]
+                view_banner = ("深度清理与受保护项 · 默认不选中 · 支持解锁")
             else:
                 apps = [a for a in apps
-                        if a["immune"] or a.get("risk_level") == "safe"]
+                        if a.get("risk_level") == "safe"]
                 view_banner = ("缓存、日志与临时文件")
             # Round M：默认只显示「扫出来有内容」的垃圾项（0 大小/未扫描隐藏）。
             # 只能在**显示层**过滤，且**扫描/清理进行中不过滤** —— 扫描刚开始时
@@ -535,8 +532,15 @@ class SafeCleanerApp(ctk.CTk):
             query = self.search_var.get().strip().casefold() if hasattr(self, "search_var") else ""
             if query:
                 apps = [a for a in apps if query in a["name"].casefold()]
-            if not show_all and not busy and view != "protected":
-                visible = [a for a in apps if self.sizes.get(a["id"], 0) > 0]
+            scanning_view = ("safe" if self.safe_state == "scanning" else
+                             ("risk" if self.risk_state == "scanning" else None))
+            if not show_all and not (busy and view == scanning_view):
+                # 受保护项常显于深度清理线；安全线只列扫出垃圾
+                if view == "risk":
+                    visible = [a for a in apps if a["immune"] or
+                               self.sizes.get(a["id"], 0) > 0]
+                else:
+                    visible = [a for a in apps if self.sizes.get(a["id"], 0) > 0]
                 self._hidden_zero_count = len(apps) - len(visible)
                 apps = visible
             queue = []
@@ -861,7 +865,9 @@ class SafeCleanerApp(ctk.CTk):
             if app_id and size:
                 # 渐进式建行：只建扫出垃圾的行（Round M 口径），零大小项不建
                 self._scan_found_bytes = getattr(self, "_scan_found_bytes", 0) + size
-                if app_id not in self.app_rows and app is not None:
+                stage_view = "safe" if (app.get("immune") or app.get("risk_level") == "safe") else "risk"
+                if app_id not in self.app_rows and app is not None \
+                        and self.current_view == stage_view:
                     build_app_row(self, app, getattr(self, "_row_index", 0))
                     self._row_index = getattr(self, "_row_index", 0) + 1
                 info = self.app_rows.get(app_id)

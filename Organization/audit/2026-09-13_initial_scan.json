@@ -1,0 +1,1832 @@
+{
+  "scan_version": "v1",
+  "scan_iso": "2026-09-12T17:00:48Z",
+  "scope": [
+    "D:\\",
+    "E:\\"
+  ],
+  "D_top": [
+    {
+      "name": "$RECYCLE.BIN",
+      "path": "D:\\$RECYCLE.BIN",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2024-04-21",
+      "child_count": 2
+    },
+    {
+      "name": ".accelerate",
+      "path": "D:\\.accelerate",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-11-13",
+      "child_count": 1
+    },
+    {
+      "name": ".appdata",
+      "path": "D:\\.appdata",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-17",
+      "child_count": 1
+    },
+    {
+      "name": ".pnpm-store",
+      "path": "D:\\.pnpm-store",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15",
+      "child_count": 2
+    },
+    {
+      "name": "360MoveData",
+      "path": "D:\\360MoveData",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-16",
+      "child_count": 7
+    },
+    {
+      "name": "Antigravity_backup_20260905_082321",
+      "path": "D:\\Antigravity_backup_20260905_082321",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-05",
+      "child_count": 35
+    },
+    {
+      "name": "Antigravity_backup_20260905_082321_IDE",
+      "path": "D:\\Antigravity_backup_20260905_082321_IDE",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-05",
+      "child_count": 28
+    },
+    {
+      "name": "ApowerRECData",
+      "path": "D:\\ApowerRECData",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-06",
+      "child_count": 1
+    },
+    {
+      "name": "ChatRecords",
+      "path": "D:\\ChatRecords",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 122
+    },
+    {
+      "name": "Coding",
+      "path": "D:\\Coding",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 72
+    },
+    {
+      "name": "Config.Msi",
+      "path": "D:\\Config.Msi",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2023-02-05",
+      "child_count": 0
+    },
+    {
+      "name": "DumpStack.log",
+      "path": "D:\\DumpStack.log",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 8192,
+      "mtime": "2026-05-16"
+    },
+    {
+      "name": "DumpStack.log.tmp",
+      "path": "D:\\DumpStack.log.tmp",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 8192,
+      "mtime": "2026-08-31"
+    },
+    {
+      "name": "FG_Aircraft",
+      "path": "D:\\FG_Aircraft",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-28",
+      "child_count": 1
+    },
+    {
+      "name": "KimiData",
+      "path": "D:\\KimiData",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-10",
+      "child_count": 3
+    },
+    {
+      "name": "MBL_AE_LogFile.txt",
+      "path": "D:\\MBL_AE_LogFile.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-29"
+    },
+    {
+      "name": "PSAutoRecover",
+      "path": "D:\\PSAutoRecover",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-02-15",
+      "child_count": 1
+    },
+    {
+      "name": "Program Files",
+      "path": "D:\\Program Files",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-05",
+      "child_count": 98
+    },
+    {
+      "name": "Program Files (x86)",
+      "path": "D:\\Program Files (x86)",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 25
+    },
+    {
+      "name": "ProgramData",
+      "path": "D:\\ProgramData",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-10-17",
+      "child_count": 3
+    },
+    {
+      "name": "System Volume Information",
+      "path": "D:\\System Volume Information",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-02",
+      "child_count": 0
+    },
+    {
+      "name": "TempChromeProfile",
+      "path": "D:\\TempChromeProfile",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-05-19",
+      "child_count": 43
+    },
+    {
+      "name": "TkPath",
+      "path": "D:\\TkPath",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2024-06-03",
+      "child_count": 1
+    },
+    {
+      "name": "Ubuntu",
+      "path": "D:\\Ubuntu",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-11",
+      "child_count": 2
+    },
+    {
+      "name": "_tmp_15964_22135402e6fd1506c0a7afe9f59318a6",
+      "path": "D:\\_tmp_15964_22135402e6fd1506c0a7afe9f59318a6",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15"
+    },
+    {
+      "name": "_tmp_56008_db2201b53ce4cb4eb8008f298eae29ca",
+      "path": "D:\\_tmp_56008_db2201b53ce4cb4eb8008f298eae29ca",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15"
+    },
+    {
+      "name": "_tmp_5800_0e12fb3cf144eaa2042579b0fbdd3735",
+      "path": "D:\\_tmp_5800_0e12fb3cf144eaa2042579b0fbdd3735",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15"
+    },
+    {
+      "name": "_tmp_66324_902fd71d44fb98d7e13e22f6e5e88d73",
+      "path": "D:\\_tmp_66324_902fd71d44fb98d7e13e22f6e5e88d73",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15"
+    },
+    {
+      "name": "adb",
+      "path": "D:\\adb",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-12-14",
+      "child_count": 2
+    },
+    {
+      "name": "adobeTemp",
+      "path": "D:\\adobeTemp",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-08",
+      "child_count": 1
+    },
+    {
+      "name": "ai",
+      "path": "D:\\ai",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-05",
+      "child_count": 5
+    },
+    {
+      "name": "backup",
+      "path": "D:\\backup",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-18",
+      "child_count": 2
+    },
+    {
+      "name": "c",
+      "path": "D:\\c",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-07",
+      "child_count": 1
+    },
+    {
+      "name": "d",
+      "path": "D:\\d",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-07",
+      "child_count": 1
+    },
+    {
+      "name": "deploy_output.log",
+      "path": "D:\\deploy_output.log",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 442,
+      "mtime": "2026-07-15"
+    },
+    {
+      "name": "dev",
+      "path": "D:\\dev",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-18",
+      "child_count": 3
+    },
+    {
+      "name": "fg_demo_start.bat",
+      "path": "D:\\fg_demo_start.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 761,
+      "mtime": "2026-08-28"
+    },
+    {
+      "name": "fg_min.bat",
+      "path": "D:\\fg_min.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 337,
+      "mtime": "2026-08-28"
+    },
+    {
+      "name": "fg_min_out.log",
+      "path": "D:\\fg_min_out.log",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 3316,
+      "mtime": "2026-08-28"
+    },
+    {
+      "name": "fg_run.bat",
+      "path": "D:\\fg_run.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 455,
+      "mtime": "2026-08-28"
+    },
+    {
+      "name": "fg_test.bat",
+      "path": "D:\\fg_test.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 401,
+      "mtime": "2026-08-28"
+    },
+    {
+      "name": "fgdata_isolated_A",
+      "path": "D:\\fgdata_isolated_A",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-01-21",
+      "child_count": 51
+    },
+    {
+      "name": "fgdata_isolated_B",
+      "path": "D:\\fgdata_isolated_B",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-01-21",
+      "child_count": 51
+    },
+    {
+      "name": "fgdata_isolated_C",
+      "path": "D:\\fgdata_isolated_C",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-01-21",
+      "child_count": 51
+    },
+    {
+      "name": "mdbx.dat",
+      "path": "D:\\mdbx.dat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 2097152,
+      "mtime": "2026-07-17"
+    },
+    {
+      "name": "opt",
+      "path": "D:\\opt",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-02-25",
+      "child_count": 1
+    },
+    {
+      "name": "pagefile.sys",
+      "path": "D:\\pagefile.sys",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 10200547328,
+      "mtime": "2026-09-11"
+    },
+    {
+      "name": "temp",
+      "path": "D:\\temp",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-05",
+      "child_count": 37
+    },
+    {
+      "name": "tmp",
+      "path": "D:\\tmp",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-02",
+      "child_count": 38
+    },
+    {
+      "name": "vMonitor.log",
+      "path": "D:\\vMonitor.log",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-11-10"
+    },
+    {
+      "name": "{9F2D32F9-E3DC-435A-A9E0-AD305E4E7EFC}",
+      "path": "D:\\{9F2D32F9-E3DC-435A-A9E0-AD305E4E7EFC}",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 102,
+      "mtime": "2026-03-30"
+    }
+  ],
+  "Coding_top": [
+    {
+      "name": "3DMap",
+      "path": "D:\\Coding\\3DMap",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-25",
+      "child_count": 21
+    },
+    {
+      "name": "Agent",
+      "path": "D:\\Coding\\Agent",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-03-28",
+      "child_count": 2
+    },
+    {
+      "name": "Antigravity-Manager-main",
+      "path": "D:\\Coding\\Antigravity-Manager-main",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-03-28",
+      "child_count": 31
+    },
+    {
+      "name": "Company",
+      "path": "D:\\Coding\\Company",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-03-28",
+      "child_count": 4
+    },
+    {
+      "name": "Contract",
+      "path": "D:\\Coding\\Contract",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-02-05",
+      "child_count": 24
+    },
+    {
+      "name": "FateCat",
+      "path": "D:\\Coding\\FateCat",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-28",
+      "child_count": 10
+    },
+    {
+      "name": "Generative-Media-Skills-main",
+      "path": "D:\\Coding\\Generative-Media-Skills-main",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-03",
+      "child_count": 13
+    },
+    {
+      "name": "Learning",
+      "path": "D:\\Coding\\Learning",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-02",
+      "child_count": 12
+    },
+    {
+      "name": "Live streaming",
+      "path": "D:\\Coding\\Live streaming",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-05",
+      "child_count": 12
+    },
+    {
+      "name": "Map",
+      "path": "D:\\Coding\\Map",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-12",
+      "child_count": 27
+    },
+    {
+      "name": "Music",
+      "path": "D:\\Coding\\Music",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-06",
+      "child_count": 24
+    },
+    {
+      "name": "OpenChatCut-main",
+      "path": "D:\\Coding\\OpenChatCut-main",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-02",
+      "child_count": 26
+    },
+    {
+      "name": "Organization",
+      "path": "D:\\Coding\\Organization",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-13",
+      "child_count": 14
+    },
+    {
+      "name": "PPSAI",
+      "path": "D:\\Coding\\PPSAI",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-06",
+      "child_count": 701
+    },
+    {
+      "name": "Personal",
+      "path": "D:\\Coding\\Personal",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-02",
+      "child_count": 12
+    },
+    {
+      "name": "Prompt",
+      "path": "D:\\Coding\\Prompt",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15",
+      "child_count": 96
+    },
+    {
+      "name": "Quantitative",
+      "path": "D:\\Coding\\Quantitative",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-02-05",
+      "child_count": 48
+    },
+    {
+      "name": "ShieldCall",
+      "path": "D:\\Coding\\ShieldCall",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-27",
+      "child_count": 6
+    },
+    {
+      "name": "Toonflow-app-master",
+      "path": "D:\\Coding\\Toonflow-app-master",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-09",
+      "child_count": 17
+    },
+    {
+      "name": "Video",
+      "path": "D:\\Coding\\Video",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-11",
+      "child_count": 38
+    },
+    {
+      "name": "Video Protect",
+      "path": "D:\\Coding\\Video Protect",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15",
+      "child_count": 13
+    },
+    {
+      "name": "ViiTorVoice",
+      "path": "D:\\Coding\\ViiTorVoice",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-05",
+      "child_count": 26
+    },
+    {
+      "name": "Write",
+      "path": "D:\\Coding\\Write",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 20
+    },
+    {
+      "name": "_PROJECTS_DASHBOARD.html",
+      "path": "D:\\Coding\\_PROJECTS_DASHBOARD.html",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 57946,
+      "mtime": "2026-08-11"
+    },
+    {
+      "name": "_scan_level2.py",
+      "path": "D:\\Coding\\_scan_level2.py",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 3983,
+      "mtime": "2026-08-11"
+    },
+    {
+      "name": "_scan_projects.py",
+      "path": "D:\\Coding\\_scan_projects.py",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 7656,
+      "mtime": "2026-08-11"
+    },
+    {
+      "name": "_scan_result.json",
+      "path": "D:\\Coding\\_scan_result.json",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 55924,
+      "mtime": "2026-08-11"
+    },
+    {
+      "name": "_summarize.py",
+      "path": "D:\\Coding\\_summarize.py",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1868,
+      "mtime": "2026-08-11"
+    },
+    {
+      "name": "accounts.json",
+      "path": "D:\\Coding\\accounts.json",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1009,
+      "mtime": "2026-06-22"
+    },
+    {
+      "name": "agent-plugin-main",
+      "path": "D:\\Coding\\agent-plugin-main",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-31",
+      "child_count": 6
+    },
+    {
+      "name": "ai-creativity",
+      "path": "D:\\Coding\\ai-creativity",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-14",
+      "child_count": 46
+    },
+    {
+      "name": "aidir",
+      "path": "D:\\Coding\\aidir",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-10",
+      "child_count": 24
+    },
+    {
+      "name": "aipm",
+      "path": "D:\\Coding\\aipm",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-26",
+      "child_count": 24
+    },
+    {
+      "name": "app",
+      "path": "D:\\Coding\\app",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-11",
+      "child_count": 8
+    },
+    {
+      "name": "brand",
+      "path": "D:\\Coding\\brand",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-27",
+      "child_count": 25
+    },
+    {
+      "name": "camera",
+      "path": "D:\\Coding\\camera",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-18",
+      "child_count": 9
+    },
+    {
+      "name": "cnb",
+      "path": "D:\\Coding\\cnb",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 5
+    },
+    {
+      "name": "cockpit-tools-main",
+      "path": "D:\\Coding\\cockpit-tools-main",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-03-29",
+      "child_count": 24
+    },
+    {
+      "name": "codex",
+      "path": "D:\\Coding\\codex",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-05",
+      "child_count": 1
+    },
+    {
+      "name": "coo",
+      "path": "D:\\Coding\\coo",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-27",
+      "child_count": 18
+    },
+    {
+      "name": "course",
+      "path": "D:\\Coding\\course",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-18",
+      "child_count": 18
+    },
+    {
+      "name": "dc.txt",
+      "path": "D:\\Coding\\dc.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 171240,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "deepseek-harness-master",
+      "path": "D:\\Coding\\deepseek-harness-master",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-11",
+      "child_count": 145
+    },
+    {
+      "name": "dump.txt",
+      "path": "D:\\Coding\\dump.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 3,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "fix.py",
+      "path": "D:\\Coding\\fix.py",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1381,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "fix2.py",
+      "path": "D:\\Coding\\fix2.py",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 5259,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "fix_marker.txt",
+      "path": "D:\\Coding\\fix_marker.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 7,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "hermes",
+      "path": "D:\\Coding\\hermes",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-15",
+      "child_count": 82
+    },
+    {
+      "name": "hermes_backup",
+      "path": "D:\\Coding\\hermes_backup",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-18",
+      "child_count": 4
+    },
+    {
+      "name": "hermes_gui",
+      "path": "D:\\Coding\\hermes_gui",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-18",
+      "child_count": 133
+    },
+    {
+      "name": "main_bundle.txt",
+      "path": "D:\\Coding\\main_bundle.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 6250,
+      "mtime": "2026-06-22"
+    },
+    {
+      "name": "media",
+      "path": "D:\\Coding\\media",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-05-25",
+      "child_count": 4
+    },
+    {
+      "name": "minimax",
+      "path": "D:\\Coding\\minimax",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-02",
+      "child_count": 2
+    },
+    {
+      "name": "mqn.txt",
+      "path": "D:\\Coding\\mqn.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 3074,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "net",
+      "path": "D:\\Coding\\net",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-16",
+      "child_count": 1
+    },
+    {
+      "name": "openclaw",
+      "path": "D:\\Coding\\openclaw",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-05-07",
+      "child_count": 83
+    },
+    {
+      "name": "orig.txt",
+      "path": "D:\\Coding\\orig.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 52713,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "out.txt",
+      "path": "D:\\Coding\\out.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 3,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "port3000.html",
+      "path": "D:\\Coding\\port3000.html",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 12207,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "projector",
+      "path": "D:\\Coding\\projector",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-12-13",
+      "child_count": 28
+    },
+    {
+      "name": "prompt-marketplace-research",
+      "path": "D:\\Coding\\prompt-marketplace-research",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-14",
+      "child_count": 1
+    },
+    {
+      "name": "resume",
+      "path": "D:\\Coding\\resume",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-26",
+      "child_count": 24
+    },
+    {
+      "name": "resume_upload.zip",
+      "path": "D:\\Coding\\resume_upload.zip",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 148248614,
+      "mtime": "2026-07-08"
+    },
+    {
+      "name": "rss",
+      "path": "D:\\Coding\\rss",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 27
+    },
+    {
+      "name": "shop",
+      "path": "D:\\Coding\\shop",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-13",
+      "child_count": 13
+    },
+    {
+      "name": "sprit",
+      "path": "D:\\Coding\\sprit",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-14",
+      "child_count": 1
+    },
+    {
+      "name": "start_fatecat.bat",
+      "path": "D:\\Coding\\start_fatecat.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 263,
+      "mtime": "2026-06-28"
+    },
+    {
+      "name": "test.txt",
+      "path": "D:\\Coding\\test.txt",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 11,
+      "mtime": "2026-06-23"
+    },
+    {
+      "name": "updream",
+      "path": "D:\\Coding\\updream",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-04",
+      "child_count": 2
+    },
+    {
+      "name": "video-shotcraft-main",
+      "path": "D:\\Coding\\video-shotcraft-main",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-28",
+      "child_count": 14
+    },
+    {
+      "name": "vite_test.html",
+      "path": "D:\\Coding\\vite_test.html",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1970,
+      "mtime": "2026-06-22"
+    },
+    {
+      "name": "yy",
+      "path": "D:\\Coding\\yy",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-18",
+      "child_count": 14
+    }
+  ],
+  "E_top": [
+    {
+      "name": "$RECYCLE.BIN",
+      "path": "E:\\$RECYCLE.BIN",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2024-04-21",
+      "child_count": 2
+    },
+    {
+      "name": ".pnpm-store",
+      "path": "E:\\.pnpm-store",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-12-30",
+      "child_count": 1
+    },
+    {
+      "name": "360Downloads",
+      "path": "E:\\360Downloads",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-16",
+      "child_count": 1
+    },
+    {
+      "name": "360RecycleBin",
+      "path": "E:\\360RecycleBin",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-16",
+      "child_count": 35
+    },
+    {
+      "name": "AI",
+      "path": "E:\\AI",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-01-28",
+      "child_count": 1
+    },
+    {
+      "name": "C_Drive_Rescue",
+      "path": "E:\\C_Drive_Rescue",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-01-26",
+      "child_count": 28
+    },
+    {
+      "name": "Company",
+      "path": "E:\\Company",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-12-17",
+      "child_count": 13
+    },
+    {
+      "name": "Copy of 广旅·爱琴海光影长廊(1).pptx",
+      "path": "E:\\Copy of 广旅·爱琴海光影长廊(1).pptx",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 95148229,
+      "mtime": "2026-05-12"
+    },
+    {
+      "name": "Date",
+      "path": "E:\\Date",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-01-30",
+      "child_count": 2
+    },
+    {
+      "name": "Demo test",
+      "path": "E:\\Demo test",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-06-14",
+      "child_count": 18
+    },
+    {
+      "name": "FLUX_REMIX.mp4",
+      "path": "E:\\FLUX_REMIX.mp4",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 66692098,
+      "mtime": "2026-02-28"
+    },
+    {
+      "name": "HitPaw VikPea",
+      "path": "E:\\HitPaw VikPea",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-16",
+      "child_count": 2
+    },
+    {
+      "name": "Hrycg",
+      "path": "E:\\Hrycg",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-08-27",
+      "child_count": 57
+    },
+    {
+      "name": "IMG_5917.PNG",
+      "path": "E:\\IMG_5917.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 482975,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5920.PNG",
+      "path": "E:\\IMG_5920.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1543619,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5923.PNG",
+      "path": "E:\\IMG_5923.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 564700,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5924.PNG",
+      "path": "E:\\IMG_5924.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1619977,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5930.PNG",
+      "path": "E:\\IMG_5930.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 995001,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5931.PNG",
+      "path": "E:\\IMG_5931.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 838829,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5933.PNG",
+      "path": "E:\\IMG_5933.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 510957,
+      "mtime": "2026-02-16"
+    },
+    {
+      "name": "IMG_5960.PNG",
+      "path": "E:\\IMG_5960.PNG",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1357352,
+      "mtime": "2026-02-18"
+    },
+    {
+      "name": "OBS-Studio",
+      "path": "E:\\OBS-Studio",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-04",
+      "child_count": 3
+    },
+    {
+      "name": "Obsidian",
+      "path": "E:\\Obsidian",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-13",
+      "child_count": 12
+    },
+    {
+      "name": "OpenMontage-main.zip",
+      "path": "E:\\OpenMontage-main.zip",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 76847313,
+      "mtime": "2026-07-15"
+    },
+    {
+      "name": "Program Files (x86)",
+      "path": "E:\\Program Files (x86)",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-13",
+      "child_count": 1
+    },
+    {
+      "name": "RealityScan.Temp",
+      "path": "E:\\RealityScan.Temp",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-12-09",
+      "child_count": 357
+    },
+    {
+      "name": "Screenshots",
+      "path": "E:\\Screenshots",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-16",
+      "child_count": 2
+    },
+    {
+      "name": "Soft",
+      "path": "E:\\Soft",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-02-09",
+      "child_count": 5
+    },
+    {
+      "name": "System Volume Information",
+      "path": "E:\\System Volume Information",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-02",
+      "child_count": 0
+    },
+    {
+      "name": "UnrealProject",
+      "path": "E:\\UnrealProject",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-03-17",
+      "child_count": 1
+    },
+    {
+      "name": "body_empty_mf.json",
+      "path": "E:\\body_empty_mf.json",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 43,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "body_from_space_LF.json",
+      "path": "E:\\body_from_space_LF.json",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 52,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "body_from_x.json",
+      "path": "E:\\body_from_x.json",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 49,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "body_raw_LF.json",
+      "path": "E:\\body_raw_LF.json",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 51,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "clean.bat",
+      "path": "E:\\clean.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 738,
+      "mtime": "2026-01-15"
+    },
+    {
+      "name": "codex_temp_jianlai",
+      "path": "E:\\codex_temp_jianlai",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-07-27",
+      "child_count": 6
+    },
+    {
+      "name": "curl_create.err",
+      "path": "E:\\curl_create.err",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "curl_create.out",
+      "path": "E:\\curl_create.out",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 51,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "curl_empty_mf.bat",
+      "path": "E:\\curl_empty_mf.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 186,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "curl_from_space_LF.bat",
+      "path": "E:\\curl_from_space_LF.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 191,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "curl_from_x.bat",
+      "path": "E:\\curl_from_x.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 184,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "curl_raw_LF.bat",
+      "path": "E:\\curl_raw_LF.bat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 184,
+      "mtime": "2026-09-04"
+    },
+    {
+      "name": "desktop.ini",
+      "path": "E:\\desktop.ini",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 520,
+      "mtime": "2025-07-25"
+    },
+    {
+      "name": "dianwei0510.max",
+      "path": "E:\\dianwei0510.max",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 222437376,
+      "mtime": "2026-05-10"
+    },
+    {
+      "name": "fxxt.psd",
+      "path": "E:\\fxxt.psd",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 10262059,
+      "mtime": "2026-03-05"
+    },
+    {
+      "name": "kimi_3.0.27--downloadid-0c2417d27aac59411491ebc43b56ee1643.exe",
+      "path": "E:\\kimi_3.0.27--downloadid-0c2417d27aac59411491ebc43b56ee1643.exe",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 786906560,
+      "mtime": "2026-07-15"
+    },
+    {
+      "name": "palmier-pro-main.zip",
+      "path": "E:\\palmier-pro-main.zip",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 15597169,
+      "mtime": "2026-07-15"
+    },
+    {
+      "name": "temp",
+      "path": "E:\\temp",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-12",
+      "child_count": 27
+    },
+    {
+      "name": "tmp",
+      "path": "E:\\tmp",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-07",
+      "child_count": 2
+    },
+    {
+      "name": "{9F2D32F9-E3DC-435A-A9E0-AD305E4E7EFC}",
+      "path": "E:\\{9F2D32F9-E3DC-435A-A9E0-AD305E4E7EFC}",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 102,
+      "mtime": "2026-03-30"
+    },
+    {
+      "name": "余杭1126.mp4",
+      "path": "E:\\余杭1126.mp4",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 90537194,
+      "mtime": "2025-11-26"
+    },
+    {
+      "name": "余杭1126_1.mp4",
+      "path": "E:\\余杭1126_1.mp4",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 54199701,
+      "mtime": "2025-11-26"
+    },
+    {
+      "name": "余杭1126_prob4.mov",
+      "path": "E:\\余杭1126_prob4.mov",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1846203593,
+      "mtime": "2025-11-26"
+    },
+    {
+      "name": "侧墙图.psd",
+      "path": "E:\\侧墙图.psd",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 73767465,
+      "mtime": "2026-06-02"
+    },
+    {
+      "name": "光影潮汐",
+      "path": "E:\\光影潮汐",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2025-10-14",
+      "child_count": 6
+    },
+    {
+      "name": "凡今数字",
+      "path": "E:\\凡今数字",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-09-02",
+      "child_count": 16
+    },
+    {
+      "name": "新建文件夹",
+      "path": "E:\\新建文件夹",
+      "is_dir": true,
+      "is_protected": false,
+      "size_bytes": 0,
+      "mtime": "2026-05-28",
+      "child_count": 7
+    },
+    {
+      "name": "易安装缓存.dat",
+      "path": "E:\\易安装缓存.dat",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 22,
+      "mtime": "2026-02-09"
+    },
+    {
+      "name": "正面图.psd",
+      "path": "E:\\正面图.psd",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 72798666,
+      "mtime": "2026-06-02"
+    },
+    {
+      "name": "黄昇 _ 个人简历.pdf",
+      "path": "E:\\黄昇 _ 个人简历.pdf",
+      "is_dir": false,
+      "is_protected": false,
+      "size_bytes": 1323011,
+      "mtime": "2026-07-15"
+    }
+  ],
+  "protected_files_found": [
+    {
+      "path": "D:\\backup\\.hermes.v0.12\\.env",
+      "size_bytes": 67,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\backup\\hermes_gui.v0.16.0\\cookies.txt",
+      "size_bytes": 7123,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\.env",
+      "size_bytes": 186,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\.env.example",
+      "size_bytes": 162,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\all_keys.json",
+      "size_bytes": 5212,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\.env",
+      "size_bytes": 157,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG0.db",
+      "size_bytes": 62914560,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG1.db",
+      "size_bytes": 94371840,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG2.db",
+      "size_bytes": 125829120,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG3.db",
+      "size_bytes": 157286400,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG4.db",
+      "size_bytes": 157286400,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG5.db",
+      "size_bytes": 157286400,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\ChatRecords\\wxdump_work\\dec_MSG6.db",
+      "size_bytes": 220200960,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\ai-creativity\\vps_ssh_key.pem",
+      "size_bytes": 419,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\Contract\\.env",
+      "size_bytes": 189,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\deepseek-harness-master\\.env",
+      "size_bytes": 200,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\hermes\\.env.example",
+      "size_bytes": 23700,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\hermes_gui\\cookies.txt",
+      "size_bytes": 7123,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\Learning\\.env",
+      "size_bytes": 135,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\Map\\google_maps_api_key.txt",
+      "size_bytes": 923,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\OpenChatCut-main\\.env.example",
+      "size_bytes": 3996,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\openclaw\\.detect-secrets.cfg",
+      "size_bytes": 2375,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\openclaw\\.env.example",
+      "size_bytes": 2959,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\openclaw\\.secrets.baseline",
+      "size_bytes": 433339,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\openclaw\\openclaw.podman.env",
+      "size_bytes": 889,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\PPSAI\\.env",
+      "size_bytes": 1412,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\PPSAI\\.env.example",
+      "size_bytes": 2315,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\PPSAI\\license.key",
+      "size_bytes": 344,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\Quantitative\\.env",
+      "size_bytes": 1442,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\Quantitative\\.env.example",
+      "size_bytes": 507,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Coding\\rss\\.env.wecom",
+      "size_bytes": 497,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Program Files\\BaiduNetdisk\\cacert.pem",
+      "size_bytes": 306379,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Program Files\\ima.copilot\\dsa_pub.pem",
+      "size_bytes": 2266,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Program Files\\WinRAR\\rarreg.key",
+      "size_bytes": 475,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Program Files\\XAMPP\\passwords.txt",
+      "size_bytes": 824,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\Program Files (x86)\\Ezviz Studio\\cacert.pem",
+      "size_bytes": 215556,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    },
+    {
+      "path": "D:\\temp\\NanoBanana-PPT-Skills\\.env.example",
+      "size_bytes": 4391,
+      "sha256_short": "PROTECTED-NO-READ",
+      "classification": "S"
+    }
+  ],
+  "large_files_in_Coding": [
+    {
+      "path": "D:\\Coding\\PPSAI\\pps_full_deploy.zip",
+      "size_mb": 218.6
+    },
+    {
+      "path": "D:\\Coding\\resume_upload.zip",
+      "size_mb": 141.4
+    }
+  ],
+  "counts": {
+    "D_top_items": 51,
+    "Coding_top_items": 72,
+    "E_top_items": 60,
+    "protected_count": 37,
+    "large_count": 2
+  },
+  "ts_end_iso": "2026-09-12T17:01:17Z",
+  "duration_sec": 29.51
+}

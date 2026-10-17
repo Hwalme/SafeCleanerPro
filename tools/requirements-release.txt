@@ -1,0 +1,2 @@
+# Verified Windows / Python 3.12 build environment. Upgrade deliberately.
+-r requirements-release-lock.txt

@@ -1,0 +1,537 @@
+{
+  "version": "11.0.0.1190",
+  "min_clean_size_bytes": 104857600,
+  "recycle_bin": {
+    "protected_extensions": ".rar;.cab;.csv;.xlsm;.dwg;.tif;.cdr;.vcf;.wps;.vsdx;.ost;.txt;.gif;.jpg;.bmp;.jpeg;.png;",
+    "size_limit_mb": 512
+  },
+  "browser_processes": [
+    "360chrome.exe",
+    "QQBrowser.exe",
+    "SogouExplorer.exe",
+    "UCBrowser.exe",
+    "2345chrome.exe",
+    "2345Explorer.exe",
+    "Chrome.exe",
+    "Maxthon.exe",
+    "yyexplorer.exe",
+    "liebao.exe",
+    "Safari.exe",
+    "WebGamegt.exe",
+    "TWchrome.exe",
+    "TheWorld.exe",
+    "opera.exe",
+    "seamonkey.exe",
+    "orca.exe",
+    "Luna.exe",
+    "icedragon.exe",
+    "cometbrowser.exe",
+    "baidubrowser.exe",
+    "hao123browser.exe",
+    "baiduplayerbrowser.exe",
+    "115Chrome.exe",
+    "hao123Juzi.exe",
+    "KWExplorer.exe",
+    "GamesBrowser.exe",
+    "Alibrowser.exe",
+    "KChrome.exe",
+    "TaoBrowser.exe",
+    "Tango3.exe",
+    "Tianma.exe",
+    "AirView.exe",
+    "yfe.exe",
+    "720_browser.exe",
+    "alichrome.exe",
+    "7chrome.exe",
+    "taomeebrowser.exe",
+    "srie.exe",
+    "caimao.exe",
+    "wisecloudbrowser.exe",
+    "firefox.exe",
+    "ChromeCore.exe",
+    "TSBrowser.exe",
+    "shouxin.exe",
+    "WnBrowser.exe",
+    "7654Browser.exe",
+    "2144Browser.exe",
+    "SLBrowser.exe",
+    "SHPlayer.exe",
+    "JJPlayer.exe",
+    "LeTVLoader.exe",
+    "Funshion.exe",
+    "splayer.exe",
+    "BaiduPlayer.exe",
+    "XiGuaPlayer.exe",
+    "KKP.exe",
+    "rrplayer.exe",
+    "QvodPlayer.exe",
+    "StormPlayer.exe",
+    "StormPlayer9.exe",
+    "GeePlayer.exe",
+    "XMP.exe",
+    "QQPlayer.exe",
+    "CBox.exe",
+    "HunanTV.exe",
+    "芒果TV极速版.exe",
+    "PPLive.exe",
+    "xfplay.exe",
+    "EastBrowser.exe",
+    "alphase.exe",
+    "QiyiClient.exe",
+    "QyClient.exe",
+    "YoukuDesktop.exe",
+    "QQLive.exe"
+  ],
+  "scan_items": [
+    {
+      "process": "360chrome.exe",
+      "name": "360极速浏览器",
+      "rule_ids": "sysid=3205",
+      "softid": "105037"
+    },
+    {
+      "process": "QQBrowser.exe",
+      "name": "QQ浏览器",
+      "rule_ids": "sysid=3204",
+      "softid": "104699328"
+    },
+    {
+      "process": "SogouExplorer.exe",
+      "name": "搜狗浏览器",
+      "rule_ids": "sysid=3202;sysid=2720",
+      "softid": "10185"
+    },
+    {
+      "process": "UCBrowser.exe",
+      "name": "UC浏览器",
+      "rule_ids": "sysid=3330",
+      "softid": "104004953"
+    },
+    {
+      "process": "2345chrome.exe",
+      "name": "2345加速浏览器",
+      "rule_ids": "sysid=4500",
+      "softid": "103444720"
+    },
+    {
+      "process": "2345Explorer.exe",
+      "name": "2345加速浏览器",
+      "rule_ids": "sysid=6124",
+      "softid": "103444720"
+    },
+    {
+      "process": "Chrome.exe",
+      "name": "Chrome浏览器",
+      "rule_ids": "sysid=3208",
+      "softid": "104384025"
+    },
+    {
+      "process": "Maxthon.exe",
+      "name": "傲游浏览器",
+      "rule_ids": "sysid=3201",
+      "softid": "100842"
+    },
+    {
+      "process": "yyexplorer.exe",
+      "name": "YY浏览器",
+      "rule_ids": "sysid=6211",
+      "softid": "104084851"
+    },
+    {
+      "process": "liebao.exe",
+      "name": "猎豹浏览器",
+      "rule_ids": "sysid=4011",
+      "softid": "102246451"
+    },
+    {
+      "process": "Safari.exe",
+      "name": "Safari浏览器",
+      "rule_ids": "sysid=3203",
+      "softid": "78"
+    },
+    {
+      "process": "WebGamegt.exe",
+      "name": "GT游戏浏览器",
+      "rule_ids": "sysid=3215",
+      "softid": "102228806"
+    },
+    {
+      "process": "TWchrome.exe",
+      "name": "世界之窗浏览器",
+      "rule_ids": "sysid=3206",
+      "softid": "103370225"
+    },
+    {
+      "process": "TheWorld.exe",
+      "name": "世界之窗浏览器",
+      "rule_ids": "sysid=3216",
+      "softid": "103370225"
+    },
+    {
+      "process": "opera.exe",
+      "name": "Opera浏览器",
+      "rule_ids": "sysid=3207",
+      "softid": "105288"
+    },
+    {
+      "process": "seamonkey.exe",
+      "name": "SeaMonkey浏览器",
+      "rule_ids": "sysid=3102",
+      "softid": "100115833 "
+    },
+    {
+      "process": "orca.exe",
+      "name": "Orca浏览器",
+      "rule_ids": "sysid=3103",
+      "softid": null
+    },
+    {
+      "process": "Luna.exe",
+      "name": "Lunascape浏览器",
+      "rule_ids": "sysid=3106",
+      "softid": "104250"
+    },
+    {
+      "process": "icedragon.exe",
+      "name": "冰龙浏览器",
+      "rule_ids": "sysid=3009",
+      "softid": null
+    },
+    {
+      "process": "cometbrowser.exe",
+      "name": "彗星浏览器",
+      "rule_ids": "sysid=3005",
+      "softid": "101102"
+    },
+    {
+      "process": "baidubrowser.exe",
+      "name": "百度浏览器",
+      "rule_ids": "sysid=6003",
+      "softid": "100115752"
+    },
+    {
+      "process": "hao123browser.exe",
+      "name": "百度hao123浏览器",
+      "rule_ids": "sysid=4515",
+      "softid": null
+    },
+    {
+      "process": "baiduplayerbrowser.exe",
+      "name": "百度影音浏览器",
+      "rule_ids": "sysid=6013",
+      "softid": null
+    },
+    {
+      "process": "115Chrome.exe",
+      "name": "115极速浏览器",
+      "rule_ids": "sysid=6224",
+      "softid": "103213004"
+    },
+    {
+      "process": "hao123Juzi.exe",
+      "name": "桔子浏览器",
+      "rule_ids": "sysid=3641",
+      "softid": "103918362"
+    },
+    {
+      "process": "KWExplorer.exe",
+      "name": "快玩浏览器",
+      "rule_ids": "sysid=3640",
+      "softid": null
+    },
+    {
+      "process": "GamesBrowser.exe",
+      "name": "17173游戏浏览器",
+      "rule_ids": "sysid=3639",
+      "softid": "103798074"
+    },
+    {
+      "process": "Alibrowser.exe",
+      "name": "阿云浏览器",
+      "rule_ids": "sysid=6004",
+      "softid": "102003564"
+    },
+    {
+      "process": "KChrome.exe",
+      "name": "快快浏览器",
+      "rule_ids": "sysid=6008",
+      "softid": "102011757"
+    },
+    {
+      "process": "TaoBrowser.exe",
+      "name": "淘宝浏览器",
+      "rule_ids": "sysid=4067",
+      "softid": "102172140"
+    },
+    {
+      "process": "Tango3.exe",
+      "name": "糖果游戏浏览器",
+      "rule_ids": "sysid=6111",
+      "softid": "1900016957"
+    },
+    {
+      "process": "Tianma.exe",
+      "name": "天马浏览器",
+      "rule_ids": "sysid=6011",
+      "softid": null
+    },
+    {
+      "process": "AirView.exe",
+      "name": "云游浏览器",
+      "rule_ids": "sysid=4070",
+      "softid": "105597"
+    },
+    {
+      "process": "yfe.exe",
+      "name": "云帆影视浏览器",
+      "rule_ids": "sysid=4271",
+      "softid": "104261922"
+    },
+    {
+      "process": "720_browser.exe",
+      "name": "720浏览器",
+      "rule_ids": "sysid=4272",
+      "softid": null
+    },
+    {
+      "process": "alichrome.exe",
+      "name": "游侠游戏浏览器",
+      "rule_ids": "sysid=4350",
+      "softid": null
+    },
+    {
+      "process": "7chrome.exe",
+      "name": "七星浏览器",
+      "rule_ids": "sysid=4351",
+      "softid": "104694526"
+    },
+    {
+      "process": "taomeebrowser.exe",
+      "name": "淘米儿童浏览器",
+      "rule_ids": "sysid=3000",
+      "softid": "103482"
+    },
+    {
+      "process": "srie.exe",
+      "name": "超级兔子浏览器",
+      "rule_ids": "sysid=3002",
+      "softid": "104910"
+    },
+    {
+      "process": "caimao.exe",
+      "name": "财猫省钱浏览器",
+      "rule_ids": "sysid=3008",
+      "softid": "102003037"
+    },
+    {
+      "process": "wisecloudbrowser.exe",
+      "name": "智慧云浏览器",
+      "rule_ids": "sysid=2810",
+      "softid": null
+    },
+    {
+      "process": "firefox.exe",
+      "name": "Firefox浏览器",
+      "rule_ids": "sysid=3209",
+      "softid": "104511"
+    },
+    {
+      "process": "ChromeCore.exe",
+      "name": "双核浏览器",
+      "rule_ids": "sysid=5632",
+      "softid": "1900060968"
+    },
+    {
+      "process": "TSBrowser.exe",
+      "name": "极速浏览器",
+      "rule_ids": "sysid=3470",
+      "softid": null
+    },
+    {
+      "process": "shouxin.exe",
+      "name": "手心浏览器",
+      "rule_ids": "sysid=2805",
+      "softid": "104698904"
+    },
+    {
+      "process": "WnBrowser.exe",
+      "name": "万能浏览器",
+      "rule_ids": "sysid=3744",
+      "softid": "104723310"
+    },
+    {
+      "process": "7654Browser.exe",
+      "name": "7654浏览器",
+      "rule_ids": "sysid=5635",
+      "softid": "1900059345"
+    },
+    {
+      "process": "2144Browser.exe",
+      "name": "2144浏览器",
+      "rule_ids": "sysid=2832",
+      "softid": "104700063"
+    },
+    {
+      "process": "SLBrowser.exe",
+      "name": "联想浏览器",
+      "rule_ids": "sysid=3471",
+      "softid": "1900062596"
+    },
+    {
+      "process": "EastBrowser.exe",
+      "name": "东方浏览器",
+      "rule_ids": "sysid=5498",
+      "softid": "1900035223"
+    },
+    {
+      "process": "alphase.exe",
+      "name": "阿尔法安全浏览器",
+      "rule_ids": "sysid=3435",
+      "softid": "1900047395"
+    },
+    {
+      "process": "SHPlayer.exe",
+      "name": "搜狐影音",
+      "rule_ids": "sysid=2036",
+      "softid": null
+    },
+    {
+      "process": "JJPlayer.exe",
+      "name": "吉吉影音",
+      "rule_ids": "sysid=4410",
+      "softid": null
+    },
+    {
+      "process": "LeTVLoader.exe",
+      "name": "乐视视频",
+      "rule_ids": "sysid=2737",
+      "softid": null
+    },
+    {
+      "process": "Funshion.exe",
+      "name": "风行视频播放器",
+      "rule_ids": "sysid=2025",
+      "softid": null
+    },
+    {
+      "process": "splayer.exe",
+      "name": "射手影音播放器",
+      "rule_ids": "sysid=3425",
+      "softid": null
+    },
+    {
+      "process": "BaiduPlayer.exe",
+      "name": "百度影音",
+      "rule_ids": "sysid=3500",
+      "softid": null
+    },
+    {
+      "process": "XiGuaPlayer.exe",
+      "name": "西瓜影视",
+      "rule_ids": "sysid=4096",
+      "softid": null
+    },
+    {
+      "process": "KKP.exe",
+      "name": "看看影音",
+      "rule_ids": "sysid=2862",
+      "softid": null
+    },
+    {
+      "process": "rrplayer.exe",
+      "name": "人人影视",
+      "rule_ids": "sysid=3892",
+      "softid": null
+    },
+    {
+      "process": "QvodPlayer.exe",
+      "name": "快播",
+      "rule_ids": "sysid=2029",
+      "softid": null
+    },
+    {
+      "process": "StormPlayer.exe",
+      "name": "暴风影音5",
+      "rule_ids": "sysid=2028",
+      "softid": null
+    },
+    {
+      "process": "StormPlayer9.exe",
+      "name": "暴风影音16",
+      "rule_ids": "sysid=2028",
+      "softid": null
+    },
+    {
+      "process": "GeePlayer.exe",
+      "name": "爱奇艺万能播放器",
+      "rule_ids": "sysid=2770",
+      "softid": null
+    },
+    {
+      "process": "XMP.exe",
+      "name": "迅雷看看",
+      "rule_ids": "sysid=2023",
+      "softid": null
+    },
+    {
+      "process": "QQPlayer.exe",
+      "name": "QQ影音",
+      "rule_ids": "sysid=2038",
+      "softid": null
+    },
+    {
+      "process": "CBox.exe",
+      "name": "央视影音",
+      "rule_ids": "sysid=5328",
+      "softid": null
+    },
+    {
+      "process": "HunanTV.exe",
+      "name": "芒果tv",
+      "rule_ids": "sysid=2421",
+      "softid": null
+    },
+    {
+      "process": "芒果TV极速版.exe",
+      "name": "芒果TV极速版",
+      "rule_ids": "sysid=2421",
+      "softid": null
+    },
+    {
+      "process": "PPLive.exe",
+      "name": "pp视频",
+      "rule_ids": "sysid=4099",
+      "softid": null
+    },
+    {
+      "process": "xfplay.exe",
+      "name": "影音先锋",
+      "rule_ids": "sysid=9995",
+      "softid": null
+    },
+    {
+      "process": "QiyiClient.exe",
+      "name": "爱奇艺",
+      "rule_ids": "sysid=9996",
+      "softid": null
+    },
+    {
+      "process": "QyClient.exe",
+      "name": "爱奇艺",
+      "rule_ids": "sysid=9996",
+      "softid": null
+    },
+    {
+      "process": "YoukuDesktop.exe",
+      "name": "优酷",
+      "rule_ids": "sysid=3301",
+      "softid": null
+    },
+    {
+      "process": "QQLive.exe",
+      "name": "腾讯视频",
+      "rule_ids": "sysid=3027",
+      "softid": null
+    }
+  ]
+}

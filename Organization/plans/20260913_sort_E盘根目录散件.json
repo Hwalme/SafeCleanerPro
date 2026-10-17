@@ -1,0 +1,126 @@
+{
+  "created": "2026-09-13",
+  "moves": [
+    {
+      "src": "E:/FLUX_REMIX.mp4",
+      "dst": "F:/Date/Movie/FLUX_REMIX.mp4",
+      "why": "视频归Date/Movie"
+    },
+    {
+      "src": "E:/OpenMontage-main.zip",
+      "dst": "E:/Soft/OpenMontage-main.zip",
+      "why": "安装包归Soft"
+    },
+    {
+      "src": "E:/Copy of 广旅·爱琴海光影长廊(1).pptx",
+      "dst": "E:/Company/广旅·爱琴海光影长廊(1).pptx",
+      "why": "商单文件归Company"
+    },
+    {
+      "src": "E:/body_empty_mf.json",
+      "dst": "E:/_scratch_20260913/body_empty_mf.json",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/body_from_space_LF.json",
+      "dst": "E:/_scratch_20260913/body_from_space_LF.json",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/body_from_x.json",
+      "dst": "E:/_scratch_20260913/body_from_x.json",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/body_raw_LF.json",
+      "dst": "E:/_scratch_20260913/body_raw_LF.json",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/clean.bat",
+      "dst": "E:/_scratch_20260913/clean.bat",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/curl_create.err",
+      "dst": "E:/_scratch_20260913/curl_create.err",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/curl_create.out",
+      "dst": "E:/_scratch_20260913/curl_create.out",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/curl_empty_mf.bat",
+      "dst": "E:/_scratch_20260913/curl_empty_mf.bat",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/curl_from_space_LF.bat",
+      "dst": "E:/_scratch_20260913/curl_from_space_LF.bat",
+      "why": "AI临时产物归_scratch"
+    },
+    {
+      "src": "E:/curl_from_x.bat",
+      "dst": "E:/_scratch_20260913/curl_from_x.bat",
+      "why": "AI临时产物归_scratch"
+    }
+  ],
+  "status": "done",
+  "executed_at": "2026-09-12T19:18:00Z",
+  "executed": [
+    {
+      "src": "E:\\FLUX_REMIX.mp4",
+      "dst": "F:\\Date\\Movie\\FLUX_REMIX.mp4"
+    },
+    {
+      "src": "E:\\OpenMontage-main.zip",
+      "dst": "E:\\Soft\\OpenMontage-main.zip"
+    },
+    {
+      "src": "E:\\Copy of 广旅·爱琴海光影长廊(1).pptx",
+      "dst": "E:\\Company\\广旅·爱琴海光影长廊(1).pptx"
+    },
+    {
+      "src": "E:\\body_empty_mf.json",
+      "dst": "E:\\_scratch_20260913\\body_empty_mf.json"
+    },
+    {
+      "src": "E:\\body_from_space_LF.json",
+      "dst": "E:\\_scratch_20260913\\body_from_space_LF.json"
+    },
+    {
+      "src": "E:\\body_from_x.json",
+      "dst": "E:\\_scratch_20260913\\body_from_x.json"
+    },
+    {
+      "src": "E:\\body_raw_LF.json",
+      "dst": "E:\\_scratch_20260913\\body_raw_LF.json"
+    },
+    {
+      "src": "E:\\clean.bat",
+      "dst": "E:\\_scratch_20260913\\clean.bat"
+    },
+    {
+      "src": "E:\\curl_create.err",
+      "dst": "E:\\_scratch_20260913\\curl_create.err"
+    },
+    {
+      "src": "E:\\curl_create.out",
+      "dst": "E:\\_scratch_20260913\\curl_create.out"
+    },
+    {
+      "src": "E:\\curl_empty_mf.bat",
+      "dst": "E:\\_scratch_20260913\\curl_empty_mf.bat"
+    },
+    {
+      "src": "E:\\curl_from_space_LF.bat",
+      "dst": "E:\\_scratch_20260913\\curl_from_space_LF.bat"
+    },
+    {
+      "src": "E:\\curl_from_x.bat",
+      "dst": "E:\\_scratch_20260913\\curl_from_x.bat"
+    }
+  ]
+}

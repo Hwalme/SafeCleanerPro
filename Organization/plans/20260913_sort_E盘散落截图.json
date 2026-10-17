@@ -1,0 +1,90 @@
+{
+  "created": "2026-09-13",
+  "moves": [
+    {
+      "src": "E:/IMG_5917.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_free-llm-api-resources_免费LLM_API汇总_10.4k星.png",
+      "why": "视频号情报：cheahjs/free-llm-api-resources"
+    },
+    {
+      "src": "E:/IMG_5920.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_LLaDA2.1_蚂蚁百亿扩散语言模型_892tokens每秒.png",
+      "why": "视频号情报：Ant Group LLaDA2.1 扩散模型"
+    },
+    {
+      "src": "E:/IMG_5923.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_AI-Report_AI报告生成平台_开源.png",
+      "why": "视频号情报：jayzhen23/AI-Report"
+    },
+    {
+      "src": "E:/IMG_5924.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_Maestro_多平台Agent编排指挥中心_2.1k星.png",
+      "why": "视频号情报：pedramamini/Maestro"
+    },
+    {
+      "src": "E:/IMG_5930.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_OpenSpec_AI编码助手规范开发.png",
+      "why": "视频号情报：OpenSpec spec-driven development"
+    },
+    {
+      "src": "E:/IMG_5931.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_awesome-llm-apps_LLM应用资源库_65.1k星.png",
+      "why": "视频号情报：Shubhamsaboo/awesome-llm-apps"
+    },
+    {
+      "src": "E:/IMG_5933.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_Cline_CLI_2.0_Headless接入CI-CD.png",
+      "why": "视频号情报：Cline CLI 2.0 headless mode"
+    },
+    {
+      "src": "E:/IMG_5960.PNG",
+      "dst": "E:/Obsidian/pic/inbox_20260913_视频号AI情报/2026-02_Samsung_TRM_7M递归模型_胜DeepSeek-R1.png",
+      "why": "视频号情报：Samsung Tiny Recursive Model"
+    },
+    {
+      "src": "E:/Screenshots/屏幕截图(1).png",
+      "dst": "F:/Date/Photo/杂项/2026-01-16_系统排查_watchdog蓝屏dmp搜索记录.png",
+      "why": "PC 故障排查存档：PoV32Watchdog dmp"
+    }
+  ],
+  "status": "done",
+  "executed_at": "2026-09-12T18:07:22Z",
+  "executed": [
+    {
+      "src": "E:\\IMG_5917.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_free-llm-api-resources_免费LLM_API汇总_10.4k星.png"
+    },
+    {
+      "src": "E:\\IMG_5920.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_LLaDA2.1_蚂蚁百亿扩散语言模型_892tokens每秒.png"
+    },
+    {
+      "src": "E:\\IMG_5923.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_AI-Report_AI报告生成平台_开源.png"
+    },
+    {
+      "src": "E:\\IMG_5924.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_Maestro_多平台Agent编排指挥中心_2.1k星.png"
+    },
+    {
+      "src": "E:\\IMG_5930.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_OpenSpec_AI编码助手规范开发.png"
+    },
+    {
+      "src": "E:\\IMG_5931.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_awesome-llm-apps_LLM应用资源库_65.1k星.png"
+    },
+    {
+      "src": "E:\\IMG_5933.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_Cline_CLI_2.0_Headless接入CI-CD.png"
+    },
+    {
+      "src": "E:\\IMG_5960.PNG",
+      "dst": "E:\\Obsidian\\pic\\inbox_20260913_视频号AI情报\\2026-02_Samsung_TRM_7M递归模型_胜DeepSeek-R1.png"
+    },
+    {
+      "src": "E:\\Screenshots\\屏幕截图(1).png",
+      "dst": "F:\\Date\\Photo\\杂项\\2026-01-16_系统排查_watchdog蓝屏dmp搜索记录.png"
+    }
+  ]
+}

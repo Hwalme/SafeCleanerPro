@@ -1,0 +1,26 @@
+[
+  {
+    "action": "status",
+    "ts": "2026-09-12T17:45:10Z",
+    "actor": "org.py",
+    "duration_sec": 6.7
+  },
+  {
+    "action": "status",
+    "ts": "2026-09-12T17:59:06Z",
+    "actor": "org.py",
+    "duration_sec": 12.3
+  },
+  {
+    "action": "status",
+    "ts": "2026-09-12T17:59:27Z",
+    "actor": "org.py",
+    "duration_sec": 16.3
+  },
+  {
+    "action": "status",
+    "ts": "2026-09-12T18:18:46Z",
+    "actor": "org.py",
+    "duration_sec": 3.5
+  }
+]

@@ -1,0 +1,36 @@
+*.#Res
+*.#Res MAC
+*.$$$
+*.$*
+*.%%%
+*.---
+*.??$
+*.??~
+*.?~?
+*.@@@
+*.CoreDraw
+*.^*
+*.___
+*._mp
+*.cdr_
+*.chk
+*.diz
+*.dmp
+*.err
+*.fnd
+*.ftg
+*.fts
+*.gid
+*.mch
+*.mch Macromedia Xtra
+*.old
+*.prv
+*.syd
+*.temp
+*.tmp
+*.wbk
+*.wbk Word
+*.xlk
+*.xlk Excel
+*.~*
+*.~mp

@@ -1,0 +1,117 @@
+{
+  "created": "2026-09-13",
+  "moves": [
+    {
+      "src": "D:/Coding/resume_upload.zip",
+      "dst": "D:/Coding/_scratch/resume_upload.zip",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/dc.txt",
+      "dst": "D:/Coding/_scratch/dc.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/dump.txt",
+      "dst": "D:/Coding/_scratch/dump.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/fix.py",
+      "dst": "D:/Coding/_scratch/fix.py",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/fix2.py",
+      "dst": "D:/Coding/_scratch/fix2.py",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/fix_marker.txt",
+      "dst": "D:/Coding/_scratch/fix_marker.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/main_bundle.txt",
+      "dst": "D:/Coding/_scratch/main_bundle.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/mqn.txt",
+      "dst": "D:/Coding/_scratch/mqn.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/orig.txt",
+      "dst": "D:/Coding/_scratch/orig.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/out.txt",
+      "dst": "D:/Coding/_scratch/out.txt",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/port3000.html",
+      "dst": "D:/Coding/_scratch/port3000.html",
+      "why": "根目录散件归_scratch"
+    },
+    {
+      "src": "D:/Coding/vite_test.html",
+      "dst": "D:/Coding/_scratch/vite_test.html",
+      "why": "根目录散件归_scratch"
+    }
+  ],
+  "status": "done",
+  "executed_at": "2026-09-12T19:17:59Z",
+  "executed": [
+    {
+      "src": "D:\\Coding\\resume_upload.zip",
+      "dst": "D:\\Coding\\_scratch\\resume_upload.zip"
+    },
+    {
+      "src": "D:\\Coding\\dc.txt",
+      "dst": "D:\\Coding\\_scratch\\dc.txt"
+    },
+    {
+      "src": "D:\\Coding\\dump.txt",
+      "dst": "D:\\Coding\\_scratch\\dump.txt"
+    },
+    {
+      "src": "D:\\Coding\\fix.py",
+      "dst": "D:\\Coding\\_scratch\\fix.py"
+    },
+    {
+      "src": "D:\\Coding\\fix2.py",
+      "dst": "D:\\Coding\\_scratch\\fix2.py"
+    },
+    {
+      "src": "D:\\Coding\\fix_marker.txt",
+      "dst": "D:\\Coding\\_scratch\\fix_marker.txt"
+    },
+    {
+      "src": "D:\\Coding\\main_bundle.txt",
+      "dst": "D:\\Coding\\_scratch\\main_bundle.txt"
+    },
+    {
+      "src": "D:\\Coding\\mqn.txt",
+      "dst": "D:\\Coding\\_scratch\\mqn.txt"
+    },
+    {
+      "src": "D:\\Coding\\orig.txt",
+      "dst": "D:\\Coding\\_scratch\\orig.txt"
+    },
+    {
+      "src": "D:\\Coding\\out.txt",
+      "dst": "D:\\Coding\\_scratch\\out.txt"
+    },
+    {
+      "src": "D:\\Coding\\port3000.html",
+      "dst": "D:\\Coding\\_scratch\\port3000.html"
+    },
+    {
+      "src": "D:\\Coding\\vite_test.html",
+      "dst": "D:\\Coding\\_scratch\\vite_test.html"
+    }
+  ]
+}

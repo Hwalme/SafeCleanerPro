@@ -1,0 +1,383 @@
+Results of searching ["F:\\date\\music\\tools"] with reference paths [], excluded paths ["F:\\date\\music\\tools\\viitorvoice"] and excluded items []
+(Before optimizations - included paths: ["F:\\Date\\Music\\Tools"], excluded paths: ["F:\\Date\\Music\\Tools\\ViiTorVoice"], reference paths: [])
+-------------------------------------------------Files with same hashes-------------------------------------------------
+Found 106 duplicated files which in 91 groups which takes 238.68 MiB.
+
+---- Size 172.79 MiB (181184272) - 2 files
+"F:\date\music\tools\RVC-WebUI\assets\rmvpe\rmvpe.pt"
+"F:\date\music\tools\seed-vc\checkpoints\models--lj1995--VoiceConversionWebUI\snapshots\b2c8cae96e3b05de46d36c5ef9970ef6cbccafba\rmvpe.pt"
+
+---- Size 26.74 MiB (28036335) - 2 files
+"F:\date\music\tools\seed-vc\campplus_cn_common.bin"
+"F:\date\music\tools\seed-vc\checkpoints\models--funasr--campplus\snapshots\e4b6ede7ce16997aff4ae69fbca1f0175e2afede\campplus_cn_common.bin"
+
+---- Size 1.01 MiB (1058478) - 2 files
+"F:\date\music\tools\identity_test\ref_bright.wav"
+"F:\date\music\tools\seed_vc_test\references\你的声音_明亮参考_12秒.wav"
+
+---- Size 1.01 MiB (1058478) - 2 files
+"F:\date\music\tools\identity_test\ref_calm.wav"
+"F:\date\music\tools\seed_vc_test\references\你的声音_平静参考_12秒.wav"
+
+---- Size 866.29 KiB (887084) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_039_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_054_sustained.wav"
+
+---- Size 865.36 KiB (886124) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_026_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_038_emotions.wav"
+
+---- Size 863.48 KiB (884204) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_017_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_029_emotions.wav"
+
+---- Size 862.54 KiB (883244) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_020_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_032_emotions.wav"
+
+---- Size 861.61 KiB (882284) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_033_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_045_sustained.wav"
+
+---- Size 860.67 KiB (881324) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_048_rhythmic.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_090_rhythmic.wav"
+
+---- Size 860.67 KiB (881324) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_010_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_022_emotions.wav"
+
+---- Size 859.73 KiB (880364) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_046_rhythmic.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_087_rhythmic.wav"
+
+---- Size 857.86 KiB (878444) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_037_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_052_sustained.wav"
+
+---- Size 857.86 KiB (878444) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_015_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_027_emotions.wav"
+
+---- Size 856.92 KiB (877484) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_013_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_025_emotions.wav"
+
+---- Size 855.04 KiB (875564) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_022_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_034_emotions.wav"
+
+---- Size 853.17 KiB (873644) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_012_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_024_emotions.wav"
+
+---- Size 851.29 KiB (871724) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_019_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_031_emotions.wav"
+
+---- Size 848.48 KiB (868844) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_032_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_044_sustained.wav"
+
+---- Size 839.11 KiB (859244) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_004_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_011_natural.wav"
+
+---- Size 838.17 KiB (858284) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_043_rhythmic.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_082_rhythmic.wav"
+
+---- Size 833.48 KiB (853484) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_011_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_023_emotions.wav"
+
+---- Size 833.48 KiB (853484) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_008_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_015_natural.wav"
+
+---- Size 833.48 KiB (853484) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_038_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_053_sustained.wav"
+
+---- Size 832.54 KiB (852524) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_028_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_040_sustained.wav"
+
+---- Size 830.67 KiB (850604) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_042_rhythmic.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_081_rhythmic.wav"
+
+---- Size 829.73 KiB (849644) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_036_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_051_sustained.wav"
+
+---- Size 829.73 KiB (849644) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_024_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_036_emotions.wav"
+
+---- Size 826.92 KiB (846764) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_016_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_028_emotions.wav"
+
+---- Size 825.98 KiB (845804) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_007_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_014_natural.wav"
+
+---- Size 806.29 KiB (825644) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_018_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_030_emotions.wav"
+
+---- Size 790.36 KiB (809324) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_027_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_039_sustained.wav"
+
+---- Size 780.04 KiB (798764) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_023_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_035_emotions.wav"
+
+---- Size 780.04 KiB (798764) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_014_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_026_emotions.wav"
+
+---- Size 775.36 KiB (793964) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_029_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_041_sustained.wav"
+
+---- Size 767.86 KiB (786284) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_025_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_037_emotions.wav"
+
+---- Size 766.92 KiB (785324) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_005_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_012_natural.wav"
+
+---- Size 766.92 KiB (785324) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_030_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_042_sustained.wav"
+
+---- Size 758.48 KiB (776684) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_031_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_043_sustained.wav"
+
+---- Size 746.29 KiB (764204) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_001_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_001_natural.wav"
+
+---- Size 735.04 KiB (752684) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_021_emotions.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_033_emotions.wav"
+
+---- Size 687.23 KiB (703724) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_049_rhythmic.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_091_rhythmic.wav"
+
+---- Size 672.23 KiB (688364) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_034_sustained.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_046_sustained.wav"
+
+---- Size 649.73 KiB (665324) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_044_rhythmic.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_083_rhythmic.wav"
+
+---- Size 596.29 KiB (610604) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_000_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_000_natural.wav"
+
+---- Size 564.94 KiB (578498) - 2 files
+"F:\date\music\tools\human_pitch_workflow\trial_guide_last16.mp3"
+"F:\date\music\tools\真人修音方案\试唱引导_结尾16秒_戴耳机播放.mp3"
+
+---- Size 559.73 KiB (573164) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_006_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_013_natural.wav"
+
+---- Size 521.71 KiB (534236) - 2 files
+"F:\date\music\tools\analysis_output\frame_116.png"
+"F:\date\music\tools\analysis_output\line_116.png"
+
+---- Size 513.90 KiB (526230) - 2 files
+"F:\date\music\tools\analysis_output\frame_128.png"
+"F:\date\music\tools\analysis_output\line_128.png"
+
+---- Size 512.53 KiB (524826) - 2 files
+"F:\date\music\tools\analysis_output\frame_112.png"
+"F:\date\music\tools\analysis_output\line_112.png"
+
+---- Size 507.13 KiB (519302) - 2 files
+"F:\date\music\tools\analysis_output\frame_124.png"
+"F:\date\music\tools\analysis_output\line_124.png"
+
+---- Size 502.51 KiB (514568) - 2 files
+"F:\date\music\tools\analysis_output\frame_120.png"
+"F:\date\music\tools\analysis_output\line_120.png"
+
+---- Size 501.37 KiB (513404) - 2 files
+"F:\date\music\tools\analysis_output\frame_108.png"
+"F:\date\music\tools\analysis_output\line_108.png"
+
+---- Size 336.61 KiB (344684) - 2 files
+"F:\date\music\tools\voice_dataset_v2\train_chunks\voice_v2_002_natural.wav"
+"F:\date\music\tools\voice_dataset_v2\train_chunks_v2\voice_v2_002_natural.wav"
+
+---- Size 287.29 KiB (294182) - 2 files
+"F:\date\music\tools\identity_test\第二轮_三声线盲听\A_版本一.mp3"
+"F:\date\music\tools\identity_test\请先听这组三段说话对照\3_你的声音模型_100步微调后.mp3"
+
+---- Size 13.99 KiB (14325) - 3 files
+"F:\date\music\tools\RVC-WebUI\i18n\locale\zh_HK.json"
+"F:\date\music\tools\RVC-WebUI\i18n\locale\zh_SG.json"
+"F:\date\music\tools\RVC-WebUI\i18n\locale\zh_TW.json"
+
+---- Size 4.78 KiB (4898) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\pre-rebase.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\pre-rebase.sample"
+
+---- Size 4.62 KiB (4726) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\fsmonitor-watchman.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\fsmonitor-watchman.sample"
+
+---- Size 4.05 KiB (4144) - 3 files
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\layers_33966KB.py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\layers_537227KB.py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\layers_537238KB.py"
+
+---- Size 3.88 KiB (3975) - 2 files
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\nets_537227KB.py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\nets_537238KB.py"
+
+---- Size 3.86 KiB (3952) - 3 files
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\nets_123812KB.py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\nets_123821KB.py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\nets_61968KB.py"
+
+---- Size 3.72 KiB (3808) - 3 files
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\layers.py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\layers_123812KB .py"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\layers_123821KB.py"
+
+---- Size 3.56 KiB (3650) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\update.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\update.sample"
+
+---- Size 2.72 KiB (2783) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\push-to-checkout.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\push-to-checkout.sample"
+
+---- Size 2.37 KiB (2428) - 6 files
+"F:\date\music\tools\seed-vc\configs\presets\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml"
+"F:\date\music\tools\seed-vc\runs\huangsheng_svc_identity_v1\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml"
+"F:\date\music\tools\seed-vc\runs\huangsheng_svc_identity_v2_short\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml"
+"F:\date\music\tools\seed-vc\runs\huangsheng_svc_light_C_v1\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml"
+"F:\date\music\tools\seed-vc\runs\huangsheng_svc_natural_v2\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml"
+"F:\date\music\tools\seed-vc\runs\huangsheng_svc_natural_v3_pitchlocked\config_dit_mel_seed_uvit_whisper_base_f0_44k.yml"
+
+---- Size 2.25 KiB (2308) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\sendemail-validate.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\sendemail-validate.sample"
+
+---- Size 2.23 KiB (2287) - 2 files
+"F:\date\music\tools\seed-vc\configs\presets\config_dit_mel_seed_uvit_whisper_small_wavenet.yml"
+"F:\date\music\tools\seed-vc\runs\huangsheng_speech_identity_v1\config_dit_mel_seed_uvit_whisper_small_wavenet.yml"
+
+---- Size 1.61 KiB (1649) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\pre-commit.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\pre-commit.sample"
+
+---- Size 1.46 KiB (1492) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\prepare-commit-msg.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\prepare-commit-msg.sample"
+
+---- Size 1.34 KiB (1374) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\pre-push.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\pre-push.sample"
+
+---- Size 1.07 KiB (1095) - 2 files
+"F:\date\music\tools\RVC-WebUI\configs\v1\48k.json"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v1\48k.json"
+
+---- Size 1.07 KiB (1094) - 2 files
+"F:\date\music\tools\RVC-WebUI\configs\v1\32k.json"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v1\32k.json"
+
+---- Size 1.07 KiB (1092) - 2 files
+"F:\date\music\tools\RVC-WebUI\configs\v1\40k.json"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v1\40k.json"
+
+---- Size 1.07 KiB (1092) - 2 files
+"F:\date\music\tools\RVC-WebUI\configs\v2\48k.json"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v2\48k.json"
+
+---- Size 1.06 KiB (1090) - 2 files
+"F:\date\music\tools\RVC-WebUI\configs\v2\32k.json"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v2\32k.json"
+
+---- Size 980 B (980) - 2 files
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\modelparams\4band_44100_msb.json"
+"F:\date\music\tools\RVC-WebUI\infer\lib\uvr5_pack\lib_v5\modelparams\4band_44100_msb2.json"
+
+---- Size 896 B (896) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\commit-msg.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\commit-msg.sample"
+
+---- Size 544 B (544) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\pre-receive.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\pre-receive.sample"
+
+---- Size 478 B (478) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\applypatch-msg.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\applypatch-msg.sample"
+
+---- Size 424 B (424) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\pre-applypatch.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\pre-applypatch.sample"
+
+---- Size 416 B (416) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\pre-merge-commit.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\pre-merge-commit.sample"
+
+---- Size 240 B (240) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\info\exclude"
+"F:\date\music\tools\seed-vc\.git\info\exclude"
+
+---- Size 215 B (215) - 3 files
+"F:\date\music\tools\RVC-WebUI\.git\logs\HEAD"
+"F:\date\music\tools\RVC-WebUI\.git\logs\refs\heads\main"
+"F:\date\music\tools\RVC-WebUI\.git\logs\refs\remotes\origin\HEAD"
+
+---- Size 189 B (189) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\hooks\post-update.sample"
+"F:\date\music\tools\seed-vc\.git\hooks\post-update.sample"
+
+---- Size 181 B (181) - 3 files
+"F:\date\music\tools\seed-vc\.git\logs\HEAD"
+"F:\date\music\tools\seed-vc\.git\logs\refs\heads\main"
+"F:\date\music\tools\seed-vc\.git\logs\refs\remotes\origin\HEAD"
+
+---- Size 73 B (73) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\description"
+"F:\date\music\tools\seed-vc\.git\description"
+
+---- Size 41 B (41) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\shallow"
+"F:\date\music\tools\RVC-WebUI\.git\refs\heads\main"
+
+---- Size 41 B (41) - 2 files
+"F:\date\music\tools\seed-vc\.git\shallow"
+"F:\date\music\tools\seed-vc\.git\refs\heads\main"
+
+---- Size 30 B (30) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\refs\remotes\origin\HEAD"
+"F:\date\music\tools\seed-vc\.git\refs\remotes\origin\HEAD"
+
+---- Size 21 B (21) - 2 files
+"F:\date\music\tools\RVC-WebUI\.git\HEAD"
+"F:\date\music\tools\seed-vc\.git\HEAD"
+
+---- Size 16 B (16) - 7 files
+"F:\date\music\tools\RVC-WebUI\assets\indices\.gitignore"
+"F:\date\music\tools\RVC-WebUI\assets\pretrained\.gitignore"
+"F:\date\music\tools\RVC-WebUI\assets\pretrained_v2\.gitignore"
+"F:\date\music\tools\RVC-WebUI\assets\uvr5_weights\.gitignore"
+"F:\date\music\tools\RVC-WebUI\assets\weights\.gitignore"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v1\.gitignore"
+"F:\date\music\tools\RVC-WebUI\configs\inuse\v2\.gitignore"

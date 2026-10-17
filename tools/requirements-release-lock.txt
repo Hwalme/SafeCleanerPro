@@ -1,0 +1,11 @@
+cffi==2.1.1
+cryptography==49.0.0
+customtkinter==5.2.2
+darkdetect==0.8.0
+Nuitka==4.3
+ordered-set==4.1.0
+packaging==26.3
+pillow==12.3.0
+pycparser==3.11
+pycryptodome==3.24.1
+zstandard==0.25.0

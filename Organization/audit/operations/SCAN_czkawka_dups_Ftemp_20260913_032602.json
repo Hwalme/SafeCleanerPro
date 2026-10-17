@@ -1,0 +1,31 @@
+{
+  "type": "READ_ONLY_SCAN",
+  "tool": "czkawka_cli v12.0.2",
+  "tool_path": "D:\\Coding\\Organization\\tools\\czkawka_cli.exe",
+  "command": [
+    "czkawka_cli.exe",
+    "dup",
+    "-d",
+    "F:\temp",
+    "-m",
+    "1",
+    "-s",
+    "hash",
+    "-f",
+    "D:\\Coding\\Organization\reports60913_dups_Ftemp.txt"
+  ],
+  "target": "F:\\temp",
+  "timestamp": "2026-09-13T03:26:02",
+  "duration_s": 279.5,
+  "attempts": 1,
+  "returncode": 11,
+  "returncode_meaning": "11 = duplicates found (czkawka convention), stderr empty, no access-denied observed",
+  "result": {
+    "duplicate_groups": 2115,
+    "redundant_files": 2404,
+    "reclaimable_bytes": 5458110672,
+    "reclaimable_human": "5.08 GiB",
+    "report": "D:\\Coding\\Organization\\reports\\20260913_dups_Ftemp.txt"
+  },
+  "write_actions": "NONE (scan only; report written to reports/ inside Organization; hash cache updated by czkawka itself)"
+}

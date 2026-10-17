@@ -1,0 +1,28 @@
+[
+  {
+    "action": "plan-move",
+    "ts": "2026-09-12T17:45:32Z",
+    "actor": "org.py",
+    "plan": "D:\\Coding\\Organization\\plans\\20260913_014532_move_Music.json",
+    "src": "D:\\Coding\\Music",
+    "files": 375
+  },
+  {
+    "action": "plan-move",
+    "ts": "2026-09-12T17:47:16Z",
+    "actor": "org.py",
+    "plan": "D:\\Coding\\Organization\\plans\\20260913_014716_move_Music.json",
+    "src": "D:\\Coding\\Music",
+    "files": 1278,
+    "excluded": 1
+  },
+  {
+    "action": "plan-move",
+    "ts": "2026-09-12T18:37:46Z",
+    "actor": "org.py",
+    "plan": "D:\\Coding\\Organization\\plans\\20260913_023746_move_ViiTorVoice.json",
+    "src": "D:\\Coding\\ViiTorVoice",
+    "files": 37559,
+    "excluded": 3
+  }
+]

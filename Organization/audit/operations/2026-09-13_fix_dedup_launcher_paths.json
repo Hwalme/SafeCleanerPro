@@ -1,0 +1,30 @@
+{
+  "action": "fix_dedup_launcher_paths",
+  "actor": "agent:deepseek-harness",
+  "ts_start": "2026-09-12T22:49:41Z",
+  "ts_end": "2026-09-12T22:49:41Z",
+  "scope": [
+    "D:\\Coding\\app\\SafeCleanerPro\\Organization"
+  ],
+  "files_touched": 2,
+  "files_read": 2,
+  "data_classifications": {
+    "S": 0,
+    "P": 0,
+    "I": 0,
+    "R": 0,
+    "P′": 2
+  },
+  "sha256_evidence": {
+    "scripts/dedup_server.py": "0b07876fa018297c599465eb2e0d85775ea676cb41a8084e87bf84b77d64ad44",
+    "启动查重台.bat": "7352cfd937081944dd49d13e33da84279809ef42ef320d307296f28955ae33be"
+  },
+  "reason": "Organization 目录被移动到 SafeCleanerPro 下，两处旧的绝对路径失效",
+  "changes": [
+    "dedup_server.py: ROOT = Path(r\"D:\\\\Coding\\\\Organization\") -> Path(__file__).resolve().parent.parent",
+    "启动查重台.bat: cd /d D:\\\\Coding\\\\Organization -> cd /d \"%~dp0\""
+  ],
+  "verification": "ROOT 解析为 D:\\\\Coding\\\\app\\\\SafeCleanerPro\\\\Organization；INDEX_PATH 与 PAGE_PATH 均 exists=True",
+  "user_approval": "granted",
+  "rollback_plan": "git 未跟踪本目录；回滚方式：将上述两行改回硬编码绝对路径"
+}

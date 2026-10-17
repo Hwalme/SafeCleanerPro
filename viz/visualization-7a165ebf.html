@@ -1,0 +1,32 @@
+<div style="padding:22px;font-family:system-ui;line-height:1.75;color:#e2e8f0;background:#020617;border-radius:10px">
+  <h2 style="margin:0 0 6px;color:#00f0ff;font-size:20px">主程序卡顿 — 实测验证通过</h2>
+  <p style="color:#64748b;margin:0 0 18px;font-size:13px">真实 EXE（PID 25048，v3.9.7）在本机桌面实测</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+    <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:14px">
+      <div style="color:#94a3b8;font-size:12px">启动到可交互</div>
+      <div style="font-size:26px;font-weight:700;color:#f87171">18,895 <span style="font-size:15px">ms</span></div>
+      <div style="color:#4ade80;font-size:19px;font-weight:700">→ 4,535 ms</div>
+    </div>
+    <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:14px">
+      <div style="color:#94a3b8;font-size:12px">首次绘制</div>
+      <div style="font-size:26px;font-weight:700;color:#f87171">12,742 <span style="font-size:15px">ms</span></div>
+      <div style="color:#4ade80;font-size:19px;font-weight:700">→ 421 ms</div>
+    </div>
+  </div>
+
+  <div style="background:#052e16;border:1px solid #166534;border-radius:8px;padding:14px;margin-bottom:14px">
+    <div style="color:#4ade80;font-weight:700;margin-bottom:8px">✓ 本次直接验证「移动」症状（你的原始抱怨）</div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <tr><td style="padding:3px 0;color:#94a3b8">拖拽 1（短距）</td><td style="text-align:right;color:#cbd5e1">1.5s 请求 → 1.43s 完成，窗口跟手</td></tr>
+      <tr><td style="padding:3px 0;color:#94a3b8">拖拽 2（长距 700px）</td><td style="text-align:right;color:#cbd5e1">2.0s 请求 → 2.17s，无滞后</td></tr>
+      <tr><td style="padding:3px 0;color:#94a3b8">最终位移</td><td style="text-align:right;color:#cbd5e1">x 215 → 1039（824px 精确跟手）</td></tr>
+      <tr><td style="padding:3px 0;color:#94a3b8">UIA 元素数</td><td style="text-align:right;color:#cbd5e1">890+（91 项列表已完整构建）</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:8px;padding:13px">
+    <div style="color:#fbbf24;font-weight:600;margin-bottom:6px">唯一未完成</div>
+    <p style="margin:0;font-size:13px;color:#cbd5e1">全量解析 Dism++（74 项）+ Winapp2（4068 条）规则库 —— 因本会话缺少 read/write/pwsh 工具受阻，非目标本身未完成。</p>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+Winapp2.ini 解析统计
+==================
+来源版本: 260915 (2026-09-15)
+总规则节数: 4068
+覆盖应用数(去重近似): 3358
+FileKey 总数: 14121
+RegKey 总数: 3677
+含注册表清理的节: 616
+
+规则数 TOP 20 应用:
+  Microsoft PowerToys: 30
+  Microsoft Edge: 23
+  360 Secure Browser: 23
+  Google Chrome: 22
+  AOL Shield: 22
+  Avast Secure Browser: 22
+  AVG Secure Browser: 22
+  Avira Secure Browser: 22
+  Brave Origin: 22
+  CCleaner Browser: 22
+  Cent Browser: 22
+  Coc Coc: 22
+  Comodo Dragon: 22
+  Ecosia Browser: 22
+  Epic Privacy Browser: 22
+  FlashPeak SlimJet: 22
+  Genspark Browser: 22
+  Ghost Browser: 22
+  NAVER Whale: 22
+  Norton Neo: 22
