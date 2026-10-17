@@ -302,15 +302,21 @@ class SafeCleanerApp(ctk.CTk):
         """返回当前勾选的盘符集合。"""
         return {letter for letter, var in self.drive_vars.items() if var.get() == 1}
 
-    def get_filtered_apps(self):
+    def get_filtered_apps(self, selected_drives=None):
         """只返回路径位于至少一个已选磁盘上的项目。
+
+        selected_drives：后台扫描线程应传入主线程预先读取的结果，
+        避免跨线程读 Tk 变量。
 
         注意：这里只做盘符过滤，是**扫描池/清理池/全选**的数据源。
         绝不能按大小过滤 —— 扫描前 sizes 全为 0，一过滤扫描池就被清空
         （Round M 曾因此让深度扫描扫到 0 项，必须保持纯净）。
         列表显示的 0 大小隐藏由 render_scroll_list 的显示层单独处理。
         """
-        selected = self.get_selected_drives()
+        if selected_drives is None:
+            selected = self.get_selected_drives()
+        else:
+            selected = selected_drives
         if not selected:
             return []
         filtered = []
@@ -741,12 +747,39 @@ class SafeCleanerApp(ctk.CTk):
                 text="🔍 准备扫描...", text_color="#fbbf24")
         except Exception:
             pass
-        self.render_scroll_list()
+        # 渐进式列表：扫描期间不再一次性构建全部行（781 行全量建行曾致
+        # 严重卡顿与显示错乱）。清空列表，垃圾项在扫到的瞬间逐行出现，
+        # 扫描完成后由 _ui_scan_done 渲染最终整理好的列表。
+        try:
+            if getattr(self, "_subpath_panel", None) is not None:
+                self._subpath_panel.destroy()
+        except Exception:
+            pass
+        self._subpath_panel = None
+        self.app_rows = {}
+        self.app_checkbox_vars = {}
+        self.app_expand_btns = {}
+        self._row_queue = []
+        self._row_index = 0
+        self._rows_started = False
+        self._last_scan_row = None
+        self._scan_found_bytes = 0
+        for w in self.scroll_frame.winfo_children():
+            w.destroy()
+        self._scan_placeholder = ctk.CTkLabel(
+            self.scroll_frame,
+            text="🔍 正在扫描，垃圾项会在这里陆续出现…",
+            font=F(UI_FAMILY, 13), text_color="#64748b")
+        self._scan_placeholder.pack(pady=40)
 
-        threading.Thread(target=self._scan_thread, args=(tier,), daemon=True).start()
-
-    def _scan_thread(self, tier):
+        # 主线程先取盘符（后台线程读 Tk 变量跨线程不安全）
         selected_drives = self.get_selected_drives()
+        threading.Thread(target=self._scan_thread, args=(tier, selected_drives),
+                         daemon=True).start()
+
+    def _scan_thread(self, tier, selected_drives=None):
+        if selected_drives is None:
+            selected_drives = self.get_selected_drives()
         drives_str = ", ".join(f"{d}:" for d in sorted(selected_drives))
         tier_name = "安全扫描" if tier == "safe" else "深度扫描"
         self.append_log(f">>> 启动引擎: SafeCleaner Pro 物理雷达[{tier_name}]...")
@@ -764,7 +797,8 @@ class SafeCleanerApp(ctk.CTk):
                 return app["immune"] or app.get("risk_level") == "safe"
             return (not app["immune"]) and app.get("risk_level") == "risk"
 
-        scan_apps = [a for a in self.get_filtered_apps() if in_stage(a)]
+        scan_apps = [a for a in self.get_filtered_apps(selected_drives)
+                     if in_stage(a)]
         # 每轮扫描重置分项账本，保证卡片细分与保护清单弹窗数据同源
         self.file_cache = {}
         self.immune_items = {}
@@ -773,17 +807,16 @@ class SafeCleanerApp(ctk.CTk):
         for idx, app in enumerate(scan_apps):
             self.append_log(f'[*] 正在分析: {app["name"]}')
 
-            # 预先把个人文件标记为跳过，避免扫描时误删；文件清单同时入缓存供"查看文件"秒开
-            if not app["immune"] and not self._is_locked(app):
+            # 先测体积；扫出垃圾才建文件清单（空项省一次全目录遍历）
+            app_size = get_app_size(app)
+            self.sizes[app["id"]] = app_size
+            if not app["immune"] and not self._is_locked(app) and app_size > 0:
                 from cleaner_core import scan_app_files
-                file_list = scan_app_files(app, limit=2000)
+                file_list = scan_app_files(app, limit=800)
                 self.file_cache[app["id"]] = file_list
                 for filepath, _ in file_list:
                     if is_personal_file(filepath):
                         self.skipped_files.add(filepath)
-
-            app_size = get_app_size(app)
-            self.sizes[app["id"]] = app_size
 
             if app["immune"]:
                 self.total_immune_bytes += app_size
@@ -796,11 +829,13 @@ class SafeCleanerApp(ctk.CTk):
             else:
                 self.risk_bytes += app_size
 
-            self.after(0, self.update_stat_cards)
-            # 进度条与状态文本统一回主线程刷新（后台线程直调 Tk 可能不重绘）
-            self.after(0, lambda i=idx, n=total_items, name=app["name"], aid=app["id"]:
-                       self._ui_scan_progress(i, n, name, aid))
-            time.sleep(0.04)
+            # 统计卡片每 15 项刷一次（781 项逐项刷会拖慢主线程）
+            if idx % 15 == 0 or idx == total_items - 1:
+                self.after(0, self.update_stat_cards)
+            self.after(0, lambda i=idx, n=total_items, name=app["name"],
+                       aid=app["id"], sz=app_size, a=app:
+                       self._ui_scan_progress(i, n, name, aid, sz, a))
+            time.sleep(0.01)
 
         if tier == "safe":
             self.safe_state = "ready"
@@ -815,22 +850,27 @@ class SafeCleanerApp(ctk.CTk):
                      f"✅ 深度扫描完成，发现风险项 {format_size(self.risk_bytes)}")
         self.after(0, lambda: self._ui_scan_done(tier, done_text))
 
-    def _ui_scan_progress(self, idx, total, name, app_id=None):
-        """主线程侧扫描进度：进度条 + 状态行 + 列表跟随滚动到当前扫描项。"""
+    def _ui_scan_progress(self, idx, total, name, app_id=None, size=0, app=None):
+        """主线程侧扫描进度：进度条 + 状态行；扫出垃圾的项逐行出现。"""
         try:
             self.progress_bar.set((idx + 1) / max(1, total))
             self._status_line_locked = True
             self.lbl_progress_info.configure(
                 text=self._truncate_log(f"🔍 正在扫描: {name}  ({idx + 1}/{total})"))
-            if app_id:
-                # only_if_hidden：目标行已在可视区时完全跳过滚动（零重排），
-                # 366 行时一次 moveto 全列表重排可达 280ms — 这是此前列表卡顿根因
-                scroll_row_into_view(self, app_id, only_if_hidden=True)
-                animate_row_progress(self, app_id, "scanning")
-                prev = getattr(self, "_last_scan_row", None)
-                if prev and prev != app_id:
-                    animate_row_progress(self, prev, "reset")
-                self._last_scan_row = app_id
+            if app_id and size:
+                # 渐进式建行：只建扫出垃圾的行（Round M 口径），零大小项不建
+                self._scan_found_bytes = getattr(self, "_scan_found_bytes", 0) + size
+                if app_id not in self.app_rows and app is not None:
+                    build_app_row(self, app, getattr(self, "_row_index", 0))
+                    self._row_index = getattr(self, "_row_index", 0) + 1
+                info = self.app_rows.get(app_id)
+                if info:
+                    info["size"].configure(text="● " + format_size(size),
+                                           fg="#fbbf24", font=(MONO_FAMILY, 12, "bold"))
+                ph = getattr(self, "_scan_placeholder", None)
+                if ph is not None and ph.winfo_exists():
+                    ph.configure(text=f"🔍 扫描中… 已发现垃圾 {format_size(self._scan_found_bytes)}"
+                                      f"（{idx + 1}/{total}）— 完成后自动整理列表")
         except Exception:
             pass
 
